@@ -1,4 +1,0 @@
-The "Latest version" folder contains the newest version of the ctRSD simulator package which may have additional features compared to the versions used in previous publications.
-The updated ctRSD simulator package has not necessarily been tested for backwords compatibilty with versions used in previous publications.
-To best replicate previous publication results, the version of the simulator uploaded with the previous publication should be used.
-As new versions become available, the documentation will be updated in the "Latest version" folder to outline how to use new features

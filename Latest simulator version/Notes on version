@@ -1,5 +1,3 @@
 Current version: 
-RSD_simulator_v1.0.1
-PATCH1:
-This fixes a bug that did not allow the user to input an initial concentration for output species in the model.DNA_species() function for the first model.simulate() call
-This version is backwards compatible with all previous example scripts
+RSD_simulator_v1.0.0
+This is the version of the simulator released with the 2022 Science Advances manuscript

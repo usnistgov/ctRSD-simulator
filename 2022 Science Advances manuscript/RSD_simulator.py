@@ -2,11 +2,8 @@
 """
 
 ###############################################################################
-VERSION 1.0.1
-    PATCH1:
-    Fixes a bug that did not allow an initial concentration to be input 
-    for outputs in the model.DNA_species() function in the first call (iteration) 
-    of model.simulate(k_txn,1,...)
+VERSION 1.0.0
+The simulator released with the 2022 Science Advances manuscript
     
 ##############################################################################
 

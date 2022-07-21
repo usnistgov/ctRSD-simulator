@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2022 Science Advances Paper &mdash; ctRSD-simulator-2.0 2.0.2.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Simulator Features" href="Simulator-Features.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> ctRSD-simulator-2.0
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">General:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model-Implementation.html">Model Implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ImportSim.html">Installing and Initializing Simulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Functions.html">Functions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">General Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Simulator-Features.html">Simulator Features</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples from Publications:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2022 Science Advances Paper</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#figure-2d">Figure 2D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#comparison-to-ctrsd-simulator-1">Comparison to ctRSD-simulator-1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#usage-in-ctrsd-simulator-2-0">Usage in ctRSD-simulator-2.0</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#figure-4c">Figure 4C</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Comparison to ctRSD-simulator-1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Usage in ctRSD-simulator-2.0</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#figure-4f">Figure 4F</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Comparison to ctRSD-simulator-1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Usage in ctRSD-simulator-2.0</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#figure-4h">Figure 4H</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Comparison to ctRSD-simulator-1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Usage in ctRSD-simulator-2.0</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#figure-5b">Figure 5B</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Comparison to ctRSD-simulator-1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Usage in ctRSD-simulator-2.0</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#figure-5c">Figure 5C</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id9">Comparison to ctRSD-simulator-1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">Usage in ctRSD-simulator-2.0</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#figure-5d">Figure 5D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id11">Comparison to ctRSD-simulator-1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">Usage in ctRSD-simulator-2.0</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#figure-5e">Figure 5E</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id13">Comparison to ctRSD-simulator-1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">Usage in ctRSD-simulator-2.0</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#figure-5f">Figure 5F</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id15">Comparison to ctRSD-simulator-1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">Usage in ctRSD-simulator-2.0</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#si-figure-16">SI Figure 16</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id17">Comparison to ctRSD-simulator-1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">Usage in ctRSD-simulator-2.0</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#si-figure-18">SI Figure 18</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id19">Comparison to ctRSD-simulator-1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id20">Usage in ctRSD-simulator-2.0</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#si-figure-19">SI Figure 19</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id21">Comparison to ctRSD-simulator-1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id22">Usage in ctRSD-simulator-2.0</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#si-figure-26">SI Figure 26</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id23">Comparison to ctRSD-simulator-1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id24">Usage in ctRSD-simulator-2.0</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#si-figure-27b">SI Figure 27B</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id25">Comparison to ctRSD-simulator-1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id26">Usage in ctRSD-simulator-2.0</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#si-figure-30c">SI Figure 30C</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id27">Comparison to ctRSD-simulator-1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id28">Usage in ctRSD-simulator-2.0</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#si-figure-31b">SI Figure 31B</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id29">Comparison to ctRSD-simulator-1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id30">Usage in ctRSD-simulator-2.0</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ctRSD-simulator-2.0</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>2022 Science Advances Paper</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/SA_Examples.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="science-advances-paper">
+<h1>2022 Science Advances Paper<a class="headerlink" href="#science-advances-paper" title="Permalink to this heading"></a></h1>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note:</p>
+<p>All following examples are figures from the 2022 Science Advances paper, “Cotranscriptionally encoded RNA strand displacement circuits.”</p>
+</div>
+<section id="figure-2d">
+<h2>Figure 2D<a class="headerlink" href="#figure-2d" title="Permalink to this heading"></a></h2>
+<p>Figure 2D simulates a basic, one-layer ctRSD circuit.</p>
+<dl class="simple">
+<dt>Some Functionalities used:</dt><dd><ul class="simple">
+<li><p>changing initial condtions/indiviudal rates within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species</span></a></p></li>
+<li><p>launching simulation using <a class="reference internal" href="Functions.html#simulate"><span class="std std-ref">simulate</span></a></p></li>
+<li><p>pulling out desired output concentrations using <a class="reference internal" href="Functions.html#output-concentration"><span class="std std-ref">output_concentration</span></a></p></li>
+</ul>
+</dd>
+</dl>
+<section id="comparison-to-ctrsd-simulator-1">
+<h3>Comparison to ctRSD-simulator-1<a class="headerlink" href="#comparison-to-ctrsd-simulator-1" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/figure2D_simulationsCompar.py">Figure 2D Comparison Python Script can be found here</a></p>
+<figure class="align-center" id="id31">
+<img alt="_images/figure2D_simulationsCompar.svg" class="with-border" src="_images/figure2D_simulationsCompar.svg" /><figcaption>
+<p><span class="caption-text"><strong>Figure 2D Comparison</strong></span><a class="headerlink" href="#id31" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="usage-in-ctrsd-simulator-2-0">
+<h3>Usage in ctRSD-simulator-2.0<a class="headerlink" href="#usage-in-ctrsd-simulator-2-0" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/figure2D_simulations.py">Figure 2D Python Script can be found here</a></p>
+<figure class="align-center" id="id32">
+<img alt="_images/figure2D_simulations.svg" class="with-border" src="_images/figure2D_simulations.svg" /><figcaption>
+<p><span class="caption-text"><strong>Figure 2D</strong></span><a class="headerlink" href="#id32" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="figure-4c">
+<h2>Figure 4C<a class="headerlink" href="#figure-4c" title="Permalink to this heading"></a></h2>
+<p>Figure 4C simulates a ctRSD OR gate.</p>
+<dl class="simple">
+<dt>Some Functionalities used:</dt><dd><ul class="simple">
+<li><p>globally changing rates with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants</span></a></p></li>
+<li><p>changing initial condtions/indiviudal rates within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species</span></a></p></li>
+<li><p>launching simulation using <a class="reference internal" href="Functions.html#simulate"><span class="std std-ref">simulate</span></a></p></li>
+<li><p>pulling out desired output concentrations using <a class="reference internal" href="Functions.html#output-concentration"><span class="std std-ref">output_concentration</span></a></p></li>
+</ul>
+</dd>
+</dl>
+<section id="id1">
+<h3>Comparison to ctRSD-simulator-1<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/figure4C_simulationsCompar.py">Figure 4C Comparison Python Script can be found here</a></p>
+<figure class="align-center" id="id33">
+<img alt="_images/figure4C_simulationsCompar.svg" class="with-border" src="_images/figure4C_simulationsCompar.svg" /><figcaption>
+<p><span class="caption-text"><strong>Figure 4C Comparison</strong></span><a class="headerlink" href="#id33" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id2">
+<h3>Usage in ctRSD-simulator-2.0<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/figure4C_simulations.py">Figure 4C Python Script can be found here</a></p>
+<figure class="align-center" id="id34">
+<img alt="_images/figure4C_simulations.svg" class="with-border" src="_images/figure4C_simulations.svg" /><figcaption>
+<p><span class="caption-text"><strong>Figure 4C</strong></span><a class="headerlink" href="#id34" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="figure-4f">
+<h2>Figure 4F<a class="headerlink" href="#figure-4f" title="Permalink to this heading"></a></h2>
+<p>Figure 4F simulates a ctRSD AND gate.</p>
+<dl class="simple">
+<dt>Some Functionalities used:</dt><dd><ul class="simple">
+<li><p>globally changing rates with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants</span></a></p></li>
+<li><p>changing initial condtions/indiviudal rates within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species</span></a></p></li>
+<li><p>launching simulation using <a class="reference internal" href="Functions.html#simulate"><span class="std std-ref">simulate</span></a></p></li>
+<li><p>pulling out desired output concentrations using <a class="reference internal" href="Functions.html#output-concentration"><span class="std std-ref">output_concentration</span></a></p></li>
+</ul>
+</dd>
+</dl>
+<section id="id3">
+<h3>Comparison to ctRSD-simulator-1<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/figure4F_simulationsCompar.py">Figure 4F Comparison Python Script can be found here</a></p>
+<figure class="align-center" id="id35">
+<img alt="_images/figure4F_simulationsCompar.svg" class="with-border" src="_images/figure4F_simulationsCompar.svg" /><figcaption>
+<p><span class="caption-text"><strong>Figure 4F Comparison</strong></span><a class="headerlink" href="#id35" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id4">
+<h3>Usage in ctRSD-simulator-2.0<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/figure4C_simulations.py">Figure 4F Python Script can be found here</a></p>
+<figure class="align-center" id="id36">
+<img alt="_images/figure4F_simulations.svg" class="with-border" src="_images/figure4F_simulations.svg" /><figcaption>
+<p><span class="caption-text"><strong>Figure 4F</strong></span><a class="headerlink" href="#id36" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="figure-4h">
+<h2>Figure 4H<a class="headerlink" href="#figure-4h" title="Permalink to this heading"></a></h2>
+<p>Figure 4H uses fuel reactions to simulate signal amplification.</p>
+<dl class="simple">
+<dt>Some Functionalities used:</dt><dd><ul class="simple">
+<li><p>globally changing rates with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants</span></a></p></li>
+<li><p>changing initial condtions/indiviudal rates within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species</span></a></p></li>
+<li><p>launching simulation using <a class="reference internal" href="Functions.html#simulate"><span class="std std-ref">simulate</span></a></p></li>
+<li><p>pulling out desired output concentrations using <a class="reference internal" href="Functions.html#output-concentration"><span class="std std-ref">output_concentration</span></a></p></li>
+</ul>
+</dd>
+</dl>
+<section id="id5">
+<h3>Comparison to ctRSD-simulator-1<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/figure4H_simulationsCompar.py">Figure 4H Comparison Python Script can be found here</a></p>
+<figure class="align-center" id="id37">
+<img alt="_images/figure4H_simulationsCompar.svg" class="with-border" src="_images/figure4H_simulationsCompar.svg" /><figcaption>
+<p><span class="caption-text"><strong>Figure 4H Comparison</strong></span><a class="headerlink" href="#id37" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id6">
+<h3>Usage in ctRSD-simulator-2.0<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/figure4H_simulations.py">Figure 4H Python Script can be found here</a></p>
+<figure class="align-center" id="id38">
+<img alt="_images/figure4F_simulations.svg" class="with-border" src="_images/figure4F_simulations.svg" /><figcaption>
+<p><span class="caption-text"><strong>Figure 4H</strong></span><a class="headerlink" href="#id38" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="figure-5b">
+<h2>Figure 5B<a class="headerlink" href="#figure-5b" title="Permalink to this heading"></a></h2>
+<p>Figure 5B simulates a one, two, three, and four layer ctRSD cascade.</p>
+<dl class="simple">
+<dt>Some Functionalities used:</dt><dd><ul class="simple">
+<li><p>globally changing rates with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants</span></a></p></li>
+<li><p>changing initial condtions/indiviudal rates within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species</span></a></p></li>
+<li><p>launching simulation using <a class="reference internal" href="Functions.html#simulate"><span class="std std-ref">simulate</span></a></p></li>
+<li><p>pulling out desired output concentrations using <a class="reference internal" href="Functions.html#output-concentration"><span class="std std-ref">output_concentration</span></a></p></li>
+</ul>
+</dd>
+</dl>
+<section id="id7">
+<h3>Comparison to ctRSD-simulator-1<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/figure5B_simulationsCompar.py">Figure 5B Comparison Python Script can be found here</a></p>
+<figure class="align-center" id="id39">
+<img alt="_images/figure5B_simulationsCompar.svg" class="with-border" src="_images/figure5B_simulationsCompar.svg" /><figcaption>
+<p><span class="caption-text"><strong>Figure 5B Comparison</strong></span><a class="headerlink" href="#id39" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id8">
+<h3>Usage in ctRSD-simulator-2.0<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/figure5B_simulations.py">Figure 5B Python Script can be found here</a></p>
+<figure class="align-center" id="id40">
+<img alt="_images/figure5B_simulations.svg" class="with-border" src="_images/figure5B_simulations.svg" /><figcaption>
+<p><span class="caption-text"><strong>Figure 5B</strong></span><a class="headerlink" href="#id40" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="figure-5c">
+<h2>Figure 5C<a class="headerlink" href="#figure-5c" title="Permalink to this heading"></a></h2>
+<p>Figure 5C simulates a 4-input ctRSD OR gate.</p>
+<dl class="simple">
+<dt>Some Functionalities used:</dt><dd><ul class="simple">
+<li><p>globally changing rates with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants</span></a></p></li>
+<li><p>changing initial condtions/indiviudal rates within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species</span></a></p></li>
+<li><p>launching simulation using <a class="reference internal" href="Functions.html#simulate"><span class="std std-ref">simulate</span></a></p></li>
+<li><p>pulling out desired output concentrations using <a class="reference internal" href="Functions.html#output-concentration"><span class="std std-ref">output_concentration</span></a></p></li>
+</ul>
+</dd>
+</dl>
+<section id="id9">
+<h3>Comparison to ctRSD-simulator-1<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/figure5C_simulationsCompar.py">Figure 5C Comparison Python Script can be found here</a></p>
+<figure class="align-center" id="id41">
+<img alt="_images/figure5C_simulationsCompar.svg" class="with-border" src="_images/figure5C_simulationsCompar.svg" /><figcaption>
+<p><span class="caption-text"><strong>Figure 5C Comparison</strong></span><a class="headerlink" href="#id41" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id10">
+<h3>Usage in ctRSD-simulator-2.0<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/figure5C_simulations.py">Figure 5C Python Script can be found here</a></p>
+<figure class="align-center" id="id42">
+<img alt="_images/figure5C_simulations.svg" class="with-border" src="_images/figure5C_simulations.svg" /><figcaption>
+<p><span class="caption-text"><strong>Figure 5C</strong></span><a class="headerlink" href="#id42" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="figure-5d">
+<h2>Figure 5D<a class="headerlink" href="#figure-5d" title="Permalink to this heading"></a></h2>
+<p>Figure 5D simulates a two layer cascade of ctRSD AND gates.</p>
+<dl class="simple">
+<dt>Some Functionalities used:</dt><dd><ul class="simple">
+<li><p>globally changing rates with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants</span></a></p></li>
+<li><p>changing initial condtions/indiviudal rates within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species</span></a></p></li>
+<li><p>launching simulation using <a class="reference internal" href="Functions.html#simulate"><span class="std std-ref">simulate</span></a></p></li>
+<li><p>pulling out desired output concentrations using <a class="reference internal" href="Functions.html#output-concentration"><span class="std std-ref">output_concentration</span></a></p></li>
+</ul>
+</dd>
+</dl>
+<section id="id11">
+<h3>Comparison to ctRSD-simulator-1<a class="headerlink" href="#id11" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/figure5D_simulationsCompar.py">Figure 5D Comparison Python Script can be found here</a></p>
+<figure class="align-center" id="id43">
+<img alt="_images/figure5D_simulationsCompar.svg" class="with-border" src="_images/figure5D_simulationsCompar.svg" /><figcaption>
+<p><span class="caption-text"><strong>Figure 5D Comparison</strong></span><a class="headerlink" href="#id43" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id12">
+<h3>Usage in ctRSD-simulator-2.0<a class="headerlink" href="#id12" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/figure5D_simulations.py">Figure 5D Python Script can be found here</a></p>
+<figure class="align-center" id="id44">
+<img alt="_images/figure5D_simulations.svg" class="with-border" src="_images/figure5D_simulations.svg" /><figcaption>
+<p><span class="caption-text"><strong>Figure 5D</strong></span><a class="headerlink" href="#id44" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="figure-5e">
+<h2>Figure 5E<a class="headerlink" href="#figure-5e" title="Permalink to this heading"></a></h2>
+<p>Figure 5E simulates a two layer cascade of a ctRSD OR gate leading to a ctRSD AND gate.</p>
+<dl class="simple">
+<dt>Some Functionalities used:</dt><dd><ul class="simple">
+<li><p>globally changing rates with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants</span></a></p></li>
+<li><p>changing initial condtions/indiviudal rates within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species</span></a></p></li>
+<li><p>launching simulation using <a class="reference internal" href="Functions.html#simulate"><span class="std std-ref">simulate</span></a></p></li>
+<li><p>pulling out desired output concentrations using <a class="reference internal" href="Functions.html#output-concentration"><span class="std std-ref">output_concentration</span></a></p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition-warning admonition">
+<p class="admonition-title">Warning!</p>
+<p>Original implementation of the model in ctRSD-simulator-1.0 created overestimation of reverse rates in FAN-IN examples. The new model implementation in ctRSD-simulator-2.0 corrected this with the application of matrices. Therefore, the comparison plot in the following example differs slightly between simulators.</p>
+<p>More information on the imporved model implementation can be found <a class="reference internal" href="Model-Implementation.html#model-implementation"><span class="std std-ref">here</span></a>.</p>
+</div>
+<section id="id13">
+<h3>Comparison to ctRSD-simulator-1<a class="headerlink" href="#id13" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/figure5E_simulationsCompar.py">Figure 5E Comparison Python Script can be found here</a></p>
+<figure class="align-center" id="id45">
+<img alt="_images/figure5E_simulationsCompar.svg" class="with-border" src="_images/figure5E_simulationsCompar.svg" /><figcaption>
+<p><span class="caption-text"><strong>Figure 5E Comparison</strong></span><a class="headerlink" href="#id45" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id14">
+<h3>Usage in ctRSD-simulator-2.0<a class="headerlink" href="#id14" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/figure5E_simulations.py">Figure 5E Python Script can be found here</a></p>
+<figure class="align-center" id="id46">
+<img alt="_images/figure5E_simulations.svg" class="with-border" src="_images/figure5E_simulations.svg" /><figcaption>
+<p><span class="caption-text"><strong>Figure 5E</strong></span><a class="headerlink" href="#id46" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="figure-5f">
+<h2>Figure 5F<a class="headerlink" href="#figure-5f" title="Permalink to this heading"></a></h2>
+<p>Figure 5F simulates a two layer cascade of a ctRSD AND gate leading to a ctRSD OR gate.</p>
+<dl class="simple">
+<dt>Some Functionalities used:</dt><dd><ul class="simple">
+<li><p>globally changing rates with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants</span></a></p></li>
+<li><p>changing initial condtions/indiviudal rates within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species</span></a></p></li>
+<li><p>launching simulation using <a class="reference internal" href="Functions.html#simulate"><span class="std std-ref">simulate</span></a></p></li>
+<li><p>pulling out desired output concentrations using <a class="reference internal" href="Functions.html#output-concentration"><span class="std std-ref">output_concentration</span></a></p></li>
+</ul>
+</dd>
+</dl>
+<section id="id15">
+<h3>Comparison to ctRSD-simulator-1<a class="headerlink" href="#id15" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/figure5F_simulationsCompar.py">Figure 5F Comparison Python Script can be found here</a></p>
+<figure class="align-center" id="id47">
+<img alt="_images/figure5F_simulationsCompar.svg" class="with-border" src="_images/figure5F_simulationsCompar.svg" /><figcaption>
+<p><span class="caption-text"><strong>Figure 5F Comparison</strong></span><a class="headerlink" href="#id47" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id16">
+<h3>Usage in ctRSD-simulator-2.0<a class="headerlink" href="#id16" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/figure5F_simulations.py">Figure 5F Python Script can be found here</a></p>
+<figure class="align-center" id="id48">
+<img alt="_images/figure5F_simulations.svg" class="with-border" src="_images/figure5F_simulations.svg" /><figcaption>
+<p><span class="caption-text"><strong>Figure 5F</strong></span><a class="headerlink" href="#id48" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="si-figure-16">
+<h2>SI Figure 16<a class="headerlink" href="#si-figure-16" title="Permalink to this heading"></a></h2>
+<p>Figure 16 showcases the experimental testing of RNA strand displacement between I1 and a ctRSD gate with a DNA reporter assay.</p>
+<dl class="simple">
+<dt>Some Functionalities used:</dt><dd><ul class="simple">
+<li><p>globally changing rates with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants</span></a></p></li>
+<li><p>changing initial condtions/indiviudal rates within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species</span></a></p></li>
+<li><p>launching simulation using <a class="reference internal" href="Functions.html#simulate"><span class="std std-ref">simulate</span></a></p></li>
+<li><p>pulling out desired output concentrations using <a class="reference internal" href="Functions.html#output-concentration"><span class="std std-ref">output_concentration</span></a></p></li>
+</ul>
+</dd>
+</dl>
+<section id="id17">
+<h3>Comparison to ctRSD-simulator-1<a class="headerlink" href="#id17" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/SA22_SI_figure16compar.py">SA22_SI_Figure16compar Python Script can be found here</a></p>
+<figure class="align-center" id="id49">
+<img alt="_images/SA22_SI_figure16compar.svg" class="with-border" src="_images/SA22_SI_figure16compar.svg" /><figcaption>
+<p><span class="caption-text"><strong>SA22_SI_Figure16 Comparison</strong></span><a class="headerlink" href="#id49" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id18">
+<h3>Usage in ctRSD-simulator-2.0<a class="headerlink" href="#id18" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/SA22_SI_figure16.py">SA22_SI_Figure16 Python Script can be found here</a></p>
+<figure class="align-center" id="id50">
+<img alt="_images/SA22_SI_figure16.svg" class="with-border" src="_images/SA22_SI_figure16.svg" /><figcaption>
+<p><span class="caption-text"><strong>SA22_SI_Figure16</strong></span><a class="headerlink" href="#id50" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="si-figure-18">
+<h2>SI Figure 18<a class="headerlink" href="#si-figure-18" title="Permalink to this heading"></a></h2>
+<p>Figure 18 compares uncleaved and cleavd ctRSD gates.</p>
+<dl class="simple">
+<dt>Some Functionalities used:</dt><dd><ul class="simple">
+<li><p>globally changing rates with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants</span></a></p></li>
+<li><p>changing initial condtions/indiviudal rates within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species</span></a></p></li>
+<li><p>launching simulation using <a class="reference internal" href="Functions.html#simulate"><span class="std std-ref">simulate</span></a></p></li>
+<li><p>pulling out desired output concentrations using <a class="reference internal" href="Functions.html#output-concentration"><span class="std std-ref">output_concentration</span></a></p></li>
+</ul>
+</dd>
+</dl>
+<section id="id19">
+<h3>Comparison to ctRSD-simulator-1<a class="headerlink" href="#id19" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/SA22_SI_figure18compar.py">SA22_SI_Figure18compar Python Script can be found here</a></p>
+<figure class="align-center" id="id51">
+<img alt="_images/SA22_SI_figure18compar.svg" class="with-border" src="_images/SA22_SI_figure18compar.svg" /><figcaption>
+<p><span class="caption-text"><strong>SA22_SI_Figure18 Comparison</strong></span><a class="headerlink" href="#id51" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id20">
+<h3>Usage in ctRSD-simulator-2.0<a class="headerlink" href="#id20" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/SA22_SI_figure18.py">SA22_SI_Figure18 Python Script can be found here</a></p>
+<figure class="align-center" id="id52">
+<img alt="_images/SA22_SI_figure18.svg" class="with-border" src="_images/SA22_SI_figure18.svg" /><figcaption>
+<p><span class="caption-text"><strong>SA22_SI_Figure18</strong></span><a class="headerlink" href="#id52" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="si-figure-19">
+<h2>SI Figure 19<a class="headerlink" href="#si-figure-19" title="Permalink to this heading"></a></h2>
+<p>Figure 19 simulates the affect of increase reversing rates on one, two, three, and four layer cascades.</p>
+<dl class="simple">
+<dt>Some Functionalities used:</dt><dd><ul class="simple">
+<li><p>globally changing rates with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants</span></a></p></li>
+<li><p>changing initial condtions/indiviudal rates within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species</span></a></p></li>
+<li><p>launching simulation using <a class="reference internal" href="Functions.html#simulate"><span class="std std-ref">simulate</span></a></p></li>
+<li><p>pulling out desired output concentrations using <a class="reference internal" href="Functions.html#output-concentration"><span class="std std-ref">output_concentration</span></a></p></li>
+</ul>
+</dd>
+</dl>
+<section id="id21">
+<h3>Comparison to ctRSD-simulator-1<a class="headerlink" href="#id21" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/SA22_SI_figure19compar.py">SA22_SI_Figure19compar Python Script can be found here</a></p>
+<figure class="align-center" id="id53">
+<img alt="_images/SA22_SI_figure19compar.svg" class="with-border" src="_images/SA22_SI_figure19compar.svg" /><figcaption>
+<p><span class="caption-text"><strong>SA22_SI_Figure19 Comparison</strong></span><a class="headerlink" href="#id53" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id22">
+<h3>Usage in ctRSD-simulator-2.0<a class="headerlink" href="#id22" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/SA22_SI_figure19.py">SA22_SI_Figure19 Python Script can be found here</a></p>
+<figure class="align-center" id="id54">
+<img alt="_images/SA22_SI_figure19.svg" class="with-border" src="_images/SA22_SI_figure19.svg" /><figcaption>
+<p><span class="caption-text"><strong>SA22_SI_Figure19</strong></span><a class="headerlink" href="#id54" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="si-figure-26">
+<h2>SI Figure 26<a class="headerlink" href="#si-figure-26" title="Permalink to this heading"></a></h2>
+<p>Figure 26 shows how steric hindrance between the leak products and ctRSD gates reduces overall leak observed in the experiments.</p>
+<dl class="simple">
+<dt>Some Functionalities used:</dt><dd><ul class="simple">
+<li><p>globally changing rates with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants</span></a></p></li>
+<li><p>changing initial condtions/indiviudal rates within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species</span></a></p></li>
+<li><p>launching simulation using <a class="reference internal" href="Functions.html#simulate"><span class="std std-ref">simulate</span></a></p></li>
+<li><p>pulling out desired output concentrations using <a class="reference internal" href="Functions.html#output-concentration"><span class="std std-ref">output_concentration</span></a></p></li>
+</ul>
+</dd>
+</dl>
+<section id="id23">
+<h3>Comparison to ctRSD-simulator-1<a class="headerlink" href="#id23" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/SA22_SI_figure26compar.py">SA22_SI_Figure26compar Python Script can be found here</a></p>
+<figure class="align-center" id="id55">
+<img alt="_images/SA22_SI_figure26compar.svg" class="with-border" src="_images/SA22_SI_figure26compar.svg" /><figcaption>
+<p><span class="caption-text"><strong>SA22_SI_Figure26 Comparison</strong></span><a class="headerlink" href="#id55" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id24">
+<h3>Usage in ctRSD-simulator-2.0<a class="headerlink" href="#id24" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/SA22_SI_figure26.py">SA22_SI_Figure26 Python Script can be found here</a></p>
+<figure class="align-center" id="id56">
+<img alt="_images/SA22_SI_figure26.svg" class="with-border" src="_images/SA22_SI_figure26.svg" /><figcaption>
+<p><span class="caption-text"><strong>SA22_SI_Figure26</strong></span><a class="headerlink" href="#id56" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="si-figure-27b">
+<h2>SI Figure 27B<a class="headerlink" href="#si-figure-27b" title="Permalink to this heading"></a></h2>
+<p>Figure 27B simulates lowering forward rate reaction for I4 4-fold better recapitulates experimental results, and in the case for 27B a two layer OR gate was used.</p>
+<dl class="simple">
+<dt>Some Functionalities used:</dt><dd><ul class="simple">
+<li><p>globally changing rates with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants</span></a></p></li>
+<li><p>changing initial condtions/indiviudal rates within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species</span></a></p></li>
+<li><p>launching simulation using <a class="reference internal" href="Functions.html#simulate"><span class="std std-ref">simulate</span></a></p></li>
+<li><p>pulling out desired output concentrations using <a class="reference internal" href="Functions.html#output-concentration"><span class="std std-ref">output_concentration</span></a></p></li>
+</ul>
+</dd>
+</dl>
+<section id="id25">
+<h3>Comparison to ctRSD-simulator-1<a class="headerlink" href="#id25" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/SA22_SI_figure27Bcompar.py">SA22_SI_Figure27Bcompar Python Script can be found here</a></p>
+<figure class="align-center" id="id57">
+<img alt="_images/SA22_SI_figure27Bcompar.svg" class="with-border" src="_images/SA22_SI_figure27Bcompar.svg" /><figcaption>
+<p><span class="caption-text"><strong>SA22_SI_Figure27B Comparison</strong></span><a class="headerlink" href="#id57" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id26">
+<h3>Usage in ctRSD-simulator-2.0<a class="headerlink" href="#id26" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/SA22_SI_figure27B.py">SA22_SI_Figure27B Python Script can be found here</a></p>
+<figure class="align-center" id="id58">
+<img alt="_images/SA22_SI_figure27B.svg" class="with-border" src="_images/SA22_SI_figure27B.svg" /><figcaption>
+<p><span class="caption-text"><strong>SA22_SI_Figure27B</strong></span><a class="headerlink" href="#id58" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="si-figure-30c">
+<h2>SI Figure 30C<a class="headerlink" href="#si-figure-30c" title="Permalink to this heading"></a></h2>
+<p>Figure 30C showcases how ctRSD circuit kinetics depend on toehold length and the length of a single-stranded spacer after the self-cleaving ribozyme.</p>
+<dl class="simple">
+<dt>Some Functionalities used:</dt><dd><ul class="simple">
+<li><p>globally changing rates with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants</span></a></p></li>
+<li><p>changing initial condtions/indiviudal rates within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species</span></a></p></li>
+<li><p>launching simulation using <a class="reference internal" href="Functions.html#simulate"><span class="std std-ref">simulate</span></a></p></li>
+<li><p>pulling out desired output concentrations using <a class="reference internal" href="Functions.html#output-concentration"><span class="std std-ref">output_concentration</span></a></p></li>
+</ul>
+</dd>
+</dl>
+<section id="id27">
+<h3>Comparison to ctRSD-simulator-1<a class="headerlink" href="#id27" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/SA22_SI_figure30Ccompar.py">SA22_SI_Figure30Ccompar Python Script can be found here</a></p>
+<figure class="align-center" id="id59">
+<img alt="_images/SA22_SI_figure30Ccompar.svg" class="with-border" src="_images/SA22_SI_figure30Ccompar.svg" /><figcaption>
+<p><span class="caption-text"><strong>SA22_SI_Figure30C Comparison</strong></span><a class="headerlink" href="#id59" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id28">
+<h3>Usage in ctRSD-simulator-2.0<a class="headerlink" href="#id28" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/SA22_SI_figure30C.py">SA22_SI_Figure30C Python Script can be found here</a></p>
+<figure class="align-center" id="id60">
+<img alt="_images/SA22_SI_figure30C.svg" class="with-border" src="_images/SA22_SI_figure30C.svg" /><figcaption>
+<p><span class="caption-text"><strong>SA22_SI_Figure30C</strong></span><a class="headerlink" href="#id60" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="si-figure-31b">
+<h2>SI Figure 31B<a class="headerlink" href="#si-figure-31b" title="Permalink to this heading"></a></h2>
+<p>Figure 31B in the SI shows the influence of total template concentration and T7 RNAP concentration on transcriptional load. In terms, of the simulator, this example presents the need to be able to test different transcription rates to find the best fit rate for a set of data. The simulator uses the <a class="reference internal" href="Functions.html#transcription-calibration"><span class="std std-ref">transcription_calibration</span></a> function to fill this need.</p>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note:</p>
+<p>Click <a class="reference internal" href="Simulator-Features.html#calibration-simulation"><span class="std std-ref">here</span></a> for full features of the transcription_calibration function.</p>
+</div>
+<dl class="simple">
+<dt>Some Functionalities used:</dt><dd><ul class="simple">
+<li><p>globally changing rates with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants</span></a></p></li>
+<li><p>changing initial condtions/indiviudal rates within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species</span></a></p></li>
+<li><p>launching simulation using <a class="reference internal" href="Functions.html#simulate"><span class="std std-ref">simulate</span></a></p></li>
+<li><p>pulling out desired output concentrations using <a class="reference internal" href="Functions.html#output-concentration"><span class="std std-ref">output_concentration</span></a></p></li>
+<li><p>calibration transcription rates using <a class="reference internal" href="Functions.html#transcription-calibration"><span class="std std-ref">transcription_calibration</span></a></p></li>
+</ul>
+</dd>
+</dl>
+<section id="id29">
+<h3>Comparison to ctRSD-simulator-1<a class="headerlink" href="#id29" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/SA22_SI_figure31Bcompar.py">SA22_SI_Figure31Bcompar Python Script can be found here</a></p>
+<figure class="align-center" id="id61">
+<img alt="_images/SA22_SI_figure31Bcompar.svg" class="with-border" src="_images/SA22_SI_figure31Bcompar.svg" /><figcaption>
+<p><span class="caption-text"><strong>SA22_SI_Figure31B Comparison</strong></span><a class="headerlink" href="#id61" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id30">
+<h3>Usage in ctRSD-simulator-2.0<a class="headerlink" href="#id30" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/SA22_SI_figure31B.py">SA22_SI_Figure31B Python Script can be found here</a></p>
+<figure class="align-center" id="id62">
+<img alt="_images/SA22_SI_figure31B.svg" class="with-border" src="_images/SA22_SI_figure31B.svg" /><figcaption>
+<p><span class="caption-text"><strong>SA22_SI_Figure31B</strong></span><a class="headerlink" href="#id62" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Simulator-Features.html" class="btn btn-neutral float-left" title="Simulator Features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Samuel Schaffter, Terence Murphy.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -9,10 +9,10 @@ Download Simulator
 
 .. _download_simulator:
 
-Download ctRSD-simulator-2.0 version 2.0.2.1  -> `DOWNLOAD <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Simulatorv2021.py>`_ 
+Download ctRSD-simulator-2.0 version 2.0.2.1  -> `DOWNLOAD <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Simulatorv2021.py>`_ 
 
 
-Download ctRSD-simulator-1.0 -> `DOWNLOAD <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Simulator1.py>`_ 
+Download ctRSD-simulator-1.0 -> `DOWNLOAD <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Simulator1.py>`_ 
 
 
 

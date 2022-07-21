@@ -21,7 +21,7 @@ Some Functionalities used:
 
 Comparison to ctRSD-simulator-1
 +++++++++++++++++++++++++++++++
-`Figure 2D Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/figure2D_simulationsCompar.py>`_ 
+`Figure 2D Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/figure2D_simulationsCompar.py>`_ 
 
 .. figure:: /ExampleImages/figure2D_simulationsCompar.svg
    :class: with-border
@@ -33,7 +33,7 @@ Comparison to ctRSD-simulator-1
 
 Usage in ctRSD-simulator-2.0
 ++++++++++++++++++++++++++++
-`Figure 2D Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/figure2D_simulations.py>`_ 
+`Figure 2D Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/figure2D_simulations.py>`_ 
 
 .. figure:: /ExampleImages/figure2D_simulations.svg
    :class: with-border
@@ -57,7 +57,7 @@ Some Functionalities used:
 
 Comparison to ctRSD-simulator-1
 +++++++++++++++++++++++++++++++
-`Figure 4C Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/figure4C_simulationsCompar.py>`_ 
+`Figure 4C Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/figure4C_simulationsCompar.py>`_ 
 
 .. figure:: /ExampleImages/figure4C_simulationsCompar.svg
    :class: with-border
@@ -69,7 +69,7 @@ Comparison to ctRSD-simulator-1
 
 Usage in ctRSD-simulator-2.0
 ++++++++++++++++++++++++++++
-`Figure 4C Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/figure4C_simulations.py>`_ 
+`Figure 4C Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/figure4C_simulations.py>`_ 
 
 .. figure:: /ExampleImages/figure4C_simulations.svg
    :class: with-border
@@ -97,7 +97,7 @@ Some Functionalities used:
 
 Comparison to ctRSD-simulator-1
 +++++++++++++++++++++++++++++++
-`Figure 4F Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/figure4F_simulationsCompar.py>`_ 
+`Figure 4F Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/figure4F_simulationsCompar.py>`_ 
 
 .. figure:: /ExampleImages/figure4F_simulationsCompar.svg
    :class: with-border
@@ -109,7 +109,7 @@ Comparison to ctRSD-simulator-1
 
 Usage in ctRSD-simulator-2.0
 ++++++++++++++++++++++++++++
-`Figure 4F Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/figure4C_simulations.py>`_ 
+`Figure 4F Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/figure4C_simulations.py>`_ 
 
 .. figure:: /ExampleImages/figure4F_simulations.svg
    :class: with-border
@@ -136,7 +136,7 @@ Some Functionalities used:
 
 Comparison to ctRSD-simulator-1
 +++++++++++++++++++++++++++++++
-`Figure 4H Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/figure4H_simulationsCompar.py>`_ 
+`Figure 4H Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/figure4H_simulationsCompar.py>`_ 
 
 .. figure:: /ExampleImages/figure4H_simulationsCompar.svg
    :class: with-border
@@ -148,7 +148,7 @@ Comparison to ctRSD-simulator-1
 
 Usage in ctRSD-simulator-2.0
 ++++++++++++++++++++++++++++
-`Figure 4H Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/figure4H_simulations.py>`_ 
+`Figure 4H Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/figure4H_simulations.py>`_ 
 
 .. figure:: /ExampleImages/figure4F_simulations.svg
    :class: with-border
@@ -174,7 +174,7 @@ Some Functionalities used:
 
 Comparison to ctRSD-simulator-1
 +++++++++++++++++++++++++++++++
-`Figure 5B Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/figure5B_simulationsCompar.py>`_ 
+`Figure 5B Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/figure5B_simulationsCompar.py>`_ 
 
 .. figure:: /ExampleImages/figure5B_simulationsCompar.svg
    :class: with-border
@@ -186,7 +186,7 @@ Comparison to ctRSD-simulator-1
 
 Usage in ctRSD-simulator-2.0
 ++++++++++++++++++++++++++++
-`Figure 5B Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/figure5B_simulations.py>`_ 
+`Figure 5B Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/figure5B_simulations.py>`_ 
 
 .. figure:: /ExampleImages/figure5B_simulations.svg
    :class: with-border
@@ -211,7 +211,7 @@ Some Functionalities used:
 
 Comparison to ctRSD-simulator-1
 +++++++++++++++++++++++++++++++
-`Figure 5C Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/figure5C_simulationsCompar.py>`_ 
+`Figure 5C Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/figure5C_simulationsCompar.py>`_ 
 
 .. figure:: /ExampleImages/figure5C_simulationsCompar.svg
    :class: with-border
@@ -223,7 +223,7 @@ Comparison to ctRSD-simulator-1
 
 Usage in ctRSD-simulator-2.0
 ++++++++++++++++++++++++++++
-`Figure 5C Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/figure5C_simulations.py>`_ 
+`Figure 5C Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/figure5C_simulations.py>`_ 
 
 .. figure:: /ExampleImages/figure5C_simulations.svg
    :class: with-border
@@ -250,7 +250,7 @@ Some Functionalities used:
 
 Comparison to ctRSD-simulator-1
 +++++++++++++++++++++++++++++++
-`Figure 5D Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/figure5D_simulationsCompar.py>`_ 
+`Figure 5D Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/figure5D_simulationsCompar.py>`_ 
 
 .. figure:: /ExampleImages/figure5D_simulationsCompar.svg
    :class: with-border
@@ -262,7 +262,7 @@ Comparison to ctRSD-simulator-1
 
 Usage in ctRSD-simulator-2.0
 ++++++++++++++++++++++++++++
-`Figure 5D Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/figure5D_simulations.py>`_ 
+`Figure 5D Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/figure5D_simulations.py>`_ 
 
 .. figure:: /ExampleImages/figure5D_simulations.svg
    :class: with-border
@@ -296,7 +296,7 @@ Some Functionalities used:
 
 Comparison to ctRSD-simulator-1
 +++++++++++++++++++++++++++++++
-`Figure 5E Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/figure5E_simulationsCompar.py>`_ 
+`Figure 5E Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/figure5E_simulationsCompar.py>`_ 
 
 .. figure:: /ExampleImages/figure5E_simulationsCompar.svg
    :class: with-border
@@ -308,7 +308,7 @@ Comparison to ctRSD-simulator-1
 
 Usage in ctRSD-simulator-2.0
 ++++++++++++++++++++++++++++
-`Figure 5E Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/figure5E_simulations.py>`_ 
+`Figure 5E Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/figure5E_simulations.py>`_ 
 
 .. figure:: /ExampleImages/figure5E_simulations.svg
    :class: with-border
@@ -334,7 +334,7 @@ Some Functionalities used:
 
 Comparison to ctRSD-simulator-1
 +++++++++++++++++++++++++++++++
-`Figure 5F Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/figure5F_simulationsCompar.py>`_ 
+`Figure 5F Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/figure5F_simulationsCompar.py>`_ 
 
 .. figure:: /ExampleImages/figure5F_simulationsCompar.svg
    :class: with-border
@@ -346,7 +346,7 @@ Comparison to ctRSD-simulator-1
 
 Usage in ctRSD-simulator-2.0
 ++++++++++++++++++++++++++++
-`Figure 5F Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/figure5F_simulations.py>`_ 
+`Figure 5F Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/figure5F_simulations.py>`_ 
 
 .. figure:: /ExampleImages/figure5F_simulations.svg
    :class: with-border
@@ -377,7 +377,7 @@ Some Functionalities used:
 
 Comparison to ctRSD-simulator-1
 +++++++++++++++++++++++++++++++
-`SA22_SI_Figure16compar Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/SA22_SI_figure16compar.py>`_ 
+`SA22_SI_Figure16compar Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/SA22_SI_figure16compar.py>`_ 
 
 .. figure:: /ExampleImages/SA22_SI_figure16compar.svg
    :class: with-border
@@ -389,7 +389,7 @@ Comparison to ctRSD-simulator-1
 
 Usage in ctRSD-simulator-2.0
 ++++++++++++++++++++++++++++
-`SA22_SI_Figure16 Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/SA22_SI_figure16.py>`_ 
+`SA22_SI_Figure16 Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/SA22_SI_figure16.py>`_ 
 
 .. figure:: /ExampleImages/SA22_SI_figure16.svg
    :class: with-border
@@ -413,7 +413,7 @@ Some Functionalities used:
 
 Comparison to ctRSD-simulator-1
 +++++++++++++++++++++++++++++++
-`SA22_SI_Figure18compar Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/SA22_SI_figure18compar.py>`_ 
+`SA22_SI_Figure18compar Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/SA22_SI_figure18compar.py>`_ 
 
 .. figure:: /ExampleImages/SA22_SI_figure18compar.svg
    :class: with-border
@@ -425,7 +425,7 @@ Comparison to ctRSD-simulator-1
 
 Usage in ctRSD-simulator-2.0
 ++++++++++++++++++++++++++++
-`SA22_SI_Figure18 Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/SA22_SI_figure18.py>`_ 
+`SA22_SI_Figure18 Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/SA22_SI_figure18.py>`_ 
 
 .. figure:: /ExampleImages/SA22_SI_figure18.svg
    :class: with-border
@@ -455,7 +455,7 @@ Some Functionalities used:
 
 Comparison to ctRSD-simulator-1
 +++++++++++++++++++++++++++++++
-`SA22_SI_Figure19compar Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/SA22_SI_figure19compar.py>`_ 
+`SA22_SI_Figure19compar Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/SA22_SI_figure19compar.py>`_ 
 
 .. figure:: /ExampleImages/SA22_SI_figure19compar.svg
    :class: with-border
@@ -467,7 +467,7 @@ Comparison to ctRSD-simulator-1
 
 Usage in ctRSD-simulator-2.0
 ++++++++++++++++++++++++++++
-`SA22_SI_Figure19 Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/SA22_SI_figure19.py>`_ 
+`SA22_SI_Figure19 Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/SA22_SI_figure19.py>`_ 
 
 .. figure:: /ExampleImages/SA22_SI_figure19.svg
    :class: with-border
@@ -496,7 +496,7 @@ Some Functionalities used:
 
 Comparison to ctRSD-simulator-1
 +++++++++++++++++++++++++++++++
-`SA22_SI_Figure26compar Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/SA22_SI_figure26compar.py>`_ 
+`SA22_SI_Figure26compar Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/SA22_SI_figure26compar.py>`_ 
 
 .. figure:: /ExampleImages/SA22_SI_figure26compar.svg
    :class: with-border
@@ -508,7 +508,7 @@ Comparison to ctRSD-simulator-1
 
 Usage in ctRSD-simulator-2.0
 ++++++++++++++++++++++++++++
-`SA22_SI_Figure26 Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/SA22_SI_figure26.py>`_ 
+`SA22_SI_Figure26 Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/SA22_SI_figure26.py>`_ 
 
 .. figure:: /ExampleImages/SA22_SI_figure26.svg
    :class: with-border
@@ -537,7 +537,7 @@ Some Functionalities used:
 
 Comparison to ctRSD-simulator-1
 +++++++++++++++++++++++++++++++
-`SA22_SI_Figure27Bcompar Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/SA22_SI_figure27Bcompar.py>`_ 
+`SA22_SI_Figure27Bcompar Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/SA22_SI_figure27Bcompar.py>`_ 
 
 .. figure:: /ExampleImages/SA22_SI_figure27Bcompar.svg
    :class: with-border
@@ -549,7 +549,7 @@ Comparison to ctRSD-simulator-1
 
 Usage in ctRSD-simulator-2.0
 ++++++++++++++++++++++++++++
-`SA22_SI_Figure27B Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/SA22_SI_figure27B.py>`_ 
+`SA22_SI_Figure27B Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/SA22_SI_figure27B.py>`_ 
 
 .. figure:: /ExampleImages/SA22_SI_figure27B.svg
    :class: with-border
@@ -580,7 +580,7 @@ Some Functionalities used:
 
 Comparison to ctRSD-simulator-1
 +++++++++++++++++++++++++++++++
-`SA22_SI_Figure30Ccompar Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/SA22_SI_figure30Ccompar.py>`_ 
+`SA22_SI_Figure30Ccompar Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/SA22_SI_figure30Ccompar.py>`_ 
 
 .. figure:: /ExampleImages/SA22_SI_figure30Ccompar.svg
    :class: with-border
@@ -592,7 +592,7 @@ Comparison to ctRSD-simulator-1
 
 Usage in ctRSD-simulator-2.0
 ++++++++++++++++++++++++++++
-`SA22_SI_Figure30C Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/SA22_SI_figure30C.py>`_ 
+`SA22_SI_Figure30C Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/SA22_SI_figure30C.py>`_ 
 
 .. figure:: /ExampleImages/SA22_SI_figure30C.svg
    :class: with-border
@@ -631,7 +631,7 @@ Some Functionalities used:
 
 Comparison to ctRSD-simulator-1
 +++++++++++++++++++++++++++++++
-`SA22_SI_Figure31Bcompar Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/SA22_SI_figure31Bcompar.py>`_ 
+`SA22_SI_Figure31Bcompar Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/SA22_SI_figure31Bcompar.py>`_ 
 
 .. figure:: /ExampleImages/SA22_SI_figure31Bcompar.svg
    :class: with-border
@@ -643,7 +643,7 @@ Comparison to ctRSD-simulator-1
 
 Usage in ctRSD-simulator-2.0
 ++++++++++++++++++++++++++++
-`SA22_SI_Figure31B Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/SA22_SI_figure31B.py>`_ 
+`SA22_SI_Figure31B Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/SA22_SI_figure31B.py>`_ 
 
 .. figure:: /ExampleImages/SA22_SI_figure31B.svg
    :class: with-border

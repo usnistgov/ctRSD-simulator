@@ -370,7 +370,7 @@ transcription_calibration is used to test different transcription rates against 
 	data: *array, type=float*
 		User data set.
 
-	ktxn: *list(type=float) or float*, *optional*
+	ktxn: *Multiple Inputs: list(type=float), Single Input: float*, *optional*
 		Transcription rate(s) the user wishes to calibrate using the dataset. If more than one transcription rate is being inputted, the rates must be formatted as a list, which can be of any length.
 
 		If NONE, simulator will use a base set of transcription rates. (k_txn = [0.005,0.0075,0.01,0.0125,.015,.02])

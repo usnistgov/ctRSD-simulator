@@ -26,7 +26,7 @@ Some Functionalities used:
 
 
 
-`Calibration Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/calibration_simulation.py>`_ 
+`Calibration Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/calibration_simulation.py>`_ 
 
 
 
@@ -75,7 +75,7 @@ Some Functionalities used:
 
 Comparison to ctRSD-simulator-1
 +++++++++++++++++++++++++++++++
-`Discontinuous Simulation Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/discontinuous_simulationsCompar.py>`_ 
+`Discontinuous Simulation Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/discontinuous_simulationsCompar.py>`_ 
 
 .. figure:: /ExampleImages/discontinuous_simulationsCompar.svg
    :class: with-border
@@ -87,7 +87,7 @@ Comparison to ctRSD-simulator-1
 
 Usage in ctRSD-simulator-2.0
 ++++++++++++++++++++++++++++
-`Discontinuous Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/discontinuous_simulations.py>`_ 
+`Discontinuous Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/discontinuous_simulations.py>`_ 
 
 .. figure:: /ExampleImages/discontinuous_simulations.svg
    :class: with-border
@@ -122,7 +122,7 @@ Some Functionalities used:
 
 Comparison to ctRSD-simulator-1
 +++++++++++++++++++++++++++++++
-`CG Simulation Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/CG_simulationsCompar.py>`_ 
+`CG Simulation Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/CG_simulationsCompar.py>`_ 
 
 .. figure:: /ExampleImages/CG_simulationsCompar.svg
    :class: with-border
@@ -134,7 +134,7 @@ Comparison to ctRSD-simulator-1
 
 Usage in ctRSD-simulator-2.0
 ++++++++++++++++++++++++++++
-`CG Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/CG_simulations.py>`_ 
+`CG Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/CG_simulations.py>`_ 
 
 .. figure:: /ExampleImages/CG_simulations.svg
    :class: with-border
@@ -146,7 +146,7 @@ Usage in ctRSD-simulator-2.0
 The CG grid simulation is another example using a basic CG system. However, a grid is made using two sets of changing input concentrations. The x-axis shows changing IN{6}, whereas the y-axis shows increasing IN{7}. The grid example efficiently demonstrates the consistent functionality of the comparator gates.
 
 
-`CG Grid Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/CG_simulationsGRID.py>`_ 
+`CG Grid Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/CG_simulationsGRID.py>`_ 
 
 .. figure:: /ExampleImages/CG_simulationsGRID.svg
    :class: with-border
@@ -173,7 +173,7 @@ Some Functionalities used:
 
 Comparison to ctRSD-simulator-1
 +++++++++++++++++++++++++++++++
-`Three CG Simulation Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/threeCG_simulationsCompar.py>`_ 
+`Three CG Simulation Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/threeCG_simulationsCompar.py>`_ 
 
 .. figure:: /ExampleImages/threeCG_simulationsCompar.svg
    :class: with-border
@@ -185,7 +185,7 @@ Comparison to ctRSD-simulator-1
 
 Usage in ctRSD-simulator-2.0
 ++++++++++++++++++++++++++++
-`Three CG Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/threeCG_simulations.py>`_ 
+`Three CG Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/threeCG_simulations.py>`_ 
 
 .. figure:: /ExampleImages/threeCG_simulations.svg
    :class: with-border
@@ -215,7 +215,7 @@ Some Functionalities used:
 
 Comparison to ctRSD-simulator-1
 +++++++++++++++++++++++++++++++
-`Thresholding Simulation Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/threshold_simulationCompar.py>`_ 
+`Thresholding Simulation Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/threshold_simulationCompar.py>`_ 
 
 .. figure:: /ExampleImages/threshold_simulationCompar.svg
    :class: with-border
@@ -227,7 +227,7 @@ Comparison to ctRSD-simulator-1
 
 Usage in ctRSD-simulator-2.0
 ++++++++++++++++++++++++++++
-`Thresholding Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/threshold_simulation.py>`_ 
+`Thresholding Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/threshold_simulation.py>`_ 
 
 .. figure:: /ExampleImages/threshold_simulation.svg
    :class: with-border
@@ -262,7 +262,7 @@ Some Functionalities used:
 Comparison to ctRSD-simulator-1
 +++++++++++++++++++++++++++++++
 
-`Degradation Simulation Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/degradation_simulationsCompar.py>`_ 
+`Degradation Simulation Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/degradation_simulationsCompar.py>`_ 
 
 .. figure:: /ExampleImages/degradation_simulationsCompar.svg
    :class: with-border
@@ -275,7 +275,7 @@ Comparison to ctRSD-simulator-1
 Usage in ctRSD-simulator-2.0
 ++++++++++++++++++++++++++++
 
-`Degredation Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/degradation_simulations.py>`_ 
+`Degredation Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/degradation_simulations.py>`_ 
 
 .. figure:: /ExampleImages/degradation_simulations.svg
    :class: with-border
@@ -287,7 +287,7 @@ Usage in ctRSD-simulator-2.0
 The final degredation example simulates a system with degradation rates where single stranded species, double stranded species, and RNA:DNA hyrbids were given altering degradation rates.
 
 
-`Degradation Simulation with changing groups of rates Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/degradationIndividRates_simulations.py>`_ 
+`Degradation Simulation with changing groups of rates Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/degradationIndividRates_simulations.py>`_ 
 
 .. figure:: /ExampleImages/degradationIndividRates_simulation.svg
    :class: with-border
@@ -315,7 +315,7 @@ Some Functionalities used:
 
 ctRSD Seesaw Simulation
 +++++++++++++++++++++++++++++++
-`ctRSD Seesaw Simulation Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/seesaw_simulation_ctRSD.py>`_ 
+`ctRSD Seesaw Simulation Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/seesaw_simulation_ctRSD.py>`_ 
 
 .. figure:: /ExampleImages/seesaw_simulation_ctRSD.svg
    :class: with-border
@@ -327,7 +327,7 @@ ctRSD Seesaw Simulation
 
 DNA Seesaw Simulation
 ++++++++++++++++++++++++++++
-`DNA Seesaw Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/seesaw_simulation_DNA.py>`_ 
+`DNA Seesaw Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/seesaw_simulation_DNA.py>`_ 
 
 .. figure:: /ExampleImages/seesaw_simulation_DNA.svg
    :class: with-border
@@ -353,7 +353,7 @@ Some Functionalities used:
 
 
 
-`Two Toehold Sim Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/TwoToehold_simulation.py>`_ 
+`Two Toehold Sim Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/TwoToehold_simulation.py>`_ 
 
 .. figure:: /ExampleImages/TwoToehold_simulation.svg
    :class: with-border
@@ -376,7 +376,7 @@ Some Functionalities used:
 
 
 
-`AG Fuel Sim Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/AGfuel_simulations.py>`_ 
+`AG Fuel Sim Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/AGfuel_simulations.py>`_ 
 
 .. figure:: /ExampleImages/AGfuel_simulations.svg
    :class: with-border
@@ -399,7 +399,7 @@ Some Functionalities used:
 
 
 
-`Two Minterm Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator-2.0/blob/main/Examples/AB+CD_simulations.py>`_ 
+`Two Minterm Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/AB+CD_simulations.py>`_ 
 
 .. figure:: /ExampleImages/AB+CD_simulations.svg
    :class: with-border

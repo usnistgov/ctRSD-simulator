@@ -22,7 +22,7 @@ copyright = '2022, Samuel Schaffter, Terence Murphy'
 author = 'Samuel Schaffter, Terence Murphy'
 
 # The full version, including alpha/beta/rc tags
-release = '2.0.2.1'
+release = '2.0.0'
 
 
 # -- General configuration ---------------------------------------------------

@@ -1,4 +1,4 @@
-
+.. _Functions:
 
 Functions
 =========
@@ -13,6 +13,8 @@ This section lists the different functions available within ctRSD-simulator-2.0.
    More information on these steps can be found :ref:`here <ImportSim>`.
 
 
+
+
 .. _global_rate_constants:
 
 global_rate_constants
@@ -22,9 +24,12 @@ global_rate_constants(*krz='False'*, *krsd='False'*, *krev='False'*, *krep='Fals
 , *krsdF='False'*, *krevF='False'*, *krevA='False'*, *krsdA='False'*, *krzA='False'*, *krevCG='False'*, 
 *krsdCG='False'*, *krzCG='False'*, *ktxnO='False'*, *ktxnG='False'*, *ktxnTh='False'* , *ktxnF='False'*, *ktxnAG='False'*
 , *ktxnCG='False'*, *ktxn='False'*, *kssdO='False'*, *kssdF='False'*, *kdsduG='False'*, *kdsdG='False'*, *kdsdGO='False'*
-, *kdsduAG='False'*, *kdsdAG='False*', *kdsduCG='False'*, *kdsdCG='False'*, *kdrd='False'*, *kdeg='False'*, *kssd='False'*, *kdsd='False'*)
+, *kdsduAG='False'*, *kdsdAG='False'*, *kdsduCG='False'*, *kdsdCG='False'*, *kdrd='False'*, *kdeg='False'*, *kssd='False'*, *kdsd='False'*
+, *khybO='False'*, *khybR='False'*, *khyb='False'*)
 
 global_rate_constants is used to globally change rate constants for all species of the same type (single matrix), or certain groups of different types (multiple matrices), instead of changing a specific rate constant for just one individual species (index of a matrix).
+
+Rate Constant initializations can be found :ref:`class <class>`.
 
 **Parameters:**
 	krz: *float*, *optional* 
@@ -135,8 +140,14 @@ global_rate_constants is used to globally change rate constants for all species 
 	kdeg: *float*, *optional* 
 		Degredation rate for all species (kssdO,kssdF,kdsduG,kdsdG,kdsdGO,kdsduAG,kdsdAG,kdsduCG,kdsdCG,kdrd).
 
+	khybO: *float*, *optional* 
+		Hybridization rate for output.
 
+	khybR: *float*, *optional* 
+		Hybridization rate for reporter.
 
+	khyb: *float*, *optional* 
+		Hybrdization rate for both output and reporter (khybO,khybR).
 
 
 
@@ -146,9 +157,11 @@ global_rate_constants is used to globally change rate constants for all species 
 molecular_species
 -----------------
 
-molecular_species(*name*, *DNA_con=0*, *ic='False'*, *krz='False'*, *krsd='False'*, *krev='False'*, *krep='False'*, *krepr='False'*, *kth='False'*, *krzTh='False'*, *krsdF='False'*, *krevF='False'*, *krevA='False'*, *krsdA='False'*, *krzA='False'*, *krevCG='False'*, *krsdCG='False'*, *krzCG='False'*, *ktxnO='False'*, *ktxnG='False'*, *ktxnTh='False'*, *ktxnF='False'*, *ktxnAG='False'*, *ktxnCG='False'*, *kssdO='False'*, *kssdF='False'*, *kdsduG='False'*, *kdsdG='False'*, *kdsdGO='False'*, *kdsduAG='False'*, *kdsdAG='False'*, *kdsduCG='False'*, *kdsdCG='False'*, *kdrd='False'*)
+molecular_species(*name*, *DNA_con=0*, *ic='False'*, *krz='False'*, *krsd='False'*, *krev='False'*, *krep='False'*, *krepr='False'*, *kth='False'*, *krzTh='False'*, *krsdF='False'*, *krevF='False'*, *krevA='False'*, *krsdA='False'*, *krzA='False'*, *krevCG='False'*, *krsdCG='False'*, *krzCG='False'*, *ktxnO='False'*, *ktxnG='False'*, *ktxnTh='False'*, *ktxnF='False'*, *ktxnAG='False'*, *ktxnCG='False'*, *kssdO='False'*, *kssdF='False'*, *kdsduG='False'*, *kdsdG='False'*, *kdsdGO='False'*, *kdsduAG='False'*, *kdsdAG='False'*, *kdsduCG='False'*, *kdsdCG='False'*, *kdrd='False'*, *khybO='False'*, *khybR='False'*, *khyb='False'*)
 
 molecular_species is used to initialize all species involved in the system being simulated.
+
+DNA template, initial condition, and rate constant initializations can be found :ref:`class <class>`.
 
 
 .. admonition:: Warning!
@@ -283,6 +296,15 @@ molecular_species is used to initialize all species involved in the system being
 	kdrd: *float*, *optional* 
 		Degredation rate for RNA:DNA hybrids.
 
+	khybO: *float*, *optional* 
+		Hybridization rate for output.
+
+	khybR: *float*, *optional* 
+		Hybridization rate for reporter.
+
+	khyb: *float*, *optional* 
+		Hybrdization rate for both output and reporter (khybO,khybR).
+
 
 
 
@@ -352,6 +374,7 @@ output_concentration is used to pull out desired output concentrations created a
 			* Comparator Gate -> CG{domainI,domainO} (not case sensitive)
 			* Comparator Gate-Output Complex A -> CGOa{domainI,domainO} (not case sensitive)
 			* Comparator Gate-Output Complex B -> CGOb{domainI,domainO} (not case sensitive)
+			* Q -> Q{domain} (not case sensitive)
 
 
 .. _transcription_calibration: 

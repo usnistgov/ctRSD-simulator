@@ -86,7 +86,7 @@
            <div itemprop="articleBody">
              
   <section id="functions">
-<h1>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h1>
+<span id="id1"></span><h1>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h1>
 <p>This section lists the different functions available within ctRSD-simulator-2.0.</p>
 <div class="admonition-note admonition">
 <p class="admonition-title">Note:</p>
@@ -94,13 +94,15 @@
 <p>More information on these steps can be found <a class="reference internal" href="ImportSim.html#importsim"><span class="std std-ref">here</span></a>.</p>
 </div>
 <section id="global-rate-constants">
-<span id="id1"></span><h2>global_rate_constants<a class="headerlink" href="#global-rate-constants" title="Permalink to this heading"></a></h2>
+<span id="id2"></span><h2>global_rate_constants<a class="headerlink" href="#global-rate-constants" title="Permalink to this heading"></a></h2>
 <p>global_rate_constants(<em>krz=’False’</em>, <em>krsd=’False’</em>, <em>krev=’False’</em>, <em>krep=’False’</em>, <em>krepr=’False’</em>, <em>kth=’False’</em>, <em>krzTh=’False’</em>
 , <em>krsdF=’False’</em>, <em>krevF=’False’</em>, <em>krevA=’False’</em>, <em>krsdA=’False’</em>, <em>krzA=’False’</em>, <em>krevCG=’False’</em>,
 <em>krsdCG=’False’</em>, <em>krzCG=’False’</em>, <em>ktxnO=’False’</em>, <em>ktxnG=’False’</em>, <em>ktxnTh=’False’</em> , <em>ktxnF=’False’</em>, <em>ktxnAG=’False’</em>
 , <em>ktxnCG=’False’</em>, <em>ktxn=’False’</em>, <em>kssdO=’False’</em>, <em>kssdF=’False’</em>, <em>kdsduG=’False’</em>, <em>kdsdG=’False’</em>, <em>kdsdGO=’False’</em>
-, <em>kdsduAG=’False’</em>, <em>kdsdAG=’False</em>’, <em>kdsduCG=’False’</em>, <em>kdsdCG=’False’</em>, <em>kdrd=’False’</em>, <em>kdeg=’False’</em>, <em>kssd=’False’</em>, <em>kdsd=’False’</em>)</p>
+, <em>kdsduAG=’False’</em>, <em>kdsdAG=’False’</em>, <em>kdsduCG=’False’</em>, <em>kdsdCG=’False’</em>, <em>kdrd=’False’</em>, <em>kdeg=’False’</em>, <em>kssd=’False’</em>, <em>kdsd=’False’</em>
+, <em>khybO=’False’</em>, <em>khybR=’False’</em>, <em>khyb=’False’</em>)</p>
 <p>global_rate_constants is used to globally change rate constants for all species of the same type (single matrix), or certain groups of different types (multiple matrices), instead of changing a specific rate constant for just one individual species (index of a matrix).</p>
+<p>Rate Constant initializations can be found <a class="reference internal" href="ClassInitials.html#class"><span class="std std-ref">class</span></a>.</p>
 <dl class="simple">
 <dt><strong>Parameters:</strong></dt><dd><dl class="simple">
 <dt>krz: <em>float</em>, <em>optional</em></dt><dd><p>Base ctRSD gate ribozymal cleavage rate.</p>
@@ -175,14 +177,21 @@
 </dd>
 <dt>kdeg: <em>float</em>, <em>optional</em></dt><dd><p>Degredation rate for all species (kssdO,kssdF,kdsduG,kdsdG,kdsdGO,kdsduAG,kdsdAG,kdsduCG,kdsdCG,kdrd).</p>
 </dd>
+<dt>khybO: <em>float</em>, <em>optional</em></dt><dd><p>Hybridization rate for output.</p>
+</dd>
+<dt>khybR: <em>float</em>, <em>optional</em></dt><dd><p>Hybridization rate for reporter.</p>
+</dd>
+<dt>khyb: <em>float</em>, <em>optional</em></dt><dd><p>Hybrdization rate for both output and reporter (khybO,khybR).</p>
+</dd>
 </dl>
 </dd>
 </dl>
 </section>
 <section id="molecular-species">
-<span id="id2"></span><h2>molecular_species<a class="headerlink" href="#molecular-species" title="Permalink to this heading"></a></h2>
-<p>molecular_species(<em>name</em>, <em>DNA_con=0</em>, <em>ic=’False’</em>, <em>krz=’False’</em>, <em>krsd=’False’</em>, <em>krev=’False’</em>, <em>krep=’False’</em>, <em>krepr=’False’</em>, <em>kth=’False’</em>, <em>krzTh=’False’</em>, <em>krsdF=’False’</em>, <em>krevF=’False’</em>, <em>krevA=’False’</em>, <em>krsdA=’False’</em>, <em>krzA=’False’</em>, <em>krevCG=’False’</em>, <em>krsdCG=’False’</em>, <em>krzCG=’False’</em>, <em>ktxnO=’False’</em>, <em>ktxnG=’False’</em>, <em>ktxnTh=’False’</em>, <em>ktxnF=’False’</em>, <em>ktxnAG=’False’</em>, <em>ktxnCG=’False’</em>, <em>kssdO=’False’</em>, <em>kssdF=’False’</em>, <em>kdsduG=’False’</em>, <em>kdsdG=’False’</em>, <em>kdsdGO=’False’</em>, <em>kdsduAG=’False’</em>, <em>kdsdAG=’False’</em>, <em>kdsduCG=’False’</em>, <em>kdsdCG=’False’</em>, <em>kdrd=’False’</em>)</p>
+<span id="id3"></span><h2>molecular_species<a class="headerlink" href="#molecular-species" title="Permalink to this heading"></a></h2>
+<p>molecular_species(<em>name</em>, <em>DNA_con=0</em>, <em>ic=’False’</em>, <em>krz=’False’</em>, <em>krsd=’False’</em>, <em>krev=’False’</em>, <em>krep=’False’</em>, <em>krepr=’False’</em>, <em>kth=’False’</em>, <em>krzTh=’False’</em>, <em>krsdF=’False’</em>, <em>krevF=’False’</em>, <em>krevA=’False’</em>, <em>krsdA=’False’</em>, <em>krzA=’False’</em>, <em>krevCG=’False’</em>, <em>krsdCG=’False’</em>, <em>krzCG=’False’</em>, <em>ktxnO=’False’</em>, <em>ktxnG=’False’</em>, <em>ktxnTh=’False’</em>, <em>ktxnF=’False’</em>, <em>ktxnAG=’False’</em>, <em>ktxnCG=’False’</em>, <em>kssdO=’False’</em>, <em>kssdF=’False’</em>, <em>kdsduG=’False’</em>, <em>kdsdG=’False’</em>, <em>kdsdGO=’False’</em>, <em>kdsduAG=’False’</em>, <em>kdsdAG=’False’</em>, <em>kdsduCG=’False’</em>, <em>kdsdCG=’False’</em>, <em>kdrd=’False’</em>, <em>khybO=’False’</em>, <em>khybR=’False’</em>, <em>khyb=’False’</em>)</p>
 <p>molecular_species is used to initialize all species involved in the system being simulated.</p>
+<p>DNA template, initial condition, and rate constant initializations can be found <a class="reference internal" href="ClassInitials.html#class"><span class="std std-ref">class</span></a>.</p>
 <div class="admonition-warning admonition">
 <p class="admonition-title">Warning!</p>
 <p>All optional rate constant inputs can only change corresponding species when inputted with those specific species. A warning message will be issued otherwise.</p>
@@ -285,12 +294,18 @@
 </dd>
 <dt>kdrd: <em>float</em>, <em>optional</em></dt><dd><p>Degredation rate for RNA:DNA hybrids.</p>
 </dd>
+<dt>khybO: <em>float</em>, <em>optional</em></dt><dd><p>Hybridization rate for output.</p>
+</dd>
+<dt>khybR: <em>float</em>, <em>optional</em></dt><dd><p>Hybridization rate for reporter.</p>
+</dd>
+<dt>khyb: <em>float</em>, <em>optional</em></dt><dd><p>Hybrdization rate for both output and reporter (khybO,khybR).</p>
+</dd>
 </dl>
 </dd>
 </dl>
 </section>
 <section id="simulate">
-<span id="id3"></span><h2>simulate<a class="headerlink" href="#simulate" title="Permalink to this heading"></a></h2>
+<span id="id4"></span><h2>simulate<a class="headerlink" href="#simulate" title="Permalink to this heading"></a></h2>
 <p>simulate(<em>t_vec</em>, <em>leak=0.03</em>, <em>leakA=0.06</em>, <em>smethod=’False’</em>, <em>iteration=1</em>)</p>
 <p>simulate is used to run a simulation for a provided amount of time using the components previously initialized by molecular_species. simulate also includes the discontinuous feature of the simulator.</p>
 <dl>
@@ -322,7 +337,7 @@
 </dl>
 </section>
 <section id="output-concentration">
-<span id="id4"></span><h2>output_concentration<a class="headerlink" href="#output-concentration" title="Permalink to this heading"></a></h2>
+<span id="id5"></span><h2>output_concentration<a class="headerlink" href="#output-concentration" title="Permalink to this heading"></a></h2>
 <p>output_concentration(<em>name</em>)</p>
 <p>output_concentration is used to pull out desired output concentrations created after running of the simulate function.</p>
 <dl class="simple">
@@ -351,6 +366,7 @@
 <li><p>Comparator Gate -&gt; CG{domainI,domainO} (not case sensitive)</p></li>
 <li><p>Comparator Gate-Output Complex A -&gt; CGOa{domainI,domainO} (not case sensitive)</p></li>
 <li><p>Comparator Gate-Output Complex B -&gt; CGOb{domainI,domainO} (not case sensitive)</p></li>
+<li><p>Q -&gt; Q{domain} (not case sensitive)</p></li>
 </ul>
 </dd>
 </dl>
@@ -360,7 +376,7 @@
 </dl>
 </section>
 <section id="transcription-calibration">
-<span id="id5"></span><h2>transcription_calibration<a class="headerlink" href="#transcription-calibration" title="Permalink to this heading"></a></h2>
+<span id="id6"></span><h2>transcription_calibration<a class="headerlink" href="#transcription-calibration" title="Permalink to this heading"></a></h2>
 <p>transcription_calibration(<em>simTime</em>, <em>data</em> , <em>ktxn=’False’</em>)</p>
 <p>transcription_calibration is used to test different transcription rates against an inputted set of data and its corresponding time values. The user can test their data against a base set of rates set in the function, or can specify their own rate(s).</p>
 <dl>

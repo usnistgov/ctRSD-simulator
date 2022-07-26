@@ -3,7 +3,7 @@
 
 @author: tnm12
 
-Simulator 2 version 0.1.6
+Simulator 2 version 0.2.1
 
 Patch Notes 2.0.1.0:
     1.) Converted rate constants from scalars to N sized vectors / NxN matrices
@@ -66,7 +66,7 @@ import time
 import math
 
 
-def rate_eqs(t,y,ktxnO,ktxnG,ktxnTh,ktxnF,ktxnAG,ktxnCG,krz,krsd,krev,krep,krepr,kth,krzTh,krsdF,krevF,krevA,krsdA,krzA,krevCG,krsdCG,krzCG,leak,leakA,Otempm,Gtempm,Thtempv,Ftempv,AGtempm,AGmap,CGtempm,CGmap,kssdO,kssdF,kdsduG,kdsdG,kdsdGO,kdsduAG,kdsdAG,kdsduCG,kdsdCG,kdrd,N):
+def rate_eqs(t,y,ktxnO,ktxnG,ktxnTh,ktxnF,ktxnAG,ktxnCG,krz,krsd,krev,krep,krepr,kth,krzTh,krsdF,krevF,krevA,krsdA,krzA,krevCG,krsdCG,krzCG,leak,leakA,Otempm,Gtempm,Thtempv,Ftempv,AGtempm,AGmap,CGtempm,CGmap,kssdO,kssdF,kdsduG,kdsdG,kdsdGO,kdsduAG,kdsdAG,kdsduCG,kdsdCG,kdrd,khybO,khybR,N):
 
     
     uG = y[0:N**2]
@@ -89,6 +89,7 @@ def rate_eqs(t,y,ktxnO,ktxnG,ktxnTh,ktxnF,ktxnAG,ktxnCG,krz,krsd,krev,krep,krepr
     CGOa = y[6*N+11*N**2:6*N+12*N**2]
     CGOb = y[6*N+12*N**2:6*N+13*N**2]
     AGFbv = y[6*N+13*N**2:7*N+13*N**2]
+    Qv = y[7*N+13*N**2:8*N+13*N**2]
     
 
     ##Reshaping
@@ -121,6 +122,8 @@ def rate_eqs(t,y,ktxnO,ktxnG,ktxnTh,ktxnF,ktxnAG,ktxnCG,krz,krsd,krev,krep,krepr
     CGm = np.array(CG).reshape(N,N)
     CGOam = np.array(CGOa).reshape(N,N)
     CGObm = np.array(CGOb).reshape(N,N)
+    
+    Qm = np.diag(Qv)
     
     
     
@@ -174,12 +177,14 @@ def rate_eqs(t,y,ktxnO,ktxnG,ktxnTh,ktxnF,ktxnAG,ktxnCG,krz,krsd,krev,krep,krepr
     OMannA = Om @ np.diag(np.sum(krsdCG*CGOam @ CGmap,axis=0))
     OMannB = Om @ np.diag(np.sum(krsdCG*CGObm @ CGmap.T,axis=0))
     
+    khybO_Omrsv = np.sum(khybO*Om,axis=0)
+    
     kdrd_ROmrsv = np.sum(ROm*kdrd,axis=0)
     
     ##Rate Equations
     duGm = (-krz*uGm + ktxnG*Gtempm - kdsduG*uGm).flatten()
     dGm = (krz*uGm - (Omrsd @ (krsd*Gm))  + GOmrsd @ (krev*Om) - kdsdG*Gm).flatten()
-    dOm = (-kssdO*Om\
+    dOm = (-kssdO*Om - (khybO*Om) @ Qm\
            -Om @ krsdCG_CGmrsd + krevCG*CGObm - Om @ krsdCG_CGmcsd + krevCG*CGOam - OMannB - OMannA \
            + Omrsd @ (krsdA*AGOam) -Om @ krsdA_AGmcsd - Om @ krsdA_AGOamcsd  + AGObmrsd @ (-krevA*Om) + AGObm @ (krevA_Omcsd) + AGmap @ (leakA*ktxnAG*AGtempm) \
            + GOm @ krsdFm - (krevF*Om) @ GFm + AGObm @ krsdFm - (krevF*Om) @ AGFbm\
@@ -188,9 +193,9 @@ def rate_eqs(t,y,ktxnO,ktxnG,ktxnTh,ktxnF,ktxnAG,ktxnCG,krz,krsd,krev,krep,krepr
     dGOm = (-kdsdGO*GOm \
             -GOm @ krsdFm + (krevF*Om) @ GFm \
             + Om @ krsd_Gmcsd - (GOm) @ krev_Omcsd ).flatten()
-    dRv = (-krep*Rv*Omrsv + krepr*Sv*ROmrsv + kdrd_ROmrsv)
-    dSv = (krep*Rv*Omrsv - krepr*Sv*ROmrsv - kdrd_ROmrsv)
-    dROm = (Om @ (krep*Rm) - ROm @ (krepr*Sm) - kdrd*ROm).flatten()
+    dRv = (-krep*Rv*Omrsv + krepr*Sv*ROmrsv + khybR*Sv*Qv)
+    dSv = (krep*Rv*Omrsv - krepr*Sv*ROmrsv - khybR*Sv*Qv)
+    dROm = (Om @ (krep*Rm) - ROm @ (krepr*Sm) - kdrd*ROm + (khybO*Om) @ Qm).flatten()
     
     duThv = (ktxnTh*Thtempv -krzTh*uThv)
     dThv = (krzTh*uThv -kth*Thv*Omrsv)
@@ -212,19 +217,18 @@ def rate_eqs(t,y,ktxnO,ktxnG,ktxnTh,ktxnF,ktxnAG,ktxnCG,krz,krsd,krev,krep,krepr
     dCGOam = (Om @ krsdCG_CGmcsd - krevCG*CGOam - (krsdCG*CGOam) @ CGannA).flatten()
     dCGObm = (Om @ krsdCG_CGmrsd - krevCG*CGObm - (krsdCG*CGObm) @ CGannB).flatten()
     
+    dQv = (kdrd_ROmrsv - khybR*Sv*Qv - khybO_Omrsv*Qv)
     
     
-    return(np.concatenate([duGm,dGm,dOm,dGOm,dRv,dSv,dROm,duThv,dThv,dFv,dGFv,duAGm,dAGm,dAGOam,dAGObm,duCGm,dCGm,dCGOam,dCGObm,dAGFbv]))
+    
+    return(np.concatenate([duGm,dGm,dOm,dGOm,dRv,dSv,dROm,duThv,dThv,dFv,dGFv,duAGm,dAGm,dAGOam,dAGObm,duCGm,dCGm,dCGOam,dCGObm,dAGFbv,dQv]))
 
 
 class RSD_sim:
     def __init__(self,domains=5):
         
         self.N = domains
-        # DNA template concentration vectors
-        #self.IN_con = domains*[0] # Inputs
         
-       
         self.Gtemp_con = 0*np.ones((domains,domains))  # single RNA gates
         self.Otemp_con = 0*np.ones((domains,domains)) # Outputs
         self.thresh_con = np.array(domains*[0])
@@ -235,14 +239,10 @@ class RSD_sim:
         # Initial species concentration vectors
         self.uG_ic = 0*np.ones((domains,domains))
         self.GO_ic = 0*np.ones((domains,domains))
-        self.G_ic = 0*np.ones((domains,domains)) # single RNA gates
-        #self.rsdA_ic = domains*[0] # AND gates
+        self.G_ic = 0*np.ones((domains,domains)) 
         self.rep_ic = np.array(domains*[0]) # reporters
         self.RO_ic =  0*np.ones((domains,domains))
         self.S_ic = np.array(domains*[0])
-        #self.f_ic = domains*[0] # fuel strands
-        #self.wta_ic = domains*[0] # WTA strands
-        #self.th_ic = domains*[0] # threshold gates
         self.out_ic = 0*np.ones((domains,domains)) # Outputs
         self.rep_ic_flag = np.array(domains*[0]) # saves if the reporter con was updated
         
@@ -264,8 +264,9 @@ class RSD_sim:
         self.CGOb_ic = 0*np.ones((domains,domains))
         self.CGmap = 0*np.ones((domains,domains))  
         
-        #self.AGFa_ic = 0*np.ones((domains,domains))
         self.AGFb_ic = np.array(domains*[0])
+        
+        self.Q_ic = np.array(domains*[0])
         
         self.ktxnO = 0.013*np.ones((domains,domains))
         self.ktxnG = 0.013*np.ones((domains,domains))
@@ -315,10 +316,13 @@ class RSD_sim:
         
         self.kdrd = 0*np.ones((domains,domains))
         
+        self.khybO = 1e6/1e9*np.ones((domains,domains))
+        self.khybR = np.array(domains*[1e6/1e9])
+        
         self.AGcheck = False
         self.Fcheck = False    
         
-        self.initialcheck = np.array((7*self.N+13*self.N**2)*[0])
+        self.initialcheck = np.array((8*self.N+13*self.N**2)*[0])
         self.initialcheckIter = []
         
         self.plotCheck1 = False
@@ -328,7 +332,7 @@ class RSD_sim:
        
         
     # function for defining the DNA species in the model instance and the circuit connectivity
-    def global_rate_constants(self,krz='False',krsd='False',krev='False',krep='False',krepr='False',kth='False',krzTh='False',krsdF='False',krevF='False',krevA='False',krsdA='False',krzA='False',krevCG='False',krsdCG='False',krzCG='False',ktxnO='False',ktxnG='False',ktxnTh='False',ktxnF='False',ktxnAG='False',ktxnCG='False',ktxn='False',kssdO='False',kssdF='False',kdsduG='False',kdsdG='False',kdsdGO='False',kdsduAG='False',kdsdAG='False',kdsduCG='False',kdsdCG='False',kdrd='False',kdeg='False',kssd='False',kdsd='False'):
+    def global_rate_constants(self,krz='False',krsd='False',krev='False',krep='False',krepr='False',kth='False',krzTh='False',krsdF='False',krevF='False',krevA='False',krsdA='False',krzA='False',krevCG='False',krsdCG='False',krzCG='False',ktxnO='False',ktxnG='False',ktxnTh='False',ktxnF='False',ktxnAG='False',ktxnCG='False',ktxn='False',kssdO='False',kssdF='False',kdsduG='False',kdsdG='False',kdsdGO='False',kdsduAG='False',kdsdAG='False',kdsduCG='False',kdsdCG='False',kdrd='False',kdeg='False',kssd='False',kdsd='False',khybO='False',khybR='False',khyb='False'):
         if krz != 'False':
             self.krz = krz*np.ones((self.N,self.N))
         if krsd != 'False':
@@ -429,10 +433,18 @@ class RSD_sim:
             self.kdsdAG = kdsd*np.ones((self.N,self.N))
             self.kdsdsuCG = kdsd*np.ones((self.N,self.N))
             self.kdsdCG = kdsd*np.ones((self.N,self.N))
+        
+        if khybO != 'False':
+            self.khybO = khybO*np.ones((self.N,self.N))
+        if khybR != 'False':
+            self.khybR = np.array(self.N*[khybR])
+        if khyb != 'False':
+            self.khybO = khybO*np.ones((self.N,self.N))
+            self.khybR = np.array(self.N*[khybR])
             
     
     
-    def molecular_species(self,name,DNA_con=0,ic='False',krz='False',krsd='False',krev='False',krep='False',krepr='False',kth='False',krzTh='False',krsdF='False',krevF='False',krevA='False',krsdA='False',krzA='False',krevCG='False',krsdCG='False',krzCG='False',ktxnO='False',ktxnG='False',ktxnTh='False',ktxnF='False',ktxnAG='False',ktxnCG='False',kssdO='False',kssdF='False',kdsduG='False',kdsdG='False',kdsdGO='False',kdsduAG='False',kdsdAG='False',kdsduCG='False',kdsdCG='False',kdrd='False'):
+    def molecular_species(self,name,DNA_con=0,ic='False',krz='False',krsd='False',krev='False',krep='False',krepr='False',kth='False',krzTh='False',krsdF='False',krevF='False',krevA='False',krsdA='False',krzA='False',krevCG='False',krsdCG='False',krzCG='False',ktxnO='False',ktxnG='False',ktxnTh='False',ktxnF='False',ktxnAG='False',ktxnCG='False',kssdO='False',kssdF='False',kdsduG='False',kdsdG='False',kdsdGO='False',kdsduAG='False',kdsdAG='False',kdsduCG='False',kdsdCG='False',kdrd='False',khybO='False',khybR='False'):
         inp = re.compile("(i|in|inp|input)\{\w*\d+\w*\}")
         inps = inp.fullmatch(name.lower())
         rep = re.compile("(r|rep|reporter)\{\w*\d+\w*\}")
@@ -488,6 +500,7 @@ class RSD_sim:
         CGObs = CGOb.fullmatch(name.lower())
         
         
+        
         if inps:
             inpInd1f = re.compile("\d+")
             inpInd1 = int(inpInd1f.search(name.lower()).group())-1
@@ -498,7 +511,7 @@ class RSD_sim:
                 self.initialcheck[2*self.N**2+(self.N*inpInd1) + inpInd1] += 1
                 
             
-            if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False':
+            if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False':
                 print('This rate constant should not be changed with respect to an input')
             if ktxnO != 'False':
                 self.ktxnO[inpInd1,inpInd1] = ktxnO
@@ -515,13 +528,16 @@ class RSD_sim:
                 self.rep_ic[repInd1] = ic
                 self.initialcheck[4*self.N**2 + repInd1] += 1
             
-            if krz != 'False' or krsd != 'False' or krev != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False':
+            if krz != 'False' or krsd != 'False' or krev != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False':
                 print('This rate constant should not be changed with respect to a reporter')
             
             if krep != 'False':
                 self.krep[repInd1] = krep
             if krepr != 'False':
                 self.krepr[repInd1] = krepr
+            if khybR != 'False':
+                self.khybR[repInd1] = khybR
+                
         elif outs:
             outIndf = re.findall("\d+",name.lower())
 
@@ -535,7 +551,7 @@ class RSD_sim:
                 self.initialcheck[2*self.N**2+(self.N*outInd1) + outInd2] += 1
             
             
-            if krz != 'False' or krsd != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False'  or krzA != 'False' or krsdA != "False" or krsdCG != 'False' or krzCG != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False':
+            if krz != 'False' or krsd != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False'  or krzA != 'False' or krsdA != "False" or krsdCG != 'False' or krzCG != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybR != 'False':
                 print('This rate constant should not be changed with respect to an output')
             if ktxnO != 'False':
                 self.ktxnO[outInd1,outInd2] = ktxnO
@@ -549,6 +565,8 @@ class RSD_sim:
                 self.krevCG[outInd1,outInd2] = krevCG
             if kssdO != 'False':
                 self.kssdO[outInd1,outInd2] = kssdO
+            if khybO != 'False':
+                self.khybO[outInd1,outInd2] = khybO
             
             
             
@@ -562,7 +580,7 @@ class RSD_sim:
                 self.G_ic[gateInd1,gateInd2]=ic
                 self.initialcheck[self.N**2+(self.N*gateInd1) + gateInd2] += 1
             
-            if krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krzA != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False':
+            if krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krzA != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False':
                 print('This rate constant should not be changed with respect to a gate')
             if krev != 'False':
                 self.krev[gateInd1,gateInd2] = krev   
@@ -587,7 +605,7 @@ class RSD_sim:
                 self.uG_ic[uGInd1,uGInd2]=ic
                 self.initialcheck[0+(self.N*uGInd1) + uGInd2] += 1
             
-            if krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False':
+            if krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False':
                 print('This rate constant should not be changed with respect to an uncleaved gate')
             if krz != 'False':
                 self.krz[uGInd1,uGInd2] = krz
@@ -605,7 +623,7 @@ class RSD_sim:
                 self.GO_ic[GIInd1,GIInd1]=ic
                 self.initialcheck[3*self.N**2+(self.N*GIInd1) + GIInd1] += 1
             
-            if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False':
+            if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False':
                 print('This rate constant should not be changed with respect to a GI species')
             if kdsdGO != 'False':
                 self.kdsdGO[GIInd1,GIInd1] = kdsdGO
@@ -616,7 +634,7 @@ class RSD_sim:
             GOInd1 = int(GOIndf[0])-1
             GOInd2 = int(GOIndf[1])-1
             
-            if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False':
+            if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False':
                 print('This rate constant should not be changed with respect to GO species')
             if kdsdGO != 'False':
                 self.kdsdGO[GOInd1,GOInd2] = kdsdGO
@@ -630,7 +648,7 @@ class RSD_sim:
            ROInd1 = int(ROIndf[0])-1
            ROInd2 = int(ROIndf[1])-1
            
-           if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False':
+           if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or khybO != 'False' or khybR != 'False':
                print('This rate constant should not be changed with respect to an RO species')
            if kdrd != 'False':
                self.kdrd[ROInd1,ROInd2] = kdrd
@@ -643,7 +661,7 @@ class RSD_sim:
             SInd1f = re.compile("\d+")
             SInd1 = int(SInd1f.search(name.lower()).group())-1
             
-            if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False':
+            if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False':
                 print('This rate constant should not be changed with respect to a S species')
             
             if ic != 'False':
@@ -658,7 +676,7 @@ class RSD_sim:
                 self.uTh_ic[uThInd1] = ic
                 self.initialcheck[2*self.N+5*self.N**2 + uThInd1] += 1
             
-            if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False':
+            if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False':
                 print('This rate constant should not be changed with respect to a S species')
             if krzTh != 'False':
                 self.krzTh[uThInd1] = krzTh
@@ -674,7 +692,7 @@ class RSD_sim:
                 self.thresh_ic[threshInd1] = ic
                 self.initialcheck[3*self.N+5*self.N**2 + threshInd1] += 1
             
-            if krep != 'False' or krepr != 'False' or krev != 'False' or krsd != 'False' or krz != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False':
+            if krep != 'False' or krepr != 'False' or krev != 'False' or krsd != 'False' or krz != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False':
                 print('This rate constant should not be changed with respect to a gate')
             if kth != 'False':
                 self.kth[threshInd1] = kth
@@ -692,7 +710,7 @@ class RSD_sim:
                 self.F_ic[self.fuelInd1] = ic
                 self.initialcheck[4*self.N+5*self.N**2 + self.fuelInd1] += 1
             
-            if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krevA != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False':
+            if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krevA != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False':
                 print('This rate constant should not be changed with respect to a S species')
             if krsdF != 'False':
                 self.krsdF[self.fuelInd1] = krsdF
@@ -715,7 +733,7 @@ class RSD_sim:
                 self.GF_ic[GFInd1] = ic
                 self.initialcheck[5*self.N+5*self.N**2 + self.GFInd1] += 1
             
-            if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False':
+            if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False':
                 print('This rate constant should not be changed with respect to a S species')
             if ktxnF != 'False':
                 self.ktxnF[GFInd1] = ktxnF
@@ -735,7 +753,7 @@ class RSD_sim:
             
             self.AGmap[AGOInd1,AGOInd2] = 1
             
-            if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False':
+            if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False':
                 print('This rate constant should not be changed with respect to a S species')
             if krsdA != 'False':
                 self.krsdA[self.AGInd1,AGInd2] = krsdA
@@ -755,7 +773,7 @@ class RSD_sim:
             uAGInd1 = int(uAGIndf[0])-1
             uAGInd2 = int(uAGIndf[1])-1
             
-            if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krsdA != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False':
+            if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krsdA != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False':
                 print('This rate constant should not be changed with respect to a S species')
             if krzA != 'False':
                 self.krzA[uAGInd1,uAGInd2] = krzA
@@ -773,7 +791,7 @@ class RSD_sim:
             AGOaInd1 = int(AGOaIndf[0])-1
             AGOaInd2 = int(AGOaIndf[1])-1
             
-            if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krzA != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False':
+            if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krzA != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False':
                 print('This rate constant should not be changed with respect to a S species')
             if krsdA != 'False':
                 self.krsdA[AGOaInd1,AGOaInd2] = krsdA
@@ -787,7 +805,7 @@ class RSD_sim:
             AGObInd1 = int(AGObIndf[0])-1
             AGObInd2 = int(AGObIndf[1])-1
             
-            if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False':
+            if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False':
                 print('This rate constant should not be changed with respect to a S species')
             
             if ic != 'False':
@@ -803,7 +821,7 @@ class RSD_sim:
                 self.AGFb_ic[AGFbInd1] = ic
                 self.initialcheck[6*self.N+13*self.N**2 + self.AGFbInd1] += 1
             
-            if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False':
+            if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False':
                 print('This rate constant should not be changed with respect to a S species')
                    
         elif CGs:
@@ -821,7 +839,7 @@ class RSD_sim:
             self.CGmap[CGInd1,CGInd2] = 1
             
             
-            if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krsdA != 'False' or krzA != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnAG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdrd != 'False':
+            if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krsdA != 'False' or krzA != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnAG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False':
                 print('This rate constant should not be changed with respect to a S species')
             if krsdCG != 'False':
                 self.krsdCG[CGInd1,CGInd2] = krsdCG
@@ -839,7 +857,7 @@ class RSD_sim:
             uCGInd1 = int(uCGIndf[0])-1
             uCGInd2 = int(uCGIndf[1])-1
             
-            if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krsdCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnAG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsdCG != 'False' or kdrd != 'False':
+            if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krsdCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnAG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False':
                 print('This rate constant should not be changed with respect to a S species')
             if krzCG != 'False':
                 self.krzCG[uCGInd1,uCGInd2] = krzCG
@@ -857,7 +875,7 @@ class RSD_sim:
             CGOaInd1 = int(CGOaIndf[0])-1
             CGOaInd2 = int(CGOaIndf[1])-1
             
-            if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False':
+            if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False':
                 print('This rate constant should not be changed with respect to a S species')
             if krsdCG != 'False':
                 self.krsdCG[CGOaInd1,CGOaInd2] = krsdCG
@@ -871,12 +889,13 @@ class RSD_sim:
             CGObInd1 = int(CGObIndf[0])-1
             CGObInd2 = int(CGObIndf[1])-1
             
-            if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False':
+            if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTh != 'False' or krsdF != 'False' or krevF != 'False' or krevA != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krsdCG != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTh != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False':
                 print('This rate constant should not be changed with respect to a S species')
             
             if ic != 'False':
                 self.CGOb_ic[CGObInd1,CGObInd2] = ic
                 self.initialcheck[6*self.N+12*self.N**2:+(self.N*CGObInd1) + CGObInd2] += 1
+    
                     
             
         else:
@@ -893,13 +912,13 @@ class RSD_sim:
         
         if iteration == 1:
         
-            self.initials = np.concatenate([self.uG_ic.flatten(),self.G_ic.flatten(),self.out_ic.flatten(),self.GO_ic.flatten(),self.rep_ic.flatten(),self.S_ic.flatten(),self.RO_ic.flatten(),self.uTh_ic.flatten(),self.thresh_ic.flatten(),self.F_ic.flatten(),self.GF_ic.flatten(),self.uAG_ic.flatten(),self.AG_ic.flatten(),self.AGOa_ic.flatten(),self.AGOb_ic.flatten(),self.uCG_ic.flatten(),self.CG_ic.flatten(),self.CGOa_ic.flatten(),self.CGOb_ic.flatten(),self.AGFb_ic.flatten()])
+            self.initials = np.concatenate([self.uG_ic.flatten(),self.G_ic.flatten(),self.out_ic.flatten(),self.GO_ic.flatten(),self.rep_ic.flatten(),self.S_ic.flatten(),self.RO_ic.flatten(),self.uTh_ic.flatten(),self.thresh_ic.flatten(),self.F_ic.flatten(),self.GF_ic.flatten(),self.uAG_ic.flatten(),self.AG_ic.flatten(),self.AGOa_ic.flatten(),self.AGOb_ic.flatten(),self.uCG_ic.flatten(),self.CG_ic.flatten(),self.CGOa_ic.flatten(),self.CGOb_ic.flatten(),self.AGFb_ic.flatten(),self.Q_ic.flatten()])
             self.initialcheckIter.append(np.asarray(list(self.initialcheck)))
             
             if smethod != 'False':
-                self.solve = spi.solve_ivp(lambda t,y: rate_eqs(t,y,self.ktxnO,self.ktxnG,self.ktxnTh,self.ktxnF,self.ktxnAG,self.ktxnCG,self.krz,self.krsd,self.krev,self.krep,self.krepr,self.kth,self.krzTh,self.krsdF,self.krevF,self.krevA,self.krsdA,self.krzA,self.krevCG,self.krsdCG,self.krzCG,leak,leakA,self.Otemp_con,self.Gtemp_con,self.thresh_con,self.F_con,self.AG_con,self.AGmap.T,self.CG_con,self.CGmap,self.kssdO,self.kssdF,self.kdsduG,self.kdsdG,self.kdsdGO,self.kdsduAG,self.kdsdAG,self.kdsduCG,self.kdsdCG,self.kdrd,self.N),[t_vec[0],t_vec[-1]],self.initials,t_eval=t_vec,method=smethod)
+                self.solve = spi.solve_ivp(lambda t,y: rate_eqs(t,y,self.ktxnO,self.ktxnG,self.ktxnTh,self.ktxnF,self.ktxnAG,self.ktxnCG,self.krz,self.krsd,self.krev,self.krep,self.krepr,self.kth,self.krzTh,self.krsdF,self.krevF,self.krevA,self.krsdA,self.krzA,self.krevCG,self.krsdCG,self.krzCG,leak,leakA,self.Otemp_con,self.Gtemp_con,self.thresh_con,self.F_con,self.AG_con,self.AGmap.T,self.CG_con,self.CGmap,self.kssdO,self.kssdF,self.kdsduG,self.kdsdG,self.kdsdGO,self.kdsduAG,self.kdsdAG,self.kdsduCG,self.kdsdCG,self.kdrd,self.khybO,self.khybR,self.N),[t_vec[0],t_vec[-1]],self.initials,t_eval=t_vec,method=smethod)
             else:
-                self.solve = spi.solve_ivp(lambda t,y: rate_eqs(t,y,self.ktxnO,self.ktxnG,self.ktxnTh,self.ktxnF,self.ktxnAG,self.ktxnCG,self.krz,self.krsd,self.krev,self.krep,self.krepr,self.kth,self.krzTh,self.krsdF,self.krevF,self.krevA,self.krsdA,self.krzA,self.krevCG,self.krsdCG,self.krzCG,leak,leakA,self.Otemp_con,self.Gtemp_con,self.thresh_con,self.F_con,self.AG_con,self.AGmap.T,self.CG_con,self.CGmap,self.kssdO,self.kssdF,self.kdsduG,self.kdsdG,self.kdsdGO,self.kdsduAG,self.kdsdAG,self.kdsduCG,self.kdsdCG,self.kdrd,self.N),[t_vec[0],t_vec[-1]],self.initials,t_eval=t_vec,method='LSODA')
+                self.solve = spi.solve_ivp(lambda t,y: rate_eqs(t,y,self.ktxnO,self.ktxnG,self.ktxnTh,self.ktxnF,self.ktxnAG,self.ktxnCG,self.krz,self.krsd,self.krev,self.krep,self.krepr,self.kth,self.krzTh,self.krsdF,self.krevF,self.krevA,self.krsdA,self.krzA,self.krevCG,self.krsdCG,self.krzCG,leak,leakA,self.Otemp_con,self.Gtemp_con,self.thresh_con,self.F_con,self.AG_con,self.AGmap.T,self.CG_con,self.CGmap,self.kssdO,self.kssdF,self.kdsduG,self.kdsdG,self.kdsdGO,self.kdsduAG,self.kdsdAG,self.kdsduCG,self.kdsdCG,self.kdrd,self.khybO,self.khybR,self.N),[t_vec[0],t_vec[-1]],self.initials,t_eval=t_vec,method='LSODA')
             
             
             self.t = self.solve.t
@@ -923,11 +942,12 @@ class RSD_sim:
             self.CGOa_simcon = self.solve.y[6*self.N+11*self.N**2:6*self.N+12*self.N**2]
             self.CGOb_simcon = self.solve.y[6*self.N+12*self.N**2:6*self.N+13*self.N**2]
             self.AGFb_simcon = self.solve.y[6*self.N+13*self.N**2:7*self.N+13*self.N**2]
+            self.Q_simcon = self.solve.y[7*self.N+13*self.N**2:8*self.N+13*self.N**2]
         
         if iteration > 1:
                      
             self.initialsNEW = np.array(self.solve.y[:,-1])
-            self.initialsOLD = np.concatenate([self.uG_ic.flatten(),self.G_ic.flatten(),self.out_ic.flatten(),self.GO_ic.flatten(),self.rep_ic.flatten(),self.S_ic.flatten(),self.RO_ic.flatten(),self.uTh_ic.flatten(),self.thresh_ic.flatten(),self.F_ic.flatten(),self.GF_ic.flatten(),self.uAG_ic.flatten(),self.AG_ic.flatten(),self.AGOa_ic.flatten(),self.AGOb_ic.flatten(),self.uCG_ic.flatten(),self.CG_ic.flatten(),self.CGOa_ic.flatten(),self.CGOb_ic.flatten(),self.AGFb_ic.flatten()])
+            self.initialsOLD = np.concatenate([self.uG_ic.flatten(),self.G_ic.flatten(),self.out_ic.flatten(),self.GO_ic.flatten(),self.rep_ic.flatten(),self.S_ic.flatten(),self.RO_ic.flatten(),self.uTh_ic.flatten(),self.thresh_ic.flatten(),self.F_ic.flatten(),self.GF_ic.flatten(),self.uAG_ic.flatten(),self.AG_ic.flatten(),self.AGOa_ic.flatten(),self.AGOb_ic.flatten(),self.uCG_ic.flatten(),self.CG_ic.flatten(),self.CGOa_ic.flatten(),self.CGOb_ic.flatten(),self.AGFb_ic.flatten(),self.Q_ic.flatten()])
             self.initialcheckIter.append(np.asarray(list(self.initialcheck)))
             
             
@@ -939,9 +959,10 @@ class RSD_sim:
             
             
             if smethod != 'False':
-                self.solveNEW = spi.solve_ivp(lambda t,y: rate_eqs(t,y,self.ktxnO,self.ktxnG,self.ktxnTh,self.ktxnF,self.ktxnAG,self.ktxnCG,self.krz,self.krsd,self.krev,self.krep,self.krepr,self.kth,self.krzTh,self.krsdF,self.krevF,self.krevA,self.krsdA,self.krzA,self.krevCG,self.krsdCG,self.krzCG,leak,leakA,self.Otemp_con,self.Gtemp_con,self.thresh_con,self.F_con,self.AG_con,self.AGmap.T,self.CG_con,self.CGmap,self.kssdO,self.kssdF,self.kdsduG,self.kdsdG,self.kdsdGO,self.kdsduAG,self.kdsdAG,self.kdsduCG,self.kdsdCG,self.kdrd,self.N),[t_vec[0],t_vec[-1]],self.initialsNEW,t_eval=t_vec,method=smethod)
+                
+                self.solveNEW = spi.solve_ivp(lambda t,y: rate_eqs(t,y,self.ktxnO,self.ktxnG,self.ktxnTh,self.ktxnF,self.ktxnAG,self.ktxnCG,self.krz,self.krsd,self.krev,self.krep,self.krepr,self.kth,self.krzTh,self.krsdF,self.krevF,self.krevA,self.krsdA,self.krzA,self.krevCG,self.krsdCG,self.krzCG,leak,leakA,self.Otemp_con,self.Gtemp_con,self.thresh_con,self.F_con,self.AG_con,self.AGmap.T,self.CG_con,self.CGmap,self.kssdO,self.kssdF,self.kdsduG,self.kdsdG,self.kdsdGO,self.kdsduAG,self.kdsdAG,self.kdsduCG,self.kdsdCG,self.kdrd,self.khybO,self.khybR,self.N),[t_vec[0],t_vec[-1]],self.initialsNEW,t_eval=t_vec,method=smethod)
             else:
-                self.solveNEW = spi.solve_ivp(lambda t,y: rate_eqs(t,y,self.ktxnO,self.ktxnG,self.ktxnTh,self.ktxnF,self.ktxnAG,self.ktxnCG,self.krz,self.krsd,self.krev,self.krep,self.krepr,self.kth,self.krzTh,self.krsdF,self.krevF,self.krevA,self.krsdA,self.krzA,self.krevCG,self.krsdCG,self.krzCG,leak,leakA,self.Otemp_con,self.Gtemp_con,self.thresh_con,self.F_con,self.AG_con,self.AGmap.T,self.CG_con,self.CGmap,self.kssdO,self.kssdF,self.kdsduG,self.kdsdG,self.kdsdGO,self.kdsduAG,self.kdsdAG,self.kdsduCG,self.kdsdCG,self.kdrd,self.N),[t_vec[0],t_vec[-1]],self.initialsNEW,t_eval=t_vec,method='LSODA')
+                self.solveNEW = spi.solve_ivp(lambda t,y: rate_eqs(t,y,self.ktxnO,self.ktxnG,self.ktxnTh,self.ktxnF,self.ktxnAG,self.ktxnCG,self.krz,self.krsd,self.krev,self.krep,self.krepr,self.kth,self.krzTh,self.krsdF,self.krevF,self.krevA,self.krsdA,self.krzA,self.krevCG,self.krsdCG,self.krzCG,leak,leakA,self.Otemp_con,self.Gtemp_con,self.thresh_con,self.F_con,self.AG_con,self.AGmap.T,self.CG_con,self.CGmap,self.kssdO,self.kssdF,self.kdsduG,self.kdsdG,self.kdsdGO,self.kdsduAG,self.kdsdAG,self.kdsduCG,self.kdsdCG,self.kdrd,self.khybO,self.khybR,self.N),[t_vec[0],t_vec[-1]],self.initialsNEW,t_eval=t_vec,method='LSODA')
             
             self.solve.t = np.concatenate([self.solve.t,self.solveNEW.t])
             self.solve.y = np.concatenate([self.solve.y,self.solveNEW.y],axis=1)
@@ -970,6 +991,7 @@ class RSD_sim:
             self.CGOa_simcon = self.solve.y[6*self.N+11*self.N**2:6*self.N+12*self.N**2]
             self.CGOb_simcon = self.solve.y[6*self.N+12*self.N**2:6*self.N+13*self.N**2]
             self.AGFb_simcon = self.solve.y[6*self.N+13*self.N**2:7*self.N+13*self.N**2]
+            self.Q_simcon = self.solve.y[7*self.N+13*self.N**2:8*self.N+13*self.N**2]
         
     def output_concentration(self,name):
         inp = re.compile("(i|in|inp|input)\{\w*\d+\w*\}")
@@ -1025,6 +1047,9 @@ class RSD_sim:
         CGOas = CGOa.fullmatch(name.lower())
         CGOb = re.compile("cgob\{\w*\d+\w*\,\w*\d+\w*\}")
         CGObs = CGOb.fullmatch(name.lower())
+        
+        Q = re.compile("q\{\w*\d+\w*\}")
+        Qs = Q.fullmatch(name.lower())
         
         if inps:
             inpInd1f = re.compile("\d+")
@@ -1173,14 +1198,21 @@ class RSD_sim:
             
             return(self.CGOa_simcon[self.N*CGOaInd1 + CGOaInd2])
             
-            
-            
+        
         elif CGObs:
             CGObIndf = re.findall("\d+",name.lower())
             CGObInd1 = int(CGObIndf[0])-1
             CGObInd2 = int(CGObIndf[1])-1
             
             return(self.CGOb_simcon[self.N*CGObInd1 + CGObInd2])
+        
+        elif Qs:
+            QIndf = re.findall("\d+",name.lower())
+            QInd1 = int(QIndf[0])-1
+            
+            
+            return(self.Q_simcon[QInd1])
+        
             
             
         
@@ -1331,6 +1363,8 @@ class RSD_sim:
             
         
         
+
+
 
 
 

@@ -32,6 +32,7 @@ Here you will be able to access information on all of the different components o
 
    Overview
    Model-Implementation
+   ClassInitials
    ImportSim
    Functions
 

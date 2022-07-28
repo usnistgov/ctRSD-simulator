@@ -35,6 +35,7 @@ Here you will be able to access information on all of the different components o
    ClassInitials
    ImportSim
    Functions
+   troubleshooting
 
 
 .. toctree::

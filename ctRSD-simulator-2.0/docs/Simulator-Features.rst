@@ -102,7 +102,7 @@ Usage in ctRSD-simulator-2.0
 
 
 
-
+.. _comparator_gate_simulation:
 
 
 Comparator Gate Simulation
@@ -143,7 +143,7 @@ Usage in ctRSD-simulator-2.0
    **CG Simulation**
 
 
-The CG grid simulation is another example using a basic CG system. However, a grid is made using two sets of changing input concentrations. The x-axis shows changing IN{6}, whereas the y-axis shows increasing IN{7}. The grid example efficiently demonstrates the consistent functionality of the comparator gates.
+The CG grid simulation is another example using a basic CG system. However, a grid is made using two sets of changing input concentrations. The x-axis shows changing I{6}, whereas the y-axis shows increasing I{7}. The grid example efficiently demonstrates the consistent functionality of the comparator gates.
 
 
 `CG Grid Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/CG_simulationsGRID.py>`_ 

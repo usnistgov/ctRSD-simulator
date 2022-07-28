@@ -472,7 +472,7 @@ class RSD_sim:
         
         fuel = re.compile("f\{\w*\d+\w*\}")
         fuels = fuel.fullmatch(name.lower())
-        GF = re.compile("f\{\w*\d+\w*\}")
+        GF = re.compile("gf\{\w*\d+\w*\}")
         GFs = GF.fullmatch(name.lower())
         
         #AG = re.compile("ag\{\w*\d+(\.\d+)+\,\w*\d+\w*\}")

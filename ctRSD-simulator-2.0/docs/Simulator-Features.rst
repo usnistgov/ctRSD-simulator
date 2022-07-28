@@ -73,20 +73,6 @@ Some Functionalities used:
 
 
 
-Comparison to ctRSD-simulator-1
-+++++++++++++++++++++++++++++++
-`Discontinuous Simulation Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/discontinuous_simulationsCompar.py>`_ 
-
-.. figure:: /ExampleImages/discontinuous_simulationsCompar.svg
-   :class: with-border
-   :align: center
-
-   **Discontinuous Simulation Comparison**
-
-
-
-Usage in ctRSD-simulator-2.0
-++++++++++++++++++++++++++++
 `Discontinuous Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/discontinuous_simulations.py>`_ 
 
 .. figure:: /ExampleImages/discontinuous_simulations.svg
@@ -120,20 +106,7 @@ Some Functionalities used:
 
 
 
-Comparison to ctRSD-simulator-1
-+++++++++++++++++++++++++++++++
-`CG Simulation Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/CG_simulationsCompar.py>`_ 
 
-.. figure:: /ExampleImages/CG_simulationsCompar.svg
-   :class: with-border
-   :align: center
-
-   **CG Simulation Comparison**
-
-
-
-Usage in ctRSD-simulator-2.0
-++++++++++++++++++++++++++++
 `CG Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/CG_simulations.py>`_ 
 
 .. figure:: /ExampleImages/CG_simulations.svg
@@ -171,20 +144,7 @@ Some Functionalities used:
 
 
 
-Comparison to ctRSD-simulator-1
-+++++++++++++++++++++++++++++++
-`Three CG Simulation Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/threeCG_simulationsCompar.py>`_ 
 
-.. figure:: /ExampleImages/threeCG_simulationsCompar.svg
-   :class: with-border
-   :align: center
-
-   **Three CG Simulation Comparison**
-
-
-
-Usage in ctRSD-simulator-2.0
-++++++++++++++++++++++++++++
 `Three CG Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/threeCG_simulations.py>`_ 
 
 .. figure:: /ExampleImages/threeCG_simulations.svg
@@ -213,20 +173,7 @@ Some Functionalities used:
 
 
 
-Comparison to ctRSD-simulator-1
-+++++++++++++++++++++++++++++++
-`Thresholding Simulation Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/threshold_simulationCompar.py>`_ 
 
-.. figure:: /ExampleImages/threshold_simulationCompar.svg
-   :class: with-border
-   :align: center
-
-   **Thresholding Simulation Comparison**
-
-
-
-Usage in ctRSD-simulator-2.0
-++++++++++++++++++++++++++++
 `Thresholding Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/threshold_simulation.py>`_ 
 
 .. figure:: /ExampleImages/threshold_simulation.svg
@@ -259,21 +206,7 @@ Some Functionalities used:
 
 
 
-Comparison to ctRSD-simulator-1
-+++++++++++++++++++++++++++++++
 
-`Degradation Simulation Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/degradation_simulationsCompar.py>`_ 
-
-.. figure:: /ExampleImages/degradation_simulationsCompar.svg
-   :class: with-border
-   :align: center
-
-   **Degradation Simulation Comparison**
-
-
-
-Usage in ctRSD-simulator-2.0
-++++++++++++++++++++++++++++
 
 `Degredation Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/degradation_simulations.py>`_ 
 

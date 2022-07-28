@@ -465,9 +465,9 @@ class RSD_sim:
         S =  re.compile("s\{\w*\d+\w*\}")
         Ss = S.fullmatch(name.lower())
         
-        uTh = re.compile("uth\{\w*\d+\w*\}")
+        uTh = re.compile("utg/ut/uth\{\w*\d+\w*\}")
         uThs = uTh.fullmatch(name.lower())
-        thresh = re.compile("th\{\w*\d+\w*\}")
+        thresh = re.compile("tg/t/th\{\w*\d+\w*\}")
         threshs = thresh.fullmatch(name.lower())
         
         fuel = re.compile("f\{\w*\d+\w*\}")
@@ -728,7 +728,7 @@ class RSD_sim:
             GFInd1f = re.compile("\d+")
             GFInd1 = int(GFInd1f.search(name.lower()).group())-1
             
-            self.GF_con[GFInd1] = DNA_con
+
             if ic != 'False':
                 self.GF_ic[GFInd1] = ic
                 self.initialcheck[5*self.N+5*self.N**2 + self.GFInd1] += 1

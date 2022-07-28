@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Model Implementation &mdash; ctRSD-simulator-2.0 2.0.0 documentation</title>
+  <title>Model Reactions and Implementation &mdash; ctRSD-simulator-2.0 2.0.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -41,7 +41,7 @@
               <p class="caption" role="heading"><span class="caption-text">General:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Model Implementation</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Model Reactions and Implementation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#ctrsd-reaction-schematics">ctRSD Reaction Schematics</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#base-ctrsd-reactions">Base ctRSD Reactions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#thresholding-reactions">Thresholding Reactions</a></li>
@@ -54,7 +54,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ImportSim.html">Installing and Initializing Simulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ClassInitials.html">RSD_sim Class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">General Examples:</span></p>
 <ul>
@@ -79,7 +81,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Model Implementation</li>
+      <li>Model Reactions and Implementation</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/Model-Implementation.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -89,61 +91,61 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="model-implementation">
-<span id="id1"></span><h1>Model Implementation<a class="headerlink" href="#model-implementation" title="Permalink to this heading"></a></h1>
+  <section id="model-reactions-and-implementation">
+<span id="model-implementation"></span><h1>Model Reactions and Implementation<a class="headerlink" href="#model-reactions-and-implementation" title="Permalink to this heading"></a></h1>
 <section id="ctrsd-reaction-schematics">
 <h2>ctRSD Reaction Schematics<a class="headerlink" href="#ctrsd-reaction-schematics" title="Permalink to this heading"></a></h2>
 <section id="base-ctrsd-reactions">
 <h3>Base ctRSD Reactions<a class="headerlink" href="#base-ctrsd-reactions" title="Permalink to this heading"></a></h3>
-<figure class="align-center" id="id2">
+<figure class="align-center" id="id1">
 <img alt="_images/base_reactions.png" class="with-border" src="_images/base_reactions.png" />
 <figcaption>
-<p><span class="caption-text"><strong>Base ctRSD Reactions Schematics</strong></span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><strong>Base ctRSD Reactions Schematics</strong></span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="thresholding-reactions">
 <h3>Thresholding Reactions<a class="headerlink" href="#thresholding-reactions" title="Permalink to this heading"></a></h3>
-<figure class="align-center" id="id3">
+<figure class="align-center" id="id2">
 <img alt="_images/thresholding_reactions.png" class="with-border" src="_images/thresholding_reactions.png" />
 <figcaption>
-<p><span class="caption-text"><strong>Thresholding Reactions Schematics</strong></span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><strong>Thresholding Reactions Schematics</strong></span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="and-gate-reactions">
 <h3>AND Gate Reactions<a class="headerlink" href="#and-gate-reactions" title="Permalink to this heading"></a></h3>
-<figure class="align-center" id="id4">
+<figure class="align-center" id="id3">
 <img alt="_images/and_gate_reactions.png" class="with-border" src="_images/and_gate_reactions.png" />
 <figcaption>
-<p><span class="caption-text"><strong>AND Gate Reactions Schematics</strong></span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><strong>AND Gate Reactions Schematics</strong></span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="fuel-reactions">
 <h3>Fuel Reactions<a class="headerlink" href="#fuel-reactions" title="Permalink to this heading"></a></h3>
-<figure class="align-center" id="id5">
+<figure class="align-center" id="id4">
 <img alt="_images/fuel_reactions.png" class="with-border" src="_images/fuel_reactions.png" />
 <figcaption>
-<p><span class="caption-text"><strong>Fuel Reactions Schematics</strong></span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><strong>Fuel Reactions Schematics</strong></span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="degradation-reactions">
 <h3>Degradation Reactions<a class="headerlink" href="#degradation-reactions" title="Permalink to this heading"></a></h3>
-<figure class="align-center" id="id6">
+<figure class="align-center" id="id5">
 <img alt="_images/degradation_reactions.png" class="with-border" src="_images/degradation_reactions.png" />
 <figcaption>
-<p><span class="caption-text"><strong>Degradation Reactions Schematics</strong></span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><strong>Degradation Reactions Schematics</strong></span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="comparator-gate-reactions">
 <h3>Comparator Gate Reactions<a class="headerlink" href="#comparator-gate-reactions" title="Permalink to this heading"></a></h3>
-<figure class="align-center" id="id7">
+<figure class="align-center" id="id6">
 <img alt="_images/comparator_gate_reactions.png" class="with-border" src="_images/comparator_gate_reactions.png" />
 <figcaption>
-<p><span class="caption-text"><strong>Comparator Gate Reactions Schematics</strong></span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><strong>Comparator Gate Reactions Schematics</strong></span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>

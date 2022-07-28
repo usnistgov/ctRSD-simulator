@@ -19,8 +19,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Simulator Features" href="Simulator-Features.html" />
-    <link rel="prev" title="Installing and Initializing Simulator" href="ImportSim.html" /> 
+    <link rel="next" title="Troubleshooting" href="troubleshooting.html" />
+    <link rel="prev" title="RSD_sim Class" href="ClassInitials.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -41,9 +41,9 @@
               <p class="caption" role="heading"><span class="caption-text">General:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Model-Implementation.html">Model Implementation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ClassInitials.html">RSD_sim Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model-Implementation.html">Model Reactions and Implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ImportSim.html">Installing and Initializing Simulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ClassInitials.html">RSD_sim Class</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Functions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#global-rate-constants">global_rate_constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#molecular-species">molecular_species</a></li>
@@ -52,6 +52,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#transcription-calibration">transcription_calibration</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">General Examples:</span></p>
 <ul>
@@ -103,10 +104,10 @@
 , <em>kdsduAG=’False’</em>, <em>kdsdAG=’False’</em>, <em>kdsduCG=’False’</em>, <em>kdsdCG=’False’</em>, <em>kdrd=’False’</em>, <em>kdeg=’False’</em>, <em>kssd=’False’</em>, <em>kdsd=’False’</em>
 , <em>khybO=’False’</em>, <em>khybR=’False’</em>, <em>khyb=’False’</em>)</p>
 <p>global_rate_constants is used to globally change rate constants for all species of the same type (single matrix), or certain groups of different types (multiple matrices), instead of changing a specific rate constant for just one individual species (index of a matrix).</p>
-<p>Rate Constant initializations can be found <a class="reference internal" href="ClassInitials.html#class"><span class="std std-ref">class</span></a>.</p>
+<p><strong>The defaults for the rate constants are initialized in the RSD_sim class. These values can be found</strong> <a class="reference internal" href="ClassInitials.html#class"><span class="std std-ref">here</span></a>.</p>
 <dl class="simple">
 <dt><strong>Parameters:</strong></dt><dd><dl class="simple">
-<dt>krz: <em>float</em>, <em>optional</em></dt><dd><p>Base ctRSD gate ribozymal cleavage rate.</p>
+<dt>krz: <em>float</em>, <em>optional</em></dt><dd><p>Base ctRSD gate ribozyme cleavage rate.</p>
 </dd>
 <dt>krsd: <em>float</em>, <em>optional</em></dt><dd><p>Base ctRSD gate forward reaction rate.</p>
 </dd>
@@ -118,13 +119,11 @@
 </dd>
 <dt>kth: <em>float</em>, <em>optional</em></dt><dd><p>Thresholding reaction rate.</p>
 </dd>
-<dt>krzTh: <em>float</em>, <em>optional</em></dt><dd><p>Thresholding ribozymal cleavage rate.</p>
+<dt>krzTh: <em>float</em>, <em>optional</em></dt><dd><p>Thresholding ribozyme cleavage rate.</p>
 </dd>
 <dt>krsdF: <em>float</em>, <em>optional</em></dt><dd><p>Fuel forward reaction rate.</p>
 </dd>
 <dt>krevF: <em>float</em>, <em>optional</em></dt><dd><p>Fuel reverse reaction rate.</p>
-</dd>
-<dt>krz: <em>float</em>, <em>optional</em></dt><dd><p>Ribozymal cleavage rate.</p>
 </dd>
 <dt>krevA: <em>float</em>, <em>optional</em></dt><dd><p>ctRSD AND gate reverse reaction rate.</p>
 </dd>
@@ -192,42 +191,43 @@
 <span id="id3"></span><h2>molecular_species<a class="headerlink" href="#molecular-species" title="Permalink to this heading"></a></h2>
 <p>molecular_species(<em>name</em>, <em>DNA_con=0</em>, <em>ic=’False’</em>, <em>krz=’False’</em>, <em>krsd=’False’</em>, <em>krev=’False’</em>, <em>krep=’False’</em>, <em>krepr=’False’</em>, <em>kth=’False’</em>, <em>krzTh=’False’</em>, <em>krsdF=’False’</em>, <em>krevF=’False’</em>, <em>krevA=’False’</em>, <em>krsdA=’False’</em>, <em>krzA=’False’</em>, <em>krevCG=’False’</em>, <em>krsdCG=’False’</em>, <em>krzCG=’False’</em>, <em>ktxnO=’False’</em>, <em>ktxnG=’False’</em>, <em>ktxnTh=’False’</em>, <em>ktxnF=’False’</em>, <em>ktxnAG=’False’</em>, <em>ktxnCG=’False’</em>, <em>kssdO=’False’</em>, <em>kssdF=’False’</em>, <em>kdsduG=’False’</em>, <em>kdsdG=’False’</em>, <em>kdsdGO=’False’</em>, <em>kdsduAG=’False’</em>, <em>kdsdAG=’False’</em>, <em>kdsduCG=’False’</em>, <em>kdsdCG=’False’</em>, <em>kdrd=’False’</em>, <em>khybO=’False’</em>, <em>khybR=’False’</em>, <em>khyb=’False’</em>)</p>
 <p>molecular_species is used to initialize all species involved in the system being simulated.</p>
-<p>DNA template, initial condition, and rate constant initializations can be found <a class="reference internal" href="ClassInitials.html#class"><span class="std std-ref">class</span></a>.</p>
+<p><strong>Default DNA templates, initial conditions, and rate constants are initialized in RSD_sim. These values can be found</strong> <a class="reference internal" href="ClassInitials.html#class"><span class="std std-ref">here</span></a>.</p>
 <div class="admonition-warning admonition">
 <p class="admonition-title">Warning!</p>
-<p>All optional rate constant inputs can only change corresponding species when inputted with those specific species. A warning message will be issued otherwise.</p>
+<p>Only rate constant values relevent to the species defined with <em>name</em> can be changed. A warning message will be issued otherwise.</p>
 </div>
-<dl class="simple">
-<dt><strong>Parameters:</strong></dt><dd><dl class="simple">
+<p><em>name</em> inputs that show multiple options function with each of those options. All <em>name</em> inputs are also not case sensitive.</p>
+<dl>
+<dt><strong>Parameters:</strong></dt><dd><dl>
 <dt>name: <em>string</em></dt><dd><dl class="simple">
 <dt>Name of species being initialized</dt><dd><ul class="simple">
-<li><p>Input -&gt; I{domain} / IN{domain} / INP{domain} / INPUT{domain} (all options work, not case sensitive)</p></li>
-<li><p>Gate -&gt; G{domainI,domainO} / GATE{domainI,domainO} (all options work, not case sensitive)</p></li>
-<li><p>Reporter -&gt; R{domain}, REP{domain}, REPORTER{domain} (all options work, not case sensitive)</p></li>
-<li><p>Output -&gt; O{domainI,domainO} / OUT{domainI,domainO} / OUTPUT{domainI,domainO} (all options work, not case sensitive)</p></li>
-<li><p>Uncleaved Gate -&gt; uG{domainI,domainO} (not case sensitive)</p></li>
+<li><p>Input -&gt; I{domain} / IN{domain} / INP{domain} / INPUT{domain}</p></li>
+<li><p>Gate -&gt; G{domainI,domainO} / GATE{domainI,domainO}</p></li>
+<li><p>Reporter -&gt; R{domain}, REP{domain}, REPORTER{domain}</p></li>
+<li><p>Output -&gt; O{domainI,domainO} / OUT{domainI,domainO} / OUTPUT{domainI,domainO}</p></li>
+<li><p>Uncleaved Gate -&gt; uG{domainI,domainO}</p></li>
 <li><p>Gate-Input Complex -&gt; GI{domain} (not case sensitive)</p></li>
-<li><p>Gate-Output Complex -&gt; GO{domainI,domainO} (not case sensitive)</p></li>
-<li><p>Reporter-Output Complex -&gt; RO{domainI,domainO} (not case sensitive)</p></li>
-<li><p>Output Reporter -&gt; S{domain} (not case sensitive)</p></li>
-<li><p>Uncleaved Threshold -&gt; uTH{domain} (not case sensitive)</p></li>
-<li><p>Threshold -&gt; TH{domain} (not case sensitive)</p></li>
-<li><p>Fuel -&gt; F{domain} (not case sensitive)</p></li>
-<li><p>Fuel Gate -&gt; GF{domain} (not case sensitive)</p></li>
-<li><p>Uncleaved AND Gate -&gt; uAG{domainI,domainO} (not case sensitive)</p></li>
-<li><p>AND Gate -&gt; G{domainI1.domainI2,domainO} / GATE{domainI1.domainI2,domainO} / AG{domainI1.domainI2,domainO} (all options work, not case sensitive)</p></li>
-<li><p>AND Gate-Output Complex A -&gt; AGOa{domainI,domainO} (not case sensitive)</p></li>
-<li><p>AND Gate-Output Complex B -&gt; AGOb{domainI,domainO} (not case sensitive)</p></li>
-<li><p>AND Gate Fuel Complex B -&gt; AGF{domain} (not case sensitive)</p></li>
-<li><p>Uncleaved Comparator Gate -&gt; uCG{domainI,domainO} (not case sensitive)</p></li>
-<li><p>Comparator Gate -&gt; CG{domainI,domainO} (not case sensitive)</p></li>
-<li><p>Comparator Gate-Output Complex A -&gt; CGOa{domainI,domainO} (not case sensitive)</p></li>
-<li><p>Comparator Gate-Output Complex B -&gt; CGOb{domainI,domainO} (not case sensitive)</p></li>
+<li><p>Gate-Output Complex -&gt; GO{domainI,domainO}</p></li>
+<li><p>Reporter-Output Complex -&gt; RO{domainI,domainO}</p></li>
+<li><p>Output Reporter -&gt; S{domain}</p></li>
+<li><p>Uncleaved Threshold -&gt; uT{domains} / uTH{domain} / uTG{domain}</p></li>
+<li><p>Threshold -&gt; T{domains} / TH{domain} / TG{domain}</p></li>
+<li><p>Fuel -&gt; F{domain}</p></li>
+<li><p>Fuel Gate -&gt; GF{domain}</p></li>
+<li><p>Uncleaved AND Gate -&gt; uAG{domainI,domainO}</p></li>
+<li><p>AND Gate -&gt; G{domainI1.domainI2,domainO} / GATE{domainI1.domainI2,domainO} / AG{domainI1.domainI2,domainO}</p></li>
+<li><p>AND Gate-Output Complex A -&gt; AGOa{domainI,domainO}</p></li>
+<li><p>AND Gate-Output Complex B -&gt; AGOb{domainI,domainO}</p></li>
+<li><p>AND Gate Fuel Complex B -&gt; AGF{domain}</p></li>
+<li><p>Uncleaved Comparator Gate -&gt; uCG{domainI,domainO}</p></li>
+<li><p>Comparator Gate -&gt; CG{domainI,domainO}</p></li>
+<li><p>Comparator Gate-Output Complex A -&gt; CGOa{domainI,domainO}</p></li>
+<li><p>Comparator Gate-Output Complex B -&gt; CGOb{domainI,domainO}</p></li>
 </ul>
 </dd>
 </dl>
 </dd>
-<dt>DNA_con: <em>float</em>, <em>if NONE,default=0</em></dt><dd><p>DNA template concentration for inputed species. This and ic are the two ways a user can initialize a component being involved in the system. (Only applies to Input,Gate,Reporter,Output,Threshold,Fuel,GF,AG,CG)</p>
+<dt>DNA_con: <em>float</em>, <em>if NONE,default=0</em></dt><dd><p>DNA template concentration for inputed species. This and ic are the two ways a user can initialize a component being involved in the system. (Only applies to Input,Gate,Reporter,Output,Threshold,Fuel,AG,CG)</p>
 </dd>
 <dt>ic: <em>float</em>, <em>optional</em></dt><dd><p>Initial Concentration for inputted species. This and DNA_con are the two ways a user can initialize a component being involved in the system.</p>
 </dd>
@@ -254,14 +254,19 @@
 <dt>krevA: <em>float</em>, <em>optional</em></dt><dd><p>ctRSD AND gate reverse reaction rate.</p>
 </dd>
 <dt>krsdA: <em>float</em>, <em>optional</em></dt><dd><p>ctRSD AND gate forward reaction rate.</p>
+<p>If specified with AG, will change first gate in reaction. To change second gate in reaction, must specify with AGOa which represents the second gate in the AND gate reaction.</p>
+<dl class="simple">
+<dt>Ex: model.molecular_species(AG{3.1,2}, krsdA=1e5/1e9) -&gt; Will change krsdA for first input (I{3})</dt><dd><p>model.molecular_species(AGOa{1,2}, krsdA=1e5/1e9) -&gt; Will change krsdA for second input (I{1})</p>
 </dd>
-<dt>krzA: <em>float</em>, <em>optional</em></dt><dd><p>ctRSD AND gate ribozymal cleavage rate.</p>
+</dl>
+</dd>
+<dt>krzA: <em>float</em>, <em>optional</em></dt><dd><p>ctRSD AND gate ribozyme cleavage rate.</p>
 </dd>
 <dt>krevCG: <em>float</em>, <em>optional</em></dt><dd><p>ctRSD comparator gate reverse reaction rate.</p>
 </dd>
 <dt>krsdCG: <em>float</em>, <em>optional</em></dt><dd><p>ctRSD comparator gate forward reaction rate.</p>
 </dd>
-<dt>krzCG: <em>float</em>, <em>optional</em></dt><dd><p>ctRSD comparator gate ribozymal cleavage rate.</p>
+<dt>krzCG: <em>float</em>, <em>optional</em></dt><dd><p>ctRSD comparator gate ribozyme cleavage rate.</p>
 </dd>
 <dt>ktxnO: <em>float</em>, <em>optional</em></dt><dd><p>Transcription rate for output.</p>
 </dd>
@@ -400,8 +405,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="ImportSim.html" class="btn btn-neutral float-left" title="Installing and Initializing Simulator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="Simulator-Features.html" class="btn btn-neutral float-right" title="Simulator Features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ClassInitials.html" class="btn btn-neutral float-left" title="RSD_sim Class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="troubleshooting.html" class="btn btn-neutral float-right" title="Troubleshooting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -41,9 +41,9 @@
               <p class="caption" role="heading"><span class="caption-text">General:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Model-Implementation.html">Model Implementation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ClassInitials.html">RSD_sim Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model-Implementation.html">Model Reactions and Implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ImportSim.html">Installing and Initializing Simulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ClassInitials.html">RSD_sim Class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Functions.html">Functions</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Troubleshooting</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#speeding-up-comparator-gate-simulations">Speeding Up Comparator Gate Simulations</a></li>
@@ -104,12 +104,24 @@
 <h2>Rate Constants being Overrided<a class="headerlink" href="#rate-constants-being-overrided" title="Permalink to this heading"></a></h2>
 <p>Since both <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species</span></a> and <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants</span></a> offer the ability to change the rate constants available in the simulator, you may find one function overriding changes you made in the other.</p>
 <dl class="simple">
-<dt>Troubleshooting Tips:</dt><dd><ol class="arabic simple">
+<dt>Troubleshooting Tips (Examples Below):</dt><dd><ol class="arabic simple">
 <li><p>Both functions will only alter rate constants that are specified in the call of the function. If you do not specify a particular rate constant, then neither functions will change it from its most recent value.</p></li>
 <li><p>The order of the changes made by the two functions depends on the order in which the functions are called in the script. Whichever function is called first will have its changes come into effect first. Therefore, if you call both functions for the same rate constant, or either functions multiple times for the same rate constant, then the last function call will reflect the most recent value of that rate constant.</p></li>
 </ol>
 </dd>
 </dl>
+<figure class="align-center" id="id2">
+<img alt="_images/Troubleshooting-overriding1.png" class="with-border" src="_images/Troubleshooting-overriding1.png" />
+<figcaption>
+<p><span class="caption-text"><strong>global_rate_constants before molecular species</strong></span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id3">
+<img alt="_images/Troubleshooting-overriding2.png" class="with-border" src="_images/Troubleshooting-overriding2.png" />
+<figcaption>
+<p><span class="caption-text"><strong>molecular_species before global_rate_constants</strong></span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
 </section>
 <section id="accessing-variables-in-the-simulator">
 <h2>Accessing Variables in the Simulator<a class="headerlink" href="#accessing-variables-in-the-simulator" title="Permalink to this heading"></a></h2>
@@ -119,13 +131,19 @@
 <p>Only varibles that have the “self” attachment are available to be accessed from outside the simulator (Ex: self.variable_name).</p>
 <p>If you wish to pull out a variable that does not currently have the self attachment, simply add “self.” before every occurence of that variable in the simulator.</p>
 </div>
-<p>In order to access any variable with the “self” attachment:</p>
+<p>In order to access any variable with the “self” attachment (Example Below):</p>
 <blockquote>
 <div><ol class="arabic simple">
 <li><p>The bulk of the simulator’s code (excluding the rate equations function) exists in the RSDs_sim Python class. Therefore, as you would to run a simulation, you must first instantiate an object of the RSD_sim class. Details to do this can be found <a class="reference internal" href="ImportSim.html#importsim"><span class="std std-ref">here</span></a>.</p></li>
 <li><p>Assuming the model is downloaded, imported, and instantiated accessing a variable is very similar to calling one of the functions. You simply the call the variable name with the name of the class object’s attachment. For example, if you defined the model instantiation as “model”, then the format for accessing a variable would be “model.variable_name”.</p></li>
 </ol>
 </div></blockquote>
+<figure class="align-center" id="id4">
+<img alt="_images/Troubleshooting-accessingvariables.png" class="with-border" src="_images/Troubleshooting-accessingvariables.png" />
+<figcaption>
+<p><span class="caption-text"><strong>How to access variables present in simulator</strong></span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
 </section>
 </section>
 

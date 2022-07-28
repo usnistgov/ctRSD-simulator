@@ -1,8 +1,8 @@
 .. _Model-Implementation:
 
 
-Model Implementation
-====================
+Model Reactions and Implementation
+==================================
 
 ctRSD Reaction Schematics
 -------------------------

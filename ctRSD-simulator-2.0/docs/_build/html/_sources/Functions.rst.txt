@@ -29,11 +29,15 @@ global_rate_constants(*krz='False'*, *krsd='False'*, *krev='False'*, *krep='Fals
 
 global_rate_constants is used to globally change rate constants for all species of the same type (single matrix), or certain groups of different types (multiple matrices), instead of changing a specific rate constant for just one individual species (index of a matrix).
 
-Rate Constant initializations can be found :ref:`class <class>`.
+**The defaults for the rate constants are initialized in the RSD_sim class. These values can be found** :ref:`here <class>`.
+
+.. admonition:
+	
+	The different transcription rates and degradation rates both have an input that will change all rates at once. *ktxn* changes all transcription rates in the simulator. *kdeg* changes all degradation rates in the simulator.
 
 **Parameters:**
 	krz: *float*, *optional* 
-		Base ctRSD gate ribozymal cleavage rate.
+		Base ctRSD gate ribozyme cleavage rate.
 
 	krsd: *float*, *optional* 
 		Base ctRSD gate forward reaction rate.
@@ -51,7 +55,7 @@ Rate Constant initializations can be found :ref:`class <class>`.
 		Thresholding reaction rate.
 
 	krzTh: *float*, *optional* 
-		Thresholding ribozymal cleavage rate.
+		Thresholding ribozyme cleavage rate.
 
 	krsdF: *float*, *optional* 
 		Fuel forward reaction rate.
@@ -59,11 +63,8 @@ Rate Constant initializations can be found :ref:`class <class>`.
 	krevF: *float*, *optional* 
 		Fuel reverse reaction rate.
 
-	krz: *float*, *optional* 
-		Ribozymal cleavage rate.
-
 	krevA: *float*, *optional* 
-		ctRSD AND gate reverse reaction rate.
+		ctRSD AND gate reverse reaction rate. 
 
 	krsdA: *float*, *optional* 
 		ctRSD AND gate forward reaction rate.
@@ -161,41 +162,44 @@ molecular_species(*name*, *DNA_con=0*, *ic='False'*, *krz='False'*, *krsd='False
 
 molecular_species is used to initialize all species involved in the system being simulated.
 
-DNA template, initial condition, and rate constant initializations can be found :ref:`class <class>`.
+**Default DNA templates, initial conditions, and rate constants are initialized in RSD_sim. These values can be found** :ref:`here <class>`.
 
 
 .. admonition:: Warning!
 
-   All optional rate constant inputs can only change corresponding species when inputted with those specific species. A warning message will be issued otherwise.
+   Only rate constant values relevent to the species defined with *name* can be changed. A warning message will be issued otherwise.
+
+
+*name* inputs that show multiple options function with each of those options. All *name* inputs are also not case sensitive.
 
 **Parameters:**
 	name: *string*
 		Name of species being initialized
-			* Input -> I{domain} / IN{domain} / INP{domain} / INPUT{domain} (all options work, not case sensitive)
-			* Gate -> G{domainI,domainO} / GATE{domainI,domainO} (all options work, not case sensitive)
-			* Reporter -> R{domain}, REP{domain}, REPORTER{domain} (all options work, not case sensitive)
-			* Output -> O{domainI,domainO} / OUT{domainI,domainO} / OUTPUT{domainI,domainO} (all options work, not case sensitive)
-			* Uncleaved Gate -> uG{domainI,domainO} (not case sensitive)
+			* Input -> I{domain} / IN{domain} / INP{domain} / INPUT{domain} 
+			* Gate -> G{domainI,domainO} / GATE{domainI,domainO} 
+			* Reporter -> R{domain}, REP{domain}, REPORTER{domain} 
+			* Output -> O{domainI,domainO} / OUT{domainI,domainO} / OUTPUT{domainI,domainO}
+			* Uncleaved Gate -> uG{domainI,domainO} 
 			* Gate-Input Complex -> GI{domain} (not case sensitive)
-			* Gate-Output Complex -> GO{domainI,domainO} (not case sensitive)
-			* Reporter-Output Complex -> RO{domainI,domainO} (not case sensitive)
-			* Output Reporter -> S{domain} (not case sensitive)
-			* Uncleaved Threshold -> uTH{domain} (not case sensitive)
-			* Threshold -> TH{domain} (not case sensitive)
-			* Fuel -> F{domain} (not case sensitive)
-			* Fuel Gate -> GF{domain} (not case sensitive)
-			* Uncleaved AND Gate -> uAG{domainI,domainO} (not case sensitive)
-			* AND Gate -> G{domainI1.domainI2,domainO} / GATE{domainI1.domainI2,domainO} / AG{domainI1.domainI2,domainO} (all options work, not case sensitive)
-			* AND Gate-Output Complex A -> AGOa{domainI,domainO} (not case sensitive)
-			* AND Gate-Output Complex B -> AGOb{domainI,domainO} (not case sensitive)
-			* AND Gate Fuel Complex B -> AGF{domain} (not case sensitive)
-			* Uncleaved Comparator Gate -> uCG{domainI,domainO} (not case sensitive)
-			* Comparator Gate -> CG{domainI,domainO} (not case sensitive)
-			* Comparator Gate-Output Complex A -> CGOa{domainI,domainO} (not case sensitive)
-			* Comparator Gate-Output Complex B -> CGOb{domainI,domainO} (not case sensitive)
+			* Gate-Output Complex -> GO{domainI,domainO} 
+			* Reporter-Output Complex -> RO{domainI,domainO} 
+			* Output Reporter -> S{domain} 
+			* Uncleaved Threshold -> uT{domains} / uTH{domain} / uTG{domain} 
+			* Threshold -> T{domains} / TH{domain} / TG{domain}
+			* Fuel -> F{domain} 
+			* Fuel Gate -> GF{domain} 
+			* Uncleaved AND Gate -> uAG{domainI,domainO}
+			* AND Gate -> G{domainI1.domainI2,domainO} / GATE{domainI1.domainI2,domainO} / AG{domainI1.domainI2,domainO} 
+			* AND Gate-Output Complex A -> AGOa{domainI,domainO} 
+			* AND Gate-Output Complex B -> AGOb{domainI,domainO} 
+			* AND Gate Fuel Complex B -> AGF{domain} 
+			* Uncleaved Comparator Gate -> uCG{domainI,domainO} 
+			* Comparator Gate -> CG{domainI,domainO} 
+			* Comparator Gate-Output Complex A -> CGOa{domainI,domainO} 
+			* Comparator Gate-Output Complex B -> CGOb{domainI,domainO} 
 
 	DNA_con: *float*, *if NONE,default=0*
-		DNA template concentration for inputed species. This and ic are the two ways a user can initialize a component being involved in the system. (Only applies to Input,Gate,Reporter,Output,Threshold,Fuel,GF,AG,CG)
+		DNA template concentration for inputed species. This and ic are the two ways a user can initialize a component being involved in the system. (Only applies to Input,Gate,Reporter,Output,Threshold,Fuel,AG,CG)
 
 	ic: *float*, *optional*
 		Initial Concentration for inputted species. This and DNA_con are the two ways a user can initialize a component being involved in the system.
@@ -236,8 +240,13 @@ DNA template, initial condition, and rate constant initializations can be found 
 	krsdA: *float*, *optional* 
 		ctRSD AND gate forward reaction rate.
 
+		If specified with AG, will change first gate in reaction. To change second gate in reaction, must specify with AGOa which represents the second gate in the AND gate reaction.
+
+		Ex: model.molecular_species(AG{3.1,2}, krsdA=1e5/1e9) -> Will change krsdA for first input (I{3})
+			 model.molecular_species(AGOa{1,2}, krsdA=1e5/1e9) -> Will change krsdA for second input (I{1})
+
 	krzA: *float*, *optional* 
-		ctRSD AND gate ribozymal cleavage rate.
+		ctRSD AND gate ribozyme cleavage rate.
 
 	krevCG: *float*, *optional* 
 		ctRSD comparator gate reverse reaction rate.
@@ -246,7 +255,7 @@ DNA template, initial condition, and rate constant initializations can be found 
 		ctRSD comparator gate forward reaction rate.
 
 	krzCG: *float*, *optional* 
-		ctRSD comparator gate ribozymal cleavage rate.
+		ctRSD comparator gate ribozyme cleavage rate.
 
 	ktxnO: *float*, *optional* 
 		Transcription rate for output.

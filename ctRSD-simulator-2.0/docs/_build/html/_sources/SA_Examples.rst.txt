@@ -3,9 +3,11 @@
 2022 Science Advances Paper
 ===========================
 
+`2022 Science Advances Pape <https://www.science.org/doi/10.1126/science.1200520>`_.
+
 .. admonition:: Note:
 
-   All following examples are figures from the 2022 Science Advances paper, "Cotranscriptionally encoded RNA strand displacement circuits."
+   All following examples are figures from the 2022 Science Advances paper (Schaffter and Strychalski), `Cotranscriptionally encoded RNA strand displacement circuits <https://www.science.org/doi/10.1126/sciadv.abl4354>`_.
 
 
 Figure 2D

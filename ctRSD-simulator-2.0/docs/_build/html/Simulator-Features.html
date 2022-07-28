@@ -20,7 +20,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="2022 Science Advances Paper" href="SA_Examples.html" />
-    <link rel="prev" title="Functions" href="Functions.html" /> 
+    <link rel="prev" title="Troubleshooting" href="troubleshooting.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -41,40 +41,21 @@
               <p class="caption" role="heading"><span class="caption-text">General:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Model-Implementation.html">Model Implementation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ClassInitials.html">RSD_sim Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model-Implementation.html">Model Reactions and Implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ImportSim.html">Installing and Initializing Simulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ClassInitials.html">RSD_sim Class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">General Examples:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Simulator Features</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#calibration-simulation">Calibration Simulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#discontinuous-simulation">Discontinuous Simulation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#comparison-to-ctrsd-simulator-1">Comparison to ctRSD-simulator-1</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#usage-in-ctrsd-simulator-2-0">Usage in ctRSD-simulator-2.0</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#comparator-gate-simulation">Comparator Gate Simulation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id4">Comparison to ctRSD-simulator-1</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">Usage in ctRSD-simulator-2.0</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#three-comparator-gate-simulation">Three Comparator Gate Simulation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id6">Comparison to ctRSD-simulator-1</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id7">Usage in ctRSD-simulator-2.0</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#thresholding-simulation">Thresholding Simulation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id8">Comparison to ctRSD-simulator-1</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id9">Usage in ctRSD-simulator-2.0</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#degradation-simulation">Degradation Simulation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id10">Comparison to ctRSD-simulator-1</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id11">Usage in ctRSD-simulator-2.0</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#discontinuous-simulation">Discontinuous Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#comparator-gate-simulation">Comparator Gate Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#three-comparator-gate-simulation">Three Comparator Gate Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#thresholding-simulation">Thresholding Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#degradation-simulation">Degradation Simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#seesaw-simulations">Seesaw Simulations</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#ctrsd-seesaw-simulation">ctRSD Seesaw Simulation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#dna-seesaw-simulation">DNA Seesaw Simulation</a></li>
@@ -135,14 +116,14 @@
 </dd>
 </dl>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/calibration_simulation.py">Calibration Simulation Python Script can be found here</a></p>
-<figure class="align-center" id="id12">
+<figure class="align-center" id="id4">
 <img alt="_images/calibration_simulation_baserates.svg" src="_images/calibration_simulation_baserates.svg" /><figcaption>
-<p><span class="caption-text"><strong>Calibration Against Base Rates</strong></span><a class="headerlink" href="#id12" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><strong>Calibration Against Base Rates</strong></span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
-<figure class="align-center" id="id13">
+<figure class="align-center" id="id5">
 <img alt="_images/calibration_simulation_specifiedrates.svg" src="_images/calibration_simulation_specifiedrates.svg" /><figcaption>
-<p><span class="caption-text"><strong>Calibration Against Specified Rates</strong></span><a class="headerlink" href="#id13" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><strong>Calibration Against Specified Rates</strong></span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -163,24 +144,12 @@
 </ul>
 </dd>
 </dl>
-<section id="comparison-to-ctrsd-simulator-1">
-<h3>Comparison to ctRSD-simulator-1<a class="headerlink" href="#comparison-to-ctrsd-simulator-1" title="Permalink to this heading"></a></h3>
-<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/discontinuous_simulationsCompar.py">Discontinuous Simulation Comparison Python Script can be found here</a></p>
-<figure class="align-center" id="id14">
-<img alt="_images/discontinuous_simulationsCompar.svg" class="with-border" src="_images/discontinuous_simulationsCompar.svg" /><figcaption>
-<p><span class="caption-text"><strong>Discontinuous Simulation Comparison</strong></span><a class="headerlink" href="#id14" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-</section>
-<section id="usage-in-ctrsd-simulator-2-0">
-<h3>Usage in ctRSD-simulator-2.0<a class="headerlink" href="#usage-in-ctrsd-simulator-2-0" title="Permalink to this heading"></a></h3>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/discontinuous_simulations.py">Discontinuous Simulation Python Script can be found here</a></p>
-<figure class="align-center" id="id15">
+<figure class="align-center" id="id6">
 <img alt="_images/discontinuous_simulations.svg" class="with-border" src="_images/discontinuous_simulations.svg" /><figcaption>
-<p><span class="caption-text"><strong>Discontinuous Simulation</strong></span><a class="headerlink" href="#id15" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><strong>Discontinuous Simulation</strong></span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
-</section>
 </section>
 <section id="comparator-gate-simulation">
 <span id="id3"></span><h2>Comparator Gate Simulation<a class="headerlink" href="#comparator-gate-simulation" title="Permalink to this heading"></a></h2>
@@ -194,31 +163,19 @@
 </ul>
 </dd>
 </dl>
-<section id="id4">
-<h3>Comparison to ctRSD-simulator-1<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
-<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/CG_simulationsCompar.py">CG Simulation Comparison Python Script can be found here</a></p>
-<figure class="align-center" id="id16">
-<img alt="_images/CG_simulationsCompar.svg" class="with-border" src="_images/CG_simulationsCompar.svg" /><figcaption>
-<p><span class="caption-text"><strong>CG Simulation Comparison</strong></span><a class="headerlink" href="#id16" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-</section>
-<section id="id5">
-<h3>Usage in ctRSD-simulator-2.0<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/CG_simulations.py">CG Simulation Python Script can be found here</a></p>
-<figure class="align-center" id="id17">
+<figure class="align-center" id="id7">
 <img alt="_images/CG_simulations.svg" class="with-border" src="_images/CG_simulations.svg" /><figcaption>
-<p><span class="caption-text"><strong>CG Simulation</strong></span><a class="headerlink" href="#id17" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><strong>CG Simulation</strong></span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>The CG grid simulation is another example using a basic CG system. However, a grid is made using two sets of changing input concentrations. The x-axis shows changing I{6}, whereas the y-axis shows increasing I{7}. The grid example efficiently demonstrates the consistent functionality of the comparator gates.</p>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/CG_simulationsGRID.py">CG Grid Simulation Python Script can be found here</a></p>
-<figure class="align-center" id="id18">
+<figure class="align-center" id="id8">
 <img alt="_images/CG_simulationsGRID.svg" class="with-border" src="_images/CG_simulationsGRID.svg" /><figcaption>
-<p><span class="caption-text"><strong>CG Grid Simulation</strong></span><a class="headerlink" href="#id18" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><strong>CG Grid Simulation</strong></span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
-</section>
 </section>
 <section id="three-comparator-gate-simulation">
 <h2>Three Comparator Gate Simulation<a class="headerlink" href="#three-comparator-gate-simulation" title="Permalink to this heading"></a></h2>
@@ -232,24 +189,12 @@
 </ul>
 </dd>
 </dl>
-<section id="id6">
-<h3>Comparison to ctRSD-simulator-1<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h3>
-<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/threeCG_simulationsCompar.py">Three CG Simulation Comparison Python Script can be found here</a></p>
-<figure class="align-center" id="id19">
-<img alt="_images/threeCG_simulationsCompar.svg" class="with-border" src="_images/threeCG_simulationsCompar.svg" /><figcaption>
-<p><span class="caption-text"><strong>Three CG Simulation Comparison</strong></span><a class="headerlink" href="#id19" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-</section>
-<section id="id7">
-<h3>Usage in ctRSD-simulator-2.0<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h3>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/threeCG_simulations.py">Three CG Simulation Python Script can be found here</a></p>
-<figure class="align-center" id="id20">
+<figure class="align-center" id="id9">
 <img alt="_images/threeCG_simulations.svg" class="with-border" src="_images/threeCG_simulations.svg" /><figcaption>
-<p><span class="caption-text"><strong>Three CG Simulation</strong></span><a class="headerlink" href="#id20" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><strong>Three CG Simulation</strong></span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
-</section>
 </section>
 <section id="thresholding-simulation">
 <h2>Thresholding Simulation<a class="headerlink" href="#thresholding-simulation" title="Permalink to this heading"></a></h2>
@@ -262,24 +207,12 @@
 </ul>
 </dd>
 </dl>
-<section id="id8">
-<h3>Comparison to ctRSD-simulator-1<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h3>
-<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/threshold_simulationCompar.py">Thresholding Simulation Comparison Python Script can be found here</a></p>
-<figure class="align-center" id="id21">
-<img alt="_images/threshold_simulationCompar.svg" class="with-border" src="_images/threshold_simulationCompar.svg" /><figcaption>
-<p><span class="caption-text"><strong>Thresholding Simulation Comparison</strong></span><a class="headerlink" href="#id21" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-</section>
-<section id="id9">
-<h3>Usage in ctRSD-simulator-2.0<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h3>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/threshold_simulation.py">Thresholding Simulation Python Script can be found here</a></p>
-<figure class="align-center" id="id22">
+<figure class="align-center" id="id10">
 <img alt="_images/threshold_simulation.svg" class="with-border" src="_images/threshold_simulation.svg" /><figcaption>
-<p><span class="caption-text"><strong>Thresholding Simulation</strong></span><a class="headerlink" href="#id22" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><strong>Thresholding Simulation</strong></span><a class="headerlink" href="#id10" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
-</section>
 </section>
 <section id="degradation-simulation">
 <h2>Degradation Simulation<a class="headerlink" href="#degradation-simulation" title="Permalink to this heading"></a></h2>
@@ -295,31 +228,19 @@
 </ul>
 </dd>
 </dl>
-<section id="id10">
-<h3>Comparison to ctRSD-simulator-1<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h3>
-<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/degradation_simulationsCompar.py">Degradation Simulation Comparison Python Script can be found here</a></p>
-<figure class="align-center" id="id23">
-<img alt="_images/degradation_simulationsCompar.svg" class="with-border" src="_images/degradation_simulationsCompar.svg" /><figcaption>
-<p><span class="caption-text"><strong>Degradation Simulation Comparison</strong></span><a class="headerlink" href="#id23" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-</section>
-<section id="id11">
-<h3>Usage in ctRSD-simulator-2.0<a class="headerlink" href="#id11" title="Permalink to this heading"></a></h3>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/degradation_simulations.py">Degredation Simulation Python Script can be found here</a></p>
-<figure class="align-center" id="id24">
+<figure class="align-center" id="id11">
 <img alt="_images/degradation_simulations.svg" class="with-border" src="_images/degradation_simulations.svg" /><figcaption>
-<p><span class="caption-text"><strong>Degradation Simulation</strong></span><a class="headerlink" href="#id24" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><strong>Degradation Simulation</strong></span><a class="headerlink" href="#id11" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>The final degredation example simulates a system with degradation rates where single stranded species, double stranded species, and RNA:DNA hyrbids were given altering degradation rates.</p>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/degradationIndividRates_simulations.py">Degradation Simulation with changing groups of rates Python Script can be found here</a></p>
-<figure class="align-center" id="id25">
+<figure class="align-center" id="id12">
 <img alt="_images/degradationIndividRates_simulation.svg" class="with-border" src="_images/degradationIndividRates_simulation.svg" /><figcaption>
-<p><span class="caption-text"><strong>Degradation Simulation (Changing Groups of Degradation Rates</strong></span><a class="headerlink" href="#id25" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><strong>Degradation Simulation (Changing Groups of Degradation Rates</strong></span><a class="headerlink" href="#id12" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
-</section>
 </section>
 <section id="seesaw-simulations">
 <h2>Seesaw Simulations<a class="headerlink" href="#seesaw-simulations" title="Permalink to this heading"></a></h2>
@@ -336,18 +257,18 @@
 <section id="ctrsd-seesaw-simulation">
 <h3>ctRSD Seesaw Simulation<a class="headerlink" href="#ctrsd-seesaw-simulation" title="Permalink to this heading"></a></h3>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/seesaw_simulation_ctRSD.py">ctRSD Seesaw Simulation Comparison Python Script can be found here</a></p>
-<figure class="align-center" id="id26">
+<figure class="align-center" id="id13">
 <img alt="_images/seesaw_simulation_ctRSD.svg" class="with-border" src="_images/seesaw_simulation_ctRSD.svg" /><figcaption>
-<p><span class="caption-text"><strong>ctRSD Seesaw Simulation Comparison</strong></span><a class="headerlink" href="#id26" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><strong>ctRSD Seesaw Simulation Comparison</strong></span><a class="headerlink" href="#id13" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="dna-seesaw-simulation">
 <h3>DNA Seesaw Simulation<a class="headerlink" href="#dna-seesaw-simulation" title="Permalink to this heading"></a></h3>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/seesaw_simulation_DNA.py">DNA Seesaw Simulation Python Script can be found here</a></p>
-<figure class="align-center" id="id27">
+<figure class="align-center" id="id14">
 <img alt="_images/seesaw_simulation_DNA.svg" class="with-border" src="_images/seesaw_simulation_DNA.svg" /><figcaption>
-<p><span class="caption-text"><strong>DNA Seesaw Simulation</strong></span><a class="headerlink" href="#id27" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><strong>DNA Seesaw Simulation</strong></span><a class="headerlink" href="#id14" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -365,9 +286,9 @@
 </dd>
 </dl>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/TwoToehold_simulation.py">Two Toehold Sim Python Script can be found here</a></p>
-<figure class="align-center" id="id28">
+<figure class="align-center" id="id15">
 <img alt="_images/TwoToehold_simulation.svg" class="with-border" src="_images/TwoToehold_simulation.svg" /><figcaption>
-<p><span class="caption-text"><strong>Two-Toehold Simulation</strong></span><a class="headerlink" href="#id28" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><strong>Two-Toehold Simulation</strong></span><a class="headerlink" href="#id15" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -384,9 +305,9 @@
 </dd>
 </dl>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/AGfuel_simulations.py">AG Fuel Sim Python Script can be found here</a></p>
-<figure class="align-center" id="id29">
+<figure class="align-center" id="id16">
 <img alt="_images/AGfuel_simulations.svg" class="with-border" src="_images/AGfuel_simulations.svg" /><figcaption>
-<p><span class="caption-text"><strong>AG Fuel Simulation</strong></span><a class="headerlink" href="#id29" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><strong>AG Fuel Simulation</strong></span><a class="headerlink" href="#id16" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -403,9 +324,9 @@
 </dd>
 </dl>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/AB+CD_simulations.py">Two Minterm Simulation Python Script can be found here</a></p>
-<figure class="align-center" id="id30">
+<figure class="align-center" id="id17">
 <img alt="_images/AB+CD_simulations.svg" class="with-border" src="_images/AB+CD_simulations.svg" /><figcaption>
-<p><span class="caption-text"><strong>Two Minterm Simulation</strong></span><a class="headerlink" href="#id30" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><strong>Two Minterm Simulation</strong></span><a class="headerlink" href="#id17" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -415,7 +336,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="Functions.html" class="btn btn-neutral float-left" title="Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="troubleshooting.html" class="btn btn-neutral float-left" title="Troubleshooting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="SA_Examples.html" class="btn btn-neutral float-right" title="2022 Science Advances Paper" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

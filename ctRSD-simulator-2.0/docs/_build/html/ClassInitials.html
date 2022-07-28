@@ -19,8 +19,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Installing and Initializing Simulator" href="ImportSim.html" />
-    <link rel="prev" title="Model Implementation" href="Model-Implementation.html" /> 
+    <link rel="next" title="Functions" href="Functions.html" />
+    <link rel="prev" title="Installing and Initializing Simulator" href="ImportSim.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -41,14 +41,15 @@
               <p class="caption" role="heading"><span class="caption-text">General:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Model-Implementation.html">Model Implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model-Implementation.html">Model Reactions and Implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ImportSim.html">Installing and Initializing Simulator</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">RSD_sim Class</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#class-object">Class Object</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#initializations">Initializations</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="ImportSim.html">Installing and Initializing Simulator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">General Examples:</span></p>
 <ul>
@@ -102,40 +103,40 @@
 <h2>Initializations<a class="headerlink" href="#initializations" title="Permalink to this heading"></a></h2>
 <p>All DNA templates and initial conditions are initialized at 0.</p>
 <dl>
-<dt>Rate Constants:</dt><dd><p>self.ktxnO = 0.013</p>
-<p>self.ktxnG = 0.013</p>
-<p>self.ktxnTh = 0.013</p>
-<p>self.ktxnF = 0.013</p>
-<p>self.ktxnAG = 0.013</p>
-<p>self.ktxnCG = 0.013</p>
-<p>self.krz = .25/60</p>
-<p>self.krsd = 1e3/1e9</p>
-<p>self.krev = 270/1e9</p>
-<p>self.krep = 1e4/1e9</p>
-<p>self.krepr = 0</p>
-<p>self.kth = 1e5/1e9</p>
-<p>self.krzTh = .00417</p>
-<p>self.krsdF = 1e3/1e9</p>
-<p>self.krevF = 270/1e9</p>
-<p>self.krevF = 1e3/1e9</p>
-<p>self.krzA = .25/60</p>
-<p>self.krsdA = 1e3/1e9</p>
-<p>self.krevA = 270/1e9</p>
-<p>self.krzCG = .00417</p>
-<p>self.krsdCG = 1e5/1e9</p>
-<p>self.krevCG = 1</p>
-<p>self.kssdO = 0</p>
-<p>self.kssdF = 0</p>
-<p>self.kdsduG = 0</p>
-<p>self.kdsdG = 0</p>
-<p>self.kdsdGO = 0</p>
-<p>self.kdsduAG = 0</p>
-<p>self.kdsdAG = 0</p>
-<p>self.kdsduCG = 0</p>
-<p>self.kdsdCG = 0</p>
-<p>self.kdrd = 0</p>
-<p>self.khybO = 1e6/1e9</p>
-<p>self.khybR = 1e6/1e9</p>
+<dt>Rate Constants:</dt><dd><p>self.ktxnO = 0.013 1/s</p>
+<p>self.ktxnG = 0.013 1/s</p>
+<p>self.ktxnTh = 0.013 1/s</p>
+<p>self.ktxnF = 0.013 1/s</p>
+<p>self.ktxnAG = 0.013 1/s</p>
+<p>self.ktxnCG = 0.013 1/s</p>
+<p>self.krz = .25/60 1/s</p>
+<p>self.krsd = 1e3/1e9 1/nM-S</p>
+<p>self.krev = 270/1e9 1/nM-S</p>
+<p>self.krep = 1e4/1e9 1/nM-S</p>
+<p>self.krepr = 0 1/s</p>
+<p>self.kth = 1e5/1e9 1/nM-S</p>
+<p>self.krzTh = .00417 1/s</p>
+<p>self.krsdF = 1e3/1e9 1/nM-S</p>
+<p>self.krevF = 270/1e9 1/nM-S</p>
+<p>self.krevF = 1e3/1e9 1/nM-S</p>
+<p>self.krzA = .25/60 1/s</p>
+<p>self.krsdA = 1e3/1e9 1/nM-S</p>
+<p>self.krevA = 270/1e9 1/nM-S</p>
+<p>self.krzCG = .00417 1/s</p>
+<p>self.krsdCG = 1e5/1e9 1/nM-S</p>
+<p>self.krevCG = 1 1/s</p>
+<p>self.kssdO = 0 1/s</p>
+<p>self.kssdF = 0 1/s</p>
+<p>self.kdsduG = 0 1/s</p>
+<p>self.kdsdG = 0 1/s</p>
+<p>self.kdsdGO = 0 1/s</p>
+<p>self.kdsduAG = 0 1/s</p>
+<p>self.kdsdAG = 0 1/s</p>
+<p>self.kdsduCG = 0 1/s</p>
+<p>self.kdsdCG = 0 1/s</p>
+<p>self.kdrd = 0 1/s</p>
+<p>self.khybO = 1e6/1e9 1/nM-S</p>
+<p>self.khybR = 1e6/1e9 1/nM-S</p>
 </dd>
 </dl>
 </section>
@@ -145,8 +146,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="Model-Implementation.html" class="btn btn-neutral float-left" title="Model Implementation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="ImportSim.html" class="btn btn-neutral float-right" title="Installing and Initializing Simulator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ImportSim.html" class="btn btn-neutral float-left" title="Installing and Initializing Simulator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Functions.html" class="btn btn-neutral float-right" title="Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

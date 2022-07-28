@@ -330,7 +330,7 @@ simulate is used to run a simulation for a provided amount of time using the com
 			* RK23
 			* DOP853
 			* Radau
-			* BDF (recomended for comparator gate simulations)
+			* BDF (recommended for comparator gate simulations)
 			* LSODA
 	iteration: *int*, *if NONE,default=1*
 		Controlling input for discontinuous feature. 

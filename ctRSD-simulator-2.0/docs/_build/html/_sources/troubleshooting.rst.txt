@@ -9,8 +9,8 @@ This page offers some useful tips to troubleshoot based off some of the problems
 
 
 
-Speeding Up Comparator Gate Reactions
--------------------------------------
+Speeding Up Comparator Gate Simulations
+---------------------------------------
 
 
 Due to comparator gate reactions utilizing very disparate time scales, simulations using comparator gates may have a much slower time efficiency than the other reactions. Below are some different options for reducing the simulation time when using comparator gates.

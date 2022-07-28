@@ -52,6 +52,6 @@ In order to troubleshoot a script utilizing the simulator, you may want to acces
 
 In order to access any variable with the "self" attachment:
 
-	1. The bulk of the simulator's code (excluding the rate equations function) exists in the RSDs_sim Python class. Therefore, as you would to run a simulation, you must first instantiate an object of the RSDs_sim class. Details to do this can be found :ref:`here <ImportSim>`.
+	1. The bulk of the simulator's code (excluding the rate equations function) exists in the RSDs_sim Python class. Therefore, as you would to run a simulation, you must first instantiate an object of the RSD_sim class. Details to do this can be found :ref:`here <ImportSim>`.
 
 	2. Assuming the model is downloaded, imported, and instantiated accessing a variable is very similar to calling one of the functions. You simply the call the variable name with the name of the class object's attachment. For example, if you defined the model instantiation as "model", then the format for accessing a variable would be "model.variable_name".

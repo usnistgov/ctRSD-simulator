@@ -19,7 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Troubleshooting" href="troubleshooting.html" />
+    <link rel="next" title="Sequence Compiler" href="SeqCompiler.html" />
     <link rel="prev" title="RSD_sim Class" href="ClassInitials.html" /> 
 </head>
 
@@ -52,6 +52,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#transcription-calibration">transcription_calibration</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="SeqCompiler.html">Sequence Compiler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">General Examples:</span></p>
@@ -105,6 +106,10 @@
 , <em>khybO=’False’</em>, <em>khybR=’False’</em>, <em>khyb=’False’</em>)</p>
 <p>global_rate_constants is used to globally change rate constants for all species of the same type (single matrix), or certain groups of different types (multiple matrices), instead of changing a specific rate constant for just one individual species (index of a matrix).</p>
 <p><strong>The defaults for the rate constants are initialized in the RSD_sim class. These values can be found</strong> <a class="reference internal" href="ClassInitials.html#class"><span class="std std-ref">here</span></a>.</p>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note:</p>
+<p>The different transcription rates and degradation rates both have an input that will change all rates at once. <em>ktxn</em> changes all transcription rates in the simulator. <em>kdeg</em> changes all degradation rates in the simulator.</p>
+</div>
 <dl class="simple">
 <dt><strong>Parameters:</strong></dt><dd><dl class="simple">
 <dt>krz: <em>float</em>, <em>optional</em></dt><dd><p>Base ctRSD gate ribozyme cleavage rate.</p>
@@ -406,7 +411,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="ClassInitials.html" class="btn btn-neutral float-left" title="RSD_sim Class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="troubleshooting.html" class="btn btn-neutral float-right" title="Troubleshooting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="SeqCompiler.html" class="btn btn-neutral float-right" title="Sequence Compiler" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

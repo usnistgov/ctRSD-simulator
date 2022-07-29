@@ -31,7 +31,7 @@ global_rate_constants is used to globally change rate constants for all species 
 
 **The defaults for the rate constants are initialized in the RSD_sim class. These values can be found** :ref:`here <class>`.
 
-.. admonition:
+.. admonition:: Note:
 	
 	The different transcription rates and degradation rates both have an input that will change all rates at once. *ktxn* changes all transcription rates in the simulator. *kdeg* changes all degradation rates in the simulator.
 

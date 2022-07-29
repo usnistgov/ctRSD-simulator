@@ -9,7 +9,7 @@ Sequence compiler is a function avaliable in the simulator that takes in a speci
 
 	Although it is a function within the simulator, and is accessed in the same way as the other functins, it does not require a system to be simulated to be used. Hence why its documentation is being kept seperate from the other functions.
 
-	Sequence compiler was included in the simulator so that users could all the useful tools in designing ctRSD circuits all in one place.
+	Sequence compiler was included in the simulator so that users could have all the useful tools in designing ctRSD circuits all in one place.
 
 
 .. _DownloadDomainsList:
@@ -17,9 +17,9 @@ Sequence compiler is a function avaliable in the simulator that takes in a speci
 Download Domains List
 ---------------------
 
-Below is a link to download a provided spreadhset that contains the list of domains for ctRSD reactions used to compile the sequences. The local file path on your computer will be an input into the sequence compiler function.
+Below is a link to download a provided spreadsheet that contains the list of domains for ctRSD reactions used to compile the sequences. The local file path on your computer will be an input into the sequence compiler function.
 
-`ctRSD Domains List Spreadsheet can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence Compiler/ctRSD_domains_list.xlsx>`_ 
+`ctRSD Domains List Spreadsheet can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence%20Compiler/ctRSD_domains_list.xlsx>`_ 
 
 
 Function Documentation
@@ -92,4 +92,4 @@ First Steps:
 
 
 
-`Sequence Compiler Example Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence Compiler/SequenceCompilerExample.py>`_ 
+`Sequence Compiler Example Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence%20Compiler/SequenceCompilerExample.py>`_ 

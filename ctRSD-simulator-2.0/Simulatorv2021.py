@@ -53,6 +53,9 @@ Patch Notes 2.0.2.0:
 Patch Notes 2.0.2.1:
     1.) Added discontinuous function
     2.) Added transcription calibration function
+    3.) Updated molecular species option
+    4.) Added sequence compliation function
+    5.) Updated DNA:RNA hybrid degradation to add Q species
 
 
 """

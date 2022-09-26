@@ -20,7 +20,8 @@ Calibration simulation shows the functionalities of the :ref:`transcription_cali
    The provided Python script includes the creation of a set of test data inputted into the function.
 
 
-`Calibration Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced Simulator Features/calibration_simulation.py>`_ 
+`Calibration Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced%20Simulator%20Features/calibration_simulation.py>`_ 
+
 
 
 .. code-block:: python
@@ -74,7 +75,7 @@ Useful Features:
    * globally changing rate constants with :ref:`global_rate_constants() <global_rate_constants>`
    * changing indiviudal rate constants within :ref:`molecular_species <molecular_species>`
 
-`Discontinuous Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced Simulator Features/discontinuous_simulations.py>`_ 
+`Discontinuous Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced%20Simulator%20Features/discontinuous_simulations.py>`_ 
 
 
 .. code-block:: python
@@ -125,7 +126,7 @@ Useful Features:
    * changing indiviudal rate constants within :ref:`molecular_species() <molecular_species>`
 
 
-`Degredation Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced Simulator Features/degradation_simulations.py>`_ 
+`Degredation Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced%20Simulator%20Features/degradation_simulations.py>`_ 
 
 
 .. code-block:: python
@@ -161,7 +162,7 @@ Useful Features:
 The following degredation example simulates a system with degradation rates where single stranded species, double stranded species, and RNA in RNA:DNA hyrbids are all independently changed.
 
 
-`Degradation Simulation with changing groups of rates Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced Simulator Features/degradationIndividRates_simulations.py>`_ 
+`Degradation Simulation with changing groups of rates Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced%20Simulator%20Features/degradationIndividRates_simulation.py>`_ 
 
 
 .. code-block:: python
@@ -217,7 +218,7 @@ Useful Features:
 
    **Two-Toehold Simulation**
 
-`Two Toehold Sim Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced Simulator Features/TwoToehold_simulation.py>`_ 
+`Two Toehold Sim Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced%20Simulator%20Features/TwoToehold_simulation.py>`_ 
 
 
 .. code-block:: python
@@ -271,7 +272,7 @@ Useful Features:
    **AG Fuel Simulation**
 
 
-`AG Fuel Sim Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced Simulator Features/AGfuel_simulations.py>`_ 
+`AG Fuel Sim Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced%20Simulator%20Features/AGfuel_simulations.py>`_ 
 
 .. code-block:: python
 
@@ -317,7 +318,7 @@ Useful Features:
 
    **Two AND Gate OR Simulation**
 
-`Two AND gate OR Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced Simulator Features/AB_OR_CD_simulations.py>`_ 
+`Two AND gate OR Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced%20Simulator%20Features/AB_OR_CD_simulations.py>`_ 
 
 .. code-block:: python
 
@@ -370,7 +371,7 @@ Useful Features:
    **Thresholding Simulation**
 
 
-`Thresholding Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced Simulator Features/threshold_simulation.py>`_ 
+`Thresholding Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced%20Simulator%20Features/threshold_simulation.py>`_ 
 
 
 .. code-block:: python
@@ -424,7 +425,7 @@ ctRSD seesaw element simulation
    **ctRSD Seesaw Simulation**
 
 
-`ctRSD Seesaw Simulation Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced Simulator Features/seesaw_simulation_ctRSD.py>`_ 
+`ctRSD Seesaw Simulation Comparison Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced%20Simulator%20Features/seesaw_simulation_ctRSD.py>`_ 
 
 
 .. code-block:: python
@@ -473,7 +474,7 @@ This simulation mimics a DNA strand displacment reaction by setting DNA_con to 0
    **DNA Seesaw Simulation**
 
 
-`DNA Seesaw Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced Simulator Features/seesaw_simulation_DNA.py>`_ 
+`DNA Seesaw Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced%20Simulator%20Features/seesaw_simulation_DNA.py>`_ 
 
 
 .. code-block:: python
@@ -535,7 +536,7 @@ Useful Features:
    **CG Simulation**
 
 
-`CG Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced Simulator Features/CG_simulations.py>`_ 
+`CG Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced%20Simulator%20Features/CG_simulations.py>`_ 
 
 .. code-block:: python
 
@@ -574,7 +575,7 @@ Useful Features:
 
 The CG grid simulation is another example using a basic CG system that shows many more input template concentration combinations for the two inputs in the system.
 
-`CG Grid Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced Simulator Features/CG_simulationsGRID.py>`_ 
+`CG Grid Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced%20Simulator%20Features/CG_simulationsGRID.py>`_ 
 
 .. figure:: /ExampleImages/CG_simulationsGRID.svg
    :class: with-border
@@ -604,7 +605,7 @@ Useful Features:
    **Three CG Simulation** The model is set up such that the same input domain cannot be repeated in the same index for two gates. For example, CG{6,7} and CG{4,7} will result in an incorrect result because both gates have domain 7 in the second index. This should be changed to CG{6,7} and CG{7,4} so that domain 7 is in a different index for the two gates. 
 
 
-`Three CG Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced Simulator Features/threeCG_simulations.py>`_ 
+`Three CG Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced%20Simulator%20Features/threeCG_simulations.py>`_ 
 
 
 .. code-block:: python

@@ -148,9 +148,9 @@ First Steps:
    `This example script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence%20Compiler/seq_compile_save_to_excel.py>`_ 
 
 
-`Example Script for seqeuences in the 2022 Science Advances paper can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence%20Compiler/seq_compile_SA22_examples.py>`_ 
+`Example Script for sequences in the 2022 Science Advances paper can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence%20Compiler/seq_compile_SA22_examples.py>`_ 
 
-`Example Script for diverse gate seqeuences can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence%20Compiler/seq_compile_gate_characterization_examples.py>`_ 
+`Example Script for diverse gate sequences can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence%20Compiler/seq_compile_gate_characterization_examples.py>`_ 
 
-`Example Script for additional component seqeuences can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence%20Compiler/seq_compile_general_examples.py>`_ 
+`Example Script for additional component sequences can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence%20Compiler/seq_compile_general_examples.py>`_ 
 

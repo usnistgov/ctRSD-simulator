@@ -17,7 +17,7 @@ Figure 2D simulates a basic, one-layer ctRSD circuit with different input templa
 Useful Features:
 	* changing indiviudal rate constants within :ref:`molecular_species() <molecular_species>`
 
-`Figure 2D Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022 Science Advances Paper/figure2D_simulations_v2.py>`_ 
+`Figure 2D Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022%20Science%20Advances%20Paper/figure2D_simulations_v2.py>`_ 
 
 
 Figure 4C
@@ -28,7 +28,7 @@ Useful Features:
 	* globally changing rate constants with :ref:`global_rate_constants() <global_rate_constants>`
 	* changing indiviudal rate constants within :ref:`molecular_species() <molecular_species>`
 
-`Figure 4C Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022 Science Advances Paper/figure4C_simulations_v2.py>`_ 
+`Figure 4C Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022%20Science%20Advances%20Paper/figure4C_simulations_v2.py>`_ 
 
 
 
@@ -42,7 +42,7 @@ Useful Features:
    * changing indiviudal rate constants within :ref:`molecular_species() <molecular_species>`
 
 
-`Figure 4F Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022 Science Advances Paper/figure4C_simulations_v2.py>`_ 
+`Figure 4F Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022%20Science%20Advances%20Paper/figure4C_simulations_v2.py>`_ 
 
 
 
@@ -56,7 +56,7 @@ Useful Features:
    * changing indiviudal rate constants within :ref:`molecular_species() <molecular_species>`
 
 
-`Figure 4H Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022 Science Advances Paper/figure4H_simulations_v2.py>`_ 
+`Figure 4H Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022%20Science%20Advances%20Paper/figure4H_simulations_v2.py>`_ 
 
 
 
@@ -69,7 +69,7 @@ Useful Features:
    * changing indiviudal rate constants within :ref:`molecular_species() <molecular_species>`
 
 
-`Figure 5B Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022 Science Advances Paper/figure5B_simulations_v2.py>`_ 
+`Figure 5B Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022%20Science%20Advances%20Paper/figure5B_simulations_v2.py>`_ 
 
 
 
@@ -82,7 +82,7 @@ Useful Features:
    * changing indiviudal rate constants within :ref:`molecular_species() <molecular_species>`
 
 
-`Figure 5C Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022 Science Advances Paper/figure5C_simulations_v2.py>`_ 
+`Figure 5C Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022%20Science%20Advances%20Paper/figure5C_simulations_v2.py>`_ 
 
 
 
@@ -96,7 +96,7 @@ Useful Features:
    * changing indiviudal rate constants within :ref:`molecular_species() <molecular_species>`
 
 
-`Figure 5D Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022 Science Advances Paper/figure5D_simulations_v2.py>`_ 
+`Figure 5D Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022%20Science%20Advances%20Paper/figure5D_simulations_v2.py>`_ 
 
 
 Figure 5E
@@ -115,7 +115,7 @@ Useful Features:
    More information on the imporved model implementation can be found :ref:`here <model_implementation>`.
 
 
-`Figure 5E Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022 Science Advances Paper/figure5E_simulations_v2.py>`_ 
+`Figure 5E Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022%20Science%20Advances%20Paper/figure5E_simulations_v2.py>`_ 
 
 
 Figure 5F
@@ -128,7 +128,7 @@ Useful Features:
    * changing indiviudal rate constants within :ref:`molecular_species() <molecular_species>`
 
 
-`Figure 5F Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022 Science Advances Paper/figure5F_simulations_v2.py>`_ 
+`Figure 5F Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022%20Science%20Advances%20Paper/figure5F_simulations_v2.py>`_ 
 
 
 SI Figure 12
@@ -141,7 +141,7 @@ Useful Features:
    * Plotting species other than S{}
    * :ref:`Discontinuous simulation <discontinuous_simulation>` feature in simulate()
 
-`SA22_SI_Figure12 Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022 Science Advances Paper/SA22_SI_figure12_v2.py>`_ 
+`SA22_SI_Figure12 Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022%20Science%20Advances%20Paper/SA22_SI_figure12_v2.py>`_ 
 
 
 
@@ -155,7 +155,7 @@ Useful Features:
    * changing indiviudal initial conditions within :ref:`molecular_species() <molecular_species>`
    * :ref:`Discontinuous simulation <discontinuous_simulation>` feature in simulate()
 
-`SA22_SI_Figure16 Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022 Science Advances Paper/SA22_SI_figure16_v2.py>`_ 
+`SA22_SI_Figure16 Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022%20Science%20Advances%20Paper/SA22_SI_figure16_v2.py>`_ 
 
 
 
@@ -168,7 +168,7 @@ Useful Features:
    * changing indiviudal rate constants within :ref:`molecular_species() <molecular_species>`
 
 
-`SA22_SI_Figure18 Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022 Science Advances Paper/SA22_SI_figure18_v2.py>`_ 
+`SA22_SI_Figure18 Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022%20Science%20Advances%20Paper/SA22_SI_figure18_v2.py>`_ 
 
 
 
@@ -180,7 +180,7 @@ Useful Features:
    * globally changing rate constants with :ref:`global_rate_constants() <global_rate_constants>`
    * changing indiviudal rate constants within :ref:`molecular_species() <molecular_species>`
 
-`SA22_SI_Figure19 Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022 Science Advances Paper/SA22_SI_figure19_v2.py>`_ 
+`SA22_SI_Figure19 Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022%20Science%20Advances%20Paper/SA22_SI_figure19_v2.py>`_ 
 
 
 
@@ -192,7 +192,7 @@ Useful Features:
    * globally changing rate constants with :ref:`global_rate_constants() <global_rate_constants>`
    * changing indiviudal rate constants within :ref:`molecular_species() <molecular_species>`
 
-`SA22_SI_Figure26 Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022 Science Advances Paper/SA22_SI_figure26_v2.py>`_ 
+`SA22_SI_Figure26 Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022%20Science%20Advances%20Paper/SA22_SI_figure26_v2.py>`_ 
 
 
 
@@ -205,7 +205,7 @@ Useful Features:
    * changing indiviudal rate constants within :ref:`molecular_species() <molecular_species>`
 
 
-`SA22_SI_Figure27B Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022 Science Advances Paper/SA22_SI_figure27B_v2.py>`_ 
+`SA22_SI_Figure27B Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022%20Science%20Advances%20Paper/SA22_SI_figure27B_v2.py>`_ 
 
 
 
@@ -217,7 +217,7 @@ Useful Features:
    * globally changing rate constants with :ref:`global_rate_constants() <global_rate_constants>`
    * changing indiviudal rate constants within :ref:`molecular_species() <molecular_species>`
 
-`SA22_SI_Figure30C Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022 Science Advances Paper/SA22_SI_figure30C_v2.py>`_ 
+`SA22_SI_Figure30C Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022%20Science%20Advances%20Paper/SA22_SI_figure30C_v2.py>`_ 
 
 
 SI Figure 31B
@@ -235,5 +235,5 @@ Useful Features:
    * changing indiviudal rate constants within :ref:`molecular_species() <molecular_species>`
 
 
-`SA22_SI_Figure31B Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022 Science Advances Paper/SA22_SI_figure31B_v2.py>`_ 
+`SA22_SI_Figure31B Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022%20Science%20Advances%20Paper/SA22_SI_figure31B_v2.py>`_ 
 

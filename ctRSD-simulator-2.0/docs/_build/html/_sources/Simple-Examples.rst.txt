@@ -19,7 +19,7 @@ Simulating the system below:
    **Single ctRSD Gate Reaction**
 
 
-`Single ctRSD Gate Reaction Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Simple Examples/single_gate_reaction.py>`_ 
+`Single ctRSD Gate Reaction Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Simple%20Examples/single_gate_reaction.py>`_ 
 
 
 .. code-block:: python
@@ -57,7 +57,7 @@ Simulating the system below:
 
    **Two-Layer Cascade Simulation**
 
-`Two Layer Cascade Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Simple Examples/two_layer_simulation.py>`_ 
+`Two Layer Cascade Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Simple%20Examples/two_layer_simulation.py>`_ 
 
 
 .. code-block:: python
@@ -100,7 +100,7 @@ Simulating the system below:
    **Fan-Out Simulation**
 
 
-`Fan Out Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Simple Examples/fan_out_simulation.py>`_ 
+`Fan Out Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Simple%20Examples/fan_out_simulation.py>`_ 
 
 
 .. code-block:: python
@@ -141,7 +141,7 @@ Simulating the system below:
 
    **Fan-Out Fan-In Simulation**
 
-`Fan Out Fan In Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Simple Examples/fan_out_fan_in_simulation.py>`_ 
+`Fan Out Fan In Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Simple%20Examples/fan_out_fan_in_simulation.py>`_ 
 
 
 .. code-block:: python
@@ -184,7 +184,7 @@ Simulating the systems below:
 Note using the expanded nomenclature below does not change anything about the simulation. The simulator ignores the letters before or after the indices. This is merely a way to keep track of the experimental components in a simulation. If the different toeholds have different rate constants, these can be changed when each component is defined in *molecular_species()*, see :ref:`Two toehold cascade simulation <two_toehold>`
 
 
-`Single ctRSD Gate Reaction with Experimental Nomenclature Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Simple Examples/single_gate_reaction_exp_nomenclature.py>`_ 
+`Single ctRSD Gate Reaction with Experimental Nomenclature Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Simple%20Examples/single_gate_reaction_exp_nomenclature.py>`_ 
 
 
 .. code-block:: python
@@ -204,7 +204,7 @@ Note using the expanded nomenclature below does not change anything about the si
    # pull out the species from the model solution to plot
    S2 = model.output_concentration('S{w2}')
 
-`Two Layer Simulation with Experimental Nomenclature Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Simple Examples/two_layer_simulation_exp_nomenclature.py>`_ 
+`Two Layer Simulation with Experimental Nomenclature Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Simple%20Examples/two_layer_simulation_exp_nomenclature.py>`_ 
 
 
 .. code-block:: python

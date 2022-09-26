@@ -26,8 +26,8 @@
      inkscape:document-units="pt"
      showgrid="false"
      inkscape:zoom="0.82953558"
-     inkscape:cx="922.20276"
-     inkscape:cy="436.38876"
+     inkscape:cx="521.97882"
+     inkscape:cy="429.15579"
      inkscape:window-width="1920"
      inkscape:window-height="986"
      inkscape:window-x="-11"
@@ -46,7 +46,10 @@
      id="patch_1" />
   <g
      id="g6144"
-     transform="translate(84.083193,-52.438981)">
+     transform="translate(84.083193,-52.438981)"
+     inkscape:export-filename="threshold_simulation.png"
+     inkscape:export-xdpi="600"
+     inkscape:export-ydpi="600">
     <g
        id="patch_2">
       <path

@@ -23,7 +23,7 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="0.85684211"
-     inkscape:cx="346.62162"
+     inkscape:cx="347.7887"
      inkscape:cy="241.58477"
      inkscape:window-width="1920"
      inkscape:window-height="986"
@@ -116,7 +116,10 @@
   <g
      clip-path="url(#clip0)"
      transform="matrix(0.87926295,0,0,0.87926295,-427.02814,-177.1894)"
-     id="g7709">
+     id="g7709"
+     inkscape:export-filename="degradation_simulations.png"
+     inkscape:export-xdpi="600"
+     inkscape:export-ydpi="600">
     <g
        clip-path="url(#clip2)"
        id="g7457" />

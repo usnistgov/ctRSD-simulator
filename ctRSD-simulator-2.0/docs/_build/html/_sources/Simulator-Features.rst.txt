@@ -103,7 +103,7 @@ Useful Features:
    # pulling out the reporter concentration for plotting
    S2 = model.output_concentration('S{2}')
 
-.. figure:: /ExampleImages/discontinuous_simulations.svg
+.. figure:: /ExampleImages/discontinuous_simulations.png
    :class: with-border
    :align: center
 
@@ -152,7 +152,7 @@ Useful Features:
    S2 = model.output_concentration('S{2}')
 
 
-.. figure:: /ExampleImages/degradation_simulations.svg
+.. figure:: /ExampleImages/degradation_simulations.png
    :class: with-border
    :align: center
 
@@ -194,7 +194,7 @@ The following degredation example simulates a system with degradation rates wher
    O12 = model.output_concentration('O{1,2}')
 
 
-.. figure:: /ExampleImages/degradationIndividRates_simulation.svg
+.. figure:: /ExampleImages/degradationIndividRates_simulation.png
    :class: with-border
    :align: center
 
@@ -297,7 +297,7 @@ Useful Features:
    # pull out the species from the model solution to plot
    S2 = model.output_concentration('S{2}')
 
-.. figure:: /ExampleImages/AGfuel_simulations.svg
+.. figure:: /ExampleImages/AGfuel_simulations.png
    :class: with-border
    :align: center
 
@@ -345,7 +345,7 @@ Useful Features:
    S2 = model.output_concentration('S{2}')
 
 
-.. figure:: /ExampleImages/AB+CD_simulations.svg
+.. figure:: /ExampleImages/AB+CD_simulations.png
    :class: with-border
    :align: center
 
@@ -397,7 +397,7 @@ Useful Features:
    S2 = model.output_concentration('S{2}')
 
 
-.. figure:: /ExampleImages/threshold_simulation.svg
+.. figure:: /ExampleImages/threshold_simulation.png
    :class: with-border
    :align: center
 
@@ -457,7 +457,7 @@ ctRSD seesaw element simulation
    S4 = model.output_concentration('S{4}')
 
 
-.. figure:: /ExampleImages/seesaw_simulation_ctRSD.svg
+.. figure:: /ExampleImages/seesaw_simulation_ctRSD.png
    :class: with-border
    :align: center
 
@@ -510,7 +510,7 @@ This simulation mimics a DNA strand displacment reaction by setting DNA_con to 0
    S4 = model.output_concentration('S{4}')
 
 
-.. figure:: /ExampleImages/seesaw_simulation_DNA.svg
+.. figure:: /ExampleImages/seesaw_simulation_DNA.png
    :class: with-border
    :align: center
 
@@ -566,7 +566,7 @@ Useful Features:
    S2 = model.output_concentration('S{2}')
 
 
-.. figure:: /ExampleImages/CG_simulations.svg
+.. figure:: /ExampleImages/CG_simulations.png
    :class: with-border
    :align: center
 
@@ -577,7 +577,7 @@ The CG grid simulation is another example using a basic CG system that shows man
 
 `CG Grid Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced%20Simulator%20Features/CG_simulationsGRID.py>`_ 
 
-.. figure:: /ExampleImages/CG_simulationsGRID.svg
+.. figure:: /ExampleImages/CG_simulationsGRID.png
    :class: with-border
    :align: center
 
@@ -645,7 +645,7 @@ Useful Features:
    S3 = model.output_concentration('S{3}')
 
 
-.. figure:: /ExampleImages/threeCG_simulations.svg
+.. figure:: /ExampleImages/threeCG_simulations.png
    :class: with-border
    :align: center
 

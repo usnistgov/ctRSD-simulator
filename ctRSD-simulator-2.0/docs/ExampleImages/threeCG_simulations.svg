@@ -26,8 +26,8 @@
      inkscape:document-units="pt"
      showgrid="false"
      inkscape:zoom="1.1731405"
-     inkscape:cx="150.87707"
-     inkscape:cy="277.46038"
+     inkscape:cx="518.26699"
+     inkscape:cy="277.03417"
      inkscape:window-width="1920"
      inkscape:window-height="986"
      inkscape:window-x="-11"
@@ -46,7 +46,10 @@
      id="patch_1" />
   <g
      id="axes_1"
-     transform="translate(-108,-49.5)">
+     transform="translate(-108,-49.5)"
+     inkscape:export-filename="threeCG_simulations.png"
+     inkscape:export-xdpi="600"
+     inkscape:export-ydpi="600">
     <g
        id="patch_2">
       <path

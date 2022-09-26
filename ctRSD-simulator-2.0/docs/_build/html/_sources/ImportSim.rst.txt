@@ -10,6 +10,9 @@ Installing and Initializing Simulator
 	3. Instantiate the simulator's :ref:`class <class>` -> input is # of domains (default=5)
 	4. Now use all the functions/features available in ctRSD-simulator-2.0!
 
+**The following packages are required for full capabilities:**
+*numpy*, *scipy*, *matplotlib*, *re*, *math*, *xlrd*
+
 .. admonition:: Note:
 
    You will need to import the simulator package in your local script to use it. After downloading a local copy of the package you can import the package with the following code:

@@ -15,8 +15,7 @@ Download ctRSD-simulator-2.0.0 version -> `DOWNLOAD <https://github.com/usnistgo
 Download ctRSD-simulator-1.0.1 -> `DOWNLOAD <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/ctRSD_simulator_101.py>`_ 
 
 
-
-
+**The simulator requires the following Python packages for full capabilities:** *numpy*, *scipy*, *matplotlib*, *re*, *math*, *xlrd*
 
 
 Table of Contents

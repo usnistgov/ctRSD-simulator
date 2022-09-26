@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Troubleshooting &mdash; ctRSD-simulator-2.0 2.0.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>Troubleshooting &mdash; ctRSD-simulator-2.0 2.0.0 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Simulator Features" href="Simulator-Features.html" />
-    <link rel="prev" title="Functions" href="Functions.html" /> 
+    <link rel="next" title="Simple Examples" href="Simple-Examples.html" />
+    <link rel="prev" title="Sequence Compiler" href="SeqCompiler.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -38,25 +35,27 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">General:</span></p>
+              <p class="caption"><span class="caption-text">General:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Model-Implementation.html">Model Reactions and Implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ImportSim.html">Installing and Initializing Simulator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ClassInitials.html">RSD_sim Class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SeqCompiler.html">Sequence Compiler</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Troubleshooting</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#speeding-up-comparator-gate-simulations">Speeding Up Comparator Gate Simulations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#rate-constants-being-overrided">Rate Constants being Overrided</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#overriding-rate-constants">Overriding Rate Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#accessing-variables-in-the-simulator">Accessing Variables in the Simulator</a></li>
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">General Examples:</span></p>
+<p class="caption"><span class="caption-text">General Examples:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Simulator-Features.html">Simulator Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Simple-Examples.html">Simple Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Simulator-Features.html">Advanced Simulator Features</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Examples from Publications:</span></p>
+<p class="caption"><span class="caption-text">Examples from Publications:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="SA_Examples.html">2022 Science Advances Paper</a></li>
 </ul>
@@ -85,23 +84,22 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="troubleshooting">
-<span id="id1"></span><h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this heading"></a></h1>
+  <div class="section" id="troubleshooting">
+<span id="id1"></span><h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h1>
 <p>This page offers some useful tips to troubleshoot based off some of the problems we encountered when building the simulator.</p>
-<section id="speeding-up-comparator-gate-simulations">
-<h2>Speeding Up Comparator Gate Simulations<a class="headerlink" href="#speeding-up-comparator-gate-simulations" title="Permalink to this heading"></a></h2>
+<div class="section" id="speeding-up-comparator-gate-simulations">
+<h2>Speeding Up Comparator Gate Simulations<a class="headerlink" href="#speeding-up-comparator-gate-simulations" title="Permalink to this headline">¶</a></h2>
 <p>Due to comparator gate reactions utilizing very disparate time scales, simulations using comparator gates may have a much slower time efficiency than the other reactions. Below are some different options for reducing the simulation time when using comparator gates.</p>
 <dl class="simple">
 <dt>Troubleshooting options:</dt><dd><ol class="arabic simple">
 <li><p>Utilize the BDF solving method. BDF is an implicit method meant for stiff equations, so it can help to process the CG reactions      quicker. The solving method used can be changed in <a class="reference internal" href="Functions.html#simulate"><span class="std std-ref">simulate</span></a>.</p></li>
-<li><p>If you are looping through the simulator many times, parallelizing these loops can also greatly speed time efficiency. Python offers many different ways to create parallel loops.</p></li>
+<li><p>If you are looping through the simulator many times, parallelizing these loops can also greatly speed time efficiency. Python offers many different ways to create parallel loops, such as the <em>multiprocessing</em> package.</p></li>
 </ol>
 </dd>
 </dl>
-<p>Comparator gate examples that utilize these different options begin <a class="reference internal" href="Simulator-Features.html#comparator-gate-simulation"><span class="std std-ref">here</span></a>. (Pattern recognition simulation utilizes parallel scripts)</p>
-</section>
-<section id="rate-constants-being-overrided">
-<h2>Rate Constants being Overrided<a class="headerlink" href="#rate-constants-being-overrided" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="overriding-rate-constants">
+<h2>Overriding Rate Constants<a class="headerlink" href="#overriding-rate-constants" title="Permalink to this headline">¶</a></h2>
 <p>Since both <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species</span></a> and <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants</span></a> offer the ability to change the rate constants available in the simulator, you may find one function overriding changes you made in the other.</p>
 <dl class="simple">
 <dt>Troubleshooting Tips (Examples Below):</dt><dd><ol class="arabic simple">
@@ -110,21 +108,17 @@
 </ol>
 </dd>
 </dl>
-<figure class="align-center" id="id2">
+<div class="figure align-center" id="id2">
 <img alt="_images/Troubleshooting-overriding1.png" class="with-border" src="_images/Troubleshooting-overriding1.png" />
-<figcaption>
-<p><span class="caption-text"><strong>global_rate_constants before molecular species</strong></span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-<figure class="align-center" id="id3">
+<p class="caption"><span class="caption-text"><strong>global_rate_constants before molecular species</strong></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center" id="id3">
 <img alt="_images/Troubleshooting-overriding2.png" class="with-border" src="_images/Troubleshooting-overriding2.png" />
-<figcaption>
-<p><span class="caption-text"><strong>molecular_species before global_rate_constants</strong></span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-</section>
-<section id="accessing-variables-in-the-simulator">
-<h2>Accessing Variables in the Simulator<a class="headerlink" href="#accessing-variables-in-the-simulator" title="Permalink to this heading"></a></h2>
+<p class="caption"><span class="caption-text"><strong>molecular_species before global_rate_constants</strong></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="accessing-variables-in-the-simulator">
+<h2>Accessing Variables in the Simulator<a class="headerlink" href="#accessing-variables-in-the-simulator" title="Permalink to this headline">¶</a></h2>
 <p>In order to troubleshoot a script utilizing the simulator, you may want to access different variables that are found in the simulator, but not locally available in your script.</p>
 <div class="admonition-note admonition">
 <p class="admonition-title">Note:</p>
@@ -138,21 +132,30 @@
 <li><p>Assuming the model is downloaded, imported, and instantiated accessing a variable is very similar to calling one of the functions. You simply the call the variable name with the name of the class object’s attachment. For example, if you defined the model instantiation as “model”, then the format for accessing a variable would be “model.variable_name”.</p></li>
 </ol>
 </div></blockquote>
-<figure class="align-center" id="id4">
+<div class="figure align-center" id="id4">
 <img alt="_images/Troubleshooting-accessingvariables.png" class="with-border" src="_images/Troubleshooting-accessingvariables.png" />
-<figcaption>
-<p><span class="caption-text"><strong>How to access variables present in simulator</strong></span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-</section>
-</section>
+<p class="caption"><span class="caption-text"><strong>How to access variables present in simulator</strong></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<p><strong>Critical values to check for customized simulations include:</strong></p>
+<blockquote>
+<div><dl class="simple">
+<dt>The matrices holding DNA template concentrations</dt><dd><p>These are specified as <em>model.[name]temp_con</em>, where [name] can be G, O, TG, F, AG, CG</p>
+</dd>
+<dt>The matrices holding initial concentrations if these were changed in <em>molecular_species()</em></dt><dd><p>These are specified as <em>model.[name]_ic</em>, where [name] can be uG, G, GO, O, TG, F, AG, CG, R, S, Q, AGOa, AGOb, AGFb, CGOa, CGOb</p>
+</dd>
+<dt>The matrices holding rate constants if these were changed in <em>global_rate_constants()</em> <em>molecular_species()</em></dt><dd><p>These are specified as <em>model.[name]</em>, where [name] is the name of the rate constant (ktxnO, krsd, krz, kdrd, kssdO, etc)</p>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+</div>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="Functions.html" class="btn btn-neutral float-left" title="Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="Simulator-Features.html" class="btn btn-neutral float-right" title="Simulator Features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="SeqCompiler.html" class="btn btn-neutral float-left" title="Sequence Compiler" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Simple-Examples.html" class="btn btn-neutral float-right" title="Simple Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

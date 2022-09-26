@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simulator Features &mdash; ctRSD-simulator-2.0 2.0.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>Advanced Simulator Features &mdash; ctRSD-simulator-2.0 2.0.0 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="2022 Science Advances Paper" href="SA_Examples.html" />
-    <link rel="prev" title="Troubleshooting" href="troubleshooting.html" /> 
+    <link rel="prev" title="Simple Examples" href="Simple-Examples.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -38,36 +35,38 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">General:</span></p>
+              <p class="caption"><span class="caption-text">General:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Model-Implementation.html">Model Reactions and Implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ImportSim.html">Installing and Initializing Simulator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ClassInitials.html">RSD_sim Class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SeqCompiler.html">Sequence Compiler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">General Examples:</span></p>
+<p class="caption"><span class="caption-text">General Examples:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Simulator Features</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="Simple-Examples.html">Simple Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Advanced Simulator Features</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#calibration-simulation">Calibration Simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#discontinuous-simulation">Discontinuous Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#degradation-simulation">Degradation Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#two-toehold-cascade-simulation">Two-Toehold Cascade Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#and-gate-with-fuel-simulation">AND Gate with Fuel Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#two-and-gate-or-simulation">Two AND Gate OR Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#thresholding-simulation">Thresholding Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#seesaw-and-element-simulations">Seesaw AND Element Simulations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ctrsd-seesaw-element-simulation">ctRSD seesaw element simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dna-seesaw-and-element-simulation">DNA seesaw AND element simulation</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#comparator-gate-simulation">Comparator Gate Simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#three-comparator-gate-simulation">Three Comparator Gate Simulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#thresholding-simulation">Thresholding Simulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#degradation-simulation">Degradation Simulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#seesaw-simulations">Seesaw Simulations</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#ctrsd-seesaw-simulation">ctRSD Seesaw Simulation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#dna-seesaw-simulation">DNA Seesaw Simulation</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#two-toehold-simulation">Two-Toehold Simulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#and-gate-with-fuel-simulation">AND Gate with Fuel Simulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#two-minterm-simulation">Two Minterm Simulation</a></li>
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Examples from Publications:</span></p>
+<p class="caption"><span class="caption-text">Examples from Publications:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="SA_Examples.html">2022 Science Advances Paper</a></li>
 </ul>
@@ -86,7 +85,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Simulator Features</li>
+      <li>Advanced Simulator Features</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/Simulator-Features.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -96,247 +95,540 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="simulator-features">
-<h1>Simulator Features<a class="headerlink" href="#simulator-features" title="Permalink to this heading"></a></h1>
+  <div class="section" id="advanced-simulator-features">
+<h1>Advanced Simulator Features<a class="headerlink" href="#advanced-simulator-features" title="Permalink to this headline">¶</a></h1>
 <div class="admonition-note admonition">
 <p class="admonition-title">Note:</p>
 <p>All following examples are important features of the ctRSD-simulator-2.0.</p>
 </div>
-<section id="calibration-simulation">
-<span id="id1"></span><h2>Calibration Simulation<a class="headerlink" href="#calibration-simulation" title="Permalink to this heading"></a></h2>
-<p>Calibration simulation shows the functionalities of the <a class="reference internal" href="Functions.html#transcription-calibration"><span class="std std-ref">transcription_calibration</span></a> function. The function is used for testing different transcription rates in order to find the best fit rate for an inputted data set. The user can test their data against a base set of transcription rates provided by the function, or specify what specfic rate(s) they would like to test.</p>
+<div class="section" id="calibration-simulation">
+<span id="id1"></span><h2>Calibration Simulation<a class="headerlink" href="#calibration-simulation" title="Permalink to this headline">¶</a></h2>
+<p>Calibration simulation shows the functionalities of the <a class="reference internal" href="Functions.html#transcription-calibration"><span class="std std-ref">transcription_calibration()</span></a> function. The function is used for testing different transcription rates in order to find the best fit rate for an inputted data set. The user can test their data against a base set of transcription rates provided by the function, or specify what specfic rate(s) they would like to test.</p>
 <div class="admonition-note admonition">
 <p class="admonition-title">Note:</p>
 <p>The provided Python script includes the creation of a set of test data inputted into the function.</p>
 </div>
-<dl class="simple">
-<dt>Some Functionalities used:</dt><dd><ul class="simple">
-<li><p>calibration transcription rates using <a class="reference internal" href="Functions.html#transcription-calibration"><span class="std std-ref">transcription_calibration</span></a></p></li>
-</ul>
-</dd>
-</dl>
-<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/calibration_simulation.py">Calibration Simulation Python Script can be found here</a></p>
-<figure class="align-center" id="id4">
-<img alt="_images/calibration_simulation_baserates.svg" src="_images/calibration_simulation_baserates.svg" /><figcaption>
-<p><span class="caption-text"><strong>Calibration Against Base Rates</strong></span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-<figure class="align-center" id="id5">
-<img alt="_images/calibration_simulation_specifiedrates.svg" src="_images/calibration_simulation_specifiedrates.svg" /><figcaption>
-<p><span class="caption-text"><strong>Calibration Against Specified Rates</strong></span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-</section>
-<section id="discontinuous-simulation">
-<span id="id2"></span><h2>Discontinuous Simulation<a class="headerlink" href="#discontinuous-simulation" title="Permalink to this heading"></a></h2>
-<p>Discontinuous Simulation provides guidance for the usage of discontinuous feature of ctRSD-simulator-2.0. This feature allows the user to run a simulation for a specific amount of time using any desired conditions, and then apply a different set of conditions for the next time span, till the given end of the simulation. The user has the ability to change the conditions for a given amount of time across the entire length of the simulation as many times as needed. Also, full function of the different features of the simulator are available to be changed for different time spans of the total simulaton time.</p>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/AdvancedSimulatorFeatures/calibration_simulation.py">Calibration Simulation Python Script can be found here</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ctRSD_simulator_200</span> <span class="k">as</span> <span class="nn">RSDs</span> <span class="c1"># import latest simulator version</span>
+
+<span class="c1"># create the model instance</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">RSDs</span><span class="o">.</span><span class="n">RSD_sim</span><span class="p">()</span> <span class="c1"># default # of domains (5 domains)</span>
+
+<span class="c1"># simulating the model</span>
+<span class="n">t_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span><span class="o">*</span><span class="mi">3600</span> <span class="c1"># seconds</span>
+
+<span class="c1"># function call without ktxn specified will run against assortment of a preset values of transcription rate constants</span>
+<span class="n">model</span><span class="o">.</span><span class="n">transcription_calibration</span><span class="p">(</span><span class="n">simTime</span><span class="o">=</span><span class="n">t_sim</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">experimental_data</span><span class="p">)</span>
+
+<span class="c1"># function call with ktxn specified runs data against specified transcription rate constants (also works with single value)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">transcription_calibration</span><span class="p">(</span><span class="n">simTime</span><span class="o">=</span><span class="n">t_sim</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">experimental_data</span><span class="p">,</span><span class="n">ktxn</span><span class="o">=</span><span class="p">[</span><span class="mf">0.005</span><span class="p">,</span><span class="mf">0.0075</span><span class="p">,</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.0125</span><span class="p">,</span><span class="o">.</span><span class="mi">015</span><span class="p">,</span><span class="o">.</span><span class="mi">02</span><span class="p">,</span><span class="o">.</span><span class="mi">02125</span><span class="p">,</span><span class="o">.</span><span class="mi">025</span><span class="p">,</span><span class="o">.</span><span class="mi">0275</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id4">
+<img alt="_images/calibration_simulation_baserates.svg" src="_images/calibration_simulation_baserates.svg" /><p class="caption"><span class="caption-text"><strong>Calibration Against Base Rates</strong></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center" id="id5">
+<img alt="_images/calibration_simulation_specifiedrates.svg" src="_images/calibration_simulation_specifiedrates.svg" /><p class="caption"><span class="caption-text"><strong>Calibration Against Specified Rates</strong></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="discontinuous-simulation">
+<span id="id2"></span><h2>Discontinuous Simulation<a class="headerlink" href="#discontinuous-simulation" title="Permalink to this headline">¶</a></h2>
+<p>Discontinuous Simulation provides guidance for the usage of discontinuous feature of ctRSD-simulator-2.0. This feature allows the user to run a simulation for a specific amount of time using any desired conditions, and then apply a different set of conditions for the next time span, until the end of the simulation. The user has the ability to change the conditions for a given amount of time across the entire length of the simulation as many times as needed. Also, full function of the different features of the simulator are available to be changed for different time spans of the total simulaton time. In the example script, G{1,2} is transcribed alongside a R{2} for 60 min and then the template for I{1} is added.</p>
 <div class="admonition-note admonition">
 <p class="admonition-title">Note:</p>
-<p>The discontinuous feature is a part of the simulate function. More information on using simulate for discontinuous simulations can be found <a class="reference internal" href="Functions.html#simulate"><span class="std std-ref">here</span></a>.</p>
+<p>The discontinuous feature is a part of the simulate function. More information on using simulate for discontinuous simulations can be found <a class="reference internal" href="Functions.html#simulate"><span class="std std-ref">here</span></a></p>
 </div>
 <dl class="simple">
-<dt>Some Functionalities used:</dt><dd><ul class="simple">
-<li><p>globally changing rates with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants</span></a></p></li>
-<li><p>changing initial condtions/indiviudal rates within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species</span></a></p></li>
-<li><p>launching simulation using <a class="reference internal" href="Functions.html#simulate"><span class="std std-ref">simulate</span></a></p></li>
-<li><p>discontinuous feature available using <a class="reference internal" href="Functions.html#simulate"><span class="std std-ref">simulate</span></a></p></li>
-<li><p>pulling out desired output concentrations using <a class="reference internal" href="Functions.html#output-concentration"><span class="std std-ref">output_concentration</span></a></p></li>
+<dt>Useful Features:</dt><dd><ul class="simple">
+<li><p>discontinuous simulation feature in <a class="reference internal" href="Functions.html#simulate"><span class="std std-ref">simulate()</span></a></p></li>
+<li><p>globally changing rate constants with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants()</span></a></p></li>
+<li><p>changing indiviudal rate constants within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species</span></a></p></li>
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/discontinuous_simulations.py">Discontinuous Simulation Python Script can be found here</a></p>
-<figure class="align-center" id="id6">
-<img alt="_images/discontinuous_simulations.svg" class="with-border" src="_images/discontinuous_simulations.svg" /><figcaption>
-<p><span class="caption-text"><strong>Discontinuous Simulation</strong></span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-</section>
-<section id="comparator-gate-simulation">
-<span id="id3"></span><h2>Comparator Gate Simulation<a class="headerlink" href="#comparator-gate-simulation" title="Permalink to this heading"></a></h2>
-<p>Comparator Gate simulation shows a basic comparator gate reaction. This features shows the ability for a ctRSD circuit to be designed so that one output over the other is made depending on which input has a higher concentration.</p>
-<dl class="simple">
-<dt>Some Functionalities used:</dt><dd><ul class="simple">
-<li><p>globally changing rates with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants</span></a></p></li>
-<li><p>changing initial condtions/indiviudal rates within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species</span></a></p></li>
-<li><p>launching simulation using <a class="reference internal" href="Functions.html#simulate"><span class="std std-ref">simulate</span></a></p></li>
-<li><p>pulling out desired output concentrations using <a class="reference internal" href="Functions.html#output-concentration"><span class="std std-ref">output_concentration</span></a></p></li>
-</ul>
-</dd>
-</dl>
-<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/CG_simulations.py">CG Simulation Python Script can be found here</a></p>
-<figure class="align-center" id="id7">
-<img alt="_images/CG_simulations.svg" class="with-border" src="_images/CG_simulations.svg" /><figcaption>
-<p><span class="caption-text"><strong>CG Simulation</strong></span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-<p>The CG grid simulation is another example using a basic CG system. However, a grid is made using two sets of changing input concentrations. The x-axis shows changing I{6}, whereas the y-axis shows increasing I{7}. The grid example efficiently demonstrates the consistent functionality of the comparator gates.</p>
-<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/CG_simulationsGRID.py">CG Grid Simulation Python Script can be found here</a></p>
-<figure class="align-center" id="id8">
-<img alt="_images/CG_simulationsGRID.svg" class="with-border" src="_images/CG_simulationsGRID.svg" /><figcaption>
-<p><span class="caption-text"><strong>CG Grid Simulation</strong></span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-</section>
-<section id="three-comparator-gate-simulation">
-<h2>Three Comparator Gate Simulation<a class="headerlink" href="#three-comparator-gate-simulation" title="Permalink to this heading"></a></h2>
-<p>Three Comparator Gate Simulation is a system of three comparator gates and three inputs where only the highest input concentration will create the corresponding output reporter.</p>
-<dl class="simple">
-<dt>Some Functionalities used:</dt><dd><ul class="simple">
-<li><p>globally changing rates with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants</span></a></p></li>
-<li><p>changing initial condtions/indiviudal rates within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species</span></a></p></li>
-<li><p>launching simulation using <a class="reference internal" href="Functions.html#simulate"><span class="std std-ref">simulate</span></a></p></li>
-<li><p>pulling out desired output concentrations using <a class="reference internal" href="Functions.html#output-concentration"><span class="std std-ref">output_concentration</span></a></p></li>
-</ul>
-</dd>
-</dl>
-<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/threeCG_simulations.py">Three CG Simulation Python Script can be found here</a></p>
-<figure class="align-center" id="id9">
-<img alt="_images/threeCG_simulations.svg" class="with-border" src="_images/threeCG_simulations.svg" /><figcaption>
-<p><span class="caption-text"><strong>Three CG Simulation</strong></span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-</section>
-<section id="thresholding-simulation">
-<h2>Thresholding Simulation<a class="headerlink" href="#thresholding-simulation" title="Permalink to this heading"></a></h2>
-<p>Thresholding Simulation showcases a simple thresholding reaction, where a threshold can be added to a given system to effectively annihlate corresponding input concentrations.</p>
-<dl class="simple">
-<dt>Some Functionalities used:</dt><dd><ul class="simple">
-<li><p>changing initial condtions/indiviudal rates within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species</span></a></p></li>
-<li><p>launching simulation using <a class="reference internal" href="Functions.html#simulate"><span class="std std-ref">simulate</span></a></p></li>
-<li><p>pulling out desired output concentrations using <a class="reference internal" href="Functions.html#output-concentration"><span class="std std-ref">output_concentration</span></a></p></li>
-</ul>
-</dd>
-</dl>
-<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/threshold_simulation.py">Thresholding Simulation Python Script can be found here</a></p>
-<figure class="align-center" id="id10">
-<img alt="_images/threshold_simulation.svg" class="with-border" src="_images/threshold_simulation.svg" /><figcaption>
-<p><span class="caption-text"><strong>Thresholding Simulation</strong></span><a class="headerlink" href="#id10" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-</section>
-<section id="degradation-simulation">
-<h2>Degradation Simulation<a class="headerlink" href="#degradation-simulation" title="Permalink to this heading"></a></h2>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/AdvancedSimulatorFeatures/discontinuous_simulations.py">Discontinuous Simulation Python Script can be found here</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ctRSD_simulator_200</span> <span class="k">as</span> <span class="nn">RSDs</span> <span class="c1"># import latest simulator version</span>
+
+<span class="c1"># create the model instance</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">RSDs</span><span class="o">.</span><span class="n">RSD_sim</span><span class="p">()</span> <span class="c1"># default # of domains (5 domains)</span>
+
+<span class="c1"># specify species involved in the system</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;G{1,2}&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;R</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">ic</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="c1"># simulating the model for 1 hour</span>
+<span class="n">t_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span><span class="o">*</span><span class="mi">3600</span> <span class="c1"># seconds</span>
+<span class="n">model</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">t_sim</span><span class="p">)</span> <span class="c1"># simulate the model</span>
+
+<span class="c1"># adding the I{1} template to the model</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;I</span><span class="si">{1}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+
+<span class="c1"># continue simulation with I{1} template added for 3 more hours</span>
+<span class="n">t_sim2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">t_sim</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">3600</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span><span class="o">*</span><span class="mi">3600</span> <span class="c1"># seconds</span>
+<span class="n">model</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">t_sim2</span><span class="p">,</span><span class="n">iteration</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#must specify it is second iteration</span>
+
+<span class="c1"># pulling out the reporter concentration for plotting</span>
+<span class="n">S2</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;S</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id6">
+<img alt="_images/discontinuous_simulations.svg" class="with-border" src="_images/discontinuous_simulations.svg" /><p class="caption"><span class="caption-text"><strong>Discontinuous Simulation</strong></span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="degradation-simulation">
+<h2>Degradation Simulation<a class="headerlink" href="#degradation-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Degradation Simulation shows the ability to use <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants</span></a> to raise degradation rates from their 0 default to initialize degradation reactions in a system.</p>
-<p><a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants</span></a> gives the user the ability to change all degradation rates at once using “kdeg” as an argument, to just change degradation rates for single stranded species,”kssd,” double stranded species,”kdsd,” or RNA:DNA hyrbids,”kdrd,” and finally to change the degrdation rates for any given individual species.</p>
+<p><a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants()</span></a> gives the user the ability to change all degradation rates at once using “kdeg” as an argument, to just change degradation rates for single stranded species,”kssd,” double stranded species,”kdsd,” or RNA:DNA hyrbids,”kdrd,” and finally to change the degrdation rates for any given individual species.</p>
 <p>The following two figures change all degradation rates simultaneously.</p>
 <dl class="simple">
-<dt>Some Functionalities used:</dt><dd><ul class="simple">
-<li><p>globally changing rates with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants</span></a></p></li>
-<li><p>changing initial condtions/indiviudal rates within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species</span></a></p></li>
-<li><p>launching simulation using <a class="reference internal" href="Functions.html#simulate"><span class="std std-ref">simulate</span></a></p></li>
-<li><p>pulling out desired output concentrations using <a class="reference internal" href="Functions.html#output-concentration"><span class="std std-ref">output_concentration</span></a></p></li>
+<dt>Useful Features:</dt><dd><ul class="simple">
+<li><p>incorporating degradation reactions</p></li>
+<li><p>globally changing rate constants with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants()</span></a></p></li>
+<li><p>changing indiviudal rate constants within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a></p></li>
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/degradation_simulations.py">Degredation Simulation Python Script can be found here</a></p>
-<figure class="align-center" id="id11">
-<img alt="_images/degradation_simulations.svg" class="with-border" src="_images/degradation_simulations.svg" /><figcaption>
-<p><span class="caption-text"><strong>Degradation Simulation</strong></span><a class="headerlink" href="#id11" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-<p>The final degredation example simulates a system with degradation rates where single stranded species, double stranded species, and RNA:DNA hyrbids were given altering degradation rates.</p>
-<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/degradationIndividRates_simulations.py">Degradation Simulation with changing groups of rates Python Script can be found here</a></p>
-<figure class="align-center" id="id12">
-<img alt="_images/degradationIndividRates_simulation.svg" class="with-border" src="_images/degradationIndividRates_simulation.svg" /><figcaption>
-<p><span class="caption-text"><strong>Degradation Simulation (Changing Groups of Degradation Rates</strong></span><a class="headerlink" href="#id12" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-</section>
-<section id="seesaw-simulations">
-<h2>Seesaw Simulations<a class="headerlink" href="#seesaw-simulations" title="Permalink to this heading"></a></h2>
-<p>A simulation of an AND gate using the seesaw gate design from <a class="reference external" href="https://www.science.org/doi/10.1126/science.1200520">Scaling Up Digital Circuit Computation with DNA Strand Displacement Cascades (Qian and Winfree Science 2011)</a>.</p>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/AdvancedSimulatorFeatures/degradation_simulations.py">Degredation Simulation Python Script can be found here</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ctRSD_simulator_200</span> <span class="k">as</span> <span class="nn">RSDs</span> <span class="c1"># import latest simulator version</span>
+
+<span class="c1"># create the model instance</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">RSDs</span><span class="o">.</span><span class="n">RSD_sim</span><span class="p">()</span> <span class="c1"># default # of domains (5 domains)</span>
+
+<span class="c1">#globally changes all degradation rates</span>
+<span class="n">model</span><span class="o">.</span><span class="n">global_rate_constants</span><span class="p">(</span><span class="n">kdeg</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+
+<span class="c1"># specify species involved in the system</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;I</span><span class="si">{1}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;G{1,2}&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;R</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">ic</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="c1"># simulating the model</span>
+<span class="n">t_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span><span class="o">*</span><span class="mi">3600</span> <span class="c1"># seconds</span>
+<span class="n">model</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">t_sim</span><span class="p">)</span> <span class="c1"># simulate the model</span>
+
+<span class="c1"># pull out the species from the model solution to plot</span>
+<span class="n">S2</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;S</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id7">
+<img alt="_images/degradation_simulations.svg" class="with-border" src="_images/degradation_simulations.svg" /><p class="caption"><span class="caption-text"><strong>Degradation Simulation</strong></span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+<p>The following degredation example simulates a system with degradation rates where single stranded species, double stranded species, and RNA in RNA:DNA hyrbids are all independently changed.</p>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/AdvancedSimulatorFeatures/degradationIndividRates_simulations.py">Degradation Simulation with changing groups of rates Python Script can be found here</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ctRSD_simulator_200</span> <span class="k">as</span> <span class="nn">RSDs</span> <span class="c1"># import latest simulator version</span>
+
+<span class="c1"># create the model instance</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">RSDs</span><span class="o">.</span><span class="n">RSD_sim</span><span class="p">()</span> <span class="c1"># default # of domains (5 domains)</span>
+
+<span class="c1"># globally changes specific types of degradation rates (below are some example commands)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">global_rate_constants</span><span class="p">(</span><span class="n">kssd</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span> <span class="c1"># to change only ssRNA degradation rates</span>
+<span class="c1"># model.global_rate_constants(kdsd=0.001) # to change only dsRNA degradation rates</span>
+<span class="c1"># model.global_rate_constants(kdrd=0.001) # to change only RNA in RNA:DNA complex degradation rates</span>
+<span class="c1"># model.global_rate_constants(kssd=0.001,kdsd=0.001,kdrd=0.001) # to change all three above together</span>
+
+<span class="c1"># specify species involved in the system</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;I</span><span class="si">{1}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;G{1,2}&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;R</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">ic</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="c1"># simulating the model</span>
+<span class="n">t_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span><span class="o">*</span><span class="mi">3600</span> <span class="c1"># seconds</span>
+<span class="n">model</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">t_sim</span><span class="p">)</span> <span class="c1"># simulate the model</span>
+
+<span class="c1"># pull out the species from the model solution to plot</span>
+<span class="n">S2</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;S</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">I1</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;I</span><span class="si">{1}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">G12</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;G{1,2}&#39;</span><span class="p">)</span>
+<span class="n">O12</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;O{1,2}&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id8">
+<img alt="_images/degradationIndividRates_simulation.svg" class="with-border" src="_images/degradationIndividRates_simulation.svg" /><p class="caption"><span class="caption-text"><strong>Degradation Simulation (Changing Groups of Degradation Rates)</strong></span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="two-toehold-cascade-simulation">
+<span id="two-toehold"></span><h2>Two-Toehold Cascade Simulation<a class="headerlink" href="#two-toehold-cascade-simulation" title="Permalink to this headline">¶</a></h2>
+<p>This simulation demonstrates a 4-layer cascade in which gates of every other layer have different strand displacement rate constants. This mimics a system with two input-output toeholds that alternate between layers and have different rate constants.</p>
 <dl class="simple">
-<dt>Some Functionalities used:</dt><dd><ul class="simple">
-<li><p>globally changing rates with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants</span></a></p></li>
-<li><p>changing initial condtions/indiviudal rates within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species</span></a></p></li>
-<li><p>launching simulation using <a class="reference internal" href="Functions.html#simulate"><span class="std std-ref">simulate</span></a></p></li>
-<li><p>pulling out desired output concentrations using <a class="reference internal" href="Functions.html#output-concentration"><span class="std std-ref">output_concentration</span></a></p></li>
+<dt>Useful Features:</dt><dd><ul class="simple">
+<li><p>using expanded experimental nomenclature when specifying components within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a></p></li>
+<li><p>globally changing rate constants with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants()</span></a></p></li>
+<li><p>changing indiviudal rate constants within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a></p></li>
 </ul>
 </dd>
 </dl>
-<section id="ctrsd-seesaw-simulation">
-<h3>ctRSD Seesaw Simulation<a class="headerlink" href="#ctrsd-seesaw-simulation" title="Permalink to this heading"></a></h3>
-<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/seesaw_simulation_ctRSD.py">ctRSD Seesaw Simulation Comparison Python Script can be found here</a></p>
-<figure class="align-center" id="id13">
-<img alt="_images/seesaw_simulation_ctRSD.svg" class="with-border" src="_images/seesaw_simulation_ctRSD.svg" /><figcaption>
-<p><span class="caption-text"><strong>ctRSD Seesaw Simulation Comparison</strong></span><a class="headerlink" href="#id13" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-</section>
-<section id="dna-seesaw-simulation">
-<h3>DNA Seesaw Simulation<a class="headerlink" href="#dna-seesaw-simulation" title="Permalink to this heading"></a></h3>
-<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/seesaw_simulation_DNA.py">DNA Seesaw Simulation Python Script can be found here</a></p>
-<figure class="align-center" id="id14">
-<img alt="_images/seesaw_simulation_DNA.svg" class="with-border" src="_images/seesaw_simulation_DNA.svg" /><figcaption>
-<p><span class="caption-text"><strong>DNA Seesaw Simulation</strong></span><a class="headerlink" href="#id14" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-</section>
-</section>
-<section id="two-toehold-simulation">
-<h2>Two-Toehold Simulation<a class="headerlink" href="#two-toehold-simulation" title="Permalink to this heading"></a></h2>
-<p>Two-Toehold Simulation shows the differing results of a multi toehold system.</p>
-<dl class="simple">
-<dt>Some Functionalities used:</dt><dd><ul class="simple">
-<li><p>globally changing rates with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants</span></a></p></li>
-<li><p>changing initial condtions/indiviudal rates within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species</span></a></p></li>
-<li><p>launching simulation using <a class="reference internal" href="Functions.html#simulate"><span class="std std-ref">simulate</span></a></p></li>
-<li><p>pulling out desired output concentrations using <a class="reference internal" href="Functions.html#output-concentration"><span class="std std-ref">output_concentration</span></a></p></li>
-</ul>
-</dd>
-</dl>
-<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/TwoToehold_simulation.py">Two Toehold Sim Python Script can be found here</a></p>
-<figure class="align-center" id="id15">
-<img alt="_images/TwoToehold_simulation.svg" class="with-border" src="_images/TwoToehold_simulation.svg" /><figcaption>
-<p><span class="caption-text"><strong>Two-Toehold Simulation</strong></span><a class="headerlink" href="#id15" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-</section>
-<section id="and-gate-with-fuel-simulation">
-<h2>AND Gate with Fuel Simulation<a class="headerlink" href="#and-gate-with-fuel-simulation" title="Permalink to this heading"></a></h2>
+<div class="figure align-center" id="id9">
+<img alt="_images/two_toehold_ex_schematic.png" class="with-border" src="_images/two_toehold_ex_schematic.png" />
+<p class="caption"><span class="caption-text"><strong>Two-Toehold Simulation</strong></span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/AdvancedSimulatorFeatures/TwoToehold_simulation.py">Two Toehold Sim Python Script can be found here</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">This example shows just the 4-layer cascade</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="kn">import</span> <span class="nn">ctRSD_simulator_200</span> <span class="k">as</span> <span class="nn">RSDs</span> <span class="c1"># import latest simulator version</span>
+
+<span class="c1"># create the model instance</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">RSDs</span><span class="o">.</span><span class="n">RSD_sim</span><span class="p">()</span> <span class="c1"># default # of domains (5 domains)</span>
+
+<span class="c1">#globally changing transcription rate constant</span>
+<span class="n">model</span><span class="o">.</span><span class="n">global_rate_constants</span><span class="p">(</span><span class="n">ktxn</span><span class="o">=</span><span class="mf">0.0075</span><span class="p">)</span>
+
+<span class="c1"># specify species involved in the system</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;I</span><span class="si">{u3}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+
+<span class="n">kvth</span><span class="o">=</span><span class="mf">5e3</span><span class="o">/</span><span class="mf">1e9</span> <span class="c1"># specifying a faster rate constant for v toeholds</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;G{u3,v4}&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;G{v4,u5}&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span><span class="n">krsd</span><span class="o">=</span><span class="n">kvth</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;G{u5,v1}&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;G{v1,u2r}&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span><span class="n">krsd</span><span class="o">=</span><span class="n">kvth</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;R</span><span class="si">{u2}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">ic</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="c1"># simulating the model</span>
+<span class="n">t_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span><span class="o">*</span><span class="mi">3600</span> <span class="c1"># seconds</span>
+<span class="n">model</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">t_sim</span><span class="p">)</span> <span class="c1"># simulate the model</span>
+
+<span class="c1"># pull out the species from the model solution to plot</span>
+<span class="n">S2</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;S</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="and-gate-with-fuel-simulation">
+<h2>AND Gate with Fuel Simulation<a class="headerlink" href="#and-gate-with-fuel-simulation" title="Permalink to this headline">¶</a></h2>
 <p>This simulation shows a basic ctRSD AND gate system, but with fuel added to one of the inputs using <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species</span></a></p>
 <dl class="simple">
-<dt>Some Functionalities used:</dt><dd><ul class="simple">
-<li><p>globally changing rates with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants</span></a></p></li>
-<li><p>changing initial condtions/indiviudal rates within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species</span></a></p></li>
-<li><p>launching simulation using <a class="reference internal" href="Functions.html#simulate"><span class="std std-ref">simulate</span></a></p></li>
-<li><p>pulling out desired output concentrations using <a class="reference internal" href="Functions.html#output-concentration"><span class="std std-ref">output_concentration</span></a></p></li>
+<dt>Useful Features:</dt><dd><ul class="simple">
+<li><p>specifying AND gates in <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a></p></li>
+<li><p>specifying fuel strands in <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a></p></li>
+<li><p>changing indiviudal rate constants within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a></p></li>
+<li><p>changing initial conditions within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a></p></li>
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/AGfuel_simulations.py">AG Fuel Sim Python Script can be found here</a></p>
-<figure class="align-center" id="id16">
-<img alt="_images/AGfuel_simulations.svg" class="with-border" src="_images/AGfuel_simulations.svg" /><figcaption>
-<p><span class="caption-text"><strong>AG Fuel Simulation</strong></span><a class="headerlink" href="#id16" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-</section>
-<section id="two-minterm-simulation">
-<h2>Two Minterm Simulation<a class="headerlink" href="#two-minterm-simulation" title="Permalink to this heading"></a></h2>
-<p>Two Minterm Simulation shows a 4-input, 2 ctRSD AND gate system. (ex. AB + CD)</p>
+<div class="figure align-center" id="id10">
+<img alt="_images/AND_fuel_ex_schematic.png" class="with-border" src="_images/AND_fuel_ex_schematic.png" />
+<p class="caption"><span class="caption-text"><strong>AG Fuel Simulation</strong></span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/AdvancedSimulatorFeatures/AGfuel_simulations.py">AG Fuel Sim Python Script can be found here</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ctRSD_simulator_200</span> <span class="k">as</span> <span class="nn">RSDs</span> <span class="c1"># import latest simulator version</span>
+
+<span class="c1"># create the model instance</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">RSDs</span><span class="o">.</span><span class="n">RSD_sim</span><span class="p">()</span> <span class="c1"># default # of domains (5 domains)</span>
+
+<span class="c1"># specify species involved in the system</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;I</span><span class="si">{3}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;O{4,1}&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mf">1.25</span><span class="p">)</span> <span class="c1"># limiting second input to the AG</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;AG{3.1,2}&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;R</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">ic</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;F</span><span class="si">{1}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+
+<span class="c1"># simulating the model</span>
+<span class="n">t_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span><span class="o">*</span><span class="mi">3600</span> <span class="c1"># seconds</span>
+<span class="n">model</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">t_sim</span><span class="p">)</span> <span class="c1"># simulate the model</span>
+
+<span class="c1"># pull out the species from the model solution to plot</span>
+<span class="n">S2</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;S</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id11">
+<img alt="_images/AGfuel_simulations.svg" class="with-border" src="_images/AGfuel_simulations.svg" /><p class="caption"><span class="caption-text"><strong>AG + Fuel Simulation Results</strong></span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="two-and-gate-or-simulation">
+<h2>Two AND Gate OR Simulation<a class="headerlink" href="#two-and-gate-or-simulation" title="Permalink to this headline">¶</a></h2>
+<p>This simulation shows a 4-input circuit composed of 2 ctRSD AND gates that both produce the same output ( ex. (A AND B) OR (C AND D) ).</p>
 <dl class="simple">
-<dt>Some Functionalities used:</dt><dd><ul class="simple">
-<li><p>globally changing rates with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants</span></a></p></li>
-<li><p>changing initial condtions/indiviudal rates within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species</span></a></p></li>
-<li><p>launching simulation using <a class="reference internal" href="Functions.html#simulate"><span class="std std-ref">simulate</span></a></p></li>
-<li><p>pulling out desired output concentrations using <a class="reference internal" href="Functions.html#output-concentration"><span class="std std-ref">output_concentration</span></a></p></li>
+<dt>Useful Features:</dt><dd><ul class="simple">
+<li><p>specifying AND gates in <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a></p></li>
+<li><p>changing indiviudal rate constants within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a></p></li>
+<li><p>changing initial conditions within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a></p></li>
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/AB+CD_simulations.py">Two Minterm Simulation Python Script can be found here</a></p>
-<figure class="align-center" id="id17">
-<img alt="_images/AB+CD_simulations.svg" class="with-border" src="_images/AB+CD_simulations.svg" /><figcaption>
-<p><span class="caption-text"><strong>Two Minterm Simulation</strong></span><a class="headerlink" href="#id17" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-</section>
-</section>
+<div class="figure align-center" id="id12">
+<img alt="_images/AB_OR_CD_ex_schematic.png" class="with-border" src="_images/AB_OR_CD_ex_schematic.png" />
+<p class="caption"><span class="caption-text"><strong>Two AND Gate OR Simulation</strong></span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/AdvancedSimulatorFeatures/AB_OR_CD_simulations.py">Two AND gate OR Simulation Python Script can be found here</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ctRSD_simulator_200</span> <span class="k">as</span> <span class="nn">RSDs</span> <span class="c1"># import latest simulator version</span>
+
+<span class="c1"># create the model instance</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">RSDs</span><span class="o">.</span><span class="n">RSD_sim</span><span class="p">()</span> <span class="c1"># default # of domains (5 domains)</span>
+
+<span class="c1"># specify species involved in the system</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;I</span><span class="si">{1}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;I</span><span class="si">{3}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;I</span><span class="si">{4}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;I</span><span class="si">{5}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;AG{5.4,2}&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;AG{3.1,2}&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;R</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">ic</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="c1"># simulating the model</span>
+<span class="n">t_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span><span class="o">*</span><span class="mi">3600</span> <span class="c1"># seconds</span>
+<span class="n">model</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">t_sim</span><span class="p">)</span> <span class="c1"># simulate the model</span>
+
+<span class="c1"># pull out the species from the model solution to plot</span>
+<span class="n">S2</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;S</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id13">
+<img alt="_images/AB+CD_simulations.svg" class="with-border" src="_images/AB+CD_simulations.svg" /><p class="caption"><span class="caption-text"><strong>Two AND Gate OR Simulation Results</strong></span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="thresholding-simulation">
+<h2>Thresholding Simulation<a class="headerlink" href="#thresholding-simulation" title="Permalink to this headline">¶</a></h2>
+<p>Thresholding Simulation showcases a simple thresholding reaction, where a threshold gate is produced to effectively annihlate input produced at a rate below the threshold gate.</p>
+<dl class="simple">
+<dt>Useful Features:</dt><dd><ul class="simple">
+<li><p>specifying threshold gates in <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a></p></li>
+<li><p>globally changing rate constants with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants()</span></a></p></li>
+<li><p>changing indiviudal rate constants within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a></p></li>
+</ul>
+</dd>
+</dl>
+<div class="figure align-center" id="id14">
+<img alt="_images/thresholding_ex_schematic.png" class="with-border" src="_images/thresholding_ex_schematic.png" />
+<p class="caption"><span class="caption-text"><strong>Thresholding Simulation</strong></span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/AdvancedSimulatorFeatures/threshold_simulation.py">Thresholding Simulation Python Script can be found here</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ctRSD_simulator_200</span> <span class="k">as</span> <span class="nn">RSDs</span> <span class="c1"># import latest simulator version</span>
+
+<span class="c1"># create the model instance</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">RSDs</span><span class="o">.</span><span class="n">RSD_sim</span><span class="p">()</span> <span class="c1"># default # of domains (5 domains)</span>
+
+<span class="c1"># specify species involved in the system</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;I</span><span class="si">{1}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;G{1,2}&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;TG</span><span class="si">{1}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;R</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">ic</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="c1"># simulating the model</span>
+<span class="n">t_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span><span class="o">*</span><span class="mi">3600</span> <span class="c1"># seconds</span>
+<span class="n">model</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">t_sim</span><span class="p">)</span> <span class="c1"># simulate the model</span>
+
+<span class="c1"># pull out the species from the model solution to plot</span>
+<span class="n">S2</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;S</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id15">
+<img alt="_images/threshold_simulation.svg" class="with-border" src="_images/threshold_simulation.svg" /><p class="caption"><span class="caption-text"><strong>Threshold Simulation Results</strong></span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="seesaw-and-element-simulations">
+<h2>Seesaw AND Element Simulations<a class="headerlink" href="#seesaw-and-element-simulations" title="Permalink to this headline">¶</a></h2>
+<p>A simulation of an AND gate using the seesaw gate design from <a class="reference external" href="https://www.science.org/doi/10.1126/science.1200520">Scaling Up Digital Circuit Computation with DNA Strand Displacement Cascades (Qian and Winfree *Science* 2011)</a>.</p>
+<dl class="simple">
+<dt>Useful Features:</dt><dd><ul class="simple">
+<li><p>specifying threshold gates in <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a></p></li>
+<li><p>globally changing rate constants with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants()</span></a></p></li>
+<li><p>changing indiviudal rate constants within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a></p></li>
+<li><p>changing initial conditions within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a></p></li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="ctrsd-seesaw-element-simulation">
+<h3>ctRSD seesaw element simulation<a class="headerlink" href="#ctrsd-seesaw-element-simulation" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-center" id="id16">
+<img alt="_images/ctRSD_seesaw_ex_schematic.png" class="with-border" src="_images/ctRSD_seesaw_ex_schematic.png" />
+<p class="caption"><span class="caption-text"><strong>ctRSD Seesaw Simulation</strong></span><a class="headerlink" href="#id16" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/AdvancedSimulatorFeatures/seesaw_simulation_ctRSD.py">ctRSD Seesaw Simulation Comparison Python Script can be found here</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ctRSD_simulator_200</span> <span class="k">as</span> <span class="nn">RSDs</span> <span class="c1"># import latest simulator version</span>
+
+<span class="c1"># create the model instance</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">RSDs</span><span class="o">.</span><span class="n">RSD_sim</span><span class="p">()</span> <span class="c1"># default # of domains (5 domains)</span>
+
+<span class="c1"># specify species involved in the system</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;I</span><span class="si">{1}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;I</span><span class="si">{3}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;G{1,2}&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;G{3,2}&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;TG</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;G{2,4}&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;F</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;R</span><span class="si">{4}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">ic</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="c1"># simulating the model</span>
+<span class="n">t_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span><span class="o">*</span><span class="mi">3600</span> <span class="c1"># seconds</span>
+<span class="n">model</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">t_sim</span><span class="p">)</span> <span class="c1"># simulate the model</span>
+
+<span class="c1"># pull out the species from the model solution to plot</span>
+<span class="n">S4</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;S</span><span class="si">{4}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id17">
+<img alt="_images/seesaw_simulation_ctRSD.svg" class="with-border" src="_images/seesaw_simulation_ctRSD.svg" /><p class="caption"><span class="caption-text"><strong>ctRSD Seesaw Simulation Results</strong></span><a class="headerlink" href="#id17" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="dna-seesaw-and-element-simulation">
+<h3>DNA seesaw AND element simulation<a class="headerlink" href="#dna-seesaw-and-element-simulation" title="Permalink to this headline">¶</a></h3>
+<p>This simulation mimics a DNA strand displacment reaction by setting DNA_con to 0 for all species and specifying only initial concentrations. Thus, only a fixed amount of each species is present and no transcription occurs.</p>
+<div class="figure align-center" id="id18">
+<img alt="_images/DNA_seesaw_ex_schematic.png" class="with-border" src="_images/DNA_seesaw_ex_schematic.png" />
+<p class="caption"><span class="caption-text"><strong>DNA Seesaw Simulation</strong></span><a class="headerlink" href="#id18" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/AdvancedSimulatorFeatures/seesaw_simulation_DNA.py">DNA Seesaw Simulation Python Script can be found here</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ctRSD_simulator_200</span> <span class="k">as</span> <span class="nn">RSDs</span> <span class="c1"># import latest simulator version</span>
+
+<span class="c1"># create the model instance</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">RSDs</span><span class="o">.</span><span class="n">RSD_sim</span><span class="p">()</span> <span class="c1"># default # of domains (5 domains)</span>
+
+<span class="c1"># changing rate constants to match those used in 2011 DNA computing paper</span>
+<span class="n">model</span><span class="o">.</span><span class="n">global_rate_constants</span><span class="p">(</span><span class="n">krev</span><span class="o">=</span><span class="mf">5e4</span><span class="o">/</span><span class="mf">1e9</span><span class="p">,</span><span class="n">krsd</span><span class="o">=</span><span class="mf">5e4</span><span class="o">/</span><span class="mf">1e9</span><span class="p">,</span><span class="n">krsdF</span><span class="o">=</span><span class="mf">5e4</span><span class="o">/</span><span class="mf">1e9</span><span class="p">,</span><span class="n">kth</span><span class="o">=</span><span class="mf">2e6</span><span class="o">/</span><span class="mf">1e9</span><span class="p">,</span><span class="n">krep</span><span class="o">=</span><span class="mf">5e4</span><span class="o">/</span><span class="mf">1e9</span><span class="p">)</span>
+
+<span class="c1"># specify species involved in the system</span>
+<span class="c1"># here only initial conditions are used so there is only a fixed concentration of each component added</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;I</span><span class="si">{1}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">ic</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;I</span><span class="si">{3}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">ic</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;G{1,2}&#39;</span><span class="p">,</span><span class="n">ic</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;G{3,2}&#39;</span><span class="p">,</span><span class="n">ic</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;TG</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">ic</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;G{2,4}&#39;</span><span class="p">,</span><span class="n">ic</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;F</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">ic</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;R</span><span class="si">{4}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">ic</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+
+<span class="c1"># simulating the model</span>
+<span class="n">t_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span><span class="o">*</span><span class="mi">3600</span> <span class="c1"># seconds</span>
+<span class="n">model</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">t_sim</span><span class="p">)</span> <span class="c1"># simulate the model</span>
+
+<span class="c1"># pull out the species from the model solution to plot</span>
+<span class="n">S4</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;S</span><span class="si">{4}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id19">
+<img alt="_images/seesaw_simulation_DNA.svg" class="with-border" src="_images/seesaw_simulation_DNA.svg" /><p class="caption"><span class="caption-text"><strong>DNA Seesaw Simulation Results</strong></span><a class="headerlink" href="#id19" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="comparator-gate-simulation">
+<span id="id3"></span><h2>Comparator Gate Simulation<a class="headerlink" href="#comparator-gate-simulation" title="Permalink to this headline">¶</a></h2>
+<p>Comparator Gate simulation shows a basic comparator gate reaction. This features shows the ability for a ctRSD circuit that compares the production rate of two inputs and only lets the input with the higher rate of product to the next layer of the circuit. Comparator gates are designed to function like the annihilator gates from <a class="reference external" href="https://www.nature.com/articles/s41586-018-0289-6">Scaling Up Molecular Pattern Recognition with DNA-Based Winner-Take-All Neural Networks (Cherry and Qian *Nature* 2018)</a>.</p>
+<dl class="simple">
+<dt>Useful Features:</dt><dd><ul class="simple">
+<li><p>specifying comparator gates in <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a></p></li>
+<li><p>globally changing rate constants with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants()</span></a></p></li>
+<li><p>changing indiviudal rate constants within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a></p></li>
+</ul>
+</dd>
+</dl>
+<div class="figure align-center" id="id20">
+<img alt="_images/comparator_ex_schematic.png" class="with-border" src="_images/comparator_ex_schematic.png" />
+<p class="caption"><span class="caption-text"><strong>CG Simulation</strong></span><a class="headerlink" href="#id20" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/AdvancedSimulatorFeatures/CG_simulations.py">CG Simulation Python Script can be found here</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ctRSD_simulator_200</span> <span class="k">as</span> <span class="nn">RSDs</span> <span class="c1"># import latest simulator version</span>
+
+<span class="c1"># create the model instance</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">RSDs</span><span class="o">.</span><span class="n">RSD_sim</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="c1"># specifying the domains as the highest index in the simulated system below</span>
+
+<span class="c1"># specify species involved in the system</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;I</span><span class="si">{6}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;I</span><span class="si">{7}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;CG{6,7}&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;G{6,2}&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;G{7,1}&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;R</span><span class="si">{1}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">ic</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;R</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">ic</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="c1"># simulating the model</span>
+<span class="n">t_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span><span class="o">*</span><span class="mi">3600</span> <span class="c1"># seconds</span>
+<span class="n">model</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">t_sim</span><span class="p">,</span><span class="n">smethod</span><span class="o">=</span><span class="s1">&#39;BDF&#39;</span><span class="p">)</span> <span class="c1"># simulate the model (&#39;BDF&#39; method can speed up CG simulations)</span>
+
+<span class="c1"># pull out the species from the model solution to plot</span>
+<span class="n">S1</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;S</span><span class="si">{1}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">S2</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;S</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id21">
+<img alt="_images/CG_simulations.svg" class="with-border" src="_images/CG_simulations.svg" /><p class="caption"><span class="caption-text"><strong>CG Simulation Results</strong></span><a class="headerlink" href="#id21" title="Permalink to this image">¶</a></p>
+</div>
+<p>The CG grid simulation is another example using a basic CG system that shows many more input template concentration combinations for the two inputs in the system.</p>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/AdvancedSimulatorFeatures/CG_simulationsGRID.py">CG Grid Simulation Python Script can be found here</a></p>
+<div class="figure align-center" id="id22">
+<img alt="_images/CG_simulationsGRID.svg" class="with-border" src="_images/CG_simulationsGRID.svg" /><p class="caption"><span class="caption-text"><strong>CG Grid Simulation Results</strong></span><a class="headerlink" href="#id22" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="three-comparator-gate-simulation">
+<span id="three-comparator-gate"></span><h2>Three Comparator Gate Simulation<a class="headerlink" href="#three-comparator-gate-simulation" title="Permalink to this headline">¶</a></h2>
+<p>Three Comparator Gate Simulation is an extension of the comparator gate simulation that compares the rate of production of three inputs by using multiple comparator gates that encompass the pairwise comparisons of the inputs.</p>
+<dl class="simple">
+<dt>Useful Features:</dt><dd><ul class="simple">
+<li><p>simulating relatively large circuits</p></li>
+<li><p>specifying comparator gates in <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a></p></li>
+<li><p>globally changing rate constants with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants()</span></a></p></li>
+<li><p>changing indiviudal rate constants within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a></p></li>
+</ul>
+</dd>
+</dl>
+<div class="figure align-center" id="id23">
+<img alt="_images/three_CG_ex_schematic.png" src="_images/three_CG_ex_schematic.png" />
+<p class="caption"><span class="caption-text"><strong>Three CG Simulation</strong> The model is set up such that the same input domain cannot be repeated in the same index for two gates. For example, CG{6,7} and CG{4,7} will result in an incorrect result because both gates have domain 7 in the second index. This should be changed to CG{6,7} and CG{7,4} so that domain 7 is in a different index for the two gates.</span><a class="headerlink" href="#id23" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/AdvancedSimulatorFeatures/threeCG_simulations.py">Three CG Simulation Python Script can be found here</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ctRSD_simulator_200</span> <span class="k">as</span> <span class="nn">RSDs</span> <span class="c1"># import latest simulator version</span>
+
+<span class="c1"># create the model instance</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">RSDs</span><span class="o">.</span><span class="n">RSD_sim</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="c1"># specifying the domains as the highest index in the simulated system below</span>
+
+<span class="c1"># increasing the forward strand displacement rate constant for all CG</span>
+<span class="n">model</span><span class="o">.</span><span class="n">global_rate_constants</span><span class="p">(</span><span class="n">krsdCG</span><span class="o">=</span><span class="mf">5e5</span><span class="o">/</span><span class="mf">1e9</span><span class="p">)</span>
+
+<span class="c1"># specify species involved in the system</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;I</span><span class="si">{7}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;I</span><span class="si">{6}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;I</span><span class="si">{4}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;CG{6,7}&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;CG{7,4}&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;CG{4,6}&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;G{6,2}&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;G{7,1}&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;G{4,3}&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;R</span><span class="si">{1}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">ic</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;R</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">ic</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;R</span><span class="si">{3}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">ic</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="c1"># simulating the model</span>
+<span class="n">t_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span><span class="o">*</span><span class="mi">3600</span> <span class="c1"># seconds</span>
+<span class="n">model</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">t_sim</span><span class="p">,</span><span class="n">smethod</span><span class="o">=</span><span class="s1">&#39;BDF&#39;</span><span class="p">)</span> <span class="c1"># simulate the model (&#39;BDF&#39; method can speed up CG simulations)</span>
+
+<span class="c1"># pull out the species from the model solution to plot</span>
+<span class="n">S1</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;S</span><span class="si">{1}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">S2</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;S</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">S3</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;S</span><span class="si">{3}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id24">
+<img alt="_images/threeCG_simulations.svg" class="with-border" src="_images/threeCG_simulations.svg" /><p class="caption"><span class="caption-text"><strong>Three CG Simulation Results</strong></span><a class="headerlink" href="#id24" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="troubleshooting.html" class="btn btn-neutral float-left" title="Troubleshooting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Simple-Examples.html" class="btn btn-neutral float-left" title="Simple Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="SA_Examples.html" class="btn btn-neutral float-right" title="2022 Science Advances Paper" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RSD_sim Class &mdash; ctRSD-simulator-2.0 2.0.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>RSD_sim Class &mdash; ctRSD-simulator-2.0 2.0.0 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -38,7 +35,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">General:</span></p>
+              <p class="caption"><span class="caption-text">General:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Model-Implementation.html">Model Reactions and Implementation</a></li>
@@ -49,13 +46,15 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SeqCompiler.html">Sequence Compiler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">General Examples:</span></p>
+<p class="caption"><span class="caption-text">General Examples:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Simulator-Features.html">Simulator Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Simple-Examples.html">Simple Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Simulator-Features.html">Advanced Simulator Features</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Examples from Publications:</span></p>
+<p class="caption"><span class="caption-text">Examples from Publications:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="SA_Examples.html">2022 Science Advances Paper</a></li>
 </ul>
@@ -84,63 +83,72 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="rsd-sim-class">
-<span id="class"></span><h1>RSD_sim Class<a class="headerlink" href="#rsd-sim-class" title="Permalink to this heading"></a></h1>
+  <div class="section" id="rsd-sim-class">
+<span id="class"></span><h1>RSD_sim Class<a class="headerlink" href="#rsd-sim-class" title="Permalink to this headline">¶</a></h1>
 <p>RSD_sim is a Python class that gives access to all of the simulator’s built-in functions found <a class="reference internal" href="Functions.html#functions"><span class="std std-ref">here</span></a>. To have access to the features of the class you must first instantiate an object of the class, directions for this can be found <a class="reference internal" href="ImportSim.html#importsim"><span class="std std-ref">here</span></a>.</p>
 <p>This page gives info about the input of the object instantiation, and the initiaizations made for the class.</p>
-<section id="class-object">
-<h2>Class Object<a class="headerlink" href="#class-object" title="Permalink to this heading"></a></h2>
+<div class="section" id="class-object">
+<h2>Class Object<a class="headerlink" href="#class-object" title="Permalink to this headline">¶</a></h2>
 <p>__init__(<em>domains=5</em>)</p>
 <dl class="simple">
 <dt><strong>Parameters:</strong></dt><dd><dl class="simple">
-<dt>domains: <em>int</em>, <em>if NONE, default=5</em></dt><dd><p>Numbers of domains present in the simulated system.</p>
+<dt>domains: <em>int</em>, <em>if NONE, default=5</em></dt><dd><p>Numbers of input-output domains present in the simulated system. This needs to match the highest input or output index of the species indicated in <em>molecular_species()</em>. For example, if G{5,9} is specified, <em>domains</em> needs to be 9 or greater.</p>
 </dd>
 </dl>
 </dd>
 </dl>
-</section>
-<section id="initializations">
-<h2>Initializations<a class="headerlink" href="#initializations" title="Permalink to this heading"></a></h2>
-<p>All DNA templates and initial conditions are initialized at 0.</p>
+</div>
+<div class="section" id="initializations">
+<span id="initials-defaults"></span><h2>Initializations<a class="headerlink" href="#initializations" title="Permalink to this headline">¶</a></h2>
+<p>All DNA template concentrations and initial conditions are initialized at 0.</p>
 <dl>
-<dt>Rate Constants:</dt><dd><p>self.ktxnO = 0.013 1/s</p>
-<p>self.ktxnG = 0.013 1/s</p>
-<p>self.ktxnTh = 0.013 1/s</p>
-<p>self.ktxnF = 0.013 1/s</p>
-<p>self.ktxnAG = 0.013 1/s</p>
-<p>self.ktxnCG = 0.013 1/s</p>
-<p>self.krz = .25/60 1/s</p>
-<p>self.krsd = 1e3/1e9 1/nM-S</p>
-<p>self.krev = 270/1e9 1/nM-S</p>
-<p>self.krep = 1e4/1e9 1/nM-S</p>
-<p>self.krepr = 0 1/s</p>
-<p>self.kth = 1e5/1e9 1/nM-S</p>
-<p>self.krzTh = .00417 1/s</p>
-<p>self.krsdF = 1e3/1e9 1/nM-S</p>
-<p>self.krevF = 270/1e9 1/nM-S</p>
-<p>self.krevF = 1e3/1e9 1/nM-S</p>
-<p>self.krzA = .25/60 1/s</p>
-<p>self.krsdA = 1e3/1e9 1/nM-S</p>
-<p>self.krevA = 270/1e9 1/nM-S</p>
-<p>self.krzCG = .00417 1/s</p>
-<p>self.krsdCG = 1e5/1e9 1/nM-S</p>
-<p>self.krevCG = 1 1/s</p>
-<p>self.kssdO = 0 1/s</p>
-<p>self.kssdF = 0 1/s</p>
-<p>self.kdsduG = 0 1/s</p>
-<p>self.kdsdG = 0 1/s</p>
-<p>self.kdsdGO = 0 1/s</p>
-<p>self.kdsduAG = 0 1/s</p>
-<p>self.kdsdAG = 0 1/s</p>
-<p>self.kdsduCG = 0 1/s</p>
-<p>self.kdsdCG = 0 1/s</p>
-<p>self.kdrd = 0 1/s</p>
-<p>self.khybO = 1e6/1e9 1/nM-S</p>
-<p>self.khybR = 1e6/1e9 1/nM-S</p>
+<dt>Rate Constants:</dt><dd><p>self.ktxnO = 0.013 (1/s)</p>
+<p>self.ktxnG = 0.013 (1/s)</p>
+<p>self.ktxnTG = 0.013 (1/s)</p>
+<p>self.ktxnF = 0.013 (1/s)</p>
+<p>self.ktxnAG = 0.013 (1/s)</p>
+<p>self.ktxnCG = 0.013 (1/s)</p>
+<p>self.leak = 0.03</p>
+<p>self.krz = .25/60 (1/s)</p>
+<p>self.krsd = 1e3/1e9 (1/nM-s)</p>
+<p>self.krev = 270/1e9 (1/nM-s), 0 for inputs</p>
+<p>self.krep = 1e4/1e9 (1/nM-s)</p>
+<p>self.krepr = 0 (1/s)</p>
+<p>self.kth = 1e5/1e9 (1/nM-s)</p>
+<p>self.krzTG = .00417 (1/s)</p>
+<p>self.krsdF = 1e3/1e9 (1/nM-s)</p>
+<p>self.krevF = 1e3/1e9 (1/nM-s)</p>
+<p>self.krzA = .25/60 (1/s)</p>
+<p>self.krsdA = 1e3/1e9 (1/nM-s)</p>
+<p>self.leakA = 0.06</p>
+<p>self.krzCG = .00417 (1/s)</p>
+<p>self.krsdCGa = 1e5/1e9 (1/nM-s)</p>
+<p>self.krsdCGb = 1e5/1e9 (1/nM-s)</p>
+<p>self.krevCG = 1 (1/s)</p>
+<p>self.kssdO = 0 (1/s)</p>
+<p>self.kssdF = 0 (1/s)</p>
+<p>self.kdsduG = 0 (1/s)</p>
+<p>self.kdsdG = 0 (1/s)</p>
+<p>self.kdsdGO = 0 (1/s)</p>
+<p>self.kdsdGF = 0 (1/s)</p>
+<p>self.kdsduTG = 0 (1/s)</p>
+<p>self.kdsdTG = 0 (1/s)</p>
+<p>self.kdsduAG = 0 (1/s)</p>
+<p>self.kdsdAG = 0 (1/s)</p>
+<p>self.kdsdAGOa = 0 (1/s)</p>
+<p>self.kdsdAGOb = 0 (1/s)</p>
+<p>self.kdsdAGFb = 0 (1/s)</p>
+<p>self.kdsduCG = 0 (1/s)</p>
+<p>self.kdsdCG = 0 (1/s)</p>
+<p>self.kdsdCGOa = 0 (1/s)</p>
+<p>self.kdsdCGOb = 0 (1/s)</p>
+<p>self.kdrd = 0 (1/s)</p>
+<p>self.khybO = 1e6/1e9 (1/nM-s)</p>
+<p>self.khybR = 1e6/1e9 (1/nM-s)</p>
 </dd>
 </dl>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

@@ -1,0 +1,3385 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   sodipodi:docname="model_description_matrices.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#ffffff"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.36257716"
+     inkscape:cx="-747.42711"
+     inkscape:cy="692.26644"
+     inkscape:window-width="1920"
+     inkscape:window-height="986"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <rect
+       x="-2410.4772"
+       y="-83.859644"
+       width="169.66951"
+       height="115.06323"
+       id="rect15624" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="87.575539"
+       height="19.839489"
+       id="rect1262528-0" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect1262530-1" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect1262532-5" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect1262612-0" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect20515" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect20517" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect223908-1" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect223912-9" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect223914-5" />
+    <marker
+       style="overflow:visible"
+       id="Arrow1Mend-6"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mend"
+       inkscape:isstock="true"
+       viewBox="0 0 8.886927 5.078244"
+       markerWidth="8.8869267"
+       markerHeight="5.0782442"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path37128-4" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker9187"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mend"
+       inkscape:isstock="true"
+       viewBox="0 0 8.886927 5.078244"
+       markerWidth="8.8869267"
+       markerHeight="5.0782442"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path9185" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker9191"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mend"
+       inkscape:isstock="true"
+       viewBox="0 0 8.886927 5.078244"
+       markerWidth="8.8869267"
+       markerHeight="5.0782442"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path9189" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker9195"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mend"
+       inkscape:isstock="true"
+       viewBox="0 0 8.886927 5.078244"
+       markerWidth="8.8869267"
+       markerHeight="5.0782442"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path9193" />
+    </marker>
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect10700" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect10702" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect10704" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect10706" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect10720" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect10828" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect10834" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect10840" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect10854" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect10868" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect10930" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect10932" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect10934" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect10936" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect10938" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect11000" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect11002" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect11004" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect11006" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect11008" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect11070" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect11072" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect11074" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect11076" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect11078" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect13684" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect13722" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect13752" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect13940" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect13942" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect13944" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect13946" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect13948" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect13950" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect13952" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect13954" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect13956" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect13958" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect13960" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect13962" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect13964" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect13966" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect13968" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect13970" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect13972" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect13974" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect13976" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect13978" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect13980" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect13982" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect13984" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect13986" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect13988" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect13990" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect13992" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect13994" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect14834" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect14836" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect14838" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect14840" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect14842" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect14844" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect14846" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect14848" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect14850" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect14852" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect14854" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect14856" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect14858" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect14860" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect14862" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect14864" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect14866" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect14868" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect14870" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect14872" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect14874" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect14876" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect14878" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect14880" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect14882" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect14884" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect14886" />
+    <rect
+       x="-2410.4772"
+       y="-83.859644"
+       width="169.66951"
+       height="115.06323"
+       id="rect15632" />
+    <rect
+       x="-2410.4772"
+       y="-83.859644"
+       width="169.66951"
+       height="115.06323"
+       id="rect15638" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect15802" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect15804" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect15806" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect15808" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect15810" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect15812" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect15814" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect15816" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect15818" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect15820" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect15822" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect15824" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect15826" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect15828" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect15830" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect15832" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect15834" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect15836" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect15838" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect15840" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect15842" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect15844" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect15846" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect15848" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect15850" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect15852" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect15854" />
+    <rect
+       x="503.15573"
+       y="1287.9619"
+       width="44.941917"
+       height="12.924347"
+       id="rect15856" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       inkscape:export-ydpi="100"
+       inkscape:export-xdpi="100"
+       sodipodi:nodetypes="ccc"
+       inkscape:connector-curvature="0"
+       id="path1262416-0"
+       d="m -456.62285,-53.242931 -4.878,-3.5335 1.8148,-0.048"
+       style="fill:none;stroke:#808080;stroke-width:1.07141;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="fan_in_fan_out.png" />
+    <path
+       inkscape:export-ydpi="100"
+       inkscape:export-xdpi="100"
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path1262418-8"
+       d="m -456.82295,-50.203131 -9.6517,6.6157"
+       style="fill:none;stroke:#000000;stroke-width:1.07141;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path1262420-9"
+       d="m -425.45086,-50.231831 -31.90129,0.029"
+       style="fill:none;stroke:#ff6600;stroke-width:1.92713;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path1262422-0"
+       d="m -425.45086,-53.255831 -31.92799,0.013"
+       style="fill:none;stroke:#ff6600;stroke-width:1.92713;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <flowRoot
+       transform="matrix(1.0197746,0,0,1.0197746,-114.93269,384.74942)"
+       style="font-style:normal;font-weight:normal;font-size:6.66667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       id="flowRoot1262430-3"
+       xml:space="preserve"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png"><flowRegion
+         style="font-size:6.66667px;fill:#000000"
+         id="flowRegion1262426-0"><rect
+           style="font-size:6.66666698px;fill:#000000"
+           y="-430.95859"
+           x="-345.21738"
+           height="52.173912"
+           width="111.30434"
+           id="rect1262424-4" /></flowRegion><flowPara
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.66667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#000000"
+         id="flowPara1262428-2">t'</flowPara></flowRoot>
+    <path
+       style="fill:#ff0000;stroke:#000000;stroke-width:1.07141;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m -411.15606,-53.284831 -14.2948,0.029"
+       id="path1262432-0"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <path
+       inkscape:export-ydpi="100"
+       inkscape:export-xdpi="100"
+       sodipodi:nodetypes="ccc"
+       inkscape:connector-curvature="0"
+       id="path1262434-5"
+       d="m -414.74006,-49.109931 1.7103,-1.1259 h -12.4211"
+       style="fill:none;stroke:#000000;stroke-width:1.07141;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <flowRoot
+       inkscape:export-ydpi="100"
+       inkscape:export-xdpi="100"
+       xml:space="preserve"
+       id="flowRoot1262442-9"
+       style="font-style:normal;font-weight:normal;font-size:6.66667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.0197746,0,0,1.0197746,-69.827889,376.25472)"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png"><flowRegion
+         id="flowRegion1262438-4"
+         style="font-size:6.66667px;fill:#000000"><rect
+           id="rect1262436-3"
+           width="111.30434"
+           height="52.173912"
+           x="-345.21738"
+           y="-430.95859"
+           style="font-size:6.66666698px;fill:#000000" /></flowRegion><flowPara
+         id="flowPara1262440-2"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.66667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#000000">t</flowPara></flowRoot>
+    <g
+       id="g1262452-6"
+       transform="matrix(-1.4254129,0.09451865,-0.09451865,-1.4254129,-159.19979,1081.2125)"
+       inkscape:transform-center-x="0.96724785"
+       inkscape:transform-center-y="1.3470848"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png"
+       style="stroke-linecap:butt;stroke-linejoin:round">
+      <path
+         sodipodi:nodetypes="cccc"
+         inkscape:connector-curvature="0"
+         id="path1262444-5"
+         d="m 165.4762,797.84255 1.17056,-0.79534 c 1.22588,-6.42237 7.81869,2.82662 1.38909,1.89899 l -1.34933,0.91812"
+         style="fill:none;stroke:#b3b3b3;stroke-width:1.34902;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <path
+         style="fill:none;stroke:#b3b3b3;stroke-width:1.34902;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         d="m 163.73858,801.91021 3.38689,-2.34143"
+         id="path1262446-8"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cc" />
+      <path
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path1262448-4"
+         d="m 162.52826,799.88844 3.38689,-2.34143"
+         style="fill:none;stroke:#b3b3b3;stroke-width:1.34902;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="ccc"
+         inkscape:connector-curvature="0"
+         id="path1262450-6"
+         d="m 164.23042,801.45414 1.29747,1.85371 2.67198,-1.83748"
+         style="fill:none;stroke:#b3b3b3;stroke-width:1.34902;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    </g>
+    <flowRoot
+       inkscape:export-ydpi="100"
+       inkscape:export-xdpi="100"
+       xml:space="preserve"
+       id="flowRoot1262460-5"
+       style="font-style:normal;font-weight:normal;font-size:6.66667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#999999;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.0197746,0,0,1.0197746,-129.93079,403.42131)"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png"><flowRegion
+         id="flowRegion1262456-7"
+         style="font-size:6.66667px;fill:#999999"><rect
+           id="rect1262454-5"
+           width="111.30434"
+           height="52.173912"
+           x="-345.21738"
+           y="-430.95859"
+           style="font-size:6.66666698px;fill:#999999" /></flowRegion><flowPara
+         id="flowPara1262458-5"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.66667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#999999">Rz</flowPara></flowRoot>
+    <path
+       style="fill:#ffff00;stroke:#00ffff;stroke-width:1.42854;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -441.88086,-54.415031 10e-5,5.2536"
+       id="path1262462-7"
+       sodipodi:nodetypes="cc"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <flowRoot
+       inkscape:export-ydpi="100"
+       inkscape:export-xdpi="100"
+       xml:space="preserve"
+       id="flowRoot1262470-0"
+       style="font-style:normal;font-weight:normal;font-size:8px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff6600;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.0197746,0,0,1.0197746,-92.691178,375.33002)"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png"><flowRegion
+         id="flowRegion1262466-5"
+         style="font-size:8px;fill:#ff6600"><rect
+           id="rect1262464-4"
+           width="111.30434"
+           height="52.173912"
+           x="-345.21738"
+           y="-430.95859"
+           style="font-size:8px;fill:#ff6600" /></flowRegion><flowPara
+         id="flowPara1262468-4"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ff6600">3</flowPara></flowRoot>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot1262478-1"
+       style="font-style:normal;font-weight:normal;font-size:8px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff0000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.0197746,0,0,1.0197746,-54.150443,366.67852)"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png"><flowRegion
+         id="flowRegion1262474-1"
+         style="font-size:8px;fill:#ff0000"><rect
+           id="rect1262472-9"
+           width="111.30434"
+           height="52.173912"
+           x="-345.21738"
+           y="-430.95859"
+           style="font-size:8px;fill:#ff0000" /></flowRegion><flowPara
+         id="flowPara1262476-6"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ff0000">1</flowPara></flowRoot>
+    <path
+       inkscape:export-ydpi="200"
+       inkscape:export-xdpi="200"
+       sodipodi:nodetypes="ccc"
+       inkscape:connector-curvature="0"
+       id="path1262480-6"
+       d="m -534.69905,-15.985361 -1.7104,1.1259 h 12.4215"
+       style="fill:none;stroke:#000000;stroke-width:1.07141;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <path
+       inkscape:export-ydpi="200"
+       inkscape:export-xdpi="200"
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path1262482-9"
+       d="m -500.67816,-32.912061 -23.45089,18.1993"
+       style="fill:none;stroke:#ff6600;stroke-width:1.92713;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <flowRoot
+       inkscape:export-ydpi="200"
+       inkscape:export-xdpi="200"
+       xml:space="preserve"
+       id="flowRoot1262490-2"
+       style="font-style:normal;font-weight:normal;font-size:6.66667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.0197746,0,0,1.0197746,-179.83721,414.82675)"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png"><flowRegion
+         id="flowRegion1262486-9"
+         style="font-size:6.66667px;fill:#000000"><rect
+           id="rect1262484-8"
+           width="111.30434"
+           height="52.173912"
+           x="-345.21738"
+           y="-430.95859"
+           style="font-size:6.66666698px;fill:#000000" /></flowRegion><flowPara
+         id="flowPara1262488-9"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.66667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#000000">t</flowPara></flowRoot>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot1262498-6"
+       style="font-style:normal;font-weight:normal;font-size:8px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff6600;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.0197746,0,0,1.0197746,-165.84607,405.25058)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png"><flowRegion
+         id="flowRegion1262494-8"
+         style="font-size:8px;fill:#ff6600"><rect
+           id="rect1262492-5"
+           width="111.30434"
+           height="52.173912"
+           x="-345.21738"
+           y="-430.95859"
+           style="font-size:8px;fill:#ff6600" /></flowRegion><flowPara
+         id="flowPara1262496-4"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ff6600">3</flowPara></flowRoot>
+    <text
+       xml:space="preserve"
+       id="text1262504-0"
+       style="font-style:normal;font-weight:normal;font-size:7.95657px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect1262528-0);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1266.2532,-1851.5942)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png"
+       x="5.903511"
+       y="0"><tspan
+         x="543.68769"
+         y="1292.4352"
+         id="tspan17370"><tspan
+           style="text-anchor:middle"
+           id="tspan17368">+</tspan></tspan></text>
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path1262506-6"
+       d="m -386.66756,-72.832641 -25.2445,19.54781"
+       style="fill:none;stroke:#ff0000;stroke-width:1.92713;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <text
+       xml:space="preserve"
+       id="text1262514-9"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect1262530-1);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1272.362,-1869.8646)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="519.26471"
+         y="1291.037"
+         id="tspan17376"><tspan
+           style="-inkscape-font-specification:sans-serif"
+           id="tspan17372">I</tspan><tspan
+           style="-inkscape-font-specification:sans-serif;text-anchor:middle"
+           id="tspan17374">{3}</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text1262526-0"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect1262532-5);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1184.8797,-1864.8474)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="515.56141"
+         y="1291.037"
+         id="tspan17386"><tspan
+           style="-inkscape-font-specification:sans-serif"
+           id="tspan17378">G</tspan><tspan
+           style="text-anchor:middle"
+           id="tspan17380">{3</tspan><tspan
+           style="-inkscape-font-specification:sans-serif"
+           id="tspan17382">,1</tspan><tspan
+           style="text-anchor:middle"
+           id="tspan17384">}</tspan></tspan></text>
+    <path
+       inkscape:export-ydpi="100"
+       inkscape:export-xdpi="100"
+       sodipodi:nodetypes="ccc"
+       inkscape:connector-curvature="0"
+       id="path1262534-9"
+       d="m -453.19307,-2.4228713 -4.878,-3.5335 1.8148,-0.048"
+       style="fill:none;stroke:#808080;stroke-width:1.07141;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <path
+       inkscape:export-ydpi="100"
+       inkscape:export-xdpi="100"
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path1262536-3"
+       d="m -453.39317,0.61692869 -9.6517,6.61570001"
+       style="fill:none;stroke:#000000;stroke-width:1.07141;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path1262538-2"
+       d="m -422.02108,0.58822869 -31.90129,0.029"
+       style="fill:none;stroke:#ff6600;stroke-width:1.92713;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path1262540-9"
+       d="m -422.02108,-2.4357713 -31.92799,0.013"
+       style="fill:none;stroke:#ff6600;stroke-width:1.92713;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <flowRoot
+       transform="matrix(1.0197746,0,0,1.0197746,-111.50291,435.56948)"
+       style="font-style:normal;font-weight:normal;font-size:6.66667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       id="flowRoot1262548-8"
+       xml:space="preserve"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png"><flowRegion
+         style="font-size:6.66667px;fill:#000000"
+         id="flowRegion1262544-9"><rect
+           style="font-size:6.66666698px;fill:#000000"
+           y="-430.95859"
+           x="-345.21738"
+           height="52.173912"
+           width="111.30434"
+           id="rect1262542-3" /></flowRegion><flowPara
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.66667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#000000"
+         id="flowPara1262546-5">t'</flowPara></flowRoot>
+    <path
+       style="fill:#ff0000;stroke:#000000;stroke-width:1.07141;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m -407.72628,-2.4647713 -14.2948,0.029"
+       id="path1262550-9"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <path
+       inkscape:export-ydpi="100"
+       inkscape:export-xdpi="100"
+       sodipodi:nodetypes="ccc"
+       inkscape:connector-curvature="0"
+       id="path1262552-6"
+       d="m -411.31028,1.7101287 1.7103,-1.12590001 h -12.4211"
+       style="fill:none;stroke:#000000;stroke-width:1.07141;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <flowRoot
+       inkscape:export-ydpi="100"
+       inkscape:export-xdpi="100"
+       xml:space="preserve"
+       id="flowRoot1262560-2"
+       style="font-style:normal;font-weight:normal;font-size:6.66667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.0197746,0,0,1.0197746,-66.398109,427.07474)"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png"><flowRegion
+         id="flowRegion1262556-5"
+         style="font-size:6.66667px;fill:#000000"><rect
+           id="rect1262554-8"
+           width="111.30434"
+           height="52.173912"
+           x="-345.21738"
+           y="-430.95859"
+           style="font-size:6.66666698px;fill:#000000" /></flowRegion><flowPara
+         id="flowPara1262558-5"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.66667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#000000">t</flowPara></flowRoot>
+    <g
+       id="g1262570-7"
+       transform="matrix(-1.4254129,0.09451865,-0.09451865,-1.4254129,-155.77001,1132.0325)"
+       inkscape:transform-center-x="0.96724785"
+       inkscape:transform-center-y="1.3470848"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png"
+       style="stroke-linecap:butt;stroke-linejoin:round">
+      <path
+         sodipodi:nodetypes="cccc"
+         inkscape:connector-curvature="0"
+         id="path1262562-5"
+         d="m 165.4762,797.84255 1.17056,-0.79534 c 1.22588,-6.42237 7.81869,2.82662 1.38909,1.89899 l -1.34933,0.91812"
+         style="fill:none;stroke:#b3b3b3;stroke-width:1.34902;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <path
+         style="fill:none;stroke:#b3b3b3;stroke-width:1.34902;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         d="m 163.73858,801.91021 3.38689,-2.34143"
+         id="path1262564-6"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cc" />
+      <path
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path1262566-8"
+         d="m 162.52826,799.88844 3.38689,-2.34143"
+         style="fill:none;stroke:#b3b3b3;stroke-width:1.34902;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="ccc"
+         inkscape:connector-curvature="0"
+         id="path1262568-1"
+         d="m 164.23042,801.45414 1.29747,1.85371 2.67198,-1.83748"
+         style="fill:none;stroke:#b3b3b3;stroke-width:1.34902;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    </g>
+    <flowRoot
+       inkscape:export-ydpi="100"
+       inkscape:export-xdpi="100"
+       xml:space="preserve"
+       id="flowRoot1262578-2"
+       style="font-style:normal;font-weight:normal;font-size:6.66667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#999999;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.0197746,0,0,1.0197746,-126.50101,454.24137)"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png"><flowRegion
+         id="flowRegion1262574-8"
+         style="font-size:6.66667px;fill:#999999"><rect
+           id="rect1262572-8"
+           width="111.30434"
+           height="52.173912"
+           x="-345.21738"
+           y="-430.95859"
+           style="font-size:6.66666698px;fill:#999999" /></flowRegion><flowPara
+         id="flowPara1262576-2"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.66667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#999999">Rz</flowPara></flowRoot>
+    <path
+       style="fill:#ffff00;stroke:#00ffff;stroke-width:1.42854;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -438.45108,-3.5949713 10e-5,5.2536"
+       id="path1262580-1"
+       sodipodi:nodetypes="cc"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <flowRoot
+       inkscape:export-ydpi="100"
+       inkscape:export-xdpi="100"
+       xml:space="preserve"
+       id="flowRoot1262588-4"
+       style="font-style:normal;font-weight:normal;font-size:8px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff6600;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.0197746,0,0,1.0197746,-89.261399,426.15003)"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png"><flowRegion
+         id="flowRegion1262584-5"
+         style="font-size:8px;fill:#ff6600"><rect
+           id="rect1262582-6"
+           width="111.30434"
+           height="52.173912"
+           x="-345.21738"
+           y="-430.95859"
+           style="font-size:8px;fill:#ff6600" /></flowRegion><flowPara
+         id="flowPara1262586-9"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ff6600">3</flowPara></flowRoot>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot1262596-4"
+       style="font-style:normal;font-weight:normal;font-size:8px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#00aad4;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.0197746,0,0,1.0197746,-50.720675,417.49849)"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png"><flowRegion
+         id="flowRegion1262592-6"
+         style="font-size:8px;fill:#00aad4"><rect
+           id="rect1262590-8"
+           width="111.30434"
+           height="52.173912"
+           x="-345.21738"
+           y="-430.95859"
+           style="font-size:8px;fill:#00aad4" /></flowRegion><flowPara
+         id="flowPara1262594-6"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#00aad4">5</flowPara></flowRoot>
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path1262598-1"
+       d="m -383.23778,-22.012581 -25.2445,19.5478097"
+       style="fill:none;stroke:#00aad4;stroke-width:1.92713;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <text
+       xml:space="preserve"
+       id="text1262610-0"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect1262612-0);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1181.45,-1814.0232)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="515.56141"
+         y="1291.037"
+         id="tspan17396"><tspan
+           style="-inkscape-font-specification:sans-serif"
+           id="tspan17388">G</tspan><tspan
+           style="text-anchor:middle"
+           id="tspan17390">{3</tspan><tspan
+           style="-inkscape-font-specification:sans-serif"
+           id="tspan17392">,5</tspan><tspan
+           style="text-anchor:middle"
+           id="tspan17394">}</tspan></tspan></text>
+    <path
+       inkscape:export-ydpi="100"
+       inkscape:export-xdpi="100"
+       sodipodi:nodetypes="ccc"
+       inkscape:connector-curvature="0"
+       id="path20359"
+       d="m -336.50167,-53.242931 -4.878,-3.5335 1.8148,-0.048"
+       style="fill:none;stroke:#808080;stroke-width:1.07141;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <path
+       inkscape:export-ydpi="100"
+       inkscape:export-xdpi="100"
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path20361"
+       d="m -336.70177,-50.203131 -9.6517,6.6157"
+       style="fill:none;stroke:#000000;stroke-width:1.07141;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path20363"
+       d="m -305.32968,-50.231831 -31.90129,0.029"
+       style="fill:none;stroke:#ff0000;stroke-width:1.92713;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path20365"
+       d="m -305.32968,-53.255831 -31.92799,0.013"
+       style="fill:none;stroke:#ff0000;stroke-width:1.92713;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <flowRoot
+       transform="matrix(1.0197746,0,0,1.0197746,5.1882008,384.74942)"
+       style="font-style:normal;font-weight:normal;font-size:6.66667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       id="flowRoot20373"
+       xml:space="preserve"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png"><flowRegion
+         style="font-size:6.66667px;fill:#000000"
+         id="flowRegion20369"><rect
+           style="font-size:6.66666698px;fill:#000000"
+           y="-430.95859"
+           x="-345.21738"
+           height="52.173912"
+           width="111.30434"
+           id="rect20367" /></flowRegion><flowPara
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.66667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#000000"
+         id="flowPara20371">t'</flowPara></flowRoot>
+    <path
+       style="fill:#ff0000;stroke:#000000;stroke-width:1.07141;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m -291.03488,-53.284831 -14.2948,0.029"
+       id="path20375"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <path
+       inkscape:export-ydpi="100"
+       inkscape:export-xdpi="100"
+       sodipodi:nodetypes="ccc"
+       inkscape:connector-curvature="0"
+       id="path20377"
+       d="m -294.61888,-49.109931 1.7103,-1.1259 h -12.4211"
+       style="fill:none;stroke:#000000;stroke-width:1.07141;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <flowRoot
+       inkscape:export-ydpi="100"
+       inkscape:export-xdpi="100"
+       xml:space="preserve"
+       id="flowRoot20385"
+       style="font-style:normal;font-weight:normal;font-size:6.66667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.0197746,0,0,1.0197746,50.293106,376.25472)"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png"><flowRegion
+         id="flowRegion20381"
+         style="font-size:6.66667px;fill:#000000"><rect
+           id="rect20379"
+           width="111.30434"
+           height="52.173912"
+           x="-345.21738"
+           y="-430.95859"
+           style="font-size:6.66666698px;fill:#000000" /></flowRegion><flowPara
+         id="flowPara20383"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.66667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#000000">t</flowPara></flowRoot>
+    <g
+       id="g20395"
+       transform="matrix(-1.4254129,0.09451865,-0.09451865,-1.4254129,-39.078927,1081.2125)"
+       inkscape:transform-center-x="0.96724785"
+       inkscape:transform-center-y="1.3470848"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png"
+       style="stroke-linecap:butt;stroke-linejoin:round">
+      <path
+         sodipodi:nodetypes="cccc"
+         inkscape:connector-curvature="0"
+         id="path20387"
+         d="m 165.4762,797.84255 1.17056,-0.79534 c 1.22588,-6.42237 7.81869,2.82662 1.38909,1.89899 l -1.34933,0.91812"
+         style="fill:none;stroke:#b3b3b3;stroke-width:1.34902;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <path
+         style="fill:none;stroke:#b3b3b3;stroke-width:1.34902;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         d="m 163.73858,801.91021 3.38689,-2.34143"
+         id="path20389"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cc" />
+      <path
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path20391"
+         d="m 162.52826,799.88844 3.38689,-2.34143"
+         style="fill:none;stroke:#b3b3b3;stroke-width:1.34902;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="ccc"
+         inkscape:connector-curvature="0"
+         id="path20393"
+         d="m 164.23042,801.45414 1.29747,1.85371 2.67198,-1.83748"
+         style="fill:none;stroke:#b3b3b3;stroke-width:1.34902;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    </g>
+    <flowRoot
+       inkscape:export-ydpi="100"
+       inkscape:export-xdpi="100"
+       xml:space="preserve"
+       id="flowRoot20403"
+       style="font-style:normal;font-weight:normal;font-size:6.66667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#999999;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.0197746,0,0,1.0197746,-9.8099262,403.42131)"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png"><flowRegion
+         id="flowRegion20399"
+         style="font-size:6.66667px;fill:#999999"><rect
+           id="rect20397"
+           width="111.30434"
+           height="52.173912"
+           x="-345.21738"
+           y="-430.95859"
+           style="font-size:6.66666698px;fill:#999999" /></flowRegion><flowPara
+         id="flowPara20401"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.66667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#999999">Rz</flowPara></flowRoot>
+    <path
+       style="fill:#ffff00;stroke:#00ffff;stroke-width:1.42854;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -321.75968,-54.415031 10e-5,5.2536"
+       id="path20405"
+       sodipodi:nodetypes="cc"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <flowRoot
+       inkscape:export-ydpi="100"
+       inkscape:export-xdpi="100"
+       xml:space="preserve"
+       id="flowRoot20413"
+       style="font-style:normal;font-weight:normal;font-size:8px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff0000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.0197746,0,0,1.0197746,27.429776,375.33002)"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png"><flowRegion
+         id="flowRegion20409"
+         style="font-size:8px;fill:#ff0000"><rect
+           id="rect20407"
+           width="111.30434"
+           height="52.173912"
+           x="-345.21738"
+           y="-430.95859"
+           style="font-size:8px;fill:#ff0000" /></flowRegion><flowPara
+         id="flowPara20411"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ff0000">1</flowPara></flowRoot>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot20421"
+       style="font-style:normal;font-weight:normal;font-size:8px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#0000ff;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.0197746,0,0,1.0197746,65.970606,366.67852)"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png"><flowRegion
+         id="flowRegion20417"
+         style="font-size:8px;fill:#0000ff"><rect
+           id="rect20415"
+           width="111.30434"
+           height="52.173912"
+           x="-345.21738"
+           y="-430.95859"
+           style="font-size:8px;fill:#0000ff" /></flowRegion><flowPara
+         id="flowPara20419"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#0000ff">2</flowPara></flowRoot>
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path20423"
+       d="m -266.54638,-72.832641 -25.2445,19.54781"
+       style="fill:none;stroke:#0000ff;stroke-width:1.92713;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <text
+       xml:space="preserve"
+       id="text20435"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect20515);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1064.7563,-1864.8474)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="515.56141"
+         y="1291.037"
+         id="tspan17406"><tspan
+           style="-inkscape-font-specification:sans-serif"
+           id="tspan17398">G</tspan><tspan
+           style="text-anchor:middle"
+           id="tspan17400">{1</tspan><tspan
+           style="-inkscape-font-specification:sans-serif"
+           id="tspan17402">,2</tspan><tspan
+           style="text-anchor:middle"
+           id="tspan17404">}</tspan></tspan></text>
+    <path
+       inkscape:export-ydpi="100"
+       inkscape:export-xdpi="100"
+       sodipodi:nodetypes="ccc"
+       inkscape:connector-curvature="0"
+       id="path20437"
+       d="m -333.07189,-2.4228713 -4.878,-3.5335 1.8148,-0.048"
+       style="fill:none;stroke:#808080;stroke-width:1.07141;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <path
+       inkscape:export-ydpi="100"
+       inkscape:export-xdpi="100"
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path20439"
+       d="m -333.27199,0.61692869 -9.6517,6.61570001"
+       style="fill:none;stroke:#000000;stroke-width:1.07141;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path20441"
+       d="m -301.8999,0.58822869 -31.90129,0.029"
+       style="fill:none;stroke:#00aad4;stroke-width:1.92713;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path20443"
+       d="m -301.8999,-2.4357713 -31.92799,0.013"
+       style="fill:none;stroke:#00aad4;stroke-width:1.92713;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <flowRoot
+       transform="matrix(1.0197746,0,0,1.0197746,8.6179904,435.56948)"
+       style="font-style:normal;font-weight:normal;font-size:6.66667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       id="flowRoot20451"
+       xml:space="preserve"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png"><flowRegion
+         style="font-size:6.66667px;fill:#000000"
+         id="flowRegion20447"><rect
+           style="font-size:6.66666698px;fill:#000000"
+           y="-430.95859"
+           x="-345.21738"
+           height="52.173912"
+           width="111.30434"
+           id="rect20445" /></flowRegion><flowPara
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.66667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#000000"
+         id="flowPara20449">t'</flowPara></flowRoot>
+    <path
+       style="fill:#ff0000;stroke:#000000;stroke-width:1.07141;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m -287.6051,-2.4647713 -14.2948,0.029"
+       id="path20453"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <path
+       inkscape:export-ydpi="100"
+       inkscape:export-xdpi="100"
+       sodipodi:nodetypes="ccc"
+       inkscape:connector-curvature="0"
+       id="path20455"
+       d="m -291.1891,1.7101287 1.7103,-1.12590001 h -12.4211"
+       style="fill:none;stroke:#000000;stroke-width:1.07141;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <flowRoot
+       inkscape:export-ydpi="100"
+       inkscape:export-xdpi="100"
+       xml:space="preserve"
+       id="flowRoot20463"
+       style="font-style:normal;font-weight:normal;font-size:6.66667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.0197746,0,0,1.0197746,53.722896,427.07474)"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png"><flowRegion
+         id="flowRegion20459"
+         style="font-size:6.66667px;fill:#000000"><rect
+           id="rect20457"
+           width="111.30434"
+           height="52.173912"
+           x="-345.21738"
+           y="-430.95859"
+           style="font-size:6.66666698px;fill:#000000" /></flowRegion><flowPara
+         id="flowPara20461"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.66667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#000000">t</flowPara></flowRoot>
+    <g
+       id="g20473"
+       transform="matrix(-1.4254129,0.09451865,-0.09451865,-1.4254129,-35.649147,1132.0325)"
+       inkscape:transform-center-x="0.96724785"
+       inkscape:transform-center-y="1.3470848"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png"
+       style="stroke-linecap:butt;stroke-linejoin:round">
+      <path
+         sodipodi:nodetypes="cccc"
+         inkscape:connector-curvature="0"
+         id="path20465"
+         d="m 165.4762,797.84255 1.17056,-0.79534 c 1.22588,-6.42237 7.81869,2.82662 1.38909,1.89899 l -1.34933,0.91812"
+         style="fill:none;stroke:#b3b3b3;stroke-width:1.34902;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <path
+         style="fill:none;stroke:#b3b3b3;stroke-width:1.34902;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         d="m 163.73858,801.91021 3.38689,-2.34143"
+         id="path20467"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cc" />
+      <path
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path20469"
+         d="m 162.52826,799.88844 3.38689,-2.34143"
+         style="fill:none;stroke:#b3b3b3;stroke-width:1.34902;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="ccc"
+         inkscape:connector-curvature="0"
+         id="path20471"
+         d="m 164.23042,801.45414 1.29747,1.85371 2.67198,-1.83748"
+         style="fill:none;stroke:#b3b3b3;stroke-width:1.34902;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    </g>
+    <flowRoot
+       inkscape:export-ydpi="100"
+       inkscape:export-xdpi="100"
+       xml:space="preserve"
+       id="flowRoot20481"
+       style="font-style:normal;font-weight:normal;font-size:6.66667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#999999;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.0197746,0,0,1.0197746,-6.3801472,454.24137)"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png"><flowRegion
+         id="flowRegion20477"
+         style="font-size:6.66667px;fill:#999999"><rect
+           id="rect20475"
+           width="111.30434"
+           height="52.173912"
+           x="-345.21738"
+           y="-430.95859"
+           style="font-size:6.66666698px;fill:#999999" /></flowRegion><flowPara
+         id="flowPara20479"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.66667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#999999">Rz</flowPara></flowRoot>
+    <path
+       style="fill:#ffff00;stroke:#00ffff;stroke-width:1.42854;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -318.3299,-3.5949713 1e-4,5.2536"
+       id="path20483"
+       sodipodi:nodetypes="cc"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <flowRoot
+       inkscape:export-ydpi="100"
+       inkscape:export-xdpi="100"
+       xml:space="preserve"
+       id="flowRoot20491"
+       style="font-style:normal;font-weight:normal;font-size:8px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#00aad4;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.0197746,0,0,1.0197746,30.859556,426.15003)"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png"><flowRegion
+         id="flowRegion20487"
+         style="font-size:8px;fill:#00aad4"><rect
+           id="rect20485"
+           width="111.30434"
+           height="52.173912"
+           x="-345.21738"
+           y="-430.95859"
+           style="font-size:8px;fill:#00aad4" /></flowRegion><flowPara
+         id="flowPara20489"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#00aad4">5</flowPara></flowRoot>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot20499"
+       style="font-style:normal;font-weight:normal;font-size:8px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#0000ff;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.0197746,0,0,1.0197746,69.400376,417.49849)"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png"><flowRegion
+         id="flowRegion20495"
+         style="font-size:8px;fill:#0000ff"><rect
+           id="rect20493"
+           width="111.30434"
+           height="52.173912"
+           x="-345.21738"
+           y="-430.95859"
+           style="font-size:8px;fill:#0000ff" /></flowRegion><flowPara
+         id="flowPara20497"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#0000ff">2</flowPara></flowRoot>
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path20501"
+       d="m -263.1166,-22.012581 -25.2445,19.5478097"
+       style="fill:none;stroke:#0000ff;stroke-width:1.92713;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <text
+       xml:space="preserve"
+       id="text20513"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect20517);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1061.3266,-1814.0232)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="515.56141"
+         y="1291.037"
+         id="tspan17416"><tspan
+           style="-inkscape-font-specification:sans-serif"
+           id="tspan17408">G</tspan><tspan
+           style="text-anchor:middle"
+           id="tspan17410">{5</tspan><tspan
+           style="-inkscape-font-specification:sans-serif"
+           id="tspan17412">,2</tspan><tspan
+           style="text-anchor:middle"
+           id="tspan17414">}</tspan></tspan></text>
+    <path
+       inkscape:export-ydpi="100"
+       inkscape:export-xdpi="100"
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path223752-7"
+       d="m -232.97319,-32.968144 -9.65141,6.6157"
+       style="fill:none;stroke:#000000;stroke-width:1.07141;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.14282, 1.07141;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <path
+       sodipodi:nodetypes="ccc"
+       inkscape:connector-curvature="0"
+       id="path223754-8"
+       d="m -228.07994,-38.203254 -2.71547,2.18412 35.07999,-0.0511"
+       style="fill:none;stroke:#0000ff;stroke-width:1.92713;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.85426, 1.92713;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <flowRoot
+       transform="matrix(1.0197746,0,0,1.0197746,108.91692,401.98498)"
+       style="font-style:normal;font-weight:normal;font-size:6.66667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       id="flowRoot223762-1"
+       xml:space="preserve"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png"><flowRegion
+         style="font-size:6.66667px;fill:#000000"
+         id="flowRegion223758-3"><rect
+           style="font-size:6.66666698px;fill:#000000"
+           y="-430.95859"
+           x="-345.21738"
+           height="52.173912"
+           width="111.30434"
+           id="rect223756-30" /></flowRegion><flowPara
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.66667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#000000"
+         id="flowPara223760-7">t'</flowPara></flowRoot>
+    <text
+       xml:space="preserve"
+       id="text223770-8"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect223908-1);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-961.02388,-1851.5028)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="518.51417"
+         y="1291.037"
+         id="tspan17420"><tspan
+           style="-inkscape-font-specification:sans-serif;text-anchor:middle"
+           id="tspan17418">R{2}</tspan></tspan></text>
+    <path
+       sodipodi:nodetypes="ccc"
+       inkscape:connector-curvature="0"
+       id="path223772-5"
+       d="m -200.60865,-30.835114 2.71546,-2.18413 -35.08,0.0511"
+       style="fill:none;stroke:#0000ff;stroke-width:1.92713;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.85426, 1.92713;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot223780-3"
+       style="font-style:normal;font-weight:normal;font-size:8px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#0000ff;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.0197746,0,0,1.0197746,135.35929,391.83253)"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\mock_up_fig_1.png"><flowRegion
+         id="flowRegion223776-0"
+         style="font-size:8px;fill:#0000ff"><rect
+           id="rect223774-0"
+           width="111.30434"
+           height="52.173912"
+           x="-345.21738"
+           y="-430.95859"
+           style="font-size:8px;fill:#0000ff" /></flowRegion><flowPara
+         id="flowPara223778-29"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#0000ff">2</flowPara></flowRoot>
+    <ellipse
+       style="fill:#ffcc00;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.07141;stroke-miterlimit:4;stroke-dasharray:2.14282, 1.07141;stroke-dashoffset:0"
+       id="ellipse223788-1"
+       cx="-193.91151"
+       cy="-37.189693"
+       rx="2.0888832"
+       ry="2.0732944" />
+    <ellipse
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.07141;stroke-miterlimit:4;stroke-dasharray:2.14282, 1.07141;stroke-dashoffset:0"
+       id="ellipse223790-0"
+       cx="-193.91151"
+       cy="-32.639462"
+       rx="2.0888832"
+       ry="2.0732944" />
+    <text
+       xml:space="preserve"
+       id="text223794-88"
+       style="font-style:normal;font-weight:normal;font-size:3.481px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect223912-9);display:inline;fill:#d4aa00;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-934.95958,-1865.8444)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="524.62668"
+         y="1289.9184"
+         id="tspan17424"><tspan
+           style="-inkscape-font-specification:sans-serif"
+           id="tspan17422">F</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text223798-5"
+       style="font-style:normal;font-weight:normal;font-size:3.481px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect223914-5);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-934.95958,-1861.0816)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="524.25699"
+         y="1289.9184"
+         id="tspan17428"><tspan
+           style="-inkscape-font-specification:sans-serif"
+           id="tspan17426">Q</tspan></tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Mend-6)"
+       d="m -388.31129,-53.078739 h 18.01596"
+       id="path20837" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Mend-6)"
+       d="m -388.31129,-1.7495403 h 18.01596"
+       id="path22652" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Mend-6)"
+       d="m -269.43866,-57.151821 16.45162,7.342953"
+       id="path22660" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Mend-6)"
+       d="m -269.43866,-3.4247123 16.45162,-7.3429527"
+       id="path22672" />
+    <text
+       xml:space="preserve"
+       id="text10662"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect10700);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1165.8811,-1738.5213)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="515.56141"
+         y="1291.037"
+         id="tspan17438"><tspan
+           style="-inkscape-font-specification:sans-serif"
+           id="tspan17430">G</tspan><tspan
+           style="text-anchor:middle"
+           id="tspan17432">{3</tspan><tspan
+           style="-inkscape-font-specification:sans-serif"
+           id="tspan17434">,1</tspan><tspan
+           style="text-anchor:middle"
+           id="tspan17436">}</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text10674"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect10702);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1136.8227,-1750.0098)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17440">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text10686"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect10704);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1136.8227,-1761.4681)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="515.56141"
+         y="1291.037"
+         id="tspan17450"><tspan
+           style="-inkscape-font-specification:sans-serif"
+           id="tspan17442">G</tspan><tspan
+           style="text-anchor:middle"
+           id="tspan17444">{1</tspan><tspan
+           style="-inkscape-font-specification:sans-serif"
+           id="tspan17446">,2</tspan><tspan
+           style="text-anchor:middle"
+           id="tspan17448">}</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text10698"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect10706);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1136.8227,-1715.18)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="515.56141"
+         y="1291.037"
+         id="tspan17460"><tspan
+           style="-inkscape-font-specification:sans-serif"
+           id="tspan17452">G</tspan><tspan
+           style="text-anchor:middle"
+           id="tspan17454">{5</tspan><tspan
+           style="-inkscape-font-specification:sans-serif"
+           id="tspan17456">,2</tspan><tspan
+           style="text-anchor:middle"
+           id="tspan17458">}</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text10718"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect10720);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1165.8811,-1749.955)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17462">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text10826"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect10828);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1165.8811,-1761.2486)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17464">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text10832"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect10834);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1165.8811,-1725.8597)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17466">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text10838"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect10840);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1165.8811,-1714.5661)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17468">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text10852"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect10854);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1136.8227,-1738.5213)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17470">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text10866"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect10868);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1136.8227,-1726.4736)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17472">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text10880"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect10930);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1107.7169,-1750.0098)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17474">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text10892"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect10932);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1107.7169,-1761.4681)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17476">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text10904"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect10934);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1107.7169,-1715.18)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17478">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text10916"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect10936);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1107.7169,-1738.5213)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17480">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text10928"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect10938);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1107.7169,-1726.4736)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17482">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text10950"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect11000);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1078.0819,-1750.0098)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17484">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text10962"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect11002);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1078.0819,-1761.4681)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17486">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text10974"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect11004);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1078.0819,-1715.18)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17488">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text10986"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect11006);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1078.0819,-1738.5213)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17490">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text10998"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect11008);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1078.0819,-1726.4736)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17492">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text11020"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect11070);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1048.4468,-1750.0098)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17494">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text11032"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect11072);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1048.4468,-1761.4681)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17496">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text11044"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect11074);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1048.4468,-1715.18)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17498">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text11056"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect11076);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1048.4468,-1738.5213)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="515.56141"
+         y="1291.037"
+         id="tspan17508"><tspan
+           style="-inkscape-font-specification:sans-serif"
+           id="tspan17500">G</tspan><tspan
+           style="text-anchor:middle"
+           id="tspan17502">{3</tspan><tspan
+           style="-inkscape-font-specification:sans-serif"
+           id="tspan17504">,5</tspan><tspan
+           style="text-anchor:middle"
+           id="tspan17506">}</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text11068"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect11078);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1048.4468,-1726.4736)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17510">0</tspan></text>
+    <g
+       id="g11241"
+       style="stroke-width:0.75;stroke-dasharray:none"
+       transform="translate(34.395831,2.6458332)">
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="m -471.9199,59.339635 0.007,58.839765"
+         id="path11136"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="m -472.04568,59.456466 3.78566,-0.02825"
+         id="path11185" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="m -472.04568,118.1941 3.78566,-0.0282"
+         id="path11187" />
+    </g>
+    <g
+       id="g12433"
+       style="stroke-width:0.75;stroke-dasharray:none"
+       transform="matrix(-1,0,0,1,-757.98871,2.6458332)">
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="m -471.9199,59.339635 0.007,58.839765"
+         id="path12427"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="m -472.04568,59.456466 3.78566,-0.02825"
+         id="path12429" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="m -472.04568,118.1941 3.78566,-0.0282"
+         id="path12431" />
+    </g>
+    <text
+       xml:space="preserve"
+       id="text13682"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect13684);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1218.8487,-1778.4025)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="506.68045"
+         y="1291.037"
+         id="tspan17514"><tspan
+           style="-inkscape-font-specification:sans-serif"
+           id="tspan17512">Gtemp_con = </tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text13720"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect13722);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1107.8211,-1777.8734)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="504.10964"
+         y="1291.037"
+         id="tspan17518"><tspan
+           style="font-style:italic;-inkscape-font-specification:'sans-serif Italic'"
+           id="tspan17516">output domains</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text13750"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect13752);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(0,1.4188131,-1.4188131,0,1552.9365,-654.35866)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="506.09684"
+         y="1291.037"
+         id="tspan17522"><tspan
+           style="font-style:italic;-inkscape-font-specification:'sans-serif Italic'"
+           id="tspan17520">input domains</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text13788"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect13940);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1165.8811,-1646.9775)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17524">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text13792"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect13942);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1136.8227,-1658.466)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.68249"
+         y="1291.037"
+         id="tspan17528"><tspan
+           style="font-weight:bold;-inkscape-font-specification:'sans-serif Bold'"
+           id="tspan17526">0</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text13804"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect13944);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1136.8227,-1669.9243)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17530">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text13816"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect13946);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1136.8227,-1623.6362)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17532">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text13820"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect13948);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1165.8811,-1658.4112)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17534">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text13824"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect13950);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1165.8811,-1669.7048)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.68249"
+         y="1291.037"
+         id="tspan17538"><tspan
+           style="font-weight:bold;-inkscape-font-specification:'sans-serif Bold'"
+           id="tspan17536">0</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text13828"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect13952);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1165.8811,-1634.3159)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17540">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text13832"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect13954);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1165.8811,-1623.0223)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17542">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text13836"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect13956);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1136.8227,-1646.9775)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17544">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text13840"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect13958);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1136.8227,-1634.9298)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17546">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text13844"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect13960);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1107.7169,-1658.466)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17548">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text13848"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect13962);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1107.7169,-1669.9243)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17550">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text13852"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect13964);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1107.7169,-1623.6362)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17552">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text13856"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect13966);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1107.7169,-1646.9775)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="518.30049"
+         y="1291.037"
+         id="tspan17556"><tspan
+           style="font-weight:bold;-inkscape-font-specification:'sans-serif Bold'"
+           id="tspan17554">I{3}</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text13860"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect13968);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1107.7169,-1634.9298)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17558">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text13864"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect13970);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1078.0819,-1658.466)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17560">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text13868"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect13972);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1078.0819,-1669.9243)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17562">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text13872"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect13974);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1078.0819,-1623.6362)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17564">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text13876"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect13976);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1078.0819,-1646.9775)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17566">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text13880"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect13978);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1078.0819,-1634.9298)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.68249"
+         y="1291.037"
+         id="tspan17570"><tspan
+           style="font-weight:bold;-inkscape-font-specification:'sans-serif Bold'"
+           id="tspan17568">0</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text13884"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect13980);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1048.4468,-1658.466)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17572">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text13888"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect13982);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1048.4468,-1669.9243)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17574">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text13892"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect13984);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1048.4468,-1623.6362)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.68249"
+         y="1291.037"
+         id="tspan17578"><tspan
+           style="font-weight:bold;-inkscape-font-specification:'sans-serif Bold'"
+           id="tspan17576">0</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text13904"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect13986);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1048.4468,-1646.9775)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17580">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text13908"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect13988);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1048.4468,-1634.9298)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17582">0</tspan></text>
+    <g
+       id="g13916"
+       style="stroke-width:0.75;stroke-dasharray:none"
+       transform="translate(34.395831,94.191648)">
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="m -471.9199,59.339635 0.007,58.839765"
+         id="path13910"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="m -472.04568,59.456466 3.78566,-0.02825"
+         id="path13912" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="m -472.04568,118.1941 3.78566,-0.0282"
+         id="path13914" />
+    </g>
+    <g
+       id="g13924"
+       style="stroke-width:0.75;stroke-dasharray:none"
+       transform="matrix(-1,0,0,1,-757.98871,94.191648)">
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="m -471.9199,59.339635 0.007,58.839765"
+         id="path13918"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="m -472.04568,59.456466 3.78566,-0.02825"
+         id="path13920" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="m -472.04568,118.1941 3.78566,-0.0282"
+         id="path13922" />
+    </g>
+    <text
+       xml:space="preserve"
+       id="text13930"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect13990);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1218.8487,-1686.8587)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="506.6484"
+         y="1291.037"
+         id="tspan17586"><tspan
+           style="-inkscape-font-specification:sans-serif"
+           id="tspan17584">Otemp_con = </tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text13934"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect13992);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1107.8211,-1686.3296)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="504.10964"
+         y="1291.037"
+         id="tspan17590"><tspan
+           style="font-style:italic;-inkscape-font-specification:'sans-serif Italic'"
+           id="tspan17588">output domains</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text13938"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect13994);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(0,1.4188131,-1.4188131,0,1552.9365,-562.81303)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="506.09684"
+         y="1291.037"
+         id="tspan17594"><tspan
+           style="font-style:italic;-inkscape-font-specification:'sans-serif Italic'"
+           id="tspan17592">input domains</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text14718"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect14838);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1136.8227,-1581.555)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="518.51417"
+         y="1291.037"
+         id="tspan17596">R{2}</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text14730"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect14844);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1165.8811,-1581.3355)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17598">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text14754"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect14856);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1107.7169,-1581.555)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17600">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text14774"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect14866);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1078.0819,-1581.555)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17602">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text14794"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect14876);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1048.4468,-1581.555)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17604">0</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       d="m -437.52628,241.90295 0.007,12.13511"
+       id="path14808"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       d="m -437.64984,242.01881 3.78566,-0.0283"
+       id="path14810" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       d="m -437.64984,253.66032 3.78566,-0.0282"
+       id="path14812" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       d="m -286.06659,241.90295 -0.007,12.13511"
+       id="path14816"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       d="m -285.94303,242.01881 -3.78566,-0.0283"
+       id="path14818" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       d="m -285.94303,253.66032 -3.78566,-0.0282"
+       id="path14820" />
+    <text
+       xml:space="preserve"
+       id="text14828"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect14884);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1207.4723,-1598.4894)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="514.01225"
+         y="1291.037"
+         id="tspan17606">rep_ic =</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text14832"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect14886);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1107.8211,-1597.9603)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="504.10964"
+         y="1291.037"
+         id="tspan17610"><tspan
+           style="font-style:italic;-inkscape-font-specification:'sans-serif Italic'"
+           id="tspan17608">output domains</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,97.007405,-61.062204)"
+       id="text15622"
+       style="font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;white-space:pre;shape-inside:url(#rect15624);display:inline"><tspan
+         x="-2410.4766"
+         y="-47.366162"
+         id="tspan17614"><tspan
+           style="font-weight:bold;-inkscape-font-specification:'sans-serif Bold'"
+           id="tspan17612">A</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,97.007405,53.767011)"
+       id="text15630"
+       style="font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;white-space:pre;shape-inside:url(#rect15632);display:inline"><tspan
+         x="-2410.4766"
+         y="-47.366162"
+         id="tspan17618"><tspan
+           style="font-weight:bold;-inkscape-font-specification:'sans-serif Bold'"
+           id="tspan17616">B</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,97.007405,280.78043)"
+       id="text15636"
+       style="font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;white-space:pre;shape-inside:url(#rect15638);display:inline"><tspan
+         x="-2410.4766"
+         y="-47.366162"
+         id="tspan17622"><tspan
+           style="font-weight:bold;-inkscape-font-specification:'sans-serif Bold'"
+           id="tspan17620">C</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text15650"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect15802);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1165.8811,-1505.1627)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="515.52936"
+         y="1291.037"
+         id="tspan17630"><tspan
+           style="text-anchor:middle"
+           id="tspan17624">O{3</tspan><tspan
+           style="-inkscape-font-specification:sans-serif"
+           id="tspan17626">,1</tspan><tspan
+           style="text-anchor:middle"
+           id="tspan17628">}</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text15654"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect15804);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1136.8227,-1516.6512)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.68249"
+         y="1291.037"
+         id="tspan17634"><tspan
+           style="font-weight:bold;-inkscape-font-specification:'sans-serif Bold'"
+           id="tspan17632">0</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text15666"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect15806);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1136.8227,-1528.1095)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="515.52936"
+         y="1291.037"
+         id="tspan17642"><tspan
+           style="text-anchor:middle"
+           id="tspan17636">O{1</tspan><tspan
+           style="-inkscape-font-specification:sans-serif"
+           id="tspan17638">,2</tspan><tspan
+           style="text-anchor:middle"
+           id="tspan17640">}</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text15678"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect15808);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1136.8227,-1481.8214)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="515.52936"
+         y="1291.037"
+         id="tspan17650"><tspan
+           style="text-anchor:middle"
+           id="tspan17644">O{5</tspan><tspan
+           style="-inkscape-font-specification:sans-serif"
+           id="tspan17646">,2</tspan><tspan
+           style="text-anchor:middle"
+           id="tspan17648">}</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text15682"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect15810);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1165.8811,-1516.5964)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17652">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text15686"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect15812);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1165.8811,-1527.89)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.68249"
+         y="1291.037"
+         id="tspan17656"><tspan
+           style="font-weight:bold;-inkscape-font-specification:'sans-serif Bold'"
+           id="tspan17654">0</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text15690"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect15814);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1165.8811,-1492.5011)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17658">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text15694"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect15816);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1165.8811,-1481.2075)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17660">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text15698"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect15818);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1136.8227,-1505.1627)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17662">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text15702"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect15820);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1136.8227,-1493.115)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17664">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text15706"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect15822);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1107.7169,-1516.6512)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17666">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text15710"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect15824);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1107.7169,-1528.1095)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17668">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text15714"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect15826);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1107.7169,-1481.8214)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17670">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text15718"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect15828);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1107.7169,-1505.1627)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="514.53576"
+         y="1291.037"
+         id="tspan17674"><tspan
+           style="font-weight:bold;-inkscape-font-specification:'sans-serif Bold'"
+           id="tspan17672">O{3,3}</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text15722"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect15830);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1107.7169,-1493.115)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17676">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text15726"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect15832);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1078.0819,-1516.6512)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17678">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text15730"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect15834);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1078.0819,-1528.1095)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17680">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text15734"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect15836);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1078.0819,-1481.8214)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17682">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text15738"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect15838);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1078.0819,-1505.1627)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17684">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text15742"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect15840);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1078.0819,-1493.115)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.68249"
+         y="1291.037"
+         id="tspan17688"><tspan
+           style="font-weight:bold;-inkscape-font-specification:'sans-serif Bold'"
+           id="tspan17686">0</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text15746"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect15842);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1048.4468,-1516.6512)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17690">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text15750"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect15844);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1048.4468,-1528.1095)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17692">0</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text15754"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect15846);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1048.4468,-1481.8214)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.68249"
+         y="1291.037"
+         id="tspan17696"><tspan
+           style="font-weight:bold;-inkscape-font-specification:'sans-serif Bold'"
+           id="tspan17694">0</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text15766"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect15848);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1048.4468,-1505.1627)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="515.52936"
+         y="1291.037"
+         id="tspan17704"><tspan
+           style="text-anchor:middle"
+           id="tspan17698">O{3</tspan><tspan
+           style="-inkscape-font-specification:sans-serif"
+           id="tspan17700">,5</tspan><tspan
+           style="text-anchor:middle"
+           id="tspan17702">}</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text15770"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect15850);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1048.4468,-1493.115)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="523.88815"
+         y="1291.037"
+         id="tspan17706">0</tspan></text>
+    <g
+       id="g15778"
+       style="stroke-width:0.75;stroke-dasharray:none"
+       transform="translate(34.395831,236.00811)">
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="m -471.9199,59.339635 0.007,58.839765"
+         id="path15772"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="m -472.04568,59.456466 3.78566,-0.02825"
+         id="path15774" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="m -472.04568,118.1941 3.78566,-0.0282"
+         id="path15776" />
+    </g>
+    <g
+       id="g15786"
+       style="stroke-width:0.75;stroke-dasharray:none"
+       transform="matrix(-1,0,0,1,-757.98871,236.00811)">
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="m -471.9199,59.339635 0.007,58.839765"
+         id="path15780"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="m -472.04568,59.456466 3.78566,-0.02825"
+         id="path15782" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="m -472.04568,118.1941 3.78566,-0.0282"
+         id="path15784" />
+    </g>
+    <text
+       xml:space="preserve"
+       id="text15792"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect15852);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1203.2905,-1545.0439)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="517.61405"
+         y="1291.037"
+         id="tspan17710"><tspan
+           style="-inkscape-font-specification:sans-serif"
+           id="tspan17708">Om = </tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text15796"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect15854);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(1.4188131,0,0,1.4188131,-1107.8211,-1544.5148)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="504.10964"
+         y="1291.037"
+         id="tspan17714"><tspan
+           style="font-style:italic;-inkscape-font-specification:'sans-serif Italic'"
+           id="tspan17712">output domains</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text15800"
+       style="font-style:normal;font-weight:normal;font-size:5.47014px;line-height:0.55;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect15856);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:butt;stroke-linejoin:round"
+       transform="matrix(0,1.4188131,-1.4188131,0,1552.9365,-420.99655)"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       inkscape:export-filename="C:\Users\sws5\OneDrive - National Institute of Standards and Technology (NIST)\Presentations and write ups\Papers\RSD technical note\Revision data\figure_two_toehold_cascade.png"
+       x="5.903511"
+       y="0"><tspan
+         x="506.09684"
+         y="1291.037"
+         id="tspan17718"><tspan
+           style="font-style:italic;-inkscape-font-specification:'sans-serif Italic'"
+           id="tspan17716">input domains</tspan></tspan></text>
+  </g>
+</svg>

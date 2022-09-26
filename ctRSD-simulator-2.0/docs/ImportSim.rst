@@ -10,6 +10,21 @@ Installing and Initializing Simulator
 	3. Instantiate the simulator's :ref:`class <class>` -> input is # of domains (default=5)
 	4. Now use all the functions/features available in ctRSD-simulator-2.0!
 
+.. admonition:: Note:
+
+   You will need to import the simulator package in your local script to use it. After downloading a local copy of the package you can import the package with the following code:
+
+
+   .. code-block:: python
+
+		import sys
+		sys.path.insert(1,'filepath of simulator on your computer')
+		import ctRSD_simulator_200 as RSDs
+
+
+	Note *ctRSD_simulator_200* refers to the name of latest simulator package downloaded from GitHub
+
+
 Please use figure below as an example of these steps.
 
 

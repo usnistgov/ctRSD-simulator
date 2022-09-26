@@ -18,14 +18,11 @@ Due to comparator gate reactions utilizing very disparate time scales, simulatio
 Troubleshooting options:
 	1. Utilize the BDF solving method. BDF is an implicit method meant for stiff equations, so it can help to process the CG reactions	quicker. The solving method used can be changed in :ref:`simulate <simulate>`.
 
-	2. If you are looping through the simulator many times, parallelizing these loops can also greatly speed time efficiency. Python offers many different ways to create parallel loops.
-
-
-Comparator gate examples that utilize these different options begin :ref:`here <comparator_gate_simulation>`. (Pattern recognition simulation utilizes parallel scripts)
+	2. If you are looping through the simulator many times, parallelizing these loops can also greatly speed time efficiency. Python offers many different ways to create parallel loops, such as the *multiprocessing* package.
 
 
 
-Rate Constants being Overrided
+Overriding Rate Constants
 ------------------------------
 
 
@@ -78,3 +75,14 @@ In order to access any variable with the "self" attachment (Example Below):
    :align: center
 
    **How to access variables present in simulator**
+
+**Critical values to check for customized simulations include:**
+
+   The matrices holding DNA template concentrations
+      These are specified as *model.[name]temp_con*, where [name] can be G, O, TG, F, AG, CG
+
+   The matrices holding initial concentrations if these were changed in *molecular_species()*
+      These are specified as *model.[name]_ic*, where [name] can be uG, G, GO, O, TG, F, AG, CG, R, S, Q, AGOa, AGOb, AGFb, CGOa, CGOb
+
+   The matrices holding rate constants if these were changed in *global_rate_constants()* *molecular_species()*
+      These are specified as *model.[name]*, where [name] is the name of the rate constant (ktxnO, krsd, krz, kdrd, kssdO, etc)

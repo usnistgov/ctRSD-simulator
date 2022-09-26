@@ -9,10 +9,10 @@ Download Simulator
 
 .. _download_simulator:
 
-Download ctRSD-simulator-2.0 version 2.0.2.1  -> `DOWNLOAD <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Simulatorv2021.py>`_ 
+Download ctRSD-simulator-2.0.0 version -> `DOWNLOAD <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/ctRSD_simulator_200.py>`_ 
 
 
-Download ctRSD-simulator-1.0 -> `DOWNLOAD <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Simulator1.py>`_ 
+Download ctRSD-simulator-1.0.1 -> `DOWNLOAD <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/ctRSD_simulator_101.py>`_ 
 
 
 
@@ -43,7 +43,9 @@ Here you will be able to access information on all of the different components o
    :maxdepth: 3
    :caption: General Examples:
 
+   Simple-Examples
    Simulator-Features
+
 
 
 .. toctree::
@@ -54,5 +56,6 @@ Here you will be able to access information on all of the different components o
 
 
 
+   
    
    

@@ -16,103 +16,110 @@ __init__(*domains=5*)
 
 **Parameters:**
 	domains: *int*, *if NONE, default=5* 
-		Numbers of domains present in the simulated system.
+		Numbers of input-output domains present in the simulated system. This needs to match the highest input or output index of the species indicated in *molecular_species()*. For example, if G{5,9} is specified, *domains* needs to be 9 or greater.
 
 
 
+.. _initials_defaults: 
 
 Initializations
 ---------------
 
-All DNA templates and initial conditions are initialized at 0.
+All DNA template concentrations and initial conditions are initialized at 0.
 
 
 Rate Constants:
-	self.ktxnO = 0.013 1/s
-	
-	self.ktxnG = 0.013 1/s
-	
-	self.ktxnTh = 0.013 1/s
-	
-	self.ktxnF = 0.013 1/s
-	
-	self.ktxnAG = 0.013 1/s
-	
-	self.ktxnCG = 0.013 1/s
-	
+	self.ktxnO = 0.013 (1/s)
 
-	
-	self.krz = .25/60 1/s
-	
-	self.krsd = 1e3/1e9 1/nM-S
-	
-	self.krev = 270/1e9 1/nM-S
-	
+	self.ktxnG = 0.013 (1/s)
 
-	
-	self.krep = 1e4/1e9 1/nM-S
-	
-	self.krepr = 0 1/s
-	
+	self.ktxnTG = 0.013 (1/s)
 
-	
-	self.kth = 1e5/1e9 1/nM-S
-	
-	self.krzTh = .00417 1/s
-	
+	self.ktxnF = 0.013 (1/s)
 
-	
-	self.krsdF = 1e3/1e9 1/nM-S
-	
-	self.krevF = 270/1e9 1/nM-S
-	
-	self.krevF = 1e3/1e9 1/nM-S
-	
+	self.ktxnAG = 0.013 (1/s)
 
-	
-	self.krzA = .25/60 1/s
-	
-	self.krsdA = 1e3/1e9 1/nM-S
-	
-	self.krevA = 270/1e9 1/nM-S
-	
+	self.ktxnCG = 0.013 (1/s)
 
-	
-	self.krzCG = .00417 1/s
-	
-	self.krsdCG = 1e5/1e9 1/nM-S
-	
-	self.krevCG = 1 1/s
-	
+	self.leak = 0.03
 
-	
-	self.kssdO = 0 1/s
-	
-	self.kssdF = 0 1/s
-	
+	self.krz = .25/60 (1/s)
 
-	
-	self.kdsduG = 0 1/s
-	
-	self.kdsdG = 0 1/s
-	
-	self.kdsdGO = 0 1/s
-	
-	self.kdsduAG = 0 1/s
-	
-	self.kdsdAG = 0 1/s
-	
-	self.kdsduCG = 0 1/s
-	
-	self.kdsdCG = 0 1/s
-	
-	self.kdrd = 0 1/s
-	
+	self.krsd = 1e3/1e9 (1/nM-s)
 
-	
-	self.khybO = 1e6/1e9 1/nM-S
-	
-	self.khybR = 1e6/1e9 1/nM-S
+	self.krev = 270/1e9 (1/nM-s), 0 for inputs
+
+	self.krep = 1e4/1e9 (1/nM-s)
+
+	self.krepr = 0 (1/s)
+
+
+
+	self.kth = 1e5/1e9 (1/nM-s)
+
+	self.krzTG = .00417 (1/s)
+
+
+
+	self.krsdF = 1e3/1e9 (1/nM-s)
+
+	self.krevF = 1e3/1e9 (1/nM-s)
+
+
+
+	self.krzA = .25/60 (1/s)
+
+	self.krsdA = 1e3/1e9 (1/nM-s)
+
+	self.leakA = 0.06
+
+	self.krzCG = .00417 (1/s)
+
+	self.krsdCGa = 1e5/1e9 (1/nM-s)
+
+	self.krsdCGb = 1e5/1e9 (1/nM-s)
+
+	self.krevCG = 1 (1/s)
+		
+	self.kssdO = 0 (1/s)
+
+	self.kssdF = 0 (1/s)
+
+	self.kdsduG = 0 (1/s)
+
+	self.kdsdG = 0 (1/s)
+
+	self.kdsdGO = 0 (1/s)
+
+	self.kdsdGF = 0 (1/s)
+
+	self.kdsduTG = 0 (1/s)
+
+	self.kdsdTG = 0 (1/s)
+
+	self.kdsduAG = 0 (1/s)
+
+	self.kdsdAG = 0 (1/s)
+
+	self.kdsdAGOa = 0 (1/s)
+
+	self.kdsdAGOb = 0 (1/s)
+
+	self.kdsdAGFb = 0 (1/s)
+
+	self.kdsduCG = 0 (1/s)
+
+	self.kdsdCG = 0 (1/s)
+
+	self.kdsdCGOa = 0 (1/s)
+
+	self.kdsdCGOb = 0 (1/s)
+
+	self.kdrd = 0 (1/s)
+
+	self.khybO = 1e6/1e9 (1/nM-s)
+
+	self.khybR = 1e6/1e9 (1/nM-s)
 
 
 

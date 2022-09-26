@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Functions &mdash; ctRSD-simulator-2.0 2.0.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>Functions &mdash; ctRSD-simulator-2.0 2.0.0 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -38,28 +35,29 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">General:</span></p>
+              <p class="caption"><span class="caption-text">General:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Model-Implementation.html">Model Reactions and Implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ImportSim.html">Installing and Initializing Simulator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ClassInitials.html">RSD_sim Class</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#global-rate-constants">global_rate_constants</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#molecular-species">molecular_species</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#simulate">simulate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#output-concentration">output_concentration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#transcription-calibration">transcription_calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#global-rate-constants">global_rate_constants()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#molecular-species">molecular_species()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#simulate">simulate()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#output-concentration">output_concentration()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transcription-calibration">transcription_calibration()</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="SeqCompiler.html">Sequence Compiler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">General Examples:</span></p>
+<p class="caption"><span class="caption-text">General Examples:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Simulator-Features.html">Simulator Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Simple-Examples.html">Simple Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Simulator-Features.html">Advanced Simulator Features</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Examples from Publications:</span></p>
+<p class="caption"><span class="caption-text">Examples from Publications:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="SA_Examples.html">2022 Science Advances Paper</a></li>
 </ul>
@@ -88,123 +86,178 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="functions">
-<span id="id1"></span><h1>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h1>
+  <div class="section" id="functions">
+<span id="id1"></span><h1>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h1>
 <p>This section lists the different functions available within ctRSD-simulator-2.0.</p>
 <div class="admonition-note admonition">
 <p class="admonition-title">Note:</p>
 <p>Before all available functions can be accessed the model must be downloaded, imported, and instantiated!</p>
 <p>More information on these steps can be found <a class="reference internal" href="ImportSim.html#importsim"><span class="std std-ref">here</span></a>.</p>
 </div>
-<section id="global-rate-constants">
-<span id="id2"></span><h2>global_rate_constants<a class="headerlink" href="#global-rate-constants" title="Permalink to this heading"></a></h2>
-<p>global_rate_constants(<em>krz=’False’</em>, <em>krsd=’False’</em>, <em>krev=’False’</em>, <em>krep=’False’</em>, <em>krepr=’False’</em>, <em>kth=’False’</em>, <em>krzTh=’False’</em>
-, <em>krsdF=’False’</em>, <em>krevF=’False’</em>, <em>krevA=’False’</em>, <em>krsdA=’False’</em>, <em>krzA=’False’</em>, <em>krevCG=’False’</em>,
-<em>krsdCG=’False’</em>, <em>krzCG=’False’</em>, <em>ktxnO=’False’</em>, <em>ktxnG=’False’</em>, <em>ktxnTh=’False’</em> , <em>ktxnF=’False’</em>, <em>ktxnAG=’False’</em>
-, <em>ktxnCG=’False’</em>, <em>ktxn=’False’</em>, <em>kssdO=’False’</em>, <em>kssdF=’False’</em>, <em>kdsduG=’False’</em>, <em>kdsdG=’False’</em>, <em>kdsdGO=’False’</em>
-, <em>kdsduAG=’False’</em>, <em>kdsdAG=’False’</em>, <em>kdsduCG=’False’</em>, <em>kdsdCG=’False’</em>, <em>kdrd=’False’</em>, <em>kdeg=’False’</em>, <em>kssd=’False’</em>, <em>kdsd=’False’</em>
-, <em>khybO=’False’</em>, <em>khybR=’False’</em>, <em>khyb=’False’</em>)</p>
+<div class="section" id="global-rate-constants">
+<span id="id2"></span><h2>global_rate_constants()<a class="headerlink" href="#global-rate-constants" title="Permalink to this headline">¶</a></h2>
+<p><strong>model.global_rate_constants</strong> (<em>krz=’False’</em>, <em>krsd=’False’</em>, <em>krev=’False’</em>, <em>krep=’False’</em>, <em>krepr=’False’</em>,
+<em>kth=’False’</em>, <em>krzTG=’False’</em>,*krsdF=’False’<em>, *krevF=’False’</em>,
+<em>krsdA=’False’</em>, <em>krzA=’False’</em>, <em>krevCG=’False’</em>,
+<em>krsdCGa=’False’</em>, <em>krsdCGb=’False’</em>, <em>krsdCG=’False’</em>, <em>krzCG=’False’</em>,
+<em>ktxnO=’False’</em>, <em>ktxnG=’False’</em>, <em>ktxnTG=’False’</em> , <em>ktxnF=’False’</em>, <em>ktxnAG=’False’</em>,
+<em>ktxnCG=’False’</em>, <em>ktxn=’False’</em>, <em>kssdO=’False’</em>, <em>kssdF=’False’</em>, <em>kdsduG=’False’</em>,
+<em>kdsdG=’False’</em>, <em>kdsdGO=’False’</em>, <em>kdsduAG=’False’</em>, <em>kdsdAG=’False’</em>, <em>kdsduCG=’False’</em>,
+<em>kdsdCG=’False’</em>, <em>kdsduTG=’False’</em>,*kdsdTG=’False’<em>,*kdsdGF=’False’</em>,
+<em>kdsdAGOa=’False’</em>,*kdsdAGOb=’False’<em>,*kdsdAGFb=’False’</em>,*kdsdCGOa=’False’<em>,*kdsdCGOb=’False’</em>,
+<em>kdrd=’False’</em>, <em>kdeg=’False’</em>, <em>kssd=’False’</em>, <em>kdsd=’False’</em>,
+<em>khybO=’False’</em>, <em>khybR=’False’</em>, <em>khyb=’False’</em>, <em>leak=’False’</em>, <em>leakA=’False’</em>)</p>
 <p>global_rate_constants is used to globally change rate constants for all species of the same type (single matrix), or certain groups of different types (multiple matrices), instead of changing a specific rate constant for just one individual species (index of a matrix).</p>
 <p><strong>The defaults for the rate constants are initialized in the RSD_sim class. These values can be found</strong> <a class="reference internal" href="ClassInitials.html#class"><span class="std std-ref">here</span></a>.</p>
-<div class="admonition-note admonition">
-<p class="admonition-title">Note:</p>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes:</p>
+<p>Rate constant values should be supplied with units of <em>nM</em> and <em>seconds</em></p>
+<p>More than one rate constant can be changed in a single call of <em>global_rate_constants()</em>.</p>
 <p>The different transcription rates and degradation rates both have an input that will change all rates at once. <em>ktxn</em> changes all transcription rates in the simulator. <em>kdeg</em> changes all degradation rates in the simulator.</p>
 </div>
 <dl class="simple">
 <dt><strong>Parameters:</strong></dt><dd><dl class="simple">
-<dt>krz: <em>float</em>, <em>optional</em></dt><dd><p>Base ctRSD gate ribozyme cleavage rate.</p>
+<dt>krz: <em>float</em>, <em>optional</em></dt><dd><p>Single ctRSD gate ribozyme cleavage rate constant.</p>
 </dd>
-<dt>krsd: <em>float</em>, <em>optional</em></dt><dd><p>Base ctRSD gate forward reaction rate.</p>
+<dt>krsd: <em>float</em>, <em>optional</em></dt><dd><p>Single ctRSD gate forward strand displacement rate constant.</p>
 </dd>
-<dt>krev: <em>float</em>, <em>optional</em></dt><dd><p>Base ctRSD output reverse reaction rate.</p>
+<dt>krev: <em>float</em>, <em>optional</em></dt><dd><p>Output reverse strand displacement rate constant. This rate constant applies to outputs reacting with both GO and AGOb complexes.
+This rate constant is 0 for inputs because they only possess an output domain and cannot reverse a strand displacement reaction.</p>
 </dd>
-<dt>krep: <em>float</em>, <em>optional</em></dt><dd><p>Reporter reaction rate.</p>
+<dt>krep: <em>float</em>, <em>optional</em></dt><dd><p>Reporter forward strand displacement rate constant.</p>
 </dd>
-<dt>krepr: <em>float</em>, <em>optional</em></dt><dd><p>Reverse reporter reaction rate.</p>
+<dt>krepr: <em>float</em>, <em>optional</em></dt><dd><p>Reporter reverse strand displacement rate constant.</p>
 </dd>
-<dt>kth: <em>float</em>, <em>optional</em></dt><dd><p>Thresholding reaction rate.</p>
+<dt>kth: <em>float</em>, <em>optional</em></dt><dd><p>Threshold gate forward strand displacement rate constant.</p>
 </dd>
-<dt>krzTh: <em>float</em>, <em>optional</em></dt><dd><p>Thresholding ribozyme cleavage rate.</p>
+<dt>krzTG: <em>float</em>, <em>optional</em></dt><dd><p>Threshold gate ribozyme cleavage rate constant.</p>
 </dd>
-<dt>krsdF: <em>float</em>, <em>optional</em></dt><dd><p>Fuel forward reaction rate.</p>
+<dt>krsdF: <em>float</em>, <em>optional</em></dt><dd><p>Fuel forward forward strand displacement rate constant.</p>
 </dd>
-<dt>krevF: <em>float</em>, <em>optional</em></dt><dd><p>Fuel reverse reaction rate.</p>
+<dt>krevF: <em>float</em>, <em>optional</em></dt><dd><p>Fuel reverse strand displacement rate constant.</p>
 </dd>
-<dt>krevA: <em>float</em>, <em>optional</em></dt><dd><p>ctRSD AND gate reverse reaction rate.</p>
+<dt>krsdA: <em>float</em>, <em>optional</em></dt><dd><p>ctRSD AND gate forward strand displacement rate constant.
+Changing this rate constant in <em>global_rate_constants()</em> will change the reaction rate for both input domains of an AG. To change these rates individually see <em>molecular_species()</em> below.</p>
 </dd>
-<dt>krsdA: <em>float</em>, <em>optional</em></dt><dd><p>ctRSD AND gate forward reaction rate.</p>
+<dt>krzA: <em>float</em>, <em>optional</em></dt><dd><p>ctRSD AND gate ribozyme cleavage rate constant.</p>
 </dd>
-<dt>krzA: <em>float</em>, <em>optional</em></dt><dd><p>ctRSD AND gate ribozymal cleavage rate.</p>
+<dt>krevCG: <em>float</em>, <em>optional</em></dt><dd><p>Reverse strand displacement rate constant for outputs on a CG. These rates follow outputs, not CG gate indices.</p>
 </dd>
-<dt>krevCG: <em>float</em>, <em>optional</em></dt><dd><p>ctRSD comparator gate reverse reaction rate.</p>
+<dt>krsdCGa: <em>float</em>, <em>optional</em></dt><dd><p>ctRSD comparator gate forward strand displacement rate constant for the first input domain of a CG (CG{i,_}).</p>
 </dd>
-<dt>krsdCG: <em>float</em>, <em>optional</em></dt><dd><p>ctRSD comparator gate forward reaction rate.</p>
+<dt>krsdCGb: <em>float</em>, <em>optional</em></dt><dd><p>ctRSD comparator gate forward strand displacement rate constant for the second input domain of a CG (CG{_,j}).</p>
 </dd>
-<dt>krzCG: <em>float</em>, <em>optional</em></dt><dd><p>ctRSD comparator gate ribozymal cleavage rate.</p>
+<dt>krsdCG: <em>float</em>, <em>optional</em></dt><dd><p>ctRSD comparator gate forward strand displacement rate constant for both input domains.
+Changing this parameter will change both krsdCGa and krsdCGb.</p>
 </dd>
-<dt>ktxnO: <em>float</em>, <em>optional</em></dt><dd><p>Transcription rate for output.</p>
+<dt>krzCG: <em>float</em>, <em>optional</em></dt><dd><p>ctRSD comparator gate ribozyme cleavage rate constant.</p>
 </dd>
-<dt>ktxnG: <em>float</em>, <em>optional</em></dt><dd><p>Transcription rate for gate.</p>
+<dt>ktxnO: <em>float</em>, <em>optional</em></dt><dd><p>Transcription rate constant for outputs (and inputs).
+This will change the transcription rates for both inputs (held along the diagonal of the ktxnO matrix) and the outputs.
+To change inputs individually change ktxnO in <em>molecular_species()</em> with the specific input.</p>
 </dd>
-<dt>ktxnTh: <em>float</em>, <em>optional</em></dt><dd><p>Transcription rate for threshold.</p>
+<dt>ktxnG: <em>float</em>, <em>optional</em></dt><dd><p>Transcription rate constant for gates.</p>
 </dd>
-<dt>ktxnF: <em>float</em>, <em>optional</em></dt><dd><p>Transcription rate for fuel.</p>
+<dt>ktxnTG: <em>float</em>, <em>optional</em></dt><dd><p>Transcription rate constant for threshold gates.</p>
 </dd>
-<dt>ktxnAG: <em>float</em>, <em>optional</em></dt><dd><p>Transcription rate for AND gate.</p>
+<dt>ktxnF: <em>float</em>, <em>optional</em></dt><dd><p>Transcription rate constant for fuels.</p>
 </dd>
-<dt>ktxnCG: <em>float</em>, <em>optional</em></dt><dd><p>Transcription rate for comparator gate.</p>
+<dt>ktxnAG: <em>float</em>, <em>optional</em></dt><dd><p>Transcription rate constants for AND gates.</p>
 </dd>
-<dt>ktxn: <em>float</em>, <em>optional</em></dt><dd><p>Globally change all transcription rates (ktxnO,ktxnG,ktxnTh,ktxnF,ktxnAG,ktxnCG)</p>
+<dt>ktxnCG: <em>float</em>, <em>optional</em></dt><dd><p>Transcription rate constant for comparator gates.</p>
 </dd>
-<dt>kssdO: <em>float</em>, <em>optional</em></dt><dd><p>Degredation rate for output (single stranded).</p>
+<dt>kssdO: <em>float</em>, <em>optional</em></dt><dd><p>Single stranded RNA degredation rate constant for outputs (and inputs).</p>
 </dd>
-<dt>kssdF: <em>float</em>, <em>optional</em></dt><dd><p>Degredation rate for fuel (single stranded).</p>
+<dt>kssdF: <em>float</em>, <em>optional</em></dt><dd><p>Single stranded RNA degredation rate constant for fuel strands.</p>
 </dd>
-<dt>kdsduG: <em>float</em>, <em>optional</em></dt><dd><p>Degredation rate for uncleaved gate (double stranded).</p>
+<dt>kdsduG: <em>float</em>, <em>optional</em></dt><dd><p>Double stranded RNA degredation rate constant for uncleaved gates.</p>
 </dd>
-<dt>kdsdG: <em>float</em>, <em>optional</em></dt><dd><p>Degredation rate for gate (double stranded).</p>
+<dt>kdsdG: <em>float</em>, <em>optional</em></dt><dd><p>Double stranded RNA degredation rate constant for uncleaved gates.</p>
 </dd>
-<dt>kdsdGO: <em>float</em>, <em>optional</em></dt><dd><p>Degredation rate for gate-output complex (double stranded).</p>
+<dt>kdsdGO: <em>float</em>, <em>optional</em></dt><dd><p>Double stranded RNA degredation rate constant for gate:output (GO) complexes.</p>
 </dd>
-<dt>kdsduAG: <em>float</em>, <em>optional</em></dt><dd><p>Degredation rate for uncleaved AND gate (double stranded).</p>
+<dt>kdsduAG: <em>float</em>, <em>optional</em></dt><dd><p>Double stranded RNA degredation rate constant for uncleaved AND gates.</p>
 </dd>
-<dt>kdsdAG: <em>float</em>, <em>optional</em></dt><dd><p>Degredation rate for AND gate (double stranded).</p>
+<dt>kdsdAG: <em>float</em>, <em>optional</em></dt><dd><p>Double stranded RNA degredation rate constant for AND gates.</p>
 </dd>
-<dt>kdsduCG: <em>float</em>, <em>optional</em></dt><dd><p>Degredation rate for uncleaved comparator gate (double stranded).</p>
+<dt>kdsduCG: <em>float</em>, <em>optional</em></dt><dd><p>Double stranded RNA degredation rate constant for uncleaved comparator gates.</p>
 </dd>
-<dt>kdsdCG: <em>float</em>, <em>optional</em></dt><dd><p>Degredation rate for comparator gate (double stranded).</p>
+<dt>kdsdCG: <em>float</em>, <em>optional</em></dt><dd><p>Double stranded RNA degredation rate constant for comparator gates.</p>
 </dd>
-<dt>kdrd: <em>float</em>, <em>optional</em></dt><dd><p>Degredation rate for RNA:DNA hybrids.</p>
+<dt>kdsduTG: <em>float</em>, <em>optional</em></dt><dd><p>Double stranded RNA degredation rate constant for uncleaved threshold gates.</p>
 </dd>
-<dt>kssd: <em>float</em>, <em>optional</em></dt><dd><p>Degredation rate for all single stranded species (kssdO,kssdF).</p>
+<dt>kdsdTG: <em>float</em>, <em>optional</em></dt><dd><p>Double stranded RNA degredation rate constant for threshold gates.</p>
 </dd>
-<dt>kdsd: <em>float</em>, <em>optional</em></dt><dd><p>Degredation rate for all double stranded species (kdsduG,kdsdG,kdsdGO,kdsduAG,kdsdAG,kdsduCG,kdsdCG).</p>
+<dt>kdsdGF: <em>float</em>, <em>optional</em></dt><dd><p>Double stranded RNA degredation rate constant for gate:fuel (GF) complexes.</p>
 </dd>
-<dt>kdeg: <em>float</em>, <em>optional</em></dt><dd><p>Degredation rate for all species (kssdO,kssdF,kdsduG,kdsdG,kdsdGO,kdsduAG,kdsdAG,kdsduCG,kdsdCG,kdrd).</p>
+<dt>kdsdAGOa: <em>float</em>, <em>optional</em></dt><dd><p>Double stranded RNA degredation rate constant for AGOa complexes.</p>
 </dd>
-<dt>khybO: <em>float</em>, <em>optional</em></dt><dd><p>Hybridization rate for output.</p>
+<dt>kdsdAGOb: <em>float</em>, <em>optional</em></dt><dd><p>Double stranded RNA degredation rate constant for AGOb complexes.</p>
 </dd>
-<dt>khybR: <em>float</em>, <em>optional</em></dt><dd><p>Hybridization rate for reporter.</p>
+<dt>kdsdAGFb: <em>float</em>, <em>optional</em></dt><dd><p>Double stranded RNA degredation rate constant for AGFb complexes.</p>
 </dd>
-<dt>khyb: <em>float</em>, <em>optional</em></dt><dd><p>Hybrdization rate for both output and reporter (khybO,khybR).</p>
+<dt>kdsdCGOa: <em>float</em>, <em>optional</em></dt><dd><p>Double stranded RNA degredation rate constant for CGOa complexes.</p>
+</dd>
+<dt>kdsdCGOb: <em>float</em>, <em>optional</em></dt><dd><p>Double stranded RNA degredation rate constant for CGOb complexes.</p>
+</dd>
+<dt>kdrd: <em>float</em>, <em>optional</em></dt><dd><p>Degredation rate constant for RNA in RNA:DNA hybrid duplexes.</p>
+</dd>
+<dt>khybO: <em>float</em>, <em>optional</em></dt><dd><p>Hybridization rate constant for output binding to the Q strand of the reporter.</p>
+</dd>
+<dt>khybR: <em>float</em>, <em>optional</em></dt><dd><p>Hybridization rate constant for the S strand to bind to the Q strand of the reporter.</p>
+</dd>
+<dt>leak: <em>float</em>, <em>optional</em></dt><dd><p>The percentage of leak transcription from a single input gate (G). This should be supplied as a decimal representing a percentage, <em>i.e.</em>, 0.05 to represent 5%.</p>
+</dd>
+<dt>leakA: <em>float</em>, <em>optional</em></dt><dd><p>The percentage of leak transcription from an AND gate (AG). This should be supplied as a decimal representing a percentage, <em>i.e.</em>, 0.05 to represent 5%.</p>
 </dd>
 </dl>
 </dd>
 </dl>
-</section>
-<section id="molecular-species">
-<span id="id3"></span><h2>molecular_species<a class="headerlink" href="#molecular-species" title="Permalink to this heading"></a></h2>
-<p>molecular_species(<em>name</em>, <em>DNA_con=0</em>, <em>ic=’False’</em>, <em>krz=’False’</em>, <em>krsd=’False’</em>, <em>krev=’False’</em>, <em>krep=’False’</em>, <em>krepr=’False’</em>, <em>kth=’False’</em>, <em>krzTh=’False’</em>, <em>krsdF=’False’</em>, <em>krevF=’False’</em>, <em>krevA=’False’</em>, <em>krsdA=’False’</em>, <em>krzA=’False’</em>, <em>krevCG=’False’</em>, <em>krsdCG=’False’</em>, <em>krzCG=’False’</em>, <em>ktxnO=’False’</em>, <em>ktxnG=’False’</em>, <em>ktxnTh=’False’</em>, <em>ktxnF=’False’</em>, <em>ktxnAG=’False’</em>, <em>ktxnCG=’False’</em>, <em>kssdO=’False’</em>, <em>kssdF=’False’</em>, <em>kdsduG=’False’</em>, <em>kdsdG=’False’</em>, <em>kdsdGO=’False’</em>, <em>kdsduAG=’False’</em>, <em>kdsdAG=’False’</em>, <em>kdsduCG=’False’</em>, <em>kdsdCG=’False’</em>, <em>kdrd=’False’</em>, <em>khybO=’False’</em>, <em>khybR=’False’</em>, <em>khyb=’False’</em>)</p>
+<p><strong>Changes to multiple classes of rate constants with a single input:</strong></p>
+<blockquote>
+<div><dl>
+<dt>kssd: <em>float</em>, <em>optional</em></dt><dd><p>To change the degredation rate consant for all single stranded species</p>
+<p>(kssdO, kssdF).</p>
+</dd>
+<dt>kdsd: <em>float</em>, <em>optional</em></dt><dd><p>To change the degredation rate constant for all double stranded species</p>
+<p>(kdsduG, kdsdG, kdsdGO, kdsduAG, kdsdAG, kdsduCG, kdsdCG, kdsduTG, kdsdTG, kdsdGF, kdsdAGOa, kdsdAGOb, kdsdAGFb, kdsdCGOa, kdsdCGOb).</p>
+</dd>
+<dt>ktxn: <em>float</em>, <em>optional</em></dt><dd><p>To change change all transcription rate constants</p>
+<p>(ktxnO, ktxnG, ktxnTG, ktxnF, ktxnAG, ktxnCG)</p>
+</dd>
+<dt>kdeg: <em>float</em>, <em>optional</em></dt><dd><p>To change the degredation rate consant for all species</p>
+<p>(kssdO, kssdF, kdsduG, kdsdG, kdsdGO, kdsduAG, kdsdAG, kdsduCG, kdsdCG, kdrd).</p>
+</dd>
+<dt>khyb: <em>float</em>, <em>optional</em></dt><dd><p>To change the hybrdization rate constant for both output and reporter</p>
+<p>(khybO, khybR).</p>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="molecular-species">
+<span id="id3"></span><h2>molecular_species()<a class="headerlink" href="#molecular-species" title="Permalink to this headline">¶</a></h2>
+<p><strong>model.molecular_species</strong> (<em>name</em>, <em>DNA_con=0</em>, <em>ic=’False’</em>, <em>krz=’False’</em>, <em>krsd=’False’</em>, <em>krev=’False’</em>,
+<em>krep=’False’</em>, <em>krepr=’False’</em>, <em>kth=’False’</em>, <em>krzTG=’False’</em>, <em>krsdF=’False’</em>,
+<em>krevF=’False’</em>, <em>krsdA=’False’</em>, <em>krzA=’False’</em>, <em>krevCG=’False’</em>, <em>krevCGa=’False’</em>, <em>krevCGb=’False’</em>,
+<em>krsdCG=’False’</em>, <em>krsdCGa=’False’</em>, <em>krsdCGb=’False’</em>, <em>krzCG=’False’</em>, <em>ktxnO=’False’</em>, <em>ktxnG=’False’</em>,
+<em>ktxnTG=’False’</em>, <em>ktxnF=’False’</em>, <em>ktxnAG=’False’</em>, <em>ktxnCG=’False’</em>, <em>kssdO=’False’</em>, <em>kssdF=’False’</em>,
+<em>kdsduG=’False’</em>, <em>kdsdG=’False’</em>, <em>kdsdGO=’False’</em>, <em>kdsduAG=’False’</em>, <em>kdsdAG=’False’</em>,
+<em>kdsduCG=’False’</em>, <em>kdsdCG=’False’</em>, <em>kdsduTG=’False’</em>, <em>kdsdTG=’False’</em>, <em>kdsdGF=’False’</em>,
+<em>kdsdAGOa=’False’</em>, <em>kdsdAGOb=’False’</em>, <em>kdsdAGFb=’False’</em>, <em>kdsdCGOa=’False’</em>, <em>kdsdCGOb=’False’</em>,
+<em>kdrd=’False’</em>, <em>khybO=’False’</em>, <em>khybR=’False’</em>, <em>leak=’False’</em>, <em>leakA=’False’</em>):</p>
 <p>molecular_species is used to initialize all species involved in the system being simulated.</p>
 <p><strong>Default DNA templates, initial conditions, and rate constants are initialized in RSD_sim. These values can be found</strong> <a class="reference internal" href="ClassInitials.html#class"><span class="std std-ref">here</span></a>.</p>
-<div class="admonition-warning admonition">
-<p class="admonition-title">Warning!</p>
-<p>Only rate constant values relevent to the species defined with <em>name</em> can be changed. A warning message will be issued otherwise.</p>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes:</p>
+<p>Rate constant values should be supplied with units of <em>nM</em> and <em>seconds</em></p>
+<p>More than one rate constant can be changed in a single call of <em>molecular_species()</em>.</p>
+<p>Specifying an optional rate constant parameter in this function will only change the value for the individual species specified in <em>name</em>. The rest of the species will have the default values or the values specified in <em>global_rate_constants()</em> if called before <em>molecular_species()</em>.</p>
+<p>Only rate constant values relevent to the species defined with <em>name</em> can be changed. For example, it is not possible to change krz for an input or output. Likewise it is not possible to change krsdA for a single input gate (G). A warning message will be issued if the specified rate constant cannot be changed for the named species. If multiple rate constants are changed in a single call the warning message will not specify which rate constant cannot be changed.</p>
 </div>
-<p><em>name</em> inputs that show multiple options function with each of those options. All <em>name</em> inputs are also not case sensitive.</p>
 <dl>
 <dt><strong>Parameters:</strong></dt><dd><dl>
-<dt>name: <em>string</em></dt><dd><dl class="simple">
+<dt>name: <em>string</em></dt><dd><p><em>name</em> inputs that show multiple options function with each of those options. All <em>name</em> inputs are also not case sensitive.</p>
+<dl class="simple">
 <dt>Name of species being initialized</dt><dd><ul class="simple">
 <li><p>Input -&gt; I{domain} / IN{domain} / INP{domain} / INPUT{domain}</p></li>
 <li><p>Gate -&gt; G{domainI,domainO} / GATE{domainI,domainO}</p></li>
@@ -214,118 +267,71 @@
 <li><p>Gate-Input Complex -&gt; GI{domain} (not case sensitive)</p></li>
 <li><p>Gate-Output Complex -&gt; GO{domainI,domainO}</p></li>
 <li><p>Reporter-Output Complex -&gt; RO{domainI,domainO}</p></li>
-<li><p>Output Reporter -&gt; S{domain}</p></li>
-<li><p>Uncleaved Threshold -&gt; uT{domains} / uTH{domain} / uTG{domain}</p></li>
-<li><p>Threshold -&gt; T{domains} / TH{domain} / TG{domain}</p></li>
+<li><p>Reporter Signal Strand -&gt; S{domain}</p></li>
+<li><p>Reporter Signal Complement Strand -&gt; Q{domain}</p></li>
+<li><p>Uncleaved Threshold Gate -&gt; uTG{domain} / uT{domains} / uTH{domain}</p></li>
+<li><p>Threshold Gate -&gt; TG{domain} / T{domains} / TH{domain}</p></li>
 <li><p>Fuel -&gt; F{domain}</p></li>
-<li><p>Fuel Gate -&gt; GF{domain}</p></li>
+<li><p>Gate-Fuel Complex -&gt; GF{domain}</p></li>
 <li><p>Uncleaved AND Gate -&gt; uAG{domainI,domainO}</p></li>
-<li><p>AND Gate -&gt; G{domainI1.domainI2,domainO} / GATE{domainI1.domainI2,domainO} / AG{domainI1.domainI2,domainO}</p></li>
-<li><p>AND Gate-Output Complex A -&gt; AGOa{domainI,domainO}</p></li>
+<li><p>AND Gate -&gt; AG{domainI1.domainI2,domainO} / G{domainI1.domainI2,domainO} / GATE{domainI1.domainI2,domainO}</p></li>
+<li><p>AND Gate-Output Complex A -&gt; AGOa{domainI2,domainO}</p></li>
 <li><p>AND Gate-Output Complex B -&gt; AGOb{domainI,domainO}</p></li>
-<li><p>AND Gate Fuel Complex B -&gt; AGF{domain}</p></li>
-<li><p>Uncleaved Comparator Gate -&gt; uCG{domainI,domainO}</p></li>
-<li><p>Comparator Gate -&gt; CG{domainI,domainO}</p></li>
+<li><p>AND Gate Fuel Complex B -&gt; AGFb{domain}</p></li>
+<li><p>Uncleaved Comparator Gate -&gt; uCG{domainI1,domainI2}</p></li>
+<li><p>Comparator Gate -&gt; CG{domainI1,domainI2}</p></li>
 <li><p>Comparator Gate-Output Complex A -&gt; CGOa{domainI,domainO}</p></li>
 <li><p>Comparator Gate-Output Complex B -&gt; CGOb{domainI,domainO}</p></li>
 </ul>
 </dd>
 </dl>
 </dd>
-<dt>DNA_con: <em>float</em>, <em>if NONE,default=0</em></dt><dd><p>DNA template concentration for inputed species. This and ic are the two ways a user can initialize a component being involved in the system. (Only applies to Input,Gate,Reporter,Output,Threshold,Fuel,AG,CG)</p>
+<dt>DNA_con: <em>float</em>, <em>if NONE,default=0</em></dt><dd><p>DNA concentration for inputed species. This and ic are the two ways a user can initialize a component being involved in the system. (Only applies to Input,Output,Gate,Fuel,AG,TG,CG,Reporter). Other than for Reporters this variable specifies the DNA template concentration for transcribable components in ctRSD circuits. For Reporter this is the same as a fixed initial concentration (ic).
+Other than for Reporter this represents the concentration of the DNA template that encodes for the transcription of the species specified in <em>name</em>.</p>
 </dd>
-<dt>ic: <em>float</em>, <em>optional</em></dt><dd><p>Initial Concentration for inputted species. This and DNA_con are the two ways a user can initialize a component being involved in the system.</p>
+<dt>ic: <em>float</em>, <em>optional</em>, <em>if NONE,default=0</em></dt><dd><p>Initial Concentration for inputted species. This and DNA_con are the two ways a user can initialize a component being involved in the system. Other than for the Reporter, this refers to the initial concentration of the RNA species specified in <em>name</em></p>
 </dd>
-<dt>krz: <em>float</em>, <em>optional</em></dt><dd><p>Base ctRSD gate ribozymal cleavage rate.</p>
+<dt>krz - leakA: <em>floats</em>, <em>optional</em></dt><dd><p>These optional rate constant parameters are defined as in the <em>global_rate_constants()</em> function. But changing them in <em>molecular_species()</em> will only change the value for the individual species specified in <em>name</em>
+Below are some additional paramaters and caveats unique to <em>molecular_species()</em></p>
+<dl>
+<dt>ktxnO: <em>float</em>, <em>optional</em></dt><dd><p>Transcription rate constant for outputs (and inputs).</p>
+<p>To change the transcription rate of an indivdual input use this optional parameter. ktxnI is not a valid input.</p>
+<p>EX: model.molecular_species(I{3}, ktxnO=0.02)</p>
 </dd>
-<dt>krsd: <em>float</em>, <em>optional</em></dt><dd><p>Base ctRSD gate forward reaction rate.</p>
+<dt>krsdA: <em>float</em>, <em>optional</em></dt><dd><p>ctRSD AND gate forward strand displacement rate.</p>
+<p>If specified with AG, this will change the rate constant for the reaction with the first output in the AG. To change the rate constant for the reaction with the second output the user can specify an AGOa species anc change this rate constant.</p>
+<p>Ex:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="n">AG</span><span class="p">{</span><span class="mf">3.1</span><span class="p">,</span><span class="mi">2</span><span class="p">},</span> <span class="n">krsdA</span><span class="o">=</span><span class="mf">1e5</span><span class="o">/</span><span class="mf">1e9</span><span class="p">)</span> <span class="c1"># changes krsdA for first input domain</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="n">AGOa</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">},</span> <span class="n">krsdA</span><span class="o">=</span><span class="mf">1e5</span><span class="o">/</span><span class="mf">1e9</span><span class="p">)</span> <span class="c1"># changes krsdA for second input domain</span>
+</pre></div>
+</div>
 </dd>
-<dt>krev: <em>float</em>, <em>optional</em></dt><dd><p>Base ctRSD output reverse reaction rate.</p>
+<dt>krevCG: <em>float</em>, <em>optional</em></dt><dd><p>Reverse strand displacement rate constant for outputs on a CG. These rates follow outputs, not CG gate indices.
+This rate constant should be changed with specific outputs (or inputs) specified in <em>molecular_species()</em>, <em>e.g.</em>,
+molecular_species(O{3,1},krevCG=0.4) or molecular_species(I{3},krevCG=0.4) which changes the rate these outputs/inputs dissociate from a CG.
+To change the reverse rates for all outputs that correspond to either domain of a CG use the <em>krevCGa</em> and <em>krevCGb</em> paramters below.</p>
 </dd>
-<dt>krep: <em>float</em>, <em>optional</em></dt><dd><p>Reporter reaction rate.</p>
+<dt>krevCGa: <em>float</em>, <em>optional</em></dt><dd><p>Reverse strand displacement rate constant for all outputs (or inputs) that bind to the first index of a CG, <em>i.e.</em>, CG{i,_}.
+This changes the entire i-th column of the <em>krevCG</em> matrix.</p>
 </dd>
-<dt>krepr: <em>float</em>, <em>optional</em></dt><dd><p>Reverse reporter reaction rate.</p>
-</dd>
-<dt>kth: <em>float</em>, <em>optional</em></dt><dd><p>Thresholding reaction rate.</p>
-</dd>
-<dt>krzTh: <em>float</em>, <em>optional</em></dt><dd><p>Thresholding ribozymal cleavage rate.</p>
-</dd>
-<dt>krsdF: <em>float</em>, <em>optional</em></dt><dd><p>Fuel forward reaction rate.</p>
-</dd>
-<dt>krevF: <em>float</em>, <em>optional</em></dt><dd><p>Fuel reverse reaction rate.</p>
-</dd>
-<dt>krz: <em>float</em>, <em>optional</em></dt><dd><p>Ribozymal cleavage rate.</p>
-</dd>
-<dt>krevA: <em>float</em>, <em>optional</em></dt><dd><p>ctRSD AND gate reverse reaction rate.</p>
-</dd>
-<dt>krsdA: <em>float</em>, <em>optional</em></dt><dd><p>ctRSD AND gate forward reaction rate.</p>
-<p>If specified with AG, will change first gate in reaction. To change second gate in reaction, must specify with AGOa which represents the second gate in the AND gate reaction.</p>
-<dl class="simple">
-<dt>Ex: model.molecular_species(AG{3.1,2}, krsdA=1e5/1e9) -&gt; Will change krsdA for first input (I{3})</dt><dd><p>model.molecular_species(AGOa{1,2}, krsdA=1e5/1e9) -&gt; Will change krsdA for second input (I{1})</p>
+<dt>krevCGb: <em>float</em>, <em>optional</em></dt><dd><p>Reverse strand displacement rate constant for all outputs (or inputs) that bind to the second index of a CG, <em>i.e.</em>, CG{_,j}.
+This changes the entire j-th column of the <em>krevCG</em> matrix.</p>
 </dd>
 </dl>
-</dd>
-<dt>krzA: <em>float</em>, <em>optional</em></dt><dd><p>ctRSD AND gate ribozyme cleavage rate.</p>
-</dd>
-<dt>krevCG: <em>float</em>, <em>optional</em></dt><dd><p>ctRSD comparator gate reverse reaction rate.</p>
-</dd>
-<dt>krsdCG: <em>float</em>, <em>optional</em></dt><dd><p>ctRSD comparator gate forward reaction rate.</p>
-</dd>
-<dt>krzCG: <em>float</em>, <em>optional</em></dt><dd><p>ctRSD comparator gate ribozyme cleavage rate.</p>
-</dd>
-<dt>ktxnO: <em>float</em>, <em>optional</em></dt><dd><p>Transcription rate for output.</p>
-</dd>
-<dt>ktxnG: <em>float</em>, <em>optional</em></dt><dd><p>Transcription rate for gate.</p>
-</dd>
-<dt>ktxnTh: <em>float</em>, <em>optional</em></dt><dd><p>Transcription rate for threshold.</p>
-</dd>
-<dt>ktxnF: <em>float</em>, <em>optional</em></dt><dd><p>Transcription rate for fuel.</p>
-</dd>
-<dt>ktxnAG: <em>float</em>, <em>optional</em></dt><dd><p>Transcription rate for AND gate.</p>
-</dd>
-<dt>ktxnCG: <em>float</em>, <em>optional</em></dt><dd><p>Transcription rate for comparator gate.</p>
-</dd>
-<dt>kssdO: <em>float</em>, <em>optional</em></dt><dd><p>Degredation rate for output (single stranded).</p>
-</dd>
-<dt>kssdF: <em>float</em>, <em>optional</em></dt><dd><p>Degredation rate for fuel (single stranded).</p>
-</dd>
-<dt>kdsduG: <em>float</em>, <em>optional</em></dt><dd><p>Degredation rate for uncleaved gate (double stranded).</p>
-</dd>
-<dt>kdsdG: <em>float</em>, <em>optional</em></dt><dd><p>Degredation rate for gate (double stranded).</p>
-</dd>
-<dt>kdsdGO: <em>float</em>, <em>optional</em></dt><dd><p>Degredation rate for gate-output complex (double stranded).</p>
-</dd>
-<dt>kdsduAG: <em>float</em>, <em>optional</em></dt><dd><p>Degredation rate for uncleaved AND gate (double stranded).</p>
-</dd>
-<dt>kdsdAG: <em>float</em>, <em>optional</em></dt><dd><p>Degredation rate for AND gate (double stranded).</p>
-</dd>
-<dt>kdsduCG: <em>float</em>, <em>optional</em></dt><dd><p>Degredation rate for uncleaved comparator gate (double stranded).</p>
-</dd>
-<dt>kdsdCG: <em>float</em>, <em>optional</em></dt><dd><p>Degredation rate for comparator gate (double stranded).</p>
-</dd>
-<dt>kdrd: <em>float</em>, <em>optional</em></dt><dd><p>Degredation rate for RNA:DNA hybrids.</p>
-</dd>
-<dt>khybO: <em>float</em>, <em>optional</em></dt><dd><p>Hybridization rate for output.</p>
-</dd>
-<dt>khybR: <em>float</em>, <em>optional</em></dt><dd><p>Hybridization rate for reporter.</p>
-</dd>
-<dt>khyb: <em>float</em>, <em>optional</em></dt><dd><p>Hybrdization rate for both output and reporter (khybO,khybR).</p>
+<p>If an AND gate (AG) is specified its leak transcription percentage can be changed with either <em>leak</em> or <em>leakA</em>.</p>
 </dd>
 </dl>
 </dd>
 </dl>
-</section>
-<section id="simulate">
-<span id="id4"></span><h2>simulate<a class="headerlink" href="#simulate" title="Permalink to this heading"></a></h2>
-<p>simulate(<em>t_vec</em>, <em>leak=0.03</em>, <em>leakA=0.06</em>, <em>smethod=’False’</em>, <em>iteration=1</em>)</p>
+</div>
+<div class="section" id="simulate">
+<span id="id4"></span><h2>simulate()<a class="headerlink" href="#simulate" title="Permalink to this headline">¶</a></h2>
+<p><strong>model.simulate</strong> (<em>t_vec</em>, <em>smethod=’False’</em>, <em>iteration=1</em>)</p>
 <p>simulate is used to run a simulation for a provided amount of time using the components previously initialized by molecular_species. simulate also includes the discontinuous feature of the simulator.</p>
 <dl>
 <dt><strong>Parameters:</strong></dt><dd><dl>
-<dt>t_vec: <em>array, type=float</em></dt><dd><p>Array of time points signifying the simulation run time.</p>
-</dd>
-<dt>leak: <em>float</em>, <em>if NONE,default=0.03</em></dt><dd><p>Transcription leak rate from ctRSD gate.</p>
-</dd>
-<dt>leakA: <em>float</em>, <em>if NONE,default=0.06</em></dt><dd><p>Transcription leak rate from ctRSD AND gate.</p>
+<dt>t_vec: <em>array, type=float</em></dt><dd><p>Array of time points signifying the simulation run time and interval.</p>
 </dd>
 <dt>smethod: <em>string</em>, <em>optional</em>, <em>if NONE, default=’LSODA’</em></dt><dd><dl class="simple">
 <dt>Solver method inputted into scipy.integrate.solve_ivp ODE integrator:</dt><dd><ul class="simple">
@@ -338,6 +344,7 @@
 </ul>
 </dd>
 </dl>
+<p>For simulations using comparator gates (CG) the ‘BDF’ method is recommended. This can speed up the computation time.</p>
 </dd>
 <dt>iteration: <em>int</em>, <em>if NONE,default=1</em></dt><dd><p>Controlling input for discontinuous feature.</p>
 <p>Iteration signifies which step in a total simulation that the inputted simulation time and previously initialized species are tied to. For example, iteration=1 signifies first time step of simulation, iteration=2 signifies second time step of same simulation. There is no maximum in iteration, but must be positive integer.</p>
@@ -346,38 +353,45 @@
 </dl>
 </dd>
 </dl>
-</section>
-<section id="output-concentration">
-<span id="id5"></span><h2>output_concentration<a class="headerlink" href="#output-concentration" title="Permalink to this heading"></a></h2>
-<p>output_concentration(<em>name</em>)</p>
+</div>
+<div class="section" id="output-concentration">
+<span id="id5"></span><h2>output_concentration()<a class="headerlink" href="#output-concentration" title="Permalink to this headline">¶</a></h2>
+<p><strong>model.output_concentration</strong> (<em>name</em>)</p>
 <p>output_concentration is used to pull out desired output concentrations created after running of the simulate function.</p>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note:</p>
+<p>Concentrations are output with <em>nM</em> units</p>
+<p>To compare to experiments with DNA reporters, the concentration of S{j} can be pulled out for plotting:
+<em>reacted_reporter = model.output_concentration(‘S{2}’)</em></p>
+</div>
+<dl>
+<dt><strong>Parameters:</strong></dt><dd><dl>
+<dt>name: <em>string</em></dt><dd><p><em>name</em> inputs that show multiple options function with each of those options. All <em>name</em> inputs are also not case sensitive.</p>
 <dl class="simple">
-<dt><strong>Parameters:</strong></dt><dd><dl class="simple">
-<dt>name: <em>string</em></dt><dd><dl class="simple">
 <dt>Name of species being initialized</dt><dd><ul class="simple">
-<li><p>Input -&gt; I{domain} / IN{domain} / INP{domain} / INPUT{domain} (all options work, not case sensitive)</p></li>
-<li><p>Gate -&gt; G{domainI,domainO} / GATE{domainI,domainO} (all options work, not case sensitive)</p></li>
-<li><p>Reporter -&gt; R{domain}, REP{domain}, REPORTER{domain} (all options work, not case sensitive)</p></li>
-<li><p>Output -&gt; O{domainI,domainO} / OUT{domainI,domainO} / OUTPUT{domainI,domainO} (all options work, not case sensitive)</p></li>
-<li><p>Uncleaved Gate -&gt; uG{domainI,domainO} (not case sensitive)</p></li>
+<li><p>Input -&gt; I{domain} / IN{domain} / INP{domain} / INPUT{domain}</p></li>
+<li><p>Gate -&gt; G{domainI,domainO} / GATE{domainI,domainO}</p></li>
+<li><p>Reporter -&gt; R{domain}, REP{domain}, REPORTER{domain}</p></li>
+<li><p>Output -&gt; O{domainI,domainO} / OUT{domainI,domainO} / OUTPUT{domainI,domainO}</p></li>
+<li><p>Uncleaved Gate -&gt; uG{domainI,domainO}</p></li>
 <li><p>Gate-Input Complex -&gt; GI{domain} (not case sensitive)</p></li>
-<li><p>Gate-Output Complex -&gt; GO{domainI,domainO} (not case sensitive)</p></li>
-<li><p>Reporter-Output Complex -&gt; RO{domainI,domainO} (not case sensitive)</p></li>
-<li><p>Output Reporter -&gt; S{domain} (not case sensitive)</p></li>
-<li><p>Uncleaved Threshold -&gt; uTH{domain} (not case sensitive)</p></li>
-<li><p>Threshold -&gt; TH{domain} (not case sensitive)</p></li>
-<li><p>Fuel -&gt; F{domain} (not case sensitive)</p></li>
-<li><p>Fuel Gate -&gt; GF{domain} (not case sensitive)</p></li>
-<li><p>Uncleaved AND Gate -&gt; uAG{domainI,domainO} (not case sensitive)</p></li>
-<li><p>AND Gate -&gt; G{domainI1.domainI2,domainO} / GATE{domainI1.domainI2,domainO} / AG{domainI1.domainI2,domainO} (all options work, not case sensitive)</p></li>
-<li><p>AND Gate-Output Complex A -&gt; AGOa{domainI,domainO} (not case sensitive)</p></li>
-<li><p>AND Gate-Output Complex B -&gt; AGOb{domainI,domainO} (not case sensitive)</p></li>
-<li><p>AND Gate Fuel Complex B -&gt; AGF{domain} (not case sensitive)</p></li>
-<li><p>Uncleaved Comparator Gate -&gt; uCG{domainI,domainO} (not case sensitive)</p></li>
-<li><p>Comparator Gate -&gt; CG{domainI,domainO} (not case sensitive)</p></li>
-<li><p>Comparator Gate-Output Complex A -&gt; CGOa{domainI,domainO} (not case sensitive)</p></li>
-<li><p>Comparator Gate-Output Complex B -&gt; CGOb{domainI,domainO} (not case sensitive)</p></li>
-<li><p>Q -&gt; Q{domain} (not case sensitive)</p></li>
+<li><p>Gate-Output Complex -&gt; GO{domainI,domainO}</p></li>
+<li><p>Reporter-Output Complex -&gt; RO{domainI,domainO}</p></li>
+<li><p>Reporter Signal Strand -&gt; S{domain}</p></li>
+<li><p>Reporter Signal Complement Strand -&gt; Q{domain}</p></li>
+<li><p>Uncleaved Threshold Gate -&gt; uTG{domain} / uT{domains} / uTH{domain}</p></li>
+<li><p>Threshold Gate -&gt; TG{domain} / T{domains} / TH{domain}</p></li>
+<li><p>Fuel -&gt; F{domain}</p></li>
+<li><p>Gate-Fuel Complex -&gt; GF{domain}</p></li>
+<li><p>Uncleaved AND Gate -&gt; uAG{domainI,domainO}</p></li>
+<li><p>AND Gate -&gt; AG{domainI1.domainI2,domainO} / G{domainI1.domainI2,domainO} / GATE{domainI1.domainI2,domainO}</p></li>
+<li><p>AND Gate-Output Complex A -&gt; AGOa{domainI2,domainO}</p></li>
+<li><p>AND Gate-Output Complex B -&gt; AGOb{domainI,domainO}</p></li>
+<li><p>AND Gate Fuel Complex B -&gt; AGF{domain}</p></li>
+<li><p>Uncleaved Comparator Gate -&gt; uCG{domainI1,domainI2}</p></li>
+<li><p>Comparator Gate -&gt; CG{domainI1,domainI2}</p></li>
+<li><p>Comparator Gate-Output Complex A -&gt; CGOa{domainI,domainO}</p></li>
+<li><p>Comparator Gate-Output Complex B -&gt; CGOb{domainI,domainO}</p></li>
 </ul>
 </dd>
 </dl>
@@ -385,10 +399,10 @@
 </dl>
 </dd>
 </dl>
-</section>
-<section id="transcription-calibration">
-<span id="id6"></span><h2>transcription_calibration<a class="headerlink" href="#transcription-calibration" title="Permalink to this heading"></a></h2>
-<p>transcription_calibration(<em>simTime</em>, <em>data</em> , <em>ktxn=’False’</em>)</p>
+</div>
+<div class="section" id="transcription-calibration">
+<span id="id6"></span><h2>transcription_calibration()<a class="headerlink" href="#transcription-calibration" title="Permalink to this headline">¶</a></h2>
+<p><strong>model.transcription_calibration</strong> (<em>simTime</em>, <em>data</em> , <em>ktxn=’False’</em>)</p>
 <p>transcription_calibration is used to test different transcription rates against an inputted set of data and its corresponding time values. The user can test their data against a base set of rates set in the function, or can specify their own rate(s).</p>
 <dl>
 <dt><strong>Parameters:</strong></dt><dd><dl>
@@ -403,8 +417,8 @@
 </dl>
 </dd>
 </dl>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

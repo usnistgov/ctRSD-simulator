@@ -20,7 +20,7 @@ Download Domains List
 
 Below is a link to download a provided spreadsheet that contains the list of domains for ctRSD reactions used to compile the sequences. The local file path on where this file is stored is an input to the sequence compiler function. Many of the optional inputs to the sequence compiler use the names of sequence domains contained in this Excel workbook - they can be accessed by specifying the name in the first column of the Excel workbook with the appropriate optional parameter. To add custom sequences for a domain, one can add a sequence domain with a unique name to a local copy of the Excel workbook in the correct sheet and then use the name of that sequence domain in the sequence compiler optional inputs.
 
-`ctRSD Domains List Spreadsheet can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence%20Compiler/ctRSD_domains_list.xlsx>`_ 
+`ctRSD Domains List Spreadsheet can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence%20Compiler/ctRSD_domains_list.xls>`_ 
 
 
 Function Overview
@@ -136,16 +136,34 @@ First Steps:
 
 	2. :ref:`Download ctRSD Domains List <DownloadDomainsList>`
 
-	3. Use the example below for guidance!
+	3. Use the example below for guidance
 
 
+. code-block:: python
 
-.. figure:: /ExampleImages/SequenceCompilerExample.png
-   :class: with-border
-   :align: center
+   # importing simulator
+   import sys
+   sys.path.insert(1,'filepath to simulator location on local computer')
+   import ctRSD_simulator_200 as RSDs # import latest version of the simulator
 
-   **Sequence Compiler Example**
-   `This example script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence%20Compiler/seq_compile_save_to_excel.py>`_ 
+
+   # create the model instance
+   model = RSDs.RSD_sim() # default # of domains (5 domains)
+
+   filepath = 'filepath to ctRSD_domains_list.xls location on local computer'
+
+   # use the experimental nomenclature to specify the sequence you want
+   Gate_seq = model.ctRSD_seq_compile('G{u1,w2r}',filepath)
+
+   Gate_seq = model.ctRSD_seq_compile('G{u1,w2r}',filepath,Rz='R3') # specifying an alternative ribozyme sequence
+
+   Input_seq = model.ctRSD_seq_compile('I{u1}',filepath)
+
+   Fuel_seq = model.ctRSD_seq_compile('F{w1}',filepath)
+
+   AG_seq = model.ctRSD_seq_compile('AG{u3.u1,w2r}',filepath)
+
+
 
 
 `Example Script for sequences in the 2022 Science Advances paper can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence%20Compiler/seq_compile_SA22_examples.py>`_ 
@@ -154,3 +172,5 @@ First Steps:
 
 `Example Script for additional component sequences can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence%20Compiler/seq_compile_general_examples.py>`_ 
 
+
+`Example script saving sequence to an Excel file can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence%20Compiler/seq_compile_save_to_excel.py>`_ 

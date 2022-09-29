@@ -2,6 +2,8 @@ Overview
 ===============================================
 Welcome to the documentation for ctRSD-simulator-2.0! 
 
+Download ctRSD-simulator-2.0.0 version -> `DOWNLOAD <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/ctRSD_simulator_200.py>`_ 
+
 ctRSD-simulator-2.0 was designed to be a comprehensive, scalable, and user-friendly model for simulating the kinetics of contranscriptionally encoded RNA strand displacement (ctRSD) circuits. 
 
 ctRSD circuits are an emerging technology for programmabale and scalable molecular computations. ctRSD circuits can execute multilayer cascades, logic, and signal amplification, and these elementary functions can be integrated to orchestrate sophisticated information processing tasks like digital calculations and pattern recognition. 

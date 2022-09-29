@@ -188,22 +188,29 @@ RSD domains are domains relevant to RNA strand displacement and are specified in
 </ol>
 </dd>
 </dl>
-<p>. code-block:: python</p>
-<blockquote>
-<div><p># importing simulator
-import sys
-sys.path.insert(1,’filepath to simulator location on local computer’)
-import ctRSD_simulator_200 as RSDs # import latest version of the simulator</p>
-<p># create the model instance
-model = RSDs.RSD_sim() # default # of domains (5 domains)</p>
-<p>filepath = ‘filepath to ctRSD_domains_list.xls location on local computer’</p>
-<p># use the experimental nomenclature to specify the sequence you want
-Gate_seq = model.ctRSD_seq_compile(‘G{u1,w2r}’,filepath)</p>
-<p>Gate_seq = model.ctRSD_seq_compile(‘G{u1,w2r}’,filepath,Rz=’R3’) # specifying an alternative ribozyme sequence</p>
-<p>Input_seq = model.ctRSD_seq_compile(‘I{u1}’,filepath)</p>
-<p>Fuel_seq = model.ctRSD_seq_compile(‘F{w1}’,filepath)</p>
-<p>AG_seq = model.ctRSD_seq_compile(‘AG{u3.u1,w2r}’,filepath)</p>
-</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing simulator</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;filepath to simulator location on local computer&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">ctRSD_simulator_200</span> <span class="k">as</span> <span class="nn">RSDs</span> <span class="c1"># import latest version of the simulator</span>
+
+
+<span class="c1"># create the model instance</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">RSDs</span><span class="o">.</span><span class="n">RSD_sim</span><span class="p">()</span> <span class="c1"># default # of domains (5 domains)</span>
+
+<span class="n">filepath</span> <span class="o">=</span> <span class="s1">&#39;filepath to ctRSD_domains_list.xls location on local computer&#39;</span>
+
+<span class="c1"># use the experimental nomenclature to specify the sequence you want</span>
+<span class="n">Gate_seq</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">ctRSD_seq_compile</span><span class="p">(</span><span class="s1">&#39;G{u1,w2r}&#39;</span><span class="p">,</span><span class="n">filepath</span><span class="p">)</span>
+
+<span class="n">Gate_seq</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">ctRSD_seq_compile</span><span class="p">(</span><span class="s1">&#39;G{u1,w2r}&#39;</span><span class="p">,</span><span class="n">filepath</span><span class="p">,</span><span class="n">Rz</span><span class="o">=</span><span class="s1">&#39;R3&#39;</span><span class="p">)</span> <span class="c1"># specifying an alternative ribozyme sequence</span>
+
+<span class="n">Input_seq</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">ctRSD_seq_compile</span><span class="p">(</span><span class="s1">&#39;I</span><span class="si">{u1}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">filepath</span><span class="p">)</span>
+
+<span class="n">Fuel_seq</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">ctRSD_seq_compile</span><span class="p">(</span><span class="s1">&#39;F</span><span class="si">{w1}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">filepath</span><span class="p">)</span>
+
+<span class="n">AG_seq</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">ctRSD_seq_compile</span><span class="p">(</span><span class="s1">&#39;AG{u3.u1,w2r}&#39;</span><span class="p">,</span><span class="n">filepath</span><span class="p">)</span>
+</pre></div>
+</div>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence%20Compiler/seq_compile_SA22_examples.py">Example Script for sequences in the 2022 Science Advances paper can be found here</a></p>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence%20Compiler/seq_compile_gate_characterization_examples.py">Example Script for diverse gate sequences can be found here</a></p>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence%20Compiler/seq_compile_general_examples.py">Example Script for additional component sequences can be found here</a></p>

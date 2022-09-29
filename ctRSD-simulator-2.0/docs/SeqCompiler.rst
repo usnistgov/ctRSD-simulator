@@ -139,29 +139,29 @@ First Steps:
 	3. Use the example below for guidance
 
 
-. code-block:: python
+.. code-block:: python
 
-   # importing simulator
-   import sys
-   sys.path.insert(1,'filepath to simulator location on local computer')
-   import ctRSD_simulator_200 as RSDs # import latest version of the simulator
+	# importing simulator
+	import sys
+	sys.path.insert(1,'filepath to simulator location on local computer')
+	import ctRSD_simulator_200 as RSDs # import latest version of the simulator
 
 
-   # create the model instance
-   model = RSDs.RSD_sim() # default # of domains (5 domains)
+	# create the model instance
+	model = RSDs.RSD_sim() # default # of domains (5 domains)
 
-   filepath = 'filepath to ctRSD_domains_list.xls location on local computer'
+	filepath = 'filepath to ctRSD_domains_list.xls location on local computer'
 
-   # use the experimental nomenclature to specify the sequence you want
-   Gate_seq = model.ctRSD_seq_compile('G{u1,w2r}',filepath)
+	# use the experimental nomenclature to specify the sequence you want
+	Gate_seq = model.ctRSD_seq_compile('G{u1,w2r}',filepath)
 
-   Gate_seq = model.ctRSD_seq_compile('G{u1,w2r}',filepath,Rz='R3') # specifying an alternative ribozyme sequence
+	Gate_seq = model.ctRSD_seq_compile('G{u1,w2r}',filepath,Rz='R3') # specifying an alternative ribozyme sequence
 
-   Input_seq = model.ctRSD_seq_compile('I{u1}',filepath)
+	Input_seq = model.ctRSD_seq_compile('I{u1}',filepath)
 
-   Fuel_seq = model.ctRSD_seq_compile('F{w1}',filepath)
+	Fuel_seq = model.ctRSD_seq_compile('F{w1}',filepath)
 
-   AG_seq = model.ctRSD_seq_compile('AG{u3.u1,w2r}',filepath)
+	AG_seq = model.ctRSD_seq_compile('AG{u3.u1,w2r}',filepath)
 
 
 

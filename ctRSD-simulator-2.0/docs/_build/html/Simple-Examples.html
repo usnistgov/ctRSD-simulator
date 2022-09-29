@@ -88,15 +88,31 @@
              
   <div class="section" id="simple-examples">
 <span id="id1"></span><h1>Simple Examples<a class="headerlink" href="#simple-examples" title="Permalink to this headline">¶</a></h1>
+<p>Individual scripts for the examples are shown below with links to the scripts on GitHub (the GitHub scripts have additional plotting features).</p>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Simple%20Examples/ctRSD_simulator_simple_examples_notebook.ipynb">A Jupyter Notebook of these examples can be found here</a></p>
 <div class="section" id="single-ctrsd-gate-reaction">
 <span id="single-layer"></span><h2>Single ctRSD Gate Reaction<a class="headerlink" href="#single-ctrsd-gate-reaction" title="Permalink to this headline">¶</a></h2>
-<p>Simulating the system below:</p>
+<p>Simulating the system below</p>
+<dl class="simple">
+<dt>Useful Features:</dt><dd><ul class="simple">
+<li><p>overveiw of setting up a basic simulation</p></li>
+</ul>
+</dd>
+</dl>
 <div class="figure align-center" id="id3">
 <img alt="_images/single_gate_reaction.png" src="_images/single_gate_reaction.png" />
-<p class="caption"><span class="caption-text"><strong>Single ctRSD Gate Reaction</strong></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><strong>Single ctRSD Gate Reaction</strong> Template concentrations are specified with the <em>DNA_con</em> input in <em>molecular_species()</em> and non-zero initial conditions are specified with the <em>ic</em> input in <em>molecular_species()</em>.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Simple%20Examples/single_gate_reaction.py">Single ctRSD Gate Reaction Python Script can be found here</a></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ctRSD_simulator_200</span> <span class="k">as</span> <span class="nn">RSDs</span> <span class="c1"># import latest simulator version</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># auxiliary packages needed in the script below, e.g., plotting</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># importing simulator</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;filepath to simulator location on local computer&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">ctRSD_simulator_200</span> <span class="k">as</span> <span class="nn">RSDs</span> <span class="c1"># import latest version of the simulator</span>
+
 
 <span class="c1"># create the model instance</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">RSDs</span><span class="o">.</span><span class="n">RSD_sim</span><span class="p">()</span> <span class="c1"># default # of domains (5 domains)</span>
@@ -107,23 +123,48 @@
 <span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;R</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">ic</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
 
 <span class="c1"># simulating the model</span>
-<span class="n">t_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span><span class="o">*</span><span class="mi">3600</span> <span class="c1"># seconds</span>
+<span class="n">t_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span><span class="o">*</span><span class="mi">3600</span> <span class="c1"># simulating from 0 to 3 hours with 1000 increments (*3600 converts to seconds)</span>
 <span class="n">model</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">t_sim</span><span class="p">)</span> <span class="c1"># simulate the model</span>
 
 <span class="c1"># pull out the species from the model solution to plot</span>
-<span class="n">S2</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;S</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">S2</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;S</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># S{2} is the output of a reacted reporter (R{2})</span>
+<span class="n">I1</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;I</span><span class="si">{1}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># concentration of I{1} as a function of time</span>
+<span class="n">G12</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;G{1,2}&#39;</span><span class="p">)</span> <span class="c1"># concentration of G{1,2} as a function of time</span>
+<span class="c1"># etc...</span>
+
+<span class="c1"># simple plotting code</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_sim</span><span class="p">,</span><span class="n">S2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_sim</span><span class="p">,</span><span class="n">I1</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_sim</span><span class="p">,</span><span class="n">G12</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Concentration (nM)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="two-layer-cascade-simulation">
 <span id="two-layer"></span><h2>Two-Layer Cascade Simulation<a class="headerlink" href="#two-layer-cascade-simulation" title="Permalink to this headline">¶</a></h2>
-<p>Simulating the system below:</p>
+<p>Simulating the system below</p>
+<dl class="simple">
+<dt>Useful Features:</dt><dd><ul class="simple">
+<li><p>overveiw of setting up a basic simulation</p></li>
+<li><p>globally changing rate constants with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants()</span></a></p></li>
+</ul>
+</dd>
+</dl>
 <div class="figure align-center" id="id4">
 <img alt="_images/two_layer_simulation.png" class="with-border" src="_images/two_layer_simulation.png" />
-<p class="caption"><span class="caption-text"><strong>Two-Layer Cascade Simulation</strong></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><strong>Two-Layer Cascade Simulation</strong> Template concentrations are specified with the <em>DNA_con</em> input in <em>molecular_species()</em> and non-zero initial conditions are specified with the <em>ic</em> input in <em>molecular_species()</em>. The transcription rate constant (<em>ktxn</em>) is changed for all species in <em>global_rate_constants()</em>.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Simple%20Examples/two_layer_simulation.py">Two Layer Cascade Simulation Python Script can be found here</a></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ctRSD_simulator_200</span> <span class="k">as</span> <span class="nn">RSDs</span> <span class="c1"># import latest simulator version</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># auxiliary packages needed in the script below, e.g., plotting</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># importing simulator</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;filepath to simulator location on local computer&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">ctRSD_simulator_200</span> <span class="k">as</span> <span class="nn">RSDs</span> <span class="c1"># import latest version of the simulator</span>
+
 
 <span class="c1"># create the model instance</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">RSDs</span><span class="o">.</span><span class="n">RSD_sim</span><span class="p">()</span> <span class="c1"># default # of domains (5 domains)</span>
@@ -137,23 +178,49 @@
 <span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;R</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">ic</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
 
 <span class="c1"># simulating the model</span>
-<span class="n">t_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span><span class="o">*</span><span class="mi">3600</span> <span class="c1"># seconds</span>
+<span class="n">t_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span><span class="o">*</span><span class="mi">3600</span> <span class="c1"># simulating from 0 to 3 hours with 1000 increments (*3600 converts to seconds)</span>
 <span class="n">model</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">t_sim</span><span class="p">)</span> <span class="c1"># simulate the model</span>
 
 <span class="c1"># pull out the species from the model solution to plot</span>
-<span class="n">S2</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;S</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">S2</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;S</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># S{2} is the output of a reacted reporter (R{2})</span>
+<span class="n">I3</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;I</span><span class="si">{3}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># concentration of I{3} as a function of time</span>
+<span class="n">G12</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;G{1,2}&#39;</span><span class="p">)</span> <span class="c1"># concentration of G{1,2} as a function of time</span>
+<span class="c1"># etc...</span>
+
+<span class="c1"># simple plotting code</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_sim</span><span class="p">,</span><span class="n">S2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_sim</span><span class="p">,</span><span class="n">I3</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_sim</span><span class="p">,</span><span class="n">G12</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Concentration (nM)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="fan-out-simulation">
 <span id="id2"></span><h2>Fan-Out Simulation<a class="headerlink" href="#fan-out-simulation" title="Permalink to this headline">¶</a></h2>
-<p>Simulating the system below:</p>
+<p>Simulating the system below</p>
+<dl class="simple">
+<dt>Useful Features:</dt><dd><ul class="simple">
+<li><p>overveiw of setting up a basic simulation</p></li>
+<li><p>globally changing rate constants with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants()</span></a></p></li>
+<li><p>changing indiviudal rate constants within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a></p></li>
+</ul>
+</dd>
+</dl>
 <div class="figure align-center" id="id5">
 <img alt="_images/fan_out_simulation.png" class="with-border" src="_images/fan_out_simulation.png" />
-<p class="caption"><span class="caption-text"><strong>Fan-Out Simulation</strong></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><strong>Fan-Out Simulation</strong> Template concentrations are specified with the <em>DNA_con</em> input in <em>molecular_species()</em> and non-zero initial conditions are specified with the <em>ic</em> input in <em>molecular_species()</em>. The transcription rate constant (<em>ktxn</em>) is changed for all species in <em>global_rate_constants()</em>. <em>krsd{3,5}</em> is changed in <em>molecular_species()</em> when G{3,5} is specified. <em>krep{1} is changed in *molecular_species()</em> when R{1} is specified.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Simple%20Examples/fan_out_simulation.py">Fan Out Simulation Python Script can be found here</a></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ctRSD_simulator_200</span> <span class="k">as</span> <span class="nn">RSDs</span> <span class="c1"># import latest simulator version</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># auxiliary packages needed in the script below, e.g., plotting</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># importing the simulator</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;filepath to simulator location on local computer&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">ctRSD_simulator_200</span> <span class="k">as</span> <span class="nn">RSDs</span> <span class="c1"># import latest version of the simulator</span>
+
 
 <span class="c1"># create the model instance</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">RSDs</span><span class="o">.</span><span class="n">RSD_sim</span><span class="p">()</span> <span class="c1"># default # of domains (5 domains)</span>
@@ -168,27 +235,51 @@
 <span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;R</span><span class="si">{5}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">ic</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
 
 <span class="c1"># simulating the model</span>
-<span class="n">t_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span><span class="o">*</span><span class="mi">3600</span> <span class="c1"># seconds</span>
+<span class="n">t_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span><span class="o">*</span><span class="mi">3600</span> <span class="c1"># simulating from 0 to 3 hours with 1000 increments (*3600 converts to seconds)</span>
 <span class="n">model</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">t_sim</span><span class="p">)</span> <span class="c1"># simulate the model</span>
 
 <span class="c1"># pull out the species from the model solution to plot</span>
-<span class="n">S1</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;S</span><span class="si">{1}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">S5</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;S</span><span class="si">{5}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">S1</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;S</span><span class="si">{1}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># S{1} is the output of reacted reporter R{1}</span>
+<span class="n">S5</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;S</span><span class="si">{5}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># S{5} is the output of reacted reporter R{5}</span>
+<span class="c1"># etc...</span>
+
+<span class="c1"># simple plotting code</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_sim</span><span class="p">,</span><span class="n">S1</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_sim</span><span class="p">,</span><span class="n">S5</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;cyan&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Concentration (nM)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="fan-out-fan-in-simulation">
 <h2>Fan-Out Fan-In Simulation<a class="headerlink" href="#fan-out-fan-in-simulation" title="Permalink to this headline">¶</a></h2>
-<p>Simulating the system below:</p>
+<p>Simulating the system below</p>
+<dl class="simple">
+<dt>Useful Features:</dt><dd><ul class="simple">
+<li><p>overveiw of setting up a basic simulation</p></li>
+<li><p>specifying more than the default number of domains within <a class="reference internal" href="ImportSim.html#importsim"><span class="std std-ref">RSD_sim()</span></a></p></li>
+<li><p>globally changing rate constants with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants()</span></a></p></li>
+<li><p>changing indiviudal rate constants within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a></p></li>
+</ul>
+</dd>
+</dl>
 <div class="figure align-center" id="id6">
 <img alt="_images/fan_out_fan_in_simulation.png" class="with-border" src="_images/fan_out_fan_in_simulation.png" />
-<p class="caption"><span class="caption-text"><strong>Fan-Out Fan-In Simulation</strong></span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><strong>Fan-Out Fan-In Simulation</strong> Template concentrations are specified with the <em>DNA_con</em> input in <em>molecular_species()</em> and non-zero initial conditions are specified with the <em>ic</em> input in <em>molecular_species()</em>. The transcription rate constant (<em>ktxn</em>) is changed for all species in <em>global_rate_constants()</em>. Rate constants for individual species are changed in <em>molecular_species()</em>. The total domains initialized in the model is increased to 8 when the model is initialized in <a class="reference internal" href="ImportSim.html#importsim"><span class="std std-ref">RSD_sim()</span></a>.</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </div>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Simple%20Examples/fan_out_fan_in_simulation.py">Fan Out Fan In Simulation Python Script can be found here</a></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ctRSD_simulator_200</span> <span class="k">as</span> <span class="nn">RSDs</span> <span class="c1"># import latest simulator version</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># auxiliary packages needed in the script below, e.g., plotting</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># importing simulator</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;filepath to simulator location on local computer&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">ctRSD_simulator_200</span> <span class="k">as</span> <span class="nn">RSDs</span> <span class="c1"># import latest version of the simulator</span>
+
 
 <span class="c1"># create the model instance</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">RSDs</span><span class="o">.</span><span class="n">RSD_sim</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="c1"># increasing # of domains to match highest index in system</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">RSDs</span><span class="o">.</span><span class="n">RSD_sim</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="c1"># increasing # of domains to match highest index in the system</span>
 
 <span class="n">model</span><span class="o">.</span><span class="n">global_rate_constants</span><span class="p">(</span><span class="n">ktxn</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span> <span class="c1"># changing the global transcription rate constant</span>
 
@@ -201,24 +292,48 @@
 <span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;R</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">ic</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
 
 <span class="c1"># simulating the model</span>
-<span class="n">t_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span><span class="o">*</span><span class="mi">3600</span> <span class="c1"># seconds</span>
+<span class="n">t_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span><span class="o">*</span><span class="mi">3600</span> <span class="c1"># simulating from 0 to 3 hours with 1000 increments (*3600 converts to seconds)</span>
 <span class="n">model</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">t_sim</span><span class="p">)</span> <span class="c1"># simulate the model</span>
 
 <span class="c1"># pull out the species from the model solution to plot</span>
-<span class="n">S2</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;S</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">S2</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;S</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">)</span>  <span class="c1"># S{2} is the output of a reacted reporter (R{2})</span>
+<span class="c1"># etc...</span>
+
+<span class="c1"># simple plotting code</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_sim</span><span class="p">,</span><span class="n">S2</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Concentration (nM)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="experimental-nomenclature">
 <h2>Experimental Nomenclature<a class="headerlink" href="#experimental-nomenclature" title="Permalink to this headline">¶</a></h2>
-<p>Simulating the systems below:</p>
+<p>Simulating the systems below</p>
+<dl class="simple">
+<dt>Useful Features:</dt><dd><ul class="simple">
+<li><p>overveiw of setting up a basic simulation</p></li>
+<li><p>using expanded experimental nomenclature when specifying components within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a></p></li>
+<li><p>globally changing rate constants with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants()</span></a></p></li>
+</ul>
+</dd>
+</dl>
 <div class="figure align-center" id="id7">
 <img alt="_images/exp_nomenclature_examples.png" class="with-border" src="_images/exp_nomenclature_examples.png" />
 <p class="caption"><span class="caption-text"><strong>Single gate reaction and two layer cascade with experimental nomenclature</strong> In ctRSD circuit experiments different input and output toeholds are often used. This, and the inclusion of other additional domains, leads to an expanded nomenclature compared to what is used in the simulator. Experimentalists may want to use the expanded nomenclature in their simulations to keep track of how circuits are linked together. The simulator allows for this expanded nomenclature by ignoring any letters before or after the input-output indices of a component. The code below highlights this feature.</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </div>
 <p>Note using the expanded nomenclature below does not change anything about the simulation. The simulator ignores the letters before or after the indices. This is merely a way to keep track of the experimental components in a simulation. If the different toeholds have different rate constants, these can be changed when each component is defined in <em>molecular_species()</em>, see <a class="reference internal" href="Simulator-Features.html#two-toehold"><span class="std std-ref">Two toehold cascade simulation</span></a></p>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Simple%20Examples/single_gate_reaction_exp_nomenclature.py">Single ctRSD Gate Reaction with Experimental Nomenclature Python Script can be found here</a></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># create the model instance</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># auxiliary packages needed in the script below, e.g., plotting</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># importing simulator</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;filepath to simulator location on local computer&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">ctRSD_simulator_200</span> <span class="k">as</span> <span class="nn">RSDs</span> <span class="c1"># import latest version of the simulator</span>
+
+
+<span class="c1"># create the model instance</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">RSDs</span><span class="o">.</span><span class="n">RSD_sim</span><span class="p">()</span> <span class="c1"># default # of domains (5 domains)</span>
 
 <span class="c1"># specify species involved in the system</span>
@@ -227,15 +342,31 @@
 <span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;R</span><span class="si">{w2}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">ic</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
 
 <span class="c1"># simulating the model</span>
-<span class="n">t_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span><span class="o">*</span><span class="mi">3600</span> <span class="c1"># seconds</span>
+<span class="n">t_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span><span class="o">*</span><span class="mi">3600</span> <span class="c1"># simulating from 0 to 3 hours with 1000 increments (*3600 converts to seconds)</span>
 <span class="n">model</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">t_sim</span><span class="p">)</span> <span class="c1"># simulate the model</span>
 
 <span class="c1"># pull out the species from the model solution to plot</span>
-<span class="n">S2</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;S</span><span class="si">{w2}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">S2</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;S</span><span class="si">{w2}</span><span class="s1">&#39;</span><span class="p">)</span>  <span class="c1"># S{w2} is the output of a reacted reporter (R{w2})</span>
+<span class="c1"># etc...</span>
+
+<span class="c1"># simple plotting code</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_sim</span><span class="p">,</span><span class="n">S2</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Concentration (nM)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Simple%20Examples/two_layer_simulation_exp_nomenclature.py">Two Layer Simulation with Experimental Nomenclature Python Script can be found here</a></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># create the model instance</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># auxiliary packages needed in the script below, e.g., plotting</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># importing simulator</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;filepath to simulator location on local computer&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">ctRSD_simulator_200</span> <span class="k">as</span> <span class="nn">RSDs</span> <span class="c1"># import latest version of the simulator</span>
+
+
+<span class="c1"># create the model instance</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">RSDs</span><span class="o">.</span><span class="n">RSD_sim</span><span class="p">()</span> <span class="c1"># default # of domains (5 domains)</span>
 
 <span class="n">model</span><span class="o">.</span><span class="n">global_rate_constants</span><span class="p">(</span><span class="n">ktxn</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span> <span class="c1"># changing the global transcription rate constant</span>
@@ -247,11 +378,17 @@
 <span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;R</span><span class="si">{u2}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">ic</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
 
 <span class="c1"># simulating the model</span>
-<span class="n">t_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span><span class="o">*</span><span class="mi">3600</span> <span class="c1"># seconds</span>
+<span class="n">t_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span><span class="o">*</span><span class="mi">3600</span> <span class="c1"># simulating from 0 to 3 hours with 1000 increments (*3600 converts to seconds)</span>
 <span class="n">model</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">t_sim</span><span class="p">)</span> <span class="c1"># simulate the model</span>
 
 <span class="c1"># pull out the species from the model solution to plot</span>
 <span class="n">S2</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;S</span><span class="si">{u2}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="c1"># etc...</span>
+
+<span class="c1"># simple plotting code</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_sim</span><span class="p">,</span><span class="n">S2</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Concentration (nM)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

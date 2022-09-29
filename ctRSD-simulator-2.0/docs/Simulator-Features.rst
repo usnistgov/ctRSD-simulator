@@ -6,6 +6,8 @@ Advanced Simulator Features
 
    All following examples are important features of the ctRSD-simulator-2.0.
 
+   Note the code blocks illustrate how to set examples up for a single set of initial conditions. The Python scripts on GitHub work through testing many different initial conditions, *i.e.*, changing which inputs are present.
+
 
 
 .. _calibration_simulation:
@@ -20,19 +22,28 @@ Calibration simulation shows the functionalities of the :ref:`transcription_cali
    The provided Python script includes the creation of a set of test data inputted into the function.
 
 
+
 `Calibration Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced%20Simulator%20Features/calibration_simulation.py>`_ 
 
 
 
 .. code-block:: python
 
-   import ctRSD_simulator_200 as RSDs # import latest simulator version
+   # auxiliary packages needed in the script below, e.g., plotting
+   import numpy as np
+   import matplotlib.pyplot as plt
+
+   # importing simulator
+   import sys
+   sys.path.insert(1,'filepath to simulator location on local computer')
+   import ctRSD_simulator_200 as RSDs # import latest version of the simulator
+
 
    # create the model instance
    model = RSDs.RSD_sim() # default # of domains (5 domains)
 
    # simulating the model
-   t_sim = np.linspace(0,6,1001)*3600 # seconds
+   t_sim = np.linspace(0,3,1001)*3600 # seconds
 
    # function call without ktxn specified will run against assortment of a preset values of transcription rate constants
    model.transcription_calibration(simTime=t_sim,data=experimental_data) 
@@ -75,12 +86,21 @@ Useful Features:
    * globally changing rate constants with :ref:`global_rate_constants() <global_rate_constants>`
    * changing indiviudal rate constants within :ref:`molecular_species <molecular_species>`
 
+
 `Discontinuous Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced%20Simulator%20Features/discontinuous_simulations.py>`_ 
 
 
 .. code-block:: python
 
-   import ctRSD_simulator_200 as RSDs # import latest simulator version
+   # auxiliary packages needed in the script below, e.g., plotting
+   import numpy as np
+   import matplotlib.pyplot as plt
+
+   # importing simulator
+   import sys
+   sys.path.insert(1,'filepath to simulator location on local computer')
+   import ctRSD_simulator_200 as RSDs # import latest version of the simulator
+
 
    # create the model instance
    model = RSDs.RSD_sim() # default # of domains (5 domains)
@@ -102,6 +122,11 @@ Useful Features:
 
    # pulling out the reporter concentration for plotting
    S2 = model.output_concentration('S{2}')
+
+   # simple plotting code
+   plt.plot(t_sim,S2,color='blue')
+   plt.xlabel('Time (s)')
+   plt.ylabel('Concentration (nM)')
 
 .. figure:: /ExampleImages/discontinuous_simulations.png
    :class: with-border
@@ -131,7 +156,15 @@ Useful Features:
 
 .. code-block:: python
 
-   import ctRSD_simulator_200 as RSDs # import latest simulator version
+   # auxiliary packages needed in the script below, e.g., plotting
+   import numpy as np
+   import matplotlib.pyplot as plt
+
+   # importing simulator
+   import sys
+   sys.path.insert(1,'filepath to simulator location on local computer')
+   import ctRSD_simulator_200 as RSDs # import latest version of the simulator
+
 
    # create the model instance
    model = RSDs.RSD_sim() # default # of domains (5 domains)
@@ -145,11 +178,16 @@ Useful Features:
    model.molecular_species('R{2}',ic=500)
 
    # simulating the model
-   t_sim = np.linspace(0,6,1001)*3600 # seconds
+   t_sim = np.linspace(0,3,1001)*3600 # seconds
    model.simulate(t_sim) # simulate the model
 
    # pull out the species from the model solution to plot
    S2 = model.output_concentration('S{2}')
+
+   # simple plotting code
+   plt.plot(t_sim,S2,color='blue')
+   plt.xlabel('Time (s)')
+   plt.ylabel('Concentration (nM)')
 
 
 .. figure:: /ExampleImages/degradation_simulations.png
@@ -167,7 +205,15 @@ The following degredation example simulates a system with degradation rates wher
 
 .. code-block:: python
 
-   import ctRSD_simulator_200 as RSDs # import latest simulator version
+   # auxiliary packages needed in the script below, e.g., plotting
+   import numpy as np
+   import matplotlib.pyplot as plt
+
+   # importing simulator
+   import sys
+   sys.path.insert(1,'filepath to simulator location on local computer')
+   import ctRSD_simulator_200 as RSDs # import latest version of the simulator
+
 
    # create the model instance
    model = RSDs.RSD_sim() # default # of domains (5 domains)
@@ -184,7 +230,7 @@ The following degredation example simulates a system with degradation rates wher
    model.molecular_species('R{2}',ic=500)
 
    # simulating the model
-   t_sim = np.linspace(0,6,1001)*3600 # seconds
+   t_sim = np.linspace(0,3,1001)*3600 # seconds
    model.simulate(t_sim) # simulate the model
 
    # pull out the species from the model solution to plot
@@ -192,6 +238,28 @@ The following degredation example simulates a system with degradation rates wher
    I1 = model.output_concentration('I{1}')
    G12 = model.output_concentration('G{1,2}')
    O12 = model.output_concentration('O{1,2}')
+
+   # simple plotting code
+   plt.subplot(2,4,1)
+   plt.plot(t_sim,I1,color='blue')
+   plt.xlabel('Time (s)')
+   plt.ylabel('Concentration (nM)')
+
+   plt.subplot(2,4,2)
+   plt.plot(t_sim,G12,color='blue')
+   plt.xlabel('Time (s)')
+   plt.ylabel('Concentration (nM)')
+
+   plt.subplot(2,4,3)
+   plt.plot(t_sim,O12,color='blue')
+   plt.xlabel('Time (s)')
+   plt.ylabel('Concentration (nM)')
+
+   plt.subplot(2,4,4)
+   plt.plot(t_sim,S2,color='blue')
+   plt.xlabel('Time (s)')
+   plt.ylabel('Concentration (nM)')
+
 
 
 .. figure:: /ExampleImages/degradationIndividRates_simulation.png
@@ -227,7 +295,15 @@ Useful Features:
    This example shows just the 4-layer cascade 
    '''
 
-   import ctRSD_simulator_200 as RSDs # import latest simulator version
+   # auxiliary packages needed in the script below, e.g., plotting
+   import numpy as np
+   import matplotlib.pyplot as plt
+
+   # importing simulator
+   import sys
+   sys.path.insert(1,'filepath to simulator location on local computer')
+   import ctRSD_simulator_200 as RSDs # import latest version of the simulator
+
 
    # create the model instance
    model = RSDs.RSD_sim() # default # of domains (5 domains)
@@ -247,11 +323,16 @@ Useful Features:
    model.molecular_species('R{u2}',ic=500)
 
    # simulating the model
-   t_sim = np.linspace(0,6,1001)*3600 # seconds
+   t_sim = np.linspace(0,3,1001)*3600 # seconds
    model.simulate(t_sim) # simulate the model
 
    # pull out the species from the model solution to plot
    S2 = model.output_concentration('S{2}')
+
+   # simple plotting code
+   plt.plot(t_sim,S2,color='blue')
+   plt.xlabel('Time (s)')
+   plt.ylabel('Concentration (nM)')
 
 
 AND Gate with Fuel Simulation
@@ -276,7 +357,15 @@ Useful Features:
 
 .. code-block:: python
 
-   import ctRSD_simulator_200 as RSDs # import latest simulator version
+   # auxiliary packages needed in the script below, e.g., plotting
+   import numpy as np
+   import matplotlib.pyplot as plt
+
+   # importing simulator
+   import sys
+   sys.path.insert(1,'filepath to simulator location on local computer')
+   import ctRSD_simulator_200 as RSDs # import latest version of the simulator
+
 
    # create the model instance
    model = RSDs.RSD_sim() # default # of domains (5 domains)
@@ -291,11 +380,17 @@ Useful Features:
    model.molecular_species('F{1}',DNA_con=25)
    
    # simulating the model
-   t_sim = np.linspace(0,6,1001)*3600 # seconds
+   t_sim = np.linspace(0,3,1001)*3600 # seconds
    model.simulate(t_sim) # simulate the model
 
    # pull out the species from the model solution to plot
    S2 = model.output_concentration('S{2}')
+
+   # simple plotting code
+   plt.plot(t_sim,S2,color='blue')
+   plt.xlabel('Time (s)')
+   plt.ylabel('Concentration (nM)')
+
 
 .. figure:: /ExampleImages/AGfuel_simulations.png
    :class: with-border
@@ -322,7 +417,15 @@ Useful Features:
 
 .. code-block:: python
 
-   import ctRSD_simulator_200 as RSDs # import latest simulator version
+   # auxiliary packages needed in the script below, e.g., plotting
+   import numpy as np
+   import matplotlib.pyplot as plt
+
+   # importing simulator
+   import sys
+   sys.path.insert(1,'filepath to simulator location on local computer')
+   import ctRSD_simulator_200 as RSDs # import latest version of the simulator
+
 
    # create the model instance
    model = RSDs.RSD_sim() # default # of domains (5 domains)
@@ -338,11 +441,16 @@ Useful Features:
    model.molecular_species('R{2}',ic=500)
    
    # simulating the model
-   t_sim = np.linspace(0,6,1001)*3600 # seconds
+   t_sim = np.linspace(0,3,1001)*3600 # seconds
    model.simulate(t_sim) # simulate the model
 
    # pull out the species from the model solution to plot
    S2 = model.output_concentration('S{2}')
+
+   # simple plotting code
+   plt.plot(t_sim,S2,color='blue')
+   plt.xlabel('Time (s)')
+   plt.ylabel('Concentration (nM)')
 
 
 .. figure:: /ExampleImages/AB+CD_simulations.png
@@ -376,7 +484,15 @@ Useful Features:
 
 .. code-block:: python
 
-   import ctRSD_simulator_200 as RSDs # import latest simulator version
+   # auxiliary packages needed in the script below, e.g., plotting
+   import numpy as np
+   import matplotlib.pyplot as plt
+
+   # importing simulator
+   import sys
+   sys.path.insert(1,'filepath to simulator location on local computer')
+   import ctRSD_simulator_200 as RSDs # import latest version of the simulator
+
 
    # create the model instance
    model = RSDs.RSD_sim() # default # of domains (5 domains)
@@ -390,11 +506,16 @@ Useful Features:
    model.molecular_species('R{2}',ic=500)
    
    # simulating the model
-   t_sim = np.linspace(0,6,1001)*3600 # seconds
+   t_sim = np.linspace(0,3,1001)*3600 # seconds
    model.simulate(t_sim) # simulate the model
 
    # pull out the species from the model solution to plot
    S2 = model.output_concentration('S{2}')
+
+   # simple plotting code
+   plt.plot(t_sim,S2,color='blue')
+   plt.xlabel('Time (s)')
+   plt.ylabel('Concentration (nM)')
 
 
 .. figure:: /ExampleImages/threshold_simulation.png
@@ -430,7 +551,15 @@ ctRSD seesaw element simulation
 
 .. code-block:: python
 
-   import ctRSD_simulator_200 as RSDs # import latest simulator version
+   # auxiliary packages needed in the script below, e.g., plotting
+   import numpy as np
+   import matplotlib.pyplot as plt
+
+   # importing simulator
+   import sys
+   sys.path.insert(1,'filepath to simulator location on local computer')
+   import ctRSD_simulator_200 as RSDs # import latest version of the simulator
+
 
    # create the model instance
    model = RSDs.RSD_sim() # default # of domains (5 domains)
@@ -450,11 +579,16 @@ ctRSD seesaw element simulation
    model.molecular_species('R{4}',ic=500)
 
    # simulating the model
-   t_sim = np.linspace(0,6,1001)*3600 # seconds
+   t_sim = np.linspace(0,4,1001)*3600 # seconds
    model.simulate(t_sim) # simulate the model
 
    # pull out the species from the model solution to plot
    S4 = model.output_concentration('S{4}')
+
+   # simple plotting code
+   plt.plot(t_sim,S4,color='purple')
+   plt.xlabel('Time (s)')
+   plt.ylabel('Concentration (nM)')
 
 
 .. figure:: /ExampleImages/seesaw_simulation_ctRSD.png
@@ -479,7 +613,15 @@ This simulation mimics a DNA strand displacment reaction by setting DNA_con to 0
 
 .. code-block:: python
 
-   import ctRSD_simulator_200 as RSDs # import latest simulator version
+   # auxiliary packages needed in the script below, e.g., plotting
+   import numpy as np
+   import matplotlib.pyplot as plt
+
+   # importing simulator
+   import sys
+   sys.path.insert(1,'filepath to simulator location on local computer')
+   import ctRSD_simulator_200 as RSDs # import latest version of the simulator
+
 
    # create the model instance
    model = RSDs.RSD_sim() # default # of domains (5 domains)
@@ -503,11 +645,16 @@ This simulation mimics a DNA strand displacment reaction by setting DNA_con to 0
    model.molecular_species('R{4}',ic=150)
    
    # simulating the model
-   t_sim = np.linspace(0,6,1001)*3600 # seconds
+   t_sim = np.linspace(0,4,1001)*3600 # seconds
    model.simulate(t_sim) # simulate the model
 
    # pull out the species from the model solution to plot
    S4 = model.output_concentration('S{4}')
+
+   # simple plotting code
+   plt.plot(t_sim,S4,color='purple')
+   plt.xlabel('Time (s)')
+   plt.ylabel('Concentration (nM)')
 
 
 .. figure:: /ExampleImages/seesaw_simulation_DNA.png
@@ -524,6 +671,7 @@ Comparator Gate Simulation
 Comparator Gate simulation shows a basic comparator gate reaction. This features shows the ability for a ctRSD circuit that compares the production rate of two inputs and only lets the input with the higher rate of product to the next layer of the circuit. Comparator gates are designed to function like the annihilator gates from `Scaling Up Molecular Pattern Recognition with DNA-Based Winner-Take-All Neural Networks (Cherry and Qian *Nature* 2018) <https://www.nature.com/articles/s41586-018-0289-6>`_.
 
 Useful Features:
+   * specifying more than the default number of domains within :ref:`RSD_sim() <ImportSim>`
    * specifying comparator gates in :ref:`molecular_species() <molecular_species>`
    * globally changing rate constants with :ref:`global_rate_constants() <global_rate_constants>`
    * changing indiviudal rate constants within :ref:`molecular_species() <molecular_species>`
@@ -540,7 +688,15 @@ Useful Features:
 
 .. code-block:: python
 
-   import ctRSD_simulator_200 as RSDs # import latest simulator version
+   # auxiliary packages needed in the script below, e.g., plotting
+   import numpy as np
+   import matplotlib.pyplot as plt
+
+   # importing simulator
+   import sys
+   sys.path.insert(1,'filepath to simulator location on local computer')
+   import ctRSD_simulator_200 as RSDs # import latest version of the simulator
+
 
    # create the model instance
    model = RSDs.RSD_sim(7) # specifying the domains as the highest index in the simulated system below
@@ -558,12 +714,19 @@ Useful Features:
    model.molecular_species('R{2}',ic=500)
    
    # simulating the model
-   t_sim = np.linspace(0,6,1001)*3600 # seconds
+   t_sim = np.linspace(0,4,1001)*3600 # seconds
    model.simulate(t_sim,smethod='BDF') # simulate the model ('BDF' method can speed up CG simulations)
 
    # pull out the species from the model solution to plot
    S1 = model.output_concentration('S{1}')
    S2 = model.output_concentration('S{2}')
+
+   # simple plotting code
+   plt.plot(t_sim,S1,color='red')
+   plt.plot(t_sim,S2,color='blue')
+   plt.xlabel('Time (s)')
+   plt.ylabel('Concentration (nM)')
+
 
 
 .. figure:: /ExampleImages/CG_simulations.png
@@ -594,6 +757,7 @@ Three Comparator Gate Simulation is an extension of the comparator gate simulati
 
 Useful Features:
    * simulating relatively large circuits
+   * specifying more than the default number of domains within :ref:`RSD_sim() <ImportSim>`
    * specifying comparator gates in :ref:`molecular_species() <molecular_species>`
    * globally changing rate constants with :ref:`global_rate_constants() <global_rate_constants>`
    * changing indiviudal rate constants within :ref:`molecular_species() <molecular_species>`
@@ -610,7 +774,15 @@ Useful Features:
 
 .. code-block:: python
 
-   import ctRSD_simulator_200 as RSDs # import latest simulator version
+   # auxiliary packages needed in the script below, e.g., plotting
+   import numpy as np
+   import matplotlib.pyplot as plt
+
+   # importing simulator
+   import sys
+   sys.path.insert(1,'filepath to simulator location on local computer')
+   import ctRSD_simulator_200 as RSDs # import latest version of the simulator
+
 
    # create the model instance
    model = RSDs.RSD_sim(7) # specifying the domains as the highest index in the simulated system below
@@ -644,6 +816,12 @@ Useful Features:
    S2 = model.output_concentration('S{2}')
    S3 = model.output_concentration('S{3}')
 
+   # simple plotting code
+   plt.plot(t_sim,S1,color='red')
+   plt.plot(t_sim,S2,color='blue')
+   plt.plot(t_sim,S3,color='orange')
+   plt.xlabel('Time (s)')
+   plt.ylabel('Concentration (nM)')
 
 .. figure:: /ExampleImages/threeCG_simulations.png
    :class: with-border

@@ -13,12 +13,38 @@ This section lists the different functions available within ctRSD-simulator-2.0.
    More information on these steps can be found :ref:`here <ImportSim>`.
 
 
+Quick reference
+-----------------
+
+**model.global_rate_constants(**kwargs**)** 
+	
+	Change specific rate constants for all the species involved in the reaction
+
+**model.molecular_species** (*name*, *DNA_con=0*, *ic='False'*,**kwargs**)
+
+	Specify species involved in a given simulation (*name*). Species names follow the conventions in :ref:`ctRSD Reaction Schematics <reaction_schematics>`. *DNA_con* specifies the DNA template concentration for transcribable species. *ic* specifies the initial concentration of the species in the simulation. The *kwargs* allow a specific rate constant for the individual species defined in *name* to be changed.
+
+**model.simulate** (*t_vec*, *smethod='False'*, *iteration=1*)
+
+	Simulate the specific model instance for the time specified in *t_vec*. *smethod* can specify different numerical solver techniques. *iteration* allows discontinuous simulations. See :ref:`discontinuous simulation example <discontinuous_simulation>`.
+
+**model.output_concentration** (*name*)
+
+	Pull out the concentrations of different species as a function of time after a simulation. *name* follows the same conventions as in *molecular_species()* and as in the :ref:`ctRSD Reaction Schematics <reaction_schematics>`
+
+**model.transcription_calibration** (*simTime*, *data* , *ktxn='False'*)
+
+	Calibrate the transcription rate constant to a reference experimental sample. See :ref:`calibration example <calibration_simulation>`.
 
 
 .. _global_rate_constants:
 
 global_rate_constants()
 ------------------------
+
+**model.global_rate_constants** (**kwargs**)
+
+with expanded keyword arguments (kwargs):
 
 **model.global_rate_constants** (*krz='False'*, *krsd='False'*, *krev='False'*, *krep='False'*, *krepr='False'*, 
 *kth='False'*, *krzTG='False'*,*krsdF='False'*, *krevF='False'*,
@@ -219,6 +245,10 @@ global_rate_constants is used to globally change rate constants for all species 
 
 molecular_species()
 --------------------
+
+**model.molecular_species** (*name*, *DNA_con=0*, *ic='False'*,**kwargs**)
+
+with expanded keyword arguments (kwargs):
 
 **model.molecular_species** (*name*, *DNA_con=0*, *ic='False'*, *krz='False'*, *krsd='False'*, *krev='False'*,
 *krep='False'*, *krepr='False'*, *kth='False'*, *krzTG='False'*, *krsdF='False'*,

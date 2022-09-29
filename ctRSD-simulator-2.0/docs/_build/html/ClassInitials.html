@@ -92,7 +92,8 @@
 <p>__init__(<em>domains=5</em>)</p>
 <dl class="simple">
 <dt><strong>Parameters:</strong></dt><dd><dl class="simple">
-<dt>domains: <em>int</em>, <em>if NONE, default=5</em></dt><dd><p>Numbers of input-output domains present in the simulated system. This needs to match the highest input or output index of the species indicated in <em>molecular_species()</em>. For example, if G{5,9} is specified, <em>domains</em> needs to be 9 or greater.</p>
+<dt>domains: <em>int</em>, <em>if NONE, default=5</em></dt><dd><p>The highest input or output index of the species indicated in <em>molecular_species()</em>. For example, if G{5,9} is specified, <em>domains</em> needs to be 9 or greater.
+This can be higher than the highest index in the system but it cannot be lower than the highest index in the system.</p>
 </dd>
 </dl>
 </dd>

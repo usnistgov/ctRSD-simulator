@@ -6,14 +6,14 @@ Created on Fri Jul 29 14:58:13 2022
 """
 
 import sys
-sys.path.insert(1,'C:\\Users\\sws5\OneDrive - National Institute of Standards and Technology (NIST)\\ctRSD simulator and documentation\\ctRSD-simulator\\ctRSD-simulator-2.0')
+sys.path.insert(1,'file path to location of simulator on local computer')
 import ctRSD_simulator_200 as RSDs #import simulator
 
 
 model = RSDs.RSD_sim() # define the model instance
 
-# file path to location of Excel file containing all the ctRSD domains
-filepath = 'C:\\Users\\sws5\OneDrive - National Institute of Standards and Technology (NIST)\\ctRSD simulator and documentation\\ctRSD-simulator\\ctRSD-simulator-2.0\\Sequence Compiler\\ctRSD_domains_list.xlsx'
+# file path for ctRSD Domains List
+filepath = 'file path to location of ctRSD_domains_list.xls on local computer'
 
 '''
 ###############################################################################

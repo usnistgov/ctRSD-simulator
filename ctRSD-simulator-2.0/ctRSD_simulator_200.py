@@ -74,15 +74,12 @@ Patch Notes ctRSD_simulator 2.0.0:
 
 import numpy as np
 import scipy.integrate as spi
-import matplotlib as mpl
 import matplotlib.pyplot as plt
-from matplotlib.ticker import MaxNLocator
 import re
-import time
 import math
 import xlrd
-xlrd.xlsx.ensure_elementtree_imported(False, None)
-xlrd.xlsx.Element_has_iter = True
+# xlrd.xlsx.ensure_elementtree_imported(False, None)
+# xlrd.xlsx.Element_has_iter = True
 
 '''
 ###############################################################################
@@ -214,40 +211,56 @@ def rate_eqs(t,y,ktxnO,ktxnG,ktxnTG,ktxnF,ktxnAG,ktxnCG,krz,krsd,krev,krep,krepr
     
     kdrd_ROmrsv = np.sum(ROm*kdrd,axis=0)
     
+    ###########################################################################
     ##Rate Equations
+    ###########################################################################
     duGm = (-krz*uGm + ktxnG*Gtempm - kdsduG*uGm).flatten()
+    
     dGm = (krz*uGm - (Omrsd @ (krsd*Gm))  + GOmrsd @ (krev*Om) - kdsdG*Gm).flatten()
+    
     dOm = (-kssdO*Om - (khybO*Om) @ Qm\
            -Om @ krsdCGb_CGmrsd + krevCG*CGObm - Om @ krsdCGa_CGmcsd + krevCG*CGOam - OMannB - OMannA \
            + Omrsd @ (krsdA*AGOam) -Om @ krsdA_AGmcsd - Om @ krsdA_AGOamcsd  + AGObmrsd @ (-krev*Om) + AGObm @ (krev_Omcsd) + AGmap @ (leakA*ktxnAG*AGtempm) \
            + GOm @ krsdFm - (krevF*Om) @ GFm + AGObm @ krsdFm - (krevF*Om) @ AGFbm\
            -kth*Om @ Thm \
            + ROm @ (krepr*Sm) + Omrsd @ (krsd*Gm) - Om @ krsd_Gmcsd - Om @ (krep*Rm) + GOmrsd @ (-krev*Om) + GOm @ krev_Omcsd  + leak*ktxnG*Gtempm + ktxnO*Otempm).flatten()
+   
     dGOm = (-kdsdGO*GOm \
             -GOm @ krsdFm + (krevF*Om) @ GFm \
             + Om @ krsd_Gmcsd - (GOm) @ krev_Omcsd ).flatten()
+    
     dRv = (-krep*Rv*Omrsv + krepr*Sv*ROmrsv + khybR*Sv*Qv)
+    
     dSv = (krep*Rv*Omrsv - krepr*Sv*ROmrsv - khybR*Sv*Qv)
+    
     dROm = (Om @ (krep*Rm) - ROm @ (krepr*Sm) - kdrd*ROm + (khybO*Om) @ Qm).flatten()
     
     duThv = (ktxnTG*Thtempv -krzTG*uThv -kdsduTG*uThv)
+    
     dThv = (krzTG*uThv -kth*Thv*Omrsv -kdsdTG*Thv)
     
     dFv = (ktxnF*Ftempv - krsdF*Fv*GOmrsv + krevF_Omrsv*GFv - kssdF*Fv \
            -krsdF*Fv*AGObmrsv + krevF_Omrsv*AGFbv)
+    
     dGFv = (krsdF*Fv*GOmrsv - krevF_Omrsv*GFv -kdsdGF*GFv)
     
     duAGm = (ktxnAG*AGtempm - krzA*uAGm - kdsduAG*uAGm).flatten()
+    
     dAGm = (krzA*uAGm - Omrsd @ (krsdA*AGm) - kdsdAG*AGm).flatten()
+    
     dAGOam = (AGmap @ (Om @ (krsdA*AGm)) - Omrsd @ (krsdA*AGOam) + AGObmrsd @ (krev*Om) -kdsdAGOa*AGOam).flatten()
+    
     dAGObm = (Om @ krsdA_AGOamcsd -AGObm@krev_Omcsd \
               -AGObm @ krsdFm + (krevF*Om) @ AGFbm -kdsdAGOb*AGObm).flatten()
     
     dAGFbv = krsdF*Fv*AGObmrsv - krevF_Omrsv*AGFbv -kdsdAGFb*AGFbv
     
     duCGm = (ktxnCG*CGtempm - krzCG*uCGm - kdsduCG*uCGm).flatten()
+    
     dCGm = (krzCG*uCGm  - (Omrsd @ (krsdCGb*CGm).T).T + CGmap @ krevCG_CGObmrsd - Omrsd@(krsdCGa*CGm) + krevCG_CGOamrsd @ CGmap - kdsdCG*CGm).flatten()
+    
     dCGOam = (Om @ krsdCGa_CGmcsd - krevCG*CGOam - CGOam @ krsdCG_CGannA -kdsdCGOa*CGOam).flatten()
+    
     dCGObm = (Om @ krsdCGb_CGmrsd - krevCG*CGObm - CGObm @ krsdCG_CGannB -kdsdCGOb*CGObm).flatten()
     
     dQv = (kdrd_ROmrsv - khybR*Sv*Qv - khybO_Omrsv*Qv)
@@ -687,7 +700,7 @@ class RSD_sim:
         if inps:
             inpInd1f = re.compile("\d+")
             inpInd1 = int(inpInd1f.search(name.lower()).group())-1
-                
+            
             self.Otemp_con[inpInd1,inpInd1]=DNA_con
             if ic != 'False':
                 self.O_ic[inpInd1,inpInd1]=ic
@@ -1170,6 +1183,7 @@ class RSD_sim:
         
         if max(np.sum(self.CGmap,axis=1)) > 1:
             print('Warning: CGs share the same index for the first input domain. Simulation results are only accurate if these indices are unique across all CGs')
+        
         
         if iteration == 1:
         

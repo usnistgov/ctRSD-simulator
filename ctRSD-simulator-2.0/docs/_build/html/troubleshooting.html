@@ -44,9 +44,11 @@
 <li class="toctree-l1"><a class="reference internal" href="Functions.html">Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SeqCompiler.html">Sequence Compiler</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#accessing-variables-in-the-simulator">Accessing Variables in the Simulator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#not-specifying-enough-domains-in-rsd-sim-initialization">Not specifying enough domains in RSD_sim() initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#simulations-taking-a-long-time">Simulations taking a long time</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#speeding-up-comparator-gate-simulations">Speeding Up Comparator Gate Simulations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#overriding-rate-constants">Overriding Rate Constants</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#accessing-variables-in-the-simulator">Accessing Variables in the Simulator</a></li>
 </ul>
 </li>
 </ul>
@@ -87,6 +89,73 @@
   <div class="section" id="troubleshooting">
 <span id="id1"></span><h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h1>
 <p>This page offers some useful tips to troubleshoot based off some of the problems we encountered when building the simulator.</p>
+<div class="section" id="accessing-variables-in-the-simulator">
+<h2>Accessing Variables in the Simulator<a class="headerlink" href="#accessing-variables-in-the-simulator" title="Permalink to this headline">¶</a></h2>
+<p>In order to troubleshoot a script utilizing the simulator, you may want to access different variables that are found in the simulator, but not locally available in your script. This can help with troubleshooting issues by making sure everything is defined as you think it should be.</p>
+<p><strong>A detailed description of the matrix setup of the model variables can be found at</strong> <a class="reference internal" href="Model-Implementation.html#detailedmodeldescription"><span class="std std-ref">Detailed Model Description</span></a>.</p>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note:</p>
+<p>Only varibles that have the “self” attachment are available to be accessed from outside the simulator (Ex: self.variable_name).</p>
+<p>If you wish to pull out a variable that does not currently have the self attachment, simply add “self.” before every occurence of that variable in the simulator.</p>
+</div>
+<p>In order to access any variable with the “self” attachment (Example Below):</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>The bulk of the simulator’s code (excluding the rate equations function) exists in the <em>RSDs_sim()</em> Python class. Therefore, as you would to run a simulation, you must first instantiate an object of the RSD_sim class. Details to do this can be found <a class="reference internal" href="ImportSim.html#importsim"><span class="std std-ref">here</span></a>.</p></li>
+<li><p>Assuming the model is downloaded, imported, and instantiated accessing a variable is very similar to calling one of the functions. You simply call the variable name with the name of the class object’s attachment. For example, if you defined the model instantiation as “model”, then the format for accessing a variable would be “model.variable_name”.</p></li>
+</ol>
+</div></blockquote>
+<div class="figure align-center" id="id2">
+<img alt="_images/Troubleshooting-accessingvariables.png" class="with-border" src="_images/Troubleshooting-accessingvariables.png" />
+<p class="caption"><span class="caption-text"><strong>How to access variables present in simulator</strong></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p><strong>Critical values to check for customized simulations include:</strong></p>
+<blockquote>
+<div><dl class="simple">
+<dt>The matrices holding DNA template concentrations</dt><dd><p>These are specified as <em>model.[name]temp_con</em>, where [name] can be G, O, TG, F, AG, CG</p>
+</dd>
+<dt>The matrices holding initial concentrations if these were changed in <em>molecular_species()</em></dt><dd><p>These are specified as <em>model.[name]_ic</em>, where [name] can be uG, G, GO, O, TG, F, AG, CG, R, S, Q, AGOa, AGOb, AGFb, CGOa, CGOb</p>
+</dd>
+<dt>The matrices holding rate constants if these were changed in <em>global_rate_constants()</em> or <em>molecular_species()</em></dt><dd><p>These are specified as <em>model.[name]</em>, where [name] is the name of the rate constant (ktxnO, krsd, krz, kdrd, kssdO, etc)</p>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="not-specifying-enough-domains-in-rsd-sim-initialization">
+<h2>Not specifying enough domains in RSD_sim() initialization<a class="headerlink" href="#not-specifying-enough-domains-in-rsd-sim-initialization" title="Permalink to this headline">¶</a></h2>
+<p>When initializing the model with <a class="reference internal" href="ImportSim.html#importsim"><span class="std std-ref">RSD_sim()</span></a>, the default number of domains used to initialize the model is 5. If the highest index of any domain of a species you define in <em>molecular_species()</em> is greater than 5 then an “index out of bounds” error will appear. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># create the model instance</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">RSDs</span><span class="o">.</span><span class="n">RSD_sim</span><span class="p">()</span> <span class="c1"># default # of domains (5 domains)</span>
+
+<span class="c1"># specify species involved in the system</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;G{7,2}&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>will produce an error because index 7 of G{7,2} exceeds the default number of domains (5) specified with <em>RSD_sim()</em>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">line</span> <span class="mi">30</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;G{7,2}&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+
+<span class="n">File</span> <span class="s2">&quot;filepath&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">779</span><span class="p">,</span> <span class="ow">in</span> <span class="n">molecular_species</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">Gtemp_con</span><span class="p">[</span><span class="n">gateInd1</span><span class="p">,</span><span class="n">gateInd2</span><span class="p">]</span><span class="o">=</span><span class="n">DNA_con</span>
+
+<span class="ne">IndexError</span><span class="p">:</span> <span class="n">index</span> <span class="mi">6</span> <span class="ow">is</span> <span class="n">out</span> <span class="n">of</span> <span class="n">bounds</span> <span class="k">for</span> <span class="n">axis</span> <span class="mi">0</span> <span class="k">with</span> <span class="n">size</span> <span class="mi">5</span>
+</pre></div>
+</div>
+<p>To fix this, the total number of domains initialized in <em>RSD_sim()</em> needs to be at least 7:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># create the model instance</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">RSDs</span><span class="o">.</span><span class="n">RSD_sim</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="c1"># increasing total number of domains for initialization to 7</span>
+
+<span class="c1"># specify species involved in the system</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;G{7,2}&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="simulations-taking-a-long-time">
+<h2>Simulations taking a long time<a class="headerlink" href="#simulations-taking-a-long-time" title="Permalink to this headline">¶</a></h2>
+<p>The simulation time increases as the number of domains in the system and the simulated time increases. So to speed up specific simulations you can try to minimize the number of domains necessary to describe the system and specify this minimum number of domains in <em>RSD_sim()</em> during initialization. You can also decrease the total simulated time (t_sim).</p>
+<p>We primarily saw issues with simulations taking a long time to solve for systems with comparator gates (CG) and additional tips for those specific types or simulations are covered below.</p>
+<p>Changing the <em>smethod</em> in <a class="reference internal" href="Functions.html#simulate"><span class="std std-ref">simulate</span></a> can also speed up simulations but numerical instabilities are also possible.</p>
+</div>
 <div class="section" id="speeding-up-comparator-gate-simulations">
 <h2>Speeding Up Comparator Gate Simulations<a class="headerlink" href="#speeding-up-comparator-gate-simulations" title="Permalink to this headline">¶</a></h2>
 <p>Due to comparator gate reactions utilizing very disparate time scales, simulations using comparator gates may have a much slower time efficiency than the other reactions. Below are some different options for reducing the simulation time when using comparator gates.</p>
@@ -108,45 +177,14 @@
 </ol>
 </dd>
 </dl>
-<div class="figure align-center" id="id2">
-<img alt="_images/Troubleshooting-overriding1.png" class="with-border" src="_images/Troubleshooting-overriding1.png" />
-<p class="caption"><span class="caption-text"><strong>global_rate_constants before molecular species</strong></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</div>
 <div class="figure align-center" id="id3">
-<img alt="_images/Troubleshooting-overriding2.png" class="with-border" src="_images/Troubleshooting-overriding2.png" />
-<p class="caption"><span class="caption-text"><strong>molecular_species before global_rate_constants</strong></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<img alt="_images/Troubleshooting-overriding1.png" class="with-border" src="_images/Troubleshooting-overriding1.png" />
+<p class="caption"><span class="caption-text"><strong>global_rate_constants before molecular species</strong></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
-</div>
-<div class="section" id="accessing-variables-in-the-simulator">
-<h2>Accessing Variables in the Simulator<a class="headerlink" href="#accessing-variables-in-the-simulator" title="Permalink to this headline">¶</a></h2>
-<p>In order to troubleshoot a script utilizing the simulator, you may want to access different variables that are found in the simulator, but not locally available in your script.</p>
-<div class="admonition-note admonition">
-<p class="admonition-title">Note:</p>
-<p>Only varibles that have the “self” attachment are available to be accessed from outside the simulator (Ex: self.variable_name).</p>
-<p>If you wish to pull out a variable that does not currently have the self attachment, simply add “self.” before every occurence of that variable in the simulator.</p>
-</div>
-<p>In order to access any variable with the “self” attachment (Example Below):</p>
-<blockquote>
-<div><ol class="arabic simple">
-<li><p>The bulk of the simulator’s code (excluding the rate equations function) exists in the RSDs_sim Python class. Therefore, as you would to run a simulation, you must first instantiate an object of the RSD_sim class. Details to do this can be found <a class="reference internal" href="ImportSim.html#importsim"><span class="std std-ref">here</span></a>.</p></li>
-<li><p>Assuming the model is downloaded, imported, and instantiated accessing a variable is very similar to calling one of the functions. You simply the call the variable name with the name of the class object’s attachment. For example, if you defined the model instantiation as “model”, then the format for accessing a variable would be “model.variable_name”.</p></li>
-</ol>
-</div></blockquote>
 <div class="figure align-center" id="id4">
-<img alt="_images/Troubleshooting-accessingvariables.png" class="with-border" src="_images/Troubleshooting-accessingvariables.png" />
-<p class="caption"><span class="caption-text"><strong>How to access variables present in simulator</strong></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<img alt="_images/Troubleshooting-overriding2.png" class="with-border" src="_images/Troubleshooting-overriding2.png" />
+<p class="caption"><span class="caption-text"><strong>molecular_species before global_rate_constants</strong></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
-<p><strong>Critical values to check for customized simulations include:</strong></p>
-<blockquote>
-<div><dl class="simple">
-<dt>The matrices holding DNA template concentrations</dt><dd><p>These are specified as <em>model.[name]temp_con</em>, where [name] can be G, O, TG, F, AG, CG</p>
-</dd>
-<dt>The matrices holding initial concentrations if these were changed in <em>molecular_species()</em></dt><dd><p>These are specified as <em>model.[name]_ic</em>, where [name] can be uG, G, GO, O, TG, F, AG, CG, R, S, Q, AGOa, AGOb, AGFb, CGOa, CGOb</p>
-</dd>
-<dt>The matrices holding rate constants if these were changed in <em>global_rate_constants()</em> <em>molecular_species()</em></dt><dd><p>These are specified as <em>model.[name]</em>, where [name] is the name of the rate constant (ktxnO, krsd, krz, kdrd, kssdO, etc)</p>
-</dd>
-</dl>
-</div></blockquote>
 </div>
 </div>
 

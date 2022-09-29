@@ -7,7 +7,7 @@
 
    The following examples simulate figures from the 2022 Science Advances paper (Schaffter and Strychalski), `Cotranscriptionally encoded RNA strand displacement circuits <https://www.science.org/doi/10.1126/sciadv.abl4354>`_. See the paper for a detailed description of each experiment and/or simulation.
 
-   In that paper a relatively weak output toehold was used with domain 2 for reportering. So in the following scripts, gates with output domain 2 have their reverse strand displacement rate constant decreased in *molecular_species()*.
+   In that paper a relatively weak output toehold was used with domain 2 for reportering. So in the following scripts, gates with output domain 2 have their reverse strand displacement rate constant decreased compared to the default in *molecular_species()*.
 
 
 Figure 2D

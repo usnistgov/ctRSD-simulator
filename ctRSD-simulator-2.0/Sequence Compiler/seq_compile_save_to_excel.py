@@ -6,8 +6,14 @@ Created on Fri Jul 29 14:58:13 2022
 """
 
 import sys
-sys.path.insert(1,'C:\\Users\\tnm12\\SURF')
-import Simulatorv2021 as RSDs #import simulator
+sys.path.insert(1,'file path to location of simulator on local computer')
+import ctRSD_simulator_200 as RSDs #import simulator
+
+
+model = RSDs.RSD_sim() # define the model instance
+
+# file path for ctRSD Domains List
+filepath = 'file path to location of ctRSD_domains_list.xls on local computer'
 
 
 import xlwt
@@ -20,9 +26,6 @@ wb = Workbook()
   
 # add_sheet is used to create sheet.
 sheet1 = wb.add_sheet('Sequences')
-
-# file path for ctRSD Domains List
-filepath = 'C:\\Users\\tnm12\\SURF\\SeqCompiler\\ctRSD_domains_list.xlsx'
 
 # names of species sequences will be compiled for
 names = ['G{v4,u1}','I{u1}','TG{v2}','F{v1}','CG{u2,v1}']

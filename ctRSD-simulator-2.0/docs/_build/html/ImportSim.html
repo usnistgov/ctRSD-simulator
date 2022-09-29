@@ -81,8 +81,12 @@
              
   <div class="section" id="installing-and-initializing-simulator">
 <span id="importsim"></span><h1>Installing and Initializing Simulator<a class="headerlink" href="#installing-and-initializing-simulator" title="Permalink to this headline">¶</a></h1>
+<p><strong>The following packages are used internally within the simulator and will need to be installed and available in the Python environment the simulator is running within:</strong>
+<em>numpy</em>, <em>scipy</em>, <em>matplotlib</em>, <em>re</em>, <em>math</em>, <em>xlrd</em></p>
+<p>If you are new to Python we recommend downloading Anaconda &lt;<a class="reference external" href="https://www.anaconda.com/">https://www.anaconda.com/</a>&gt;`, which should automatically have the necessary auxiliary Python packages/libraries installed. We primarily used the Spyder IDE to develop this code and would also recommend that for new users of Python. However, there can be issues with getting Spyder to launch from Anaconda, particularly for Mac users.</p>
+<p>Jupyter Notebook is another good option running routine simulations - the simulation code can be split into small managable chucks that typically only need minor edits across simulations: initialize model, change rate constants and populate molecular species / conditions, simulate, and plotting.</p>
 <dl class="simple">
-<dt><strong>Before you can use all the functions and features of ctRSD-simulator-2.0, you must first follow thse steps:</strong></dt><dd><ol class="arabic simple">
+<dt><strong>Before you can use all the functions and features of ctRSD-simulator-2.0, you must first follow these steps:</strong></dt><dd><ol class="arabic simple">
 <li><p><a class="reference internal" href="index.html#id1"><span class="std std-ref">download</span></a> ctRSD-simulator-2.0</p></li>
 <li><p>import the simulator in your Python script</p></li>
 <li><p>Instantiate the simulator’s <a class="reference internal" href="ClassInitials.html#class"><span class="std std-ref">class</span></a> -&gt; input is # of domains (default=5)</p></li>
@@ -90,24 +94,60 @@
 </ol>
 </dd>
 </dl>
-<p><strong>The following packages are required for full capabilities:</strong>
-<em>numpy</em>, <em>scipy</em>, <em>matplotlib</em>, <em>re</em>, <em>math</em>, <em>xlrd</em></p>
 <div class="admonition-note admonition">
 <p class="admonition-title">Note:</p>
-<p>You will need to import the simulator package in your local script to use it. After downloading a local copy of the package you can import the package with the following code:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>        <span class="kn">import</span> <span class="nn">sys</span>
-        <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;filepath of simulator on your computer&#39;</span><span class="p">)</span>
-        <span class="kn">import</span> <span class="nn">ctRSD_simulator_200</span> <span class="k">as</span> <span class="nn">RSDs</span>
-
-
-<span class="n">Note</span> <span class="o">*</span><span class="n">ctRSD_simulator_200</span><span class="o">*</span> <span class="n">refers</span> <span class="n">to</span> <span class="n">the</span> <span class="n">name</span> <span class="n">of</span> <span class="n">latest</span> <span class="n">simulator</span> <span class="n">package</span> <span class="n">downloaded</span> <span class="kn">from</span> <span class="nn">GitHub</span>
+<p>You will need to import the simulator package in your local script to use it. After downloading a local copy of the package you can import the package with the code below. Note <em>ctRSD_simulator_200</em> refers to the name of latest simulator package downloaded from GitHub</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;filepath of simulator on your computer&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">ctRSD_simulator_200</span> <span class="k">as</span> <span class="nn">RSDs</span>
 </pre></div>
 </div>
 </div>
-<p>Please use figure below as an example of these steps.</p>
-<div class="figure align-center" id="id1">
-<img alt="_images/modelImportEx.png" class="with-border" src="_images/modelImportEx.png" />
-<p class="caption"><span class="caption-text"><strong>Code Snippet of Steps Above</strong></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p>Please use figure below as an example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing any additional packages for specific use in this script</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># STEP 2 - add the path to the local copy of the simulator (an example path is shown below)</span>
+<span class="c1">#                       - import the simulator</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Users</span><span class="se">\\</span><span class="s1">Name</span><span class="se">\\</span><span class="s1">Documents</span><span class="se">\\</span><span class="s1">SimFolder&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">ctRSD_simulator_200</span> <span class="k">as</span> <span class="nn">RSDs</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">As will most Python classes, the model must be instantiated before accessing its functions/features.</span>
+
+<span class="sd">The model&#39;s class has an input that is the number of domains necessary for simulating a system</span>
+<span class="sd">(the default if no input is provided is 5 domains)</span>
+<span class="sd">The number of domains needs to be &gt;= the highest domain index of the components specified in molecular_species() for a given simulation</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="c1"># STEP 3 - create a model instance</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">RSDs</span><span class="o">.</span><span class="n">sim</span><span class="p">()</span> <span class="c1"># default number of domains (5)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Now that a model instance has been created the model functions can be used</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="c1"># STEP 4 - set up a simulation</span>
+
+<span class="c1"># molecular_species() function</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="n">I</span><span class="p">{</span><span class="mi">1</span><span class="p">},</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="n">G</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">},</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="n">R</span><span class="p">{</span><span class="mi">2</span><span class="p">},</span><span class="n">ic</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="c1"># simulate() function</span>
+<span class="n">sim_time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span><span class="o">*</span><span class="mi">3600</span> <span class="c1"># seconds of simulation time</span>
+<span class="n">model</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">sim_time</span><span class="p">)</span>
+
+<span class="c1"># output_concentration() function</span>
+<span class="n">S2</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_concentration</span><span class="p">(</span><span class="s1">&#39;S</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># plotting</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sim_time</span><span class="p">,</span><span class="n">S2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (seconds)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Reacted reporter (nM)&#39;</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
 

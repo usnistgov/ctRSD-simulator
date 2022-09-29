@@ -42,6 +42,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ImportSim.html">Installing and Initializing Simulator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ClassInitials.html">RSD_sim Class</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#quick-reference">Quick reference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#global-rate-constants">global_rate_constants()</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#molecular-species">molecular_species()</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#simulate">simulate()</a></li>
@@ -94,8 +95,33 @@
 <p>Before all available functions can be accessed the model must be downloaded, imported, and instantiated!</p>
 <p>More information on these steps can be found <a class="reference internal" href="ImportSim.html#importsim"><span class="std std-ref">here</span></a>.</p>
 </div>
+<div class="section" id="quick-reference">
+<h2>Quick reference<a class="headerlink" href="#quick-reference" title="Permalink to this headline">¶</a></h2>
+<p><strong>model.global_rate_constants(**kwargs</strong>)**</p>
+<blockquote>
+<div><p>Change specific rate constants for all the species involved in the reaction</p>
+</div></blockquote>
+<p><strong>model.molecular_species</strong> (<em>name</em>, <em>DNA_con=0</em>, <em>ic=’False’</em>,**kwargs**)</p>
+<blockquote>
+<div><p>Specify species involved in a given simulation (<em>name</em>). Species names follow the conventions in <a class="reference internal" href="Model-Implementation.html#reaction-schematics"><span class="std std-ref">ctRSD Reaction Schematics</span></a>. <em>DNA_con</em> specifies the DNA template concentration for transcribable species. <em>ic</em> specifies the initial concentration of the species in the simulation. The <em>kwargs</em> allow a specific rate constant for the individual species defined in <em>name</em> to be changed.</p>
+</div></blockquote>
+<p><strong>model.simulate</strong> (<em>t_vec</em>, <em>smethod=’False’</em>, <em>iteration=1</em>)</p>
+<blockquote>
+<div><p>Simulate the specific model instance for the time specified in <em>t_vec</em>. <em>smethod</em> can specify different numerical solver techniques. <em>iteration</em> allows discontinuous simulations. See <a class="reference internal" href="Simulator-Features.html#discontinuous-simulation"><span class="std std-ref">discontinuous simulation example</span></a>.</p>
+</div></blockquote>
+<p><strong>model.output_concentration</strong> (<em>name</em>)</p>
+<blockquote>
+<div><p>Pull out the concentrations of different species as a function of time after a simulation. <em>name</em> follows the same conventions as in <em>molecular_species()</em> and as in the <a class="reference internal" href="Model-Implementation.html#reaction-schematics"><span class="std std-ref">ctRSD Reaction Schematics</span></a></p>
+</div></blockquote>
+<p><strong>model.transcription_calibration</strong> (<em>simTime</em>, <em>data</em> , <em>ktxn=’False’</em>)</p>
+<blockquote>
+<div><p>Calibrate the transcription rate constant to a reference experimental sample. See <a class="reference internal" href="Simulator-Features.html#calibration-simulation"><span class="std std-ref">calibration example</span></a>.</p>
+</div></blockquote>
+</div>
 <div class="section" id="global-rate-constants">
 <span id="id2"></span><h2>global_rate_constants()<a class="headerlink" href="#global-rate-constants" title="Permalink to this headline">¶</a></h2>
+<p><strong>model.global_rate_constants</strong> (<strong>kwargs</strong>)</p>
+<p>with expanded keyword arguments (kwargs):</p>
 <p><strong>model.global_rate_constants</strong> (<em>krz=’False’</em>, <em>krsd=’False’</em>, <em>krev=’False’</em>, <em>krep=’False’</em>, <em>krepr=’False’</em>,
 <em>kth=’False’</em>, <em>krzTG=’False’</em>,*krsdF=’False’<em>, *krevF=’False’</em>,
 <em>krsdA=’False’</em>, <em>krzA=’False’</em>, <em>krevCG=’False’</em>,
@@ -236,6 +262,8 @@ To change inputs individually change ktxnO in <em>molecular_species()</em> with 
 </div>
 <div class="section" id="molecular-species">
 <span id="id3"></span><h2>molecular_species()<a class="headerlink" href="#molecular-species" title="Permalink to this headline">¶</a></h2>
+<p><strong>model.molecular_species</strong> (<em>name</em>, <em>DNA_con=0</em>, <em>ic=’False’</em>,**kwargs**)</p>
+<p>with expanded keyword arguments (kwargs):</p>
 <p><strong>model.molecular_species</strong> (<em>name</em>, <em>DNA_con=0</em>, <em>ic=’False’</em>, <em>krz=’False’</em>, <em>krsd=’False’</em>, <em>krev=’False’</em>,
 <em>krep=’False’</em>, <em>krepr=’False’</em>, <em>kth=’False’</em>, <em>krzTG=’False’</em>, <em>krsdF=’False’</em>,
 <em>krevF=’False’</em>, <em>krsdA=’False’</em>, <em>krzA=’False’</em>, <em>krevCG=’False’</em>, <em>krevCGa=’False’</em>, <em>krevCGb=’False’</em>,

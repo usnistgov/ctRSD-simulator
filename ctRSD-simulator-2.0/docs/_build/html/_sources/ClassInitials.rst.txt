@@ -16,7 +16,8 @@ __init__(*domains=5*)
 
 **Parameters:**
 	domains: *int*, *if NONE, default=5* 
-		Numbers of input-output domains present in the simulated system. This needs to match the highest input or output index of the species indicated in *molecular_species()*. For example, if G{5,9} is specified, *domains* needs to be 9 or greater.
+		The highest input or output index of the species indicated in *molecular_species()*. For example, if G{5,9} is specified, *domains* needs to be 9 or greater.
+		This can be higher than the highest index in the system but it cannot be lower than the highest index in the system.
 
 
 

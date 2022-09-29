@@ -21,6 +21,8 @@ There are a few things to note about the way the rate constant matrices are defi
 
 2)  The reverse rate constants for RNA strand displacement reactions are associated with the outputs. This means the rate constant for a reverse strand displacement reaction for a specific output, for example O{1,3}, can be changed and that rate constant will be used with all GO{} species that react with the output, i.e., GO{4,1} and GO{5,1} will both use the reverse rate constant associated with O{1,3}. It is not possible to give GO{4,1} and GO{5,1} unique reverse rate constants for a strand displacement reaction with O{1,3} (or any output with input domain index 1). **Changes to reverse RNA strand displacement reactions for individual outputs should be done in the** :ref:`molecular_species() <molecular_species>` **function when defining the outputs, or when defining the gates – the reverse rate that is defined with a gate with correspond to the output of that gate.** NOTE: because inputs are stored on the diagonal of the output matrix the diagonal of the reverse RNA strand displacement rate constant matrix is set to 0. This is because inputs only possess an output domain index and cannot participate in reverse RNA strand displacement reactions
 
+.. _reaction_schematics:
+
 ctRSD Reaction Schematics
 -------------------------
 

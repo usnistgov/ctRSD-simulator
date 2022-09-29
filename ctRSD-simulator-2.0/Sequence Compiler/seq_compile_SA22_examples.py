@@ -1,13 +1,13 @@
 
 import sys
-sys.path.insert(1,'C:\\Users\\sws5\OneDrive - National Institute of Standards and Technology (NIST)\\ctRSD simulator and documentation\\ctRSD-simulator\\ctRSD-simulator-2.0')
-import Simulatorv2021 as RSDs #import simulator
+sys.path.insert(1,'file path to location of simulator on local computer')
+import ctRSD_simulator_200 as RSDs #import simulator
 
 
 model = RSDs.RSD_sim() # define the model instance
 
 # file path for ctRSD Domains List
-filepath = 'C:\\Users\\sws5\OneDrive - National Institute of Standards and Technology (NIST)\\ctRSD simulator and documentation\\ctRSD-simulator\\ctRSD-simulator-2.0\\Sequence Compiler\\ctRSD_domains_list.xlsx'
+filepath = 'file path to location of ctRSD_domains_list.xls on local computer'
 
 
 '''
@@ -96,23 +96,9 @@ gate_1_2r_10a = model.ctRSD_seq_compile('G{u010-1,w2r}',filepath)
 
 gate_1_2r_12a = model.ctRSD_seq_compile('G{u012-1,w2r}',filepath)
 
-I1_4a = model.ctRSD_seq_compile('I{u04-1}',filepathterm='T7tA',ds=['pet1'])
+I1_4a = model.ctRSD_seq_compile('I{u04-1}',filepath,term='T7tA',ds=['pet1'])
 
-I1_8a = model.ctRSD_seq_compile('I{u08-1}',filepathterm='T7tA',ds=['pet1'])
+I1_8a = model.ctRSD_seq_compile('I{u08-1}',filepath,term='T7tA',ds=['pet1'])
 
-I1_10a = model.ctRSD_seq_compile('I{u010-1}',filepathterm='T7tA',ds=['pet1'])
-
-'''
-###############################################################################
-# Figure 6, inverted transcription order
-###############################################################################
-'''   
-
-
-
-'''
-###############################################################################
-# SI Figure 4 extended input branch migration domains
-###############################################################################
-'''
+I1_10a = model.ctRSD_seq_compile('I{u010-1}',filepath,term='T7tA',ds=['pet1'])
 

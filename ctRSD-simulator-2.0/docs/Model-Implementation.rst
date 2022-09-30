@@ -93,7 +93,7 @@ Comparator Gate Reactions
 Detailed model description
 --------------------------
 
-.. figure:: /ExampleImages/matrix_description.png
+.. figure:: /ExampleImages/matrix_description2.png
    :class: with-border
    :align: center
 

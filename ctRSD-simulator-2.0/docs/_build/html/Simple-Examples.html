@@ -100,7 +100,7 @@
 </dd>
 </dl>
 <div class="figure align-center" id="id3">
-<img alt="_images/single_gate_reaction.png" src="_images/single_gate_reaction.png" />
+<img alt="_images/single_gate_reaction2.png" src="_images/single_gate_reaction2.png" />
 <p class="caption"><span class="caption-text"><strong>Single ctRSD Gate Reaction</strong> Template concentrations are specified with the <em>DNA_con</em> input in <em>molecular_species()</em> and non-zero initial conditions are specified with the <em>ic</em> input in <em>molecular_species()</em>.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Simple%20Examples/single_gate_reaction.py">Single ctRSD Gate Reaction Python Script can be found here</a></p>
@@ -152,7 +152,7 @@
 </dd>
 </dl>
 <div class="figure align-center" id="id4">
-<img alt="_images/two_layer_simulation.png" class="with-border" src="_images/two_layer_simulation.png" />
+<img alt="_images/two_layer_simulation2.png" class="with-border" src="_images/two_layer_simulation2.png" />
 <p class="caption"><span class="caption-text"><strong>Two-Layer Cascade Simulation</strong> Template concentrations are specified with the <em>DNA_con</em> input in <em>molecular_species()</em> and non-zero initial conditions are specified with the <em>ic</em> input in <em>molecular_species()</em>. The transcription rate constant (<em>ktxn</em>) is changed for all species in <em>global_rate_constants()</em>.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Simple%20Examples/two_layer_simulation.py">Two Layer Cascade Simulation Python Script can be found here</a></p>
@@ -208,7 +208,7 @@
 </dd>
 </dl>
 <div class="figure align-center" id="id5">
-<img alt="_images/fan_out_simulation.png" class="with-border" src="_images/fan_out_simulation.png" />
+<img alt="_images/fan_out_simulation2.png" class="with-border" src="_images/fan_out_simulation2.png" />
 <p class="caption"><span class="caption-text"><strong>Fan-Out Simulation</strong> Template concentrations are specified with the <em>DNA_con</em> input in <em>molecular_species()</em> and non-zero initial conditions are specified with the <em>ic</em> input in <em>molecular_species()</em>. The transcription rate constant (<em>ktxn</em>) is changed for all species in <em>global_rate_constants()</em>. <em>krsd{3,5}</em> is changed in <em>molecular_species()</em> when G{3,5} is specified. <em>krep{1} is changed in *molecular_species()</em> when R{1} is specified.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Simple%20Examples/fan_out_simulation.py">Fan Out Simulation Python Script can be found here</a></p>
@@ -264,7 +264,7 @@
 </dd>
 </dl>
 <div class="figure align-center" id="id6">
-<img alt="_images/fan_out_fan_in_simulation.png" class="with-border" src="_images/fan_out_fan_in_simulation.png" />
+<img alt="_images/fan_out_fan_in_simulation2.png" class="with-border" src="_images/fan_out_fan_in_simulation2.png" />
 <p class="caption"><span class="caption-text"><strong>Fan-Out Fan-In Simulation</strong> Template concentrations are specified with the <em>DNA_con</em> input in <em>molecular_species()</em> and non-zero initial conditions are specified with the <em>ic</em> input in <em>molecular_species()</em>. The transcription rate constant (<em>ktxn</em>) is changed for all species in <em>global_rate_constants()</em>. Rate constants for individual species are changed in <em>molecular_species()</em>. The total domains initialized in the model is increased to 8 when the model is initialized in <a class="reference internal" href="ImportSim.html#importsim"><span class="std std-ref">RSD_sim()</span></a>.</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </div>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Simple%20Examples/fan_out_fan_in_simulation.py">Fan Out Fan In Simulation Python Script can be found here</a></p>
@@ -318,7 +318,7 @@
 </dd>
 </dl>
 <div class="figure align-center" id="id7">
-<img alt="_images/exp_nomenclature_examples.png" class="with-border" src="_images/exp_nomenclature_examples.png" />
+<img alt="_images/exp_nomenclature_examples2.png" class="with-border" src="_images/exp_nomenclature_examples2.png" />
 <p class="caption"><span class="caption-text"><strong>Single gate reaction and two layer cascade with experimental nomenclature</strong> In ctRSD circuit experiments different input and output toeholds are often used. This, and the inclusion of other additional domains, leads to an expanded nomenclature compared to what is used in the simulator. Experimentalists may want to use the expanded nomenclature in their simulations to keep track of how circuits are linked together. The simulator allows for this expanded nomenclature by ignoring any letters before or after the input-output indices of a component. The code below highlights this feature.</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </div>
 <p>Note using the expanded nomenclature below does not change anything about the simulation. The simulator ignores the letters before or after the indices. This is merely a way to keep track of the experimental components in a simulation. If the different toeholds have different rate constants, these can be changed when each component is defined in <em>molecular_species()</em>, see <a class="reference internal" href="Simulator-Features.html#two-toehold"><span class="std std-ref">Two toehold cascade simulation</span></a></p>

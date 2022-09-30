@@ -19,7 +19,7 @@ Useful Features:
    * overveiw of setting up a basic simulation
 
 
-.. figure:: /ExampleImages/single_gate_reaction.png
+.. figure:: /ExampleImages/single_gate_reaction2.png
    :align: center
 
    **Single ctRSD Gate Reaction** Template concentrations are specified with the *DNA_con* input in *molecular_species()* and non-zero initial conditions are specified with the *ic* input in *molecular_species()*. 
@@ -79,7 +79,7 @@ Useful Features:
    * globally changing rate constants with :ref:`global_rate_constants() <global_rate_constants>`
 
 
-.. figure:: /ExampleImages/two_layer_simulation.png
+.. figure:: /ExampleImages/two_layer_simulation2.png
    :class: with-border
    :align: center
 
@@ -143,7 +143,7 @@ Useful Features:
    * changing indiviudal rate constants within :ref:`molecular_species() <molecular_species>`
 
 
-.. figure:: /ExampleImages/fan_out_simulation.png
+.. figure:: /ExampleImages/fan_out_simulation2.png
    :class: with-border
    :align: center
 
@@ -207,7 +207,7 @@ Useful Features:
    * changing indiviudal rate constants within :ref:`molecular_species() <molecular_species>`
 
 
-.. figure:: /ExampleImages/fan_out_fan_in_simulation.png
+.. figure:: /ExampleImages/fan_out_fan_in_simulation2.png
    :class: with-border
    :align: center
 
@@ -267,7 +267,7 @@ Useful Features:
    * globally changing rate constants with :ref:`global_rate_constants() <global_rate_constants>`
 
 
-.. figure:: /ExampleImages/exp_nomenclature_examples.png
+.. figure:: /ExampleImages/exp_nomenclature_examples2.png
    :class: with-border
    :align: center
 

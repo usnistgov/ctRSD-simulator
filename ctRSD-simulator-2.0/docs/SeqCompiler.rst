@@ -28,12 +28,12 @@ Function Overview
 
 The figures below illustrate the various options for the sequence compiler. Note, the comparator gates (CG) and thresholding gates (TG) have not been exhaustively tested in experiments and their exact designs might be subject to change in future iterations.
 
-.. figure:: /ExampleImages/seq_compile_F1.png
+.. figure:: /ExampleImages/seq_compile_F1_2.png
    :class: with-border
    :align: center
 
    **Overview of input, gate, and output definitions and options** 
-   (**A**) RSD domains are domains relevant to RNA strand displacement and are specified in the name variable. i,j,k refer to toehold domains and X and Y refer to branch migration domains which can be 1,2,3,4,5,…etc. If only the name variable is specified, the default transcriptional encoding parameters will be used. The transcriptional encoding parameters refer to domains appended to the RSD domains to facilitate transcription of the ctRSD components. The names of the optional keyword arguments are shown for each component in the second row. The third row shows the schematics if the transcription order is inverted by setting the invert keyword argument to 1. For outputs it is also possible to specify otype=1 to produce an output sequence that does not contain a ribozyme. (**B**) In addition to the options shown in panel A, there are other domains that can be specified. (Left) Reporter domains: domains necessary for irreversible reactions with a fluorescent reporter complex (r). These are specified solely in the name variable. Note there is a unique r domain for each output domain, i.e., an r for domain 1 and an r for domain 2, etc. (Right) Extended domains: domains that extend the branch migration length of components. These can be specified in either the input, output or both domains of a gate. Although not shown, extended domains are also an option for outputs. The existence of an extended domain is specified in the name variable and the identity of the extended domain is specified with the keyword arguments eI and eO. Note that inputs require the eO keyword be used to specify the identity of the output domain.  
+   (**A**) RSD domains are domains relevant to RNA strand displacement and are specified in the name variable. i,j,k refer to toehold domains and X and Y refer to branch migration domains which can be 1,2,3,4,5,…etc. If only the name variable is specified, the default transcriptional encoding parameters will be used. The transcriptional encoding parameters refer to domains appended to the RSD domains to facilitate transcription of the ctRSD components. The names of the optional keyword arguments are shown for each component in the second row. The third row shows the schematics if the transcription order is inverted by setting the invert keyword argument to 1. For outputs it is also possible to specify otype=0 to produce an output sequence that does not contain a ribozyme. (**B**) In addition to the options shown in panel A, there are other domains that can be specified. (Left) Reporter domains: domains necessary for irreversible reactions with a fluorescent reporter complex (r). These are specified solely in the name variable. Note there is a unique r domain for each output domain, i.e., an r for domain 1 and an r for domain 2, etc. (Right) Extended domains: domains that extend the branch migration length of components. These can be specified in either the input, output or both domains of a gate. Although not shown, extended domains are also an option for outputs. The existence of an extended domain is specified in the name variable and the identity of the extended domain is specified with the keyword arguments eI and eO. Note that inputs require the eO keyword be used to specify the identity of the output domain.  
 
 
 .. figure:: /ExampleImages/seq_compile_F2.png
@@ -114,7 +114,7 @@ Function Documentation
 		For AND gates only, the number of bases in the internal loop toehold for the second input on an AND gate. This can be 5 bases (default) or 6 bases.
 
 	otype: *Boolean*, *optional*, *if NONE,1*
-		Specifying the type of output strand to encode. 1 refers to an output that has a ribozyme sequence at the 3' end mimic the cleaved output of a ctRSD reaction. 0 refers to an output sequence that ends in a terminator and does not use a ribozyme.
+		Specifying the type of output strand to encode. 1 (default) refers to an output that has a ribozyme sequence at the 3' end to mimic the cleaved output of a ctRSD reaction. 0 refers to an output sequence that ends in a terminator and does not use a ribozyme.
 
 	rna: *Boolean*, *optional*, *if NONE,0*
 		Make the output sequence the RNA encoded in the template rather than the DNA template sequence.

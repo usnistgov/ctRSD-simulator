@@ -364,8 +364,8 @@ class RSD_sim:
         # Initial template concentrations
         self.Gtemp_con = 0*np.ones((domains,domains))  # single RNA gates
         self.Otemp_con = 0*np.ones((domains,domains)) # Outputs
-        self.TGtemp_con = np.array(domains*[0]) # threshold gates
-        self.Ftemp_con = np.array(domains*[0]) # fuels
+        self.TGtemp_con = 0*np.ones(domains) # threshold gates
+        self.Ftemp_con = 0*np.ones(domains) # fuels
         self.AGtemp_con = 0*np.ones((domains,domains)) # and gates
         self.CGtemp_con = 0*np.ones((domains,domains)) # comparator gates
         
@@ -373,17 +373,17 @@ class RSD_sim:
         self.uG_ic = 0*np.ones((domains,domains)) # uncleaved gates
         self.GO_ic = 0*np.ones((domains,domains)) # gate:output complexes
         self.G_ic = 0*np.ones((domains,domains)) 
-        self.R_ic = np.array(domains*[0]) # reporters
+        self.R_ic = 0*np.ones(domains) # reporters
         self.RO_ic =  0*np.ones((domains,domains))
-        self.S_ic = np.array(domains*[0])
+        self.S_ic = 0*np.ones(domains)
         self.O_ic = 0*np.ones((domains,domains)) # Outputs
         self.rep_ic_flag = np.array(domains*[0]) # saves if the reporter con was updated
         
-        self.uTG_ic = np.array(domains*[0])
-        self.TG_ic = np.array(domains*[0])
+        self.uTG_ic = 0*np.ones(domains)
+        self.TG_ic = 0*np.ones(domains)
         
-        self.F_ic = np.array(domains*[0])
-        self.GF_ic = np.array(domains*[0])
+        self.F_ic = 0*np.ones(domains)
+        self.GF_ic = 0*np.ones(domains)
         
         self.uAG_ic = 0*np.ones((domains,domains))
         self.AG_ic = 0*np.ones((domains,domains))
@@ -397,9 +397,9 @@ class RSD_sim:
         self.CGOb_ic = 0*np.ones((domains,domains))
         self.CGmap = 0*np.ones((domains,domains))  
         
-        self.AGFb_ic = np.array(domains*[0])
+        self.AGFb_ic = 0*np.ones(domains)
         
-        self.Q_ic = np.array(domains*[0])
+        self.Q_ic = 0*np.ones(domains)
         
         # Rate constant definitions
         self.ktxnO = 0.013*np.ones((domains,domains))
@@ -418,7 +418,7 @@ class RSD_sim:
             self.krev[x,x] = 0
             
         self.krep = np.array(domains*[1e4 / 1e9])
-        self.krepr = np.array(domains*[0])
+        self.krepr = 0*np.ones(domains)
         self.kth = np.array(domains*[1e5 / 1e9])
         self.krzTG = np.array(domains*[.00417])
         self.krsdF = np.array(domains*[1e3 / 1e9])
@@ -434,18 +434,18 @@ class RSD_sim:
         self.krevCG = (1)*np.ones((domains,domains))
         
         self.kssdO = 0*np.ones((domains,domains))
-        self.kssdF = np.array(domains*[0])
+        self.kssdF = 0*np.ones(domains)
         self.kdsduG = 0*np.ones((domains,domains))
         self.kdsdG = 0*np.ones((domains,domains))
         self.kdsdGO = 0*np.ones((domains,domains))
-        self.kdsdGF = np.array(domains*[0])
-        self.kdsduTG = np.array(domains*[0])
-        self.kdsdTG = np.array(domains*[0])
+        self.kdsdGF = 0*np.ones(domains)
+        self.kdsduTG = 0*np.ones(domains)
+        self.kdsdTG = 0*np.ones(domains)
         self.kdsduAG = 0*np.ones((domains,domains))
         self.kdsdAG = 0*np.ones((domains,domains))
         self.kdsdAGOa = 0*np.ones((domains,domains))
         self.kdsdAGOb = 0*np.ones((domains,domains))
-        self.kdsdAGFb = np.array(domains*[0])
+        self.kdsdAGFb = 0*np.ones(domains)
         self.kdsduCG = 0*np.ones((domains,domains))
         self.kdsdCG = 0*np.ones((domains,domains))
         self.kdsdCGOa = 0*np.ones((domains,domains))
@@ -577,7 +577,7 @@ class RSD_sim:
             
         if kdeg != 'False':
             self.kssdO = kdeg*np.ones((self.N,self.N))
-            self.kssdF = np.array(self.N*[kdeg])
+            self.kssdF = kdeg*np.ones(self.N)
             self.kdsduG = kdeg*np.ones((self.N,self.N))
             self.kdsdG = kdeg*np.ones((self.N,self.N))
             self.kdsdGO = kdeg*np.ones((self.N,self.N))
@@ -585,19 +585,19 @@ class RSD_sim:
             self.kdsdAG = kdeg*np.ones((self.N,self.N))
             self.kdsduCG = kdeg*np.ones((self.N,self.N))
             self.kdsdCG = kdeg*np.ones((self.N,self.N))
-            self.kdsdGF = np.array(self.N*[kdeg])
-            self.kdsduTG = np.array(self.N*[kdeg])
-            self.kdsdTG = np.array(self.N*[kdeg])
+            self.kdsdGF = kdeg*np.ones(self.N)
+            self.kdsduTG = kdeg*np.ones(self.N)
+            self.kdsdTG = kdeg*np.ones(self.N)
             self.kdsdAGOa = kdeg*np.ones((self.N,self.N))
             self.kdsdAGOb = kdeg*np.ones((self.N,self.N))
-            self.kdsdAGFb = np.array(self.N*[kdeg])
+            self.kdsdAGFb = kdeg*np.ones(self.N)
             self.kdsdCGOa = kdeg*np.ones((self.N,self.N))
             self.kdsdCGOb = kdeg*np.ones((self.N,self.N))
             self.kdrd = kdeg*np.ones((self.N,self.N))
             
         if kssd != 'False':
             self.kssdO = kssd*np.ones((self.N,self.N))
-            self.kssdF = np.array(self.N*[kssd])
+            self.kssdF = kssd*np.ones(self.N)
         
         if kdsd != 'False':
             self.kdsduG = kdsd*np.ones((self.N,self.N))
@@ -607,22 +607,22 @@ class RSD_sim:
             self.kdsdAG = kdsd*np.ones((self.N,self.N))
             self.kdsduCG = kdsd*np.ones((self.N,self.N))
             self.kdsdCG = kdsd*np.ones((self.N,self.N))
-            self.kdsdGF = np.array(self.N*[kdsd])
-            self.kdsduTG = np.array(self.N*[kdsd])
-            self.kdsdTG = np.array(self.N*[kdsd])
+            self.kdsdGF = kdsd*np.ones(self.N)
+            self.kdsduTG = kdsd*np.ones(self.N)
+            self.kdsdTG = kdsd*np.ones(self.N)
             self.kdsdAGOa = kdsd*np.ones((self.N,self.N))
             self.kdsdAGOb = kdsd*np.ones((self.N,self.N))
-            self.kdsdAGFb = np.array(self.N*[kdsd])
+            self.kdsdAGFb = kdsd*np.ones(self.N)
             self.kdsdCGOa = kdsd*np.ones((self.N,self.N))
             self.kdsdCGOb = kdsd*np.ones((self.N,self.N))
         
         if khybO != 'False':
             self.khybO = khybO*np.ones((self.N,self.N))
         if khybR != 'False':
-            self.khybR = np.array(self.N*[khybR])
+            self.khybR = khybR*np.ones(self.N)
         if khyb != 'False':
             self.khybO = khyb*np.ones((self.N,self.N))
-            self.khybR = np.array(self.N*[khyb])
+            self.khybR = khyb*np.ones(self.N)
             
         if leak != 'False':
             self.leak = leak*np.ones((self.N,self.N))

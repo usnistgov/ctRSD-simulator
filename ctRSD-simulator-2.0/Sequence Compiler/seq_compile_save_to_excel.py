@@ -13,7 +13,7 @@ import ctRSD_simulator_200 as RSDs #import simulator
 model = RSDs.RSD_sim() # define the model instance
 
 # file path for ctRSD Domains List
-filepath = 'file path to location of ctRSD_domains_list.xls on local computer'
+filepath = '\\file path\\ctRSD_domains_list.xls'
 
 
 import xlwt

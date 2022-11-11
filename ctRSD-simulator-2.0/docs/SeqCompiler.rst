@@ -75,6 +75,7 @@ Function Documentation
 	
 	filepath: *string*
 		Local file path for ctRSD domains list Excel sheet. Donwload :ref:`here <DownloadDomainsList>`.
+		This needs to include the filename of the Excel sheet: /local file path/ctRSD_domains_list.xls
 	
 	Rz: *string*, *optional*, *if NONE,default='Ro'*
 		Ribozyme sequence.
@@ -150,7 +151,7 @@ First Steps:
 	# create the model instance
 	model = RSDs.RSD_sim() # default # of domains (5 domains)
 
-	filepath = 'filepath to ctRSD_domains_list.xls location on local computer'
+	filepath = '//File Path//ctRSD_domains_list.xls'
 
 	# use the experimental nomenclature to specify the sequence you want
 	Gate_seq = model.ctRSD_seq_compile('G{u1,w2r}',filepath)

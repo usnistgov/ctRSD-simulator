@@ -78,7 +78,7 @@ Function Documentation
 		This needs to include the filename of the Excel sheet: /local file path/ctRSD_domains_list.xls
 	
 	Rz: *string*, *optional*, *if NONE,default='Ro'*
-		Ribozyme sequence.
+		Ribozyme sequence. Denoting an 'x' before the ribozyme sequence name (for example: 'xRo') will use an inactive ribozyme mutant.
 
 	L: *string*, *optional*, *if NONE,default='L'*
 		Linker sequence adjacent to the 5' end of the ribozyme.
@@ -118,7 +118,7 @@ Function Documentation
 		Specifying the type of output strand to encode. 1 (default) refers to an output that has a ribozyme sequence at the 3' end to mimic the cleaved output of a ctRSD reaction. 0 refers to an output sequence that ends in a terminator and does not use a ribozyme.
 
 	rna: *Boolean*, *optional*, *if NONE,0*
-		Make the output sequence the RNA encoded in the template rather than the DNA template sequence.
+		Set rna = 1 to have the output sequence be the RNA encoded by the DNA template rather than the DNA template sequence. For RNA sequences with a ribozyme a '|' will denote the cleavage site. xRz sequences (inactive ribozyme mutants) will not indicate the cleavage site.
 
 	us: *list*, *optional*, *if NONE,[]*
 		List of upstream sequences to append to the DNA template. Sequences will be appended 5' to 3' upstream of the promoter in the order they are specified in the list.

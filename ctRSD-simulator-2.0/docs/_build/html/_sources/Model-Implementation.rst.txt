@@ -26,7 +26,9 @@ There are a few things to note about the way the rate constant matrices are defi
 ctRSD Reaction Schematics
 -------------------------
 
-Below the subscript "temp" indicates a DNA transcription template that encodes for the RNA species specified in its name.
+Below the subscript "temp" indicates a DNA transcription template that encodes for the RNA species specified in its name. 
+
+We model RNA transcription and degradation using a first order approximation for enzyme kinetics. From this approximation the transcription rate is linearly proportional to the template concentration, *e.g.,* ktxnO{k,i}*[Otemp{k,i}] where ktxn{k,i} is the apparent first order rate constant for production of RNA from Otemp{k,i}. Likewise, the degradation rates (if included in the model) are linearly proportional to the concentration of RNA, *e.g.,* kssdO{i,j}*[O{i,j}].
 
 Base ctRSD Reactions
 ++++++++++++++++++++

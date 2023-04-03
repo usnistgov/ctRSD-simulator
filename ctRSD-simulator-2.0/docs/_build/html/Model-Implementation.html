@@ -66,6 +66,7 @@
 <p class="caption"><span class="caption-text">Examples from Publications:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="SA_Examples.html">2022 Science Advances Paper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ACS_syn_biol_Examples.html">2023 ACS Synthetic Biology Paper</a></li>
 </ul>
 
         </div>
@@ -109,6 +110,7 @@
 <div class="section" id="ctrsd-reaction-schematics">
 <span id="reaction-schematics"></span><h2>ctRSD Reaction Schematics<a class="headerlink" href="#ctrsd-reaction-schematics" title="Permalink to this headline">¶</a></h2>
 <p>Below the subscript “temp” indicates a DNA transcription template that encodes for the RNA species specified in its name.</p>
+<p>We model RNA transcription and degradation using a first order approximation for enzyme kinetics. From this approximation the transcription rate is linearly proportional to the template concentration, <em>e.g.,</em> ktxnO{k,i}*[Otemp{k,i}] where ktxn{k,i} is the apparent first order rate constant for production of RNA from Otemp{k,i}. Likewise, the degradation rates (if included in the model) are linearly proportional to the concentration of RNA, <em>e.g.,</em> kssdO{i,j}*[O{i,j}].</p>
 <div class="section" id="base-ctrsd-reactions">
 <h3>Base ctRSD Reactions<a class="headerlink" href="#base-ctrsd-reactions" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-center" id="id1">

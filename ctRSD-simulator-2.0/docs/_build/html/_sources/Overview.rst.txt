@@ -2,7 +2,7 @@ Overview
 ===============================================
 Welcome to the documentation for ctRSD-simulator-2.0! 
 
-Download ctRSD-simulator-2.0.0 version -> `DOWNLOAD <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/ctRSD_simulator_200.py>`_ 
+Download ctRSD-simulator-2.0.0 version -> `DOWNLOAD <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0>`_ 
 
 ctRSD-simulator-2.0 was designed to be a comprehensive, scalable, and user-friendly model for simulating the kinetics of contranscriptionally encoded RNA strand displacement (ctRSD) circuits. 
 

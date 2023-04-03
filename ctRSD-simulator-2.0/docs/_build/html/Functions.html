@@ -47,7 +47,6 @@
 <li class="toctree-l2"><a class="reference internal" href="#molecular-species">molecular_species()</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#simulate">simulate()</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#output-concentration">output_concentration()</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#transcription-calibration">transcription_calibration()</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="SeqCompiler.html">Sequence Compiler</a></li>
@@ -61,6 +60,7 @@
 <p class="caption"><span class="caption-text">Examples from Publications:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="SA_Examples.html">2022 Science Advances Paper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ACS_syn_biol_Examples.html">2023 ACS Synthetic Biology Paper</a></li>
 </ul>
 
         </div>
@@ -112,10 +112,6 @@
 <p><strong>model.output_concentration</strong> (<em>name</em>)</p>
 <blockquote>
 <div><p>Pull out the concentrations of different species as a function of time after a simulation. <em>name</em> follows the same conventions as in <em>molecular_species()</em> and as in the <a class="reference internal" href="Model-Implementation.html#reaction-schematics"><span class="std std-ref">ctRSD Reaction Schematics</span></a></p>
-</div></blockquote>
-<p><strong>model.transcription_calibration</strong> (<em>simTime</em>, <em>data</em> , <em>ktxn=’False’</em>)</p>
-<blockquote>
-<div><p>Calibrate the transcription rate constant to a reference experimental sample. See <a class="reference internal" href="Simulator-Features.html#calibration-simulation"><span class="std std-ref">calibration example</span></a>.</p>
 </div></blockquote>
 </div>
 <div class="section" id="global-rate-constants">
@@ -423,24 +419,6 @@ This changes the entire j-th column of the <em>krevCG</em> matrix.</p>
 </ul>
 </dd>
 </dl>
-</dd>
-</dl>
-</dd>
-</dl>
-</div>
-<div class="section" id="transcription-calibration">
-<span id="id6"></span><h2>transcription_calibration()<a class="headerlink" href="#transcription-calibration" title="Permalink to this headline">¶</a></h2>
-<p><strong>model.transcription_calibration</strong> (<em>simTime</em>, <em>data</em> , <em>ktxn=’False’</em>)</p>
-<p>transcription_calibration is used to test different transcription rates against an inputted set of data and its corresponding time values. The user can test their data against a base set of rates set in the function, or can specify their own rate(s).</p>
-<dl>
-<dt><strong>Parameters:</strong></dt><dd><dl>
-<dt>simTime: <em>array, type=float</em></dt><dd><p>Array of time points corresponding to the inputted data set.</p>
-</dd>
-<dt>data: <em>array, type=float</em></dt><dd><p>User data set.</p>
-</dd>
-<dt>ktxn: <em>Multiple Inputs: list(type=float), Single Input: float</em>, <em>optional</em></dt><dd><p>Transcription rate(s) the user wishes to calibrate using the dataset. If more than one transcription rate is being inputted, the rates must be formatted as a list, which can be of any length.</p>
-<p>If NONE, simulator will use a base set of transcription rates. (k_txn = [0.005,0.0075,0.01,0.0125,.015,.02])</p>
-<p>Example of transcription_calibration can be found <a class="reference internal" href="Simulator-Features.html#calibration-simulation"><span class="std std-ref">here</span></a>.</p>
 </dd>
 </dl>
 </dd>

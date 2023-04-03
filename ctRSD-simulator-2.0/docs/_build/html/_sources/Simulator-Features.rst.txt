@@ -9,64 +9,6 @@ Advanced Simulator Features
    Note the code blocks illustrate how to set examples up for a single set of initial conditions. The Python scripts on GitHub work through testing many different initial conditions, *i.e.*, changing which inputs are present.
 
 
-
-.. _calibration_simulation:
-
-Calibration Simulation
-----------------------
-
-Calibration simulation shows the functionalities of the :ref:`transcription_calibration() <transcription_calibration>` function. The function is used for testing different transcription rates in order to find the best fit rate for an inputted data set. The user can test their data against a base set of transcription rates provided by the function, or specify what specfic rate(s) they would like to test.
-
-.. admonition:: Note:
-
-   The provided Python script includes the creation of a set of test data inputted into the function.
-
-
-
-`Calibration Simulation Python Script can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced%20Simulator%20Features/calibration_simulation.py>`_ 
-
-
-
-.. code-block:: python
-
-   # auxiliary packages needed in the script below, e.g., plotting
-   import numpy as np
-   import matplotlib.pyplot as plt
-
-   # importing simulator
-   import sys
-   sys.path.insert(1,'filepath to simulator location on local computer')
-   import ctRSD_simulator_200 as RSDs # import latest version of the simulator
-
-
-   # create the model instance
-   model = RSDs.RSD_sim() # default # of domains (5 domains)
-
-   # simulating the model
-   t_sim = np.linspace(0,3,1001)*3600 # seconds
-
-   # function call without ktxn specified will run against assortment of a preset values of transcription rate constants
-   model.transcription_calibration(simTime=t_sim,data=experimental_data) 
-
-   # function call with ktxn specified runs data against specified transcription rate constants (also works with single value)
-   model.transcription_calibration(simTime=t_sim,data=experimental_data,ktxn=[0.005,0.0075,0.01,0.0125,.015,.02,.02125,.025,.0275]) 
-
-
-.. figure:: /ExampleImages/calibration_simulation_baserates.svg
-   :align: center
-
-
-
-   **Calibration Against Base Rates**
-
-
-
-.. figure:: /ExampleImages/calibration_simulation_specifiedrates.svg
-   :align: center
-
-   **Calibration Against Specified Rates**
-
-
 .. _discontinuous_simulation:
 
 

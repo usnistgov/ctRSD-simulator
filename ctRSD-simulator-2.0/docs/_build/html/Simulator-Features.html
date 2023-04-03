@@ -49,7 +49,6 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Simple-Examples.html">Simple Examples</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Advanced Simulator Features</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#calibration-simulation">Calibration Simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#discontinuous-simulation">Discontinuous Simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#degradation-simulation">Degradation Simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#two-toehold-cascade-simulation">Two-Toehold Cascade Simulation</a></li>
@@ -69,6 +68,7 @@
 <p class="caption"><span class="caption-text">Examples from Publications:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="SA_Examples.html">2022 Science Advances Paper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ACS_syn_biol_Examples.html">2023 ACS Synthetic Biology Paper</a></li>
 </ul>
 
         </div>
@@ -102,46 +102,8 @@
 <p>All following examples are important features of the ctRSD-simulator-2.0.</p>
 <p>Note the code blocks illustrate how to set examples up for a single set of initial conditions. The Python scripts on GitHub work through testing many different initial conditions, <em>i.e.</em>, changing which inputs are present.</p>
 </div>
-<div class="section" id="calibration-simulation">
-<span id="id1"></span><h2>Calibration Simulation<a class="headerlink" href="#calibration-simulation" title="Permalink to this headline">¶</a></h2>
-<p>Calibration simulation shows the functionalities of the <a class="reference internal" href="Functions.html#transcription-calibration"><span class="std std-ref">transcription_calibration()</span></a> function. The function is used for testing different transcription rates in order to find the best fit rate for an inputted data set. The user can test their data against a base set of transcription rates provided by the function, or specify what specfic rate(s) they would like to test.</p>
-<div class="admonition-note admonition">
-<p class="admonition-title">Note:</p>
-<p>The provided Python script includes the creation of a set of test data inputted into the function.</p>
-</div>
-<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced%20Simulator%20Features/calibration_simulation.py">Calibration Simulation Python Script can be found here</a></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># auxiliary packages needed in the script below, e.g., plotting</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="c1"># importing simulator</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;filepath to simulator location on local computer&#39;</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">ctRSD_simulator_200</span> <span class="k">as</span> <span class="nn">RSDs</span> <span class="c1"># import latest version of the simulator</span>
-
-
-<span class="c1"># create the model instance</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">RSDs</span><span class="o">.</span><span class="n">RSD_sim</span><span class="p">()</span> <span class="c1"># default # of domains (5 domains)</span>
-
-<span class="c1"># simulating the model</span>
-<span class="n">t_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span><span class="o">*</span><span class="mi">3600</span> <span class="c1"># seconds</span>
-
-<span class="c1"># function call without ktxn specified will run against assortment of a preset values of transcription rate constants</span>
-<span class="n">model</span><span class="o">.</span><span class="n">transcription_calibration</span><span class="p">(</span><span class="n">simTime</span><span class="o">=</span><span class="n">t_sim</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">experimental_data</span><span class="p">)</span>
-
-<span class="c1"># function call with ktxn specified runs data against specified transcription rate constants (also works with single value)</span>
-<span class="n">model</span><span class="o">.</span><span class="n">transcription_calibration</span><span class="p">(</span><span class="n">simTime</span><span class="o">=</span><span class="n">t_sim</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">experimental_data</span><span class="p">,</span><span class="n">ktxn</span><span class="o">=</span><span class="p">[</span><span class="mf">0.005</span><span class="p">,</span><span class="mf">0.0075</span><span class="p">,</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.0125</span><span class="p">,</span><span class="o">.</span><span class="mi">015</span><span class="p">,</span><span class="o">.</span><span class="mi">02</span><span class="p">,</span><span class="o">.</span><span class="mi">02125</span><span class="p">,</span><span class="o">.</span><span class="mi">025</span><span class="p">,</span><span class="o">.</span><span class="mi">0275</span><span class="p">])</span>
-</pre></div>
-</div>
-<div class="figure align-center" id="id4">
-<img alt="_images/calibration_simulation_baserates.svg" src="_images/calibration_simulation_baserates.svg" /><p class="caption"><span class="caption-text"><strong>Calibration Against Base Rates</strong></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-center" id="id5">
-<img alt="_images/calibration_simulation_specifiedrates.svg" src="_images/calibration_simulation_specifiedrates.svg" /><p class="caption"><span class="caption-text"><strong>Calibration Against Specified Rates</strong></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
-</div>
-</div>
 <div class="section" id="discontinuous-simulation">
-<span id="id2"></span><h2>Discontinuous Simulation<a class="headerlink" href="#discontinuous-simulation" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>Discontinuous Simulation<a class="headerlink" href="#discontinuous-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Discontinuous Simulation provides guidance for the usage of discontinuous feature of ctRSD-simulator-2.0. This feature allows the user to run a simulation for a specific amount of time using any desired conditions, and then apply a different set of conditions for the next time span, until the end of the simulation. The user has the ability to change the conditions for a given amount of time across the entire length of the simulation as many times as needed. Also, full function of the different features of the simulator are available to be changed for different time spans of the total simulaton time. In the example script, G{1,2} is transcribed alongside a R{2} for 60 min and then the template for I{1} is added.</p>
 <div class="admonition-note admonition">
 <p class="admonition-title">Note:</p>
@@ -193,9 +155,9 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Concentration (nM)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure align-center" id="id6">
+<div class="figure align-center" id="id3">
 <img alt="_images/discontinuous_simulations.png" class="with-border" src="_images/discontinuous_simulations.png" />
-<p class="caption"><span class="caption-text"><strong>Discontinuous Simulation</strong></span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><strong>Discontinuous Simulation</strong></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="degradation-simulation">
@@ -246,9 +208,9 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Concentration (nM)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure align-center" id="id7">
+<div class="figure align-center" id="id4">
 <img alt="_images/degradation_simulations.png" class="with-border" src="_images/degradation_simulations.png" />
-<p class="caption"><span class="caption-text"><strong>Degradation Simulation</strong></span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><strong>Degradation Simulation</strong></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
 <p>The following degredation example simulates a system with degradation rates where single stranded species, double stranded species, and RNA in RNA:DNA hyrbids are all independently changed.</p>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced%20Simulator%20Features/degradationIndividRates_simulation.py">Degradation Simulation with changing groups of rates Python Script can be found here</a></p>
@@ -308,9 +270,9 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Concentration (nM)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure align-center" id="id8">
+<div class="figure align-center" id="id5">
 <img alt="_images/degradationIndividRates_simulation.png" class="with-border" src="_images/degradationIndividRates_simulation.png" />
-<p class="caption"><span class="caption-text"><strong>Degradation Simulation (Changing Groups of Degradation Rates)</strong></span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><strong>Degradation Simulation (Changing Groups of Degradation Rates)</strong></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="two-toehold-cascade-simulation">
@@ -324,9 +286,9 @@
 </ul>
 </dd>
 </dl>
-<div class="figure align-center" id="id9">
+<div class="figure align-center" id="id6">
 <img alt="_images/two_toehold_ex_schematic.png" class="with-border" src="_images/two_toehold_ex_schematic.png" />
-<p class="caption"><span class="caption-text"><strong>Two-Toehold Simulation</strong></span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><strong>Two-Toehold Simulation</strong></span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </div>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced%20Simulator%20Features/TwoToehold_simulation.py">Two Toehold Sim Python Script can be found here</a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
@@ -386,9 +348,9 @@
 </ul>
 </dd>
 </dl>
-<div class="figure align-center" id="id10">
+<div class="figure align-center" id="id7">
 <img alt="_images/AND_fuel_ex_schematic.png" class="with-border" src="_images/AND_fuel_ex_schematic.png" />
-<p class="caption"><span class="caption-text"><strong>AG Fuel Simulation</strong></span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><strong>AG Fuel Simulation</strong></span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </div>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced%20Simulator%20Features/AGfuel_simulations.py">AG Fuel Sim Python Script can be found here</a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># auxiliary packages needed in the script below, e.g., plotting</span>
@@ -426,9 +388,9 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Concentration (nM)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure align-center" id="id11">
+<div class="figure align-center" id="id8">
 <img alt="_images/AGfuel_simulations.png" class="with-border" src="_images/AGfuel_simulations.png" />
-<p class="caption"><span class="caption-text"><strong>AG + Fuel Simulation Results</strong></span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><strong>AG + Fuel Simulation Results</strong></span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="two-and-gate-or-simulation">
@@ -442,9 +404,9 @@
 </ul>
 </dd>
 </dl>
-<div class="figure align-center" id="id12">
+<div class="figure align-center" id="id9">
 <img alt="_images/AB_OR_CD_ex_schematic.png" class="with-border" src="_images/AB_OR_CD_ex_schematic.png" />
-<p class="caption"><span class="caption-text"><strong>Two AND Gate OR Simulation</strong></span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><strong>Two AND Gate OR Simulation</strong></span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
 </div>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced%20Simulator%20Features/AB_OR_CD_simulations.py">Two AND gate OR Simulation Python Script can be found here</a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># auxiliary packages needed in the script below, e.g., plotting</span>
@@ -483,9 +445,9 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Concentration (nM)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure align-center" id="id13">
+<div class="figure align-center" id="id10">
 <img alt="_images/AB+CD_simulations.png" class="with-border" src="_images/AB+CD_simulations.png" />
-<p class="caption"><span class="caption-text"><strong>Two AND Gate OR Simulation Results</strong></span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><strong>Two AND Gate OR Simulation Results</strong></span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="thresholding-simulation">
@@ -499,9 +461,9 @@
 </ul>
 </dd>
 </dl>
-<div class="figure align-center" id="id14">
+<div class="figure align-center" id="id11">
 <img alt="_images/thresholding_ex_schematic.png" class="with-border" src="_images/thresholding_ex_schematic.png" />
-<p class="caption"><span class="caption-text"><strong>Thresholding Simulation</strong></span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><strong>Thresholding Simulation</strong></span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
 </div>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced%20Simulator%20Features/threshold_simulation.py">Thresholding Simulation Python Script can be found here</a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># auxiliary packages needed in the script below, e.g., plotting</span>
@@ -538,9 +500,9 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Concentration (nM)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure align-center" id="id15">
+<div class="figure align-center" id="id12">
 <img alt="_images/threshold_simulation.png" class="with-border" src="_images/threshold_simulation.png" />
-<p class="caption"><span class="caption-text"><strong>Threshold Simulation Results</strong></span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><strong>Threshold Simulation Results</strong></span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="seesaw-and-element-simulations">
@@ -557,9 +519,9 @@
 </dl>
 <div class="section" id="ctrsd-seesaw-element-simulation">
 <h3>ctRSD seesaw element simulation<a class="headerlink" href="#ctrsd-seesaw-element-simulation" title="Permalink to this headline">¶</a></h3>
-<div class="figure align-center" id="id16">
+<div class="figure align-center" id="id13">
 <img alt="_images/ctRSD_seesaw_ex_schematic.png" class="with-border" src="_images/ctRSD_seesaw_ex_schematic.png" />
-<p class="caption"><span class="caption-text"><strong>ctRSD Seesaw Simulation</strong></span><a class="headerlink" href="#id16" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><strong>ctRSD Seesaw Simulation</strong></span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
 </div>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced%20Simulator%20Features/seesaw_simulation_ctRSD.py">ctRSD Seesaw Simulation Comparison Python Script can be found here</a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># auxiliary packages needed in the script below, e.g., plotting</span>
@@ -602,17 +564,17 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Concentration (nM)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure align-center" id="id17">
+<div class="figure align-center" id="id14">
 <img alt="_images/seesaw_simulation_ctRSD.png" class="with-border" src="_images/seesaw_simulation_ctRSD.png" />
-<p class="caption"><span class="caption-text"><strong>ctRSD Seesaw Simulation Results</strong></span><a class="headerlink" href="#id17" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><strong>ctRSD Seesaw Simulation Results</strong></span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="dna-seesaw-and-element-simulation">
 <h3>DNA seesaw AND element simulation<a class="headerlink" href="#dna-seesaw-and-element-simulation" title="Permalink to this headline">¶</a></h3>
 <p>This simulation mimics a DNA strand displacment reaction by setting DNA_con to 0 for all species and specifying only initial concentrations. Thus, only a fixed amount of each species is present and no transcription occurs.</p>
-<div class="figure align-center" id="id18">
+<div class="figure align-center" id="id15">
 <img alt="_images/DNA_seesaw_ex_schematic.png" class="with-border" src="_images/DNA_seesaw_ex_schematic.png" />
-<p class="caption"><span class="caption-text"><strong>DNA Seesaw Simulation</strong></span><a class="headerlink" href="#id18" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><strong>DNA Seesaw Simulation</strong></span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
 </div>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced%20Simulator%20Features/seesaw_simulation_DNA.py">DNA Seesaw Simulation Python Script can be found here</a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># auxiliary packages needed in the script below, e.g., plotting</span>
@@ -659,14 +621,14 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Concentration (nM)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure align-center" id="id19">
+<div class="figure align-center" id="id16">
 <img alt="_images/seesaw_simulation_DNA.png" class="with-border" src="_images/seesaw_simulation_DNA.png" />
-<p class="caption"><span class="caption-text"><strong>DNA Seesaw Simulation Results</strong></span><a class="headerlink" href="#id19" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><strong>DNA Seesaw Simulation Results</strong></span><a class="headerlink" href="#id16" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
 <div class="section" id="comparator-gate-simulation">
-<span id="id3"></span><h2>Comparator Gate Simulation<a class="headerlink" href="#comparator-gate-simulation" title="Permalink to this headline">¶</a></h2>
+<span id="id2"></span><h2>Comparator Gate Simulation<a class="headerlink" href="#comparator-gate-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Comparator Gate simulation shows a basic comparator gate reaction. This features shows the ability for a ctRSD circuit that compares the production rate of two inputs and only lets the input with the higher rate of product to the next layer of the circuit. Comparator gates are designed to function like the annihilator gates from <a class="reference external" href="https://www.nature.com/articles/s41586-018-0289-6">Scaling Up Molecular Pattern Recognition with DNA-Based Winner-Take-All Neural Networks (Cherry and Qian *Nature* 2018)</a>.</p>
 <dl class="simple">
 <dt>Useful Features:</dt><dd><ul class="simple">
@@ -677,9 +639,9 @@
 </ul>
 </dd>
 </dl>
-<div class="figure align-center" id="id20">
+<div class="figure align-center" id="id17">
 <img alt="_images/comparator_ex_schematic.png" class="with-border" src="_images/comparator_ex_schematic.png" />
-<p class="caption"><span class="caption-text"><strong>CG Simulation</strong></span><a class="headerlink" href="#id20" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><strong>CG Simulation</strong></span><a class="headerlink" href="#id17" title="Permalink to this image">¶</a></p>
 </div>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced%20Simulator%20Features/CG_simulations.py">CG Simulation Python Script can be found here</a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># auxiliary packages needed in the script below, e.g., plotting</span>
@@ -722,15 +684,15 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Concentration (nM)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure align-center" id="id21">
+<div class="figure align-center" id="id18">
 <img alt="_images/CG_simulations.png" class="with-border" src="_images/CG_simulations.png" />
-<p class="caption"><span class="caption-text"><strong>CG Simulation Results</strong></span><a class="headerlink" href="#id21" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><strong>CG Simulation Results</strong></span><a class="headerlink" href="#id18" title="Permalink to this image">¶</a></p>
 </div>
 <p>The CG grid simulation is another example using a basic CG system that shows many more input template concentration combinations for the two inputs in the system.</p>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced%20Simulator%20Features/CG_simulationsGRID.py">CG Grid Simulation Python Script can be found here</a></p>
-<div class="figure align-center" id="id22">
+<div class="figure align-center" id="id19">
 <img alt="_images/CG_simulationsGRID.png" class="with-border" src="_images/CG_simulationsGRID.png" />
-<p class="caption"><span class="caption-text"><strong>CG Grid Simulation Results</strong></span><a class="headerlink" href="#id22" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><strong>CG Grid Simulation Results</strong></span><a class="headerlink" href="#id19" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="three-comparator-gate-simulation">
@@ -746,9 +708,9 @@
 </ul>
 </dd>
 </dl>
-<div class="figure align-center" id="id23">
+<div class="figure align-center" id="id20">
 <img alt="_images/three_CG_ex_schematic.png" src="_images/three_CG_ex_schematic.png" />
-<p class="caption"><span class="caption-text"><strong>Three CG Simulation</strong> The model is set up such that the same input domain cannot be repeated in the same index for two gates. For example, CG{6,7} and CG{4,7} will result in an incorrect result because both gates have domain 7 in the second index. This should be changed to CG{6,7} and CG{7,4} so that domain 7 is in a different index for the two gates.</span><a class="headerlink" href="#id23" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><strong>Three CG Simulation</strong> The model is set up such that the same input domain cannot be repeated in the same index for two gates. For example, CG{6,7} and CG{4,7} will result in an incorrect result because both gates have domain 7 in the second index. This should be changed to CG{6,7} and CG{7,4} so that domain 7 is in a different index for the two gates.</span><a class="headerlink" href="#id20" title="Permalink to this image">¶</a></p>
 </div>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/Advanced%20Simulator%20Features/threeCG_simulations.py">Three CG Simulation Python Script can be found here</a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># auxiliary packages needed in the script below, e.g., plotting</span>
@@ -801,9 +763,9 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Concentration (nM)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure align-center" id="id24">
+<div class="figure align-center" id="id21">
 <img alt="_images/threeCG_simulations.png" class="with-border" src="_images/threeCG_simulations.png" />
-<p class="caption"><span class="caption-text"><strong>Three CG Simulation Results</strong></span><a class="headerlink" href="#id24" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><strong>Three CG Simulation Results</strong></span><a class="headerlink" href="#id21" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>

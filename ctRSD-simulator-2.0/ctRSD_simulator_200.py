@@ -4,71 +4,8 @@
 
 @author: tnm12
 
-Simulator 2 version 0.2.1
+PATCH NOTES FROM VERSION 2.0.0
 
-Patch Notes 2.0.1.0:
-    1.) Converted rate constants from scalars to N sized vectors / NxN matrices
-    2.) Added global rate constants function to change rate constants
-    3.) Added capability to change individual rate constants to molecular species
-    
-Patch Notes 2.0.1.1:
-    1.) Added in reverse rate constant for the reporter (krepr)
-    2.) Using this new rate constant, added in reporter reverse reaction equations to dR, dS, dO, and dRO
-    4.) Changed rate constant if statements from False to 'False' so that a constant could be made 0
-    5.) Created krsdGmcsd,krevOmcsd variables so rate equations could be correctly updated to handle varying rate constants across rows
-    
-Patch Notes 2.0.1.2:
-    1.) Added threshold reactions
-    
-    
-Patch Notes 2.0.1.3:
-    1.) Correctly added threshold reactions
-    2.) Converted krev terms along the diagonal to 0 making the equations more accurate 
-    3.) Allows user to specify sovler_ivp method
-    
-Patch Notes 2.0.1.4:
-    1.) Added fuel reactions
-    2.) Found rounding issue, so took away dtype=int from initializations
-    
-Patch Notes 2.0.1.5:
-    1.) Added AND gate reactions
-    2.) Organized Rate Equations
-    
-Patch Notes 2.0.1.6:
-    1.) Added comparator gate reactions
-    2.) Original simulator had two incorrect terms in WTA equation
-    
-Patch Notes 2.0.1.7:
-    1.) Attempted to switch to numbakit-ode
-    
-Patch Notes 2.0.1.8:
-    1.) Added in different transcripton matrices, and ability to change these transcription rates
-
-Patch Notes 2.0.1.9:
-    1.) Added degradation reactions
-    
-Patch Notes 2.0.2.0:
-    1.) Added fuel reactions for AND gates
-
-Patch Notes 2.0.2.1:
-    1.) Added discontinuous function
-    2.) Added transcription calibration function
-    3.) Updated molecular species option
-    4.) Added sequence compliation function
-    5.) Updated DNA:RNA hybrid degradation to add Q species
-
-Patch Notes ctRSD_simulator 2.0.0:
-    1.) Made leak rates changable in global rate constants [X]
-    2.) Make leak rates changable for individual gates in molecular species[X]
-        Single input gates and AND gates
-    3.) Removed krevA rate constant which shouldnt exist [X]
-    4.) Updated khyb terms in molecular_species
-        Made khybR an option for R and S [X]
-        Made khybO an option for O [X]
-    5.) Made kdrd an option for O [X]
-    6.) Add degradation reactions for uTG,TG,GF,AGOa,AGOb,AGFb,CGOa,CGOb [X]
-        Add options to changes these in global rate constants [X]
-        and molecular species [X]
     
 """
 
@@ -1499,6 +1436,14 @@ class RSD_sim:
             
     def transcription_calibration(self,simTime,data,ktxn='False'):
         
+        '''
+        #######################################################################
+        This function is very narrowly defined
+        - it references the simulator name so if new verions are added the
+          import statement below needs updated
+        - This is also hardcoded for a 500 nM reporter and 25 nM output template
+        #######################################################################
+        '''
         
         
         if ktxn != 'False':
@@ -1512,7 +1457,7 @@ class RSD_sim:
             
             
             
-            import Simulatorv2021 as RSDs #import version 2.0.2.1 of simulator
+            import ctRSD_simulator_200 as RSDs #import simulator
 
             fs = 12 #fontsize
 
@@ -1590,7 +1535,7 @@ class RSD_sim:
             
             
             
-            import Simulatorv2021 as RSDs #import version 2.0.2.1 of simulator
+            import ctRSD_simulator_200 as RSDs #import simulator
 
             fs = 12 #fontsize
 
@@ -1638,7 +1583,6 @@ class RSD_sim:
                 plt.title('k='+str(k_txn[n]))
                 
             
-        
         
 
     def ctRSD_seq_compile(self,name,filepath,Rz='Ro',L='L',term='T7t',hp5='5hp',prom='T7p',\
@@ -1830,6 +1774,12 @@ class RSD_sim:
             rz_S = Rz_d[Rz][0]
             term_S = term_d[term][0]
             prom_S = prom_d[prom][0]
+            
+            #Adding an indication of the Rz cleavage site for RNAs
+            if rna == 1 and Rz[0].lower() != 'x':
+                cl = '|'
+            else:
+                cl =''
 
             
             ###################################################################
@@ -1840,7 +1790,7 @@ class RSD_sim:
             
                 ctRSD_part = hp5_S +\
                              eo_S + r_S + o_bm_S + o_th_Sp + ei_S + i_bm_S +\
-                             l_S + rz_S +\
+                             l_S + cl + rz_S +\
                              s_S + i_th_S + i_bm_Sp + ei_Sp + o_th_S +\
                              term_S
                 
@@ -1850,7 +1800,7 @@ class RSD_sim:
                     
                 ctRSD_part = hp5_S +\
                              s_S + i_th_S + i_bm_Sp + ei_Sp + o_th_S +\
-                             l_S + rz_S + invL +\
+                             l_S + cl + rz_S + invL +\
                              eo_S + r_S + o_bm_S + o_th_Sp + ei_S + i_bm_S +\
                              term_S
                 
@@ -1987,6 +1937,12 @@ class RSD_sim:
             l_S = L_d[L][0]
             term_S = term_d[term][0]
             prom_S = prom_d[prom][0]
+            
+            #Adding an indication of the Rz cleavage site for RNAs
+            if rna == 1  and otype == 1 and Rz[0].lower() != 'x':
+                cl = '|'
+            else:
+                cl =''
 
             
             ###################################################################
@@ -1997,7 +1953,7 @@ class RSD_sim:
             
                 ctRSD_part = hp5_S +\
                              eo_S + r_S + o_bm_S + o_th_Sp + ei_S + i_bm_S +\
-                             l_S + rz_S +\
+                             l_S + cl + rz_S +\
                              term_S
                 
                 template = create_template(ctRSD_part,prom_S,rna,us_S,ds_S,temp_len)
@@ -2005,7 +1961,7 @@ class RSD_sim:
             elif invert == 1:
                     
                 ctRSD_part = hp5_S +\
-                             l_S + rz_S + invL +\
+                             l_S + cl + rz_S + invL +\
                              eo_S + r_S + o_bm_S + o_th_Sp + ei_S + i_bm_S +\
                              term_S
                 
@@ -2195,6 +2151,12 @@ class RSD_sim:
             term_S = term_d[term][0]
             prom_S = prom_d[prom][0]
             agl_S = agL
+            
+            #Adding an indication of the Rz cleavage site for RNAs
+            if rna == 1 and Rz[0].lower() != 'x':
+                cl = '|'
+            else:
+                cl =''
 
             
             ###################################################################
@@ -2207,7 +2169,7 @@ class RSD_sim:
                     
                     ctRSD_part = hp5_S +\
                                  eo_S + r_S + o_bm_S + o_th_Sp + ei_S + i_bm_S2 + agl_S + i_th_Sp2[-1] + ei_S + i_bm_S1 +\
-                                 l_S + rz_S +\
+                                 l_S + cl + rz_S +\
                                  s_S + i_th_S1 + i_bm_Sp1 + ei_Sp + i_th_S2 + i_bm_Sp2 + ei_Sp + o_th_S +\
                                  term_S
                     
@@ -2217,7 +2179,7 @@ class RSD_sim:
                     
                     ctRSD_part = hp5_S +\
                                  eo_S + r_S + o_bm_S + o_th_Sp + ei_S + i_bm_S2 + agl_S + ei_S + i_bm_S1 +\
-                                 l_S + rz_S +\
+                                 l_S + cl + rz_S +\
                                  s_S + i_th_S1 + i_bm_Sp1 + ei_Sp + i_th_S2 + i_bm_Sp2 + ei_Sp + o_th_S +\
                                  term_S
                     
@@ -2229,7 +2191,7 @@ class RSD_sim:
                     
                     ctRSD_part = hp5_S +\
                                  s_S + i_th_S1 + i_bm_Sp1 + ei_Sp + i_th_S2 + i_bm_Sp2 + ei_Sp + o_th_S +\
-                                 l_S + rz_S + invL +\
+                                 l_S + cl + rz_S + invL +\
                                  eo_S + r_S + o_bm_S + o_th_Sp + ei_S + i_bm_S2 + agl_S + i_th_Sp2[-1] + ei_S + i_bm_S1 +\
                                  term_S
                     
@@ -2239,7 +2201,7 @@ class RSD_sim:
                     
                     ctRSD_part = hp5_S +\
                                  s_S + i_th_S1 + i_bm_Sp1 + ei_Sp + i_th_S2 + i_bm_Sp2 + ei_Sp + o_th_S +\
-                                 l_S + rz_S + invL +\
+                                 l_S + cl + rz_S + invL +\
                                  eo_S + r_S + o_bm_S + o_th_Sp + ei_S + i_bm_S2 + agl_S + ei_S + i_bm_S1 +\
                                  term_S
                     
@@ -2393,6 +2355,11 @@ class RSD_sim:
             term_S = term_d[term][0]
             prom_S = prom_d[prom][0]
             
+            #Adding an indication of the Rz cleavage site for RNAs
+            if rna == 1 and Rz[0].lower() != 'x':
+                cl = '|'
+            else:
+                cl =''
             
             ###################################################################
             # Stitching thresholding gate sequences
@@ -2402,7 +2369,7 @@ class RSD_sim:
             
                 ctRSD_part = hp5_S +\
                              r_S + i_bm_S +\
-                             l_S + rz_S +\
+                             l_S + cl + rz_S +\
                              s_S + i_th_S + i_bm_Sp + rc_seq(r_S)[1:-1] +\
                              term_S
                 
@@ -2412,7 +2379,7 @@ class RSD_sim:
                     
                 ctRSD_part = hp5_S +\
                              s_S + i_th_S + i_bm_Sp + rc_seq(r_S)[1:-1] +\
-                             l_S + rz_S + invL +\
+                             l_S + cl + rz_S + invL +\
                              r_S + i_bm_S +\
                              term_S
                 
@@ -2555,13 +2522,22 @@ class RSD_sim:
             term_S = term_d[term][0]
             prom_S = prom_d[prom][0]
             
+            #Adding an indication of the Rz cleavage site for RNAs
+            if rna == 1 and Rz[0].lower() != 'x':
+                cl = '|'
+            else:
+                cl =''
+                
+            if invert == 1:
+                print('To invert orientation, switch first and second input domains')
+            
             ###################################################################
             # Stitching comparator gate sequences
             ###################################################################
             
             ctRSD_part = hp5_S + \
                          s_S + i1_th_S + I1_bm_Sp + c_S + I2_bm_S + \
-                         l_S + rz_S + \
+                         l_S + cl + rz_S + \
                          s_S + i2_th_S + I2_bm_Sp + c_Sp + I1_bm_S + \
                          term_S
             

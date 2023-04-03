@@ -32,11 +32,6 @@ Quick reference
 
 	Pull out the concentrations of different species as a function of time after a simulation. *name* follows the same conventions as in *molecular_species()* and as in the :ref:`ctRSD Reaction Schematics <reaction_schematics>`
 
-**model.transcription_calibration** (*simTime*, *data* , *ktxn='False'*)
-
-	Calibrate the transcription rate constant to a reference experimental sample. See :ref:`calibration example <calibration_simulation>`.
-
-
 .. _global_rate_constants:
 
 global_rate_constants()
@@ -432,27 +427,4 @@ output_concentration is used to pull out desired output concentrations created a
 			* Comparator Gate-Output Complex A -> CGOa{domainI,domainO} 
 			* Comparator Gate-Output Complex B -> CGOb{domainI,domainO} 
 
-
-.. _transcription_calibration: 
-
-transcription_calibration()
-----------------------------
-
-**model.transcription_calibration** (*simTime*, *data* , *ktxn='False'*)
-
-transcription_calibration is used to test different transcription rates against an inputted set of data and its corresponding time values. The user can test their data against a base set of rates set in the function, or can specify their own rate(s).
-
-**Parameters:**
-	simTime: *array, type=float*
-		Array of time points corresponding to the inputted data set.
-
-	data: *array, type=float*
-		User data set.
-
-	ktxn: *Multiple Inputs: list(type=float), Single Input: float*, *optional*
-		Transcription rate(s) the user wishes to calibrate using the dataset. If more than one transcription rate is being inputted, the rates must be formatted as a list, which can be of any length.
-
-		If NONE, simulator will use a base set of transcription rates. (k_txn = [0.005,0.0075,0.01,0.0125,.015,.02])
-
-		Example of transcription_calibration can be found :ref:`here <calibration_simulation>`.
 

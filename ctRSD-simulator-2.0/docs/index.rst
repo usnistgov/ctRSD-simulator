@@ -9,10 +9,8 @@ Download Simulator
 
 .. _download_simulator:
 
-Download ctRSD-simulator-2.0.0 version -> `DOWNLOAD <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/ctRSD_simulator_200.py>`_ 
+Download ctRSD-simulator -> `DOWNLOAD <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0>`_ 
 
-
-Download ctRSD-simulator-1.0.1 -> `DOWNLOAD <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/ctRSD_simulator_101.py>`_ 
 
 **The following packages are used internally within the simulator and will need to be installed and available in the Python environment the simulator is running within:**
 *numpy*, *scipy*, *matplotlib*, *re*, *math*, *xlrd*
@@ -52,6 +50,7 @@ Here you will be able to access information on all of the different components o
    :caption: Examples from Publications:
 
    SA_Examples
+   ACS_syn_biol_Examples
 
 
 

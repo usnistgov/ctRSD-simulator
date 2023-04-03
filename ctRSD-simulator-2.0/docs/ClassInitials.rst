@@ -44,7 +44,7 @@ Rate Constants:
 
 	self.leak = 0.03
 
-	self.krz = .25/60 (1/s)
+	self.krz = 0.00417 (1/s)
 
 	self.krsd = 1e3/1e9 (1/nM-s)
 
@@ -58,7 +58,7 @@ Rate Constants:
 
 	self.kth = 1e5/1e9 (1/nM-s)
 
-	self.krzTG = .00417 (1/s)
+	self.krzTG = 0.00417 (1/s)
 
 
 
@@ -68,13 +68,13 @@ Rate Constants:
 
 
 
-	self.krzA = .25/60 (1/s)
+	self.krzA = 0.00417 (1/s)
 
 	self.krsdA = 1e3/1e9 (1/nM-s)
 
 	self.leakA = 0.06
 
-	self.krzCG = .00417 (1/s)
+	self.krzCG = 0.00417 (1/s)
 
 	self.krsdCGa = 1e5/1e9 (1/nM-s)
 

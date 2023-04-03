@@ -1,4 +1,6 @@
-The README_SA.pdf file contains details about the simulator version used in this manuscript.
+RSD_simulator.py was the simulator used in this manuscript (https://www.science.org/doi/full/10.1126/sciadv.abl4354)
+
+The README_SA.pdf file contains details about this simulator version.
 
 All the simulations from this paper have been reimplemented with ctRSD-simulator-2.0. The scripts for this can be found as Examples in the ctRSD-simulator-2.0 folder.
 

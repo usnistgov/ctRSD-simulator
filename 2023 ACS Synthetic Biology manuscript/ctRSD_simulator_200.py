@@ -4,71 +4,8 @@
 
 @author: tnm12
 
-Simulator 2 version 0.2.1
+PATCH NOTES FROM VERSION 2.0.0
 
-Patch Notes 2.0.1.0:
-    1.) Converted rate constants from scalars to N sized vectors / NxN matrices
-    2.) Added global rate constants function to change rate constants
-    3.) Added capability to change individual rate constants to molecular species
-    
-Patch Notes 2.0.1.1:
-    1.) Added in reverse rate constant for the reporter (krepr)
-    2.) Using this new rate constant, added in reporter reverse reaction equations to dR, dS, dO, and dRO
-    4.) Changed rate constant if statements from False to 'False' so that a constant could be made 0
-    5.) Created krsdGmcsd,krevOmcsd variables so rate equations could be correctly updated to handle varying rate constants across rows
-    
-Patch Notes 2.0.1.2:
-    1.) Added threshold reactions
-    
-    
-Patch Notes 2.0.1.3:
-    1.) Correctly added threshold reactions
-    2.) Converted krev terms along the diagonal to 0 making the equations more accurate 
-    3.) Allows user to specify sovler_ivp method
-    
-Patch Notes 2.0.1.4:
-    1.) Added fuel reactions
-    2.) Found rounding issue, so took away dtype=int from initializations
-    
-Patch Notes 2.0.1.5:
-    1.) Added AND gate reactions
-    2.) Organized Rate Equations
-    
-Patch Notes 2.0.1.6:
-    1.) Added comparator gate reactions
-    2.) Original simulator had two incorrect terms in WTA equation
-    
-Patch Notes 2.0.1.7:
-    1.) Attempted to switch to numbakit-ode
-    
-Patch Notes 2.0.1.8:
-    1.) Added in different transcripton matrices, and ability to change these transcription rates
-
-Patch Notes 2.0.1.9:
-    1.) Added degradation reactions
-    
-Patch Notes 2.0.2.0:
-    1.) Added fuel reactions for AND gates
-
-Patch Notes 2.0.2.1:
-    1.) Added discontinuous function
-    2.) Added transcription calibration function
-    3.) Updated molecular species option
-    4.) Added sequence compliation function
-    5.) Updated DNA:RNA hybrid degradation to add Q species
-
-Patch Notes ctRSD_simulator 2.0.0:
-    1.) Made leak rates changable in global rate constants [X]
-    2.) Make leak rates changable for individual gates in molecular species[X]
-        Single input gates and AND gates
-    3.) Removed krevA rate constant which shouldnt exist [X]
-    4.) Updated khyb terms in molecular_species
-        Made khybR an option for R and S [X]
-        Made khybO an option for O [X]
-    5.) Made kdrd an option for O [X]
-    6.) Add degradation reactions for uTG,TG,GF,AGOa,AGOb,AGFb,CGOa,CGOb [X]
-        Add options to changes these in global rate constants [X]
-        and molecular species [X]
     
 """
 
@@ -431,7 +368,7 @@ class RSD_sim:
         self.krsdCGa = (1e5/1e9)*np.ones((domains,domains))
         self.krsdCGb = (1e5/1e9)*np.ones((domains,domains))
         # here inputs can have reverse rates off of CG so the diagonal is not zero as with krev
-        self.krevCG = (1)*np.ones((domains,domains))
+        self.krevCG = (0.05)*np.ones((domains,domains))
         
         self.kssdO = 0*np.ones((domains,domains))
         self.kssdF = 0*np.ones(domains)
@@ -706,7 +643,7 @@ class RSD_sim:
                 self.O_ic[inpInd1,inpInd1]=ic
                 self.initialcheck[2*self.N**2+(self.N*inpInd1) + inpInd1] += 1
                 
-            if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCGa!= 'False' or krevCGa!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
+            if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCGa!= 'False' or krevCGb!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
                 print('This rate constant should not be changed with respect to I')
             if ktxnO != 'False':
                 self.ktxnO[inpInd1,inpInd1] = ktxnO
@@ -731,7 +668,7 @@ class RSD_sim:
                 self.R_ic[repInd1] = ic
                 self.initialcheck[4*self.N**2 + repInd1] += 1
             
-            if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGa!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
+            if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGb!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
                 print('This rate constant should not be changed with respect to R')
             if krep != 'False':
                 self.krep[repInd1] = krep
@@ -753,7 +690,7 @@ class RSD_sim:
                 self.initialcheck[2*self.N**2+(self.N*outInd1) + outInd2] += 1
             
             
-            if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False'  or krzA != 'False' or krsdA != "False" or krevCGa!= 'False' or krevCGa!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
+            if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False'  or krzA != 'False' or krsdA != "False" or krevCGa!= 'False' or krevCGb!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
                 print('This rate constant should not be changed with respect to O')
             if ktxnO != 'False':
                 self.ktxnO[outInd1,outInd2] = ktxnO
@@ -781,7 +718,7 @@ class RSD_sim:
                 self.G_ic[gateInd1,gateInd2]=ic
                 self.initialcheck[self.N**2+(self.N*gateInd1) + gateInd2] += 1
             
-            if leakA != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGa!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
+            if leakA != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGb!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
                 print('This rate constant should not be changed with respect to G')
             if krev != 'False':
                 self.krev[gateInd1,gateInd2] = krev   
@@ -809,7 +746,7 @@ class RSD_sim:
                 self.uG_ic[uGInd1,uGInd2]=ic
                 self.initialcheck[0+(self.N*uGInd1) + uGInd2] += 1
             
-            if leak != 'False' or leakA != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGa!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
+            if leak != 'False' or leakA != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGb!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
                 print('This rate constant should not be changed with respect to uG')
             if krz != 'False':
                 self.krz[uGInd1,uGInd2] = krz
@@ -827,7 +764,7 @@ class RSD_sim:
                 self.GO_ic[GIInd1,GIInd1]=ic
                 self.initialcheck[3*self.N**2+(self.N*GIInd1) + GIInd1] += 1
             
-            if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGa!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
+            if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGb!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
                 print('This rate constant should not be changed with respect to GI')
             if kdsdGO != 'False':
                 self.kdsdGO[GIInd1,GIInd1] = kdsdGO
@@ -838,7 +775,7 @@ class RSD_sim:
             GOInd1 = int(GOIndf[0])-1
             GOInd2 = int(GOIndf[1])-1
             
-            if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGa!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
+            if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGb!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
                 print('This rate constant should not be changed with respect to GO')
             if kdsdGO != 'False':
                 self.kdsdGO[GOInd1,GOInd2] = kdsdGO
@@ -853,7 +790,7 @@ class RSD_sim:
            ROInd1 = int(ROIndf[0])-1
            ROInd2 = int(ROIndf[1])-1
            
-           if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGa!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or khybO != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
+           if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGb!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or khybO != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
                print('This rate constant should not be changed with respect to RO')
            if kdrd != 'False':
                self.kdrd[ROInd1,ROInd2] = kdrd
@@ -867,7 +804,7 @@ class RSD_sim:
             SInd1f = re.compile("\d+")
             SInd1 = int(SInd1f.search(name.lower()).group())-1
             
-            if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGa!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
+            if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGb!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
                 print('This rate constant should not be changed with respect to S')
             
             if khybR != 'False':
@@ -886,7 +823,7 @@ class RSD_sim:
                 self.uTG_ic[uThInd1] = ic
                 self.initialcheck[2*self.N+5*self.N**2 + uThInd1] += 1
             
-            if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGa!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
+            if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGb!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
                 print('This rate constant should not be changed with respect to uTG')
             if krzTG != 'False':
                 self.krzTG[uThInd1] = krzTG
@@ -905,7 +842,7 @@ class RSD_sim:
                 self.TG_ic[threshInd1] = ic
                 self.initialcheck[3*self.N+5*self.N**2 + threshInd1] += 1
             
-            if leak != 'False' or leakA != 'False' or krep != 'False' or krepr != 'False' or krev != 'False' or krsd != 'False' or krz != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGa!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
+            if leak != 'False' or leakA != 'False' or krep != 'False' or krepr != 'False' or krev != 'False' or krsd != 'False' or krz != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGb!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
                 print('This rate constant should not be changed with respect to TG')
             if kth != 'False':
                 self.kth[threshInd1] = kth
@@ -926,7 +863,7 @@ class RSD_sim:
                 self.F_ic[self.fuelInd1] = ic
                 self.initialcheck[4*self.N+5*self.N**2 + self.fuelInd1] += 1
             
-            if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGa!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
+            if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGb!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
                 print('This rate constant should not be changed with respect to F')
             if krsdF != 'False':
                 self.krsdF[self.fuelInd1] = krsdF
@@ -947,7 +884,7 @@ class RSD_sim:
                 self.GF_ic[GFInd1] = ic
                 self.initialcheck[5*self.N+5*self.N**2 + self.GFInd1] += 1
             
-            if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGa!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
+            if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGb!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
                 print('This rate constant should not be changed with respect to GF')
             if ktxnF != 'False':
                 self.ktxnF[GFInd1] = ktxnF
@@ -970,7 +907,7 @@ class RSD_sim:
             
             self.AGmap[AGOInd1,AGOInd2] = 1
             
-            if krz != 'False' or krsd != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGa!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
+            if krz != 'False' or krsd != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGb!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
                 print('This rate constant should not be changed with respect to AG')
             if krsdA != 'False':
                 self.krsdA[self.AGInd1,AGInd2] = krsdA
@@ -995,7 +932,7 @@ class RSD_sim:
             uAGInd1 = int(uAGIndf[0])-1
             uAGInd2 = int(uAGIndf[-1])-1
             
-            if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGa!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
+            if krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGb!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
                 print('This rate constant should not be changed with respect to uAG')
             if krzA != 'False':
                 self.krzA[uAGInd1,uAGInd2] = krzA
@@ -1014,7 +951,7 @@ class RSD_sim:
             AGOaInd1 = int(AGOaIndf[0])-1
             AGOaInd2 = int(AGOaIndf[1])-1
             
-            if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGa!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
+            if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGb!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
                 print('This rate constant should not be changed with respect to AGOa')
             if krsdA != 'False':
                 self.krsdA[AGOaInd1,AGOaInd2] = krsdA
@@ -1031,7 +968,7 @@ class RSD_sim:
             AGObInd1 = int(AGObIndf[0])-1
             AGObInd2 = int(AGObIndf[1])-1
             
-            if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGa!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
+            if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGb!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
                 print('This rate constant should not be changed with respect to AGOb')
             
             if kdsdAGOb != 'False':
@@ -1050,7 +987,7 @@ class RSD_sim:
                 self.AGFb_ic[AGFbInd1] = ic
                 self.initialcheck[6*self.N+13*self.N**2 + self.AGFbInd1] += 1
             
-            if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGa!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
+            if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGb!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
                 print('This rate constant should not be changed with respect to AGFb')
              
             if kdsdAGFb != 'False':
@@ -1102,7 +1039,7 @@ class RSD_sim:
             uCGInd1 = int(uCGIndf[0])-1
             uCGInd2 = int(uCGIndf[1])-1
             
-            if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGa!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
+            if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGb!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
                 print('This rate constant should not be changed with respect to uCG')
             if krzCG != 'False':
                 self.krzCG[uCGInd1,uCGInd2] = krzCG
@@ -1121,7 +1058,7 @@ class RSD_sim:
             CGOaInd1 = int(CGOaIndf[0])-1
             CGOaInd2 = int(CGOaIndf[1])-1
             
-            if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCGa!= 'False' or krevCGa!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOb != 'False':
+            if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCGa!= 'False' or krevCGb!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOb != 'False':
                 print('This rate constant should not be changed with respect to CGOa')
             if krevCG != 'False':
                 self.krevCG[CGOaInd1,CGOaInd2] = krevCG
@@ -1138,7 +1075,7 @@ class RSD_sim:
             CGObInd1 = int(CGObIndf[0])-1
             CGObInd2 = int(CGObIndf[1])-1
             
-            if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCGa!= 'False' or krevCGa!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False':
+            if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCGa!= 'False' or krevCGb!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False':
                 print('This rate constant should not be changed with respect to CGOb')
             if krevCG != 'False':
                 self.krevCG[CGObInd1,CGObInd2] = krevCG
@@ -1154,7 +1091,7 @@ class RSD_sim:
             QInd1f = re.compile("\d+")
             QInd1 = int(QInd1f.search(name.lower()).group())-1
             
-            if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGa!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
+            if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGb!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
                 print('This rate constant should not be changed with respect to Q')
             
             if ic != 'False':
@@ -1499,6 +1436,14 @@ class RSD_sim:
             
     def transcription_calibration(self,simTime,data,ktxn='False'):
         
+        '''
+        #######################################################################
+        This function is very narrowly defined
+        - it references the simulator name so if new verions are added the
+          import statement below needs updated
+        - This is also hardcoded for a 500 nM reporter and 25 nM output template
+        #######################################################################
+        '''
         
         
         if ktxn != 'False':
@@ -1512,7 +1457,7 @@ class RSD_sim:
             
             
             
-            import Simulatorv2021 as RSDs #import version 2.0.2.1 of simulator
+            import ctRSD_simulator_200 as RSDs #import simulator
 
             fs = 12 #fontsize
 
@@ -1590,7 +1535,7 @@ class RSD_sim:
             
             
             
-            import Simulatorv2021 as RSDs #import version 2.0.2.1 of simulator
+            import ctRSD_simulator_200 as RSDs #import simulator
 
             fs = 12 #fontsize
 
@@ -1638,7 +1583,6 @@ class RSD_sim:
                 plt.title('k='+str(k_txn[n]))
                 
             
-        
         
 
     def ctRSD_seq_compile(self,name,filepath,Rz='Ro',L='L',term='T7t',hp5='5hp',prom='T7p',\

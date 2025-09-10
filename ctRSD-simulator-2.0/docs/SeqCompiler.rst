@@ -20,7 +20,11 @@ Download Domains List
 
 Below is a link to download a provided spreadsheet that contains the list of domains for ctRSD reactions used to compile the sequences. The local file path on where this file is stored is an input to the sequence compiler function. Many of the optional inputs to the sequence compiler use the names of sequence domains contained in this Excel workbook - they can be accessed by specifying the name in the first column of the Excel workbook with the appropriate optional parameter. To add custom sequences for a domain, one can add a sequence domain with a unique name to a local copy of the Excel workbook in the correct sheet and then use the name of that sequence domain in the sequence compiler optional inputs.
 
-`ctRSD Domains List Spreadsheet can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence%20Compiler/ctRSD_domains_list.xls>`_ 
+`ctRSD Domains List Spreadsheet for versions 210 and above can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence%20Compiler/ctRSD_domains_list_210.xls>`_ 
+
+
+The version below has some names used in the 2022 Science Advances and 2023 ACS Syn Bio papers used in verion 200 of the sequence compiler that have since been updated: 
+`An older version of the ctRSD Domains List Spreadsheet for version 200 <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence%20Compiler/ctRSD_domains_list_200.xls>`_ 
 
 
 Function Overview
@@ -28,12 +32,12 @@ Function Overview
 
 The figures below illustrate the various options for the sequence compiler. Note, the comparator gates (CG) and thresholding gates (TG) have not been exhaustively tested in experiments and their exact designs might be subject to change in future iterations.
 
-.. figure:: /ExampleImages/seq_compile_F1_2.png
+.. figure:: /ExampleImages/seq_compile_F1_3.png
    :class: with-border
    :align: center
 
    **Overview of input, gate, and output definitions and options** 
-   (**A**) RSD domains are domains relevant to RNA strand displacement and are specified in the name variable. i,j,k refer to toehold domains and X and Y refer to branch migration domains which can be 1,2,3,4,5,…etc. If only the name variable is specified, the default transcriptional encoding parameters will be used. The transcriptional encoding parameters refer to domains appended to the RSD domains to facilitate transcription of the ctRSD components. The names of the optional keyword arguments are shown for each component in the second row. The third row shows the schematics if the transcription order is inverted by setting the invert keyword argument to 1. For outputs it is also possible to specify otype=0 to produce an output sequence that does not contain a ribozyme. (**B**) In addition to the options shown in panel A, there are other domains that can be specified. (Left) Reporter domains: domains necessary for irreversible reactions with a fluorescent reporter complex (r). These are specified solely in the name variable. Note there is a unique r domain for each output domain, i.e., an r for domain 1 and an r for domain 2, etc. (Right) Extended domains: domains that extend the branch migration length of components. These can be specified in either the input, output or both domains of a gate. Although not shown, extended domains are also an option for outputs. The existence of an extended domain is specified in the name variable and the identity of the extended domain is specified with the keyword arguments eI and eO. Note that inputs require the eO keyword be used to specify the identity of the output domain.  
+   (**A**) RSD domains are domains relevant to RNA strand displacement and are specified in the name variable. i,j,k refer to toehold domains and X and Y refer to branch migration domains which can be 1,2,3,4,5,…etc. If only the name variable is specified, the default transcriptional encoding parameters will be used. The transcriptional encoding parameters refer to domains appended to the RSD domains to facilitate transcription of the ctRSD components. The names of the optional keyword arguments are shown for each component in the second row. The third row shows the schematics if the transcription order is inverted by setting the invert keyword argument to 1. For outputs it is also possible to specify otype=0 to produce an output sequence that does not contain a ribozyme. (**B**) In addition to the options shown in panel A, there are other domains that can be specified. (Left) Reporter domains: domains necessary for irreversible reactions with a fluorescent reporter / molecular beacon complex (r). These are specified solely in the name variable. Note there is a unique r domain for each output domain, i.e., an r for domain 1 and an r for domain 2, etc. (Right) Extended domains: domains that extend the branch migration length of components. These can be specified in either the input, output or both domains of a gate. Although not shown, extended domains are also an option for outputs. The existence of an extended domain is specified in the name variable and the identity of the extended domain is specified with the keyword arguments eI and eO. Note that inputs require the eO keyword be used to specify the identity of the output domain.  
 
 
 .. figure:: /ExampleImages/seq_compile_F2.png
@@ -42,6 +46,16 @@ The figures below illustrate the various options for the sequence compiler. Note
 
    **Overview of fuel, AND gate, comparator gate, and thresholding gate definitions and options**
    RSD domains are domains relevant to RNA strand displacement and are specified in the name variable. i,j,k refer to toehold domains and X,Y,Z refer to branch migration domains which can be 1,2,3,4,5,…etc. If only the name variable is specified, the default transcriptional encoding parameters will be used. The transcriptional encoding parameters refer to domains appended to the RSD domains to facilitate transcription of the ctRSD components. The names of the optional keyword arguments are shown for each component in the second row. The third row shows the schematics if the transcription order is inverted by setting the invert keyword argument to 1. Reporter domains can also be specified for AND gates e.g., AG{iX.jY,kZr}. Extended domains are options for fuel and AND gate. For fuel components the convention follows that of input components in the figure above. For AND gates if an e domain is specified for either input domain then that domain will be used for both input domains. But eO can be different than eI for AND gates. Extended domains are currently not an option for threshold gates.
+
+
+.. figure:: /ExampleImages/seq_compile_F3.png
+   :class: with-border
+   :align: center
+
+   **Updates to sequence compiler versions ≥ 2.1.0, which includes specifying ctRSD components for use as toehold exchange riboregulators**
+   In sequence compiler versions ≥ 2.1.0, toeholds on inputs (and outputs, although not shown) longer than the standard 6 bases are specified as s′ and defined by the keyword option ‘s’ in input / output definitions. ‘e’ sequence domain names also require inclusion of the letter e, in contrast to earlier versions. All other previously defined sequence compiler conventions and names should hold. (**A**) Modification to gate species for use as toehold exchange riboregulators. Toehold exchange riboregulators (left) are defined similarly to ctRSD gates other than how the ‘rbs’ toehold is specified. It requires a ‘-’ before the output branch migration domain. Gates can also include the ‘d’ domain (right) if they are connecting to a toehold exchange riboregulator (see B for how to specify ‘d’ domain identity). Toehold exchange riboregulators, and all gates sequence compiler versions ≥ 2.1.0, include additional keyword options for transcription and translation parameters. ‘cp’ serves as a spacer between the rbs domain and the start codon. ‘n’ is an N-terminal linker domain that links the ribosome binding site to the protein coding sequence. ‘CDS’ is the nucleic acid sequence encoding a protein of interest. ‘rflap’ is a fluorescent RNA aptamer sequence that can be included to measure gate transcription. By default, keyword options ‘cp’, ‘n’, ‘CDS’, and ‘rflap’ are set to ‘none’. The start codon is not an independent parameter. It is typically included in the sequence of  the ‘n’ domain. When using an ‘n’ domain the start codon in the CDS can be mutated or removed. If not using the ‘n’ domain, be sure the chosen CDS includes a start codon. (**B**) Modified input and output domains for use with toehold exchange riboregulators. The primary addition is the ‘d’ domain used to control translation strength. The inclusion of this domain is indicated in the species name and the specific sequence used is defined as a keyword parameter. This can be used in conjunction with extended domains (‘e’). Like gates, inputs and outputs can also include a 3’ fluorescent RNA aptamer with the ‘rflap’ keyword parameter. 5’ fluorescent RNA aptamers, if desired, can be introduced by added ‘rflap’ sequence domains to the 5hp tab of ctRSD_domains_list_210.xls and indicating the desired domain name with the ‘hp5’ keyword.
+
+
 
 
 Function Documentation
@@ -57,7 +71,7 @@ Function Documentation
 
 
 **model.ctRSD_seq_compile** (*name*, *filepath*, *Rz='Ro'*, *L='L'*, *term='T7t'*, *hp5='5hp'*, *prom='T7p'*, *eI=''*,
-*eO=''*, *s=''*, *invert=0*, *invL='A'*, *agL='TA'*, *AGiloop=5*, *otype=1*, *rna=0*, *us=[]*, *ds=[]*, *temp_len=0*):
+*eO=''*, *s=''*, *invert=0*, *invL='A'*, *agL='TA'*, *AGiloop=5*, *otype=1*, *rna=0*, *us=[]*, *ds=[]*, *temp_len=0*,*cp=''*,*n=''*,*c=0*,*d=''*,*CDS=''*,*rflap=''*):
 
 *name* inputs that show multiple options function with each of those options. All *name* inputs are also not case sensitive.
 
@@ -93,14 +107,14 @@ Function Documentation
 		Promoter sequence.
 
 	eI: *string*, *optional*, *if NONE,default=''*
-		An extended sequence at the 5' end of output domains on gates, AND gates, outputs, inputs, and fuels. 'e' must be specified in the output domain of the *name* of the species for this input to be valid, i.e., G{u1e,_} or AG{u3e.u1e,_} or O{u5e,_}. eI will be the same for both input domains of an AG.
+		An extended sequence at the 5' end of output domains on gates, AND gates, outputs, inputs, and fuels. 'e' must be specified in the output domain of the *name* of the species for this input to be valid, i.e., G{u1e,_} or AG{u3e.u1e,_} or O{5e,_}. eI will be the same for both input domains of an AG.
 
 	eO: *string*, *optional*, *if NONE,default=''*
-		An extended sequence at the 5' end of input domains on gates, AND gates, and outputs. 'e' must be specified in the input domain of the *name* of the species for this input to be valid, i.e., G{_,v1e} or AG{_,w2e} or O{_,v3e} or I{u1e} or F{w5e}. Note that eO is used to specify 'e' domains on single input
+		An extended sequence at the 5' end of input domains on gates, AND gates, and outputs. 'e' must be specified in the input domain of the *name* of the species for this input to be valid, i.e., G{_,v1e} or AG{_,w2e} or O{_,v3e} or I{u1e} or F{w5e}. Note that eO is used to specify 'e' domains on inputs.
 
 	s: *string*, *optional*, *if NONE,default=''*
 		Spacer sequence between the ribozyme and the input toehold of a gate. Cannot be specified for the second input toehold of an AG.
-		's4' is the default spacer domain for TG.
+		's4' is the default spacer domain for TG. When specified for inputs or outputs the complement of the 's' domain will be appended downstream of the toehold to serve as an extended toehold for hybridization to the 's' domain of a gate.
 
 	invert: *Boolean*, *optional*, *if NONE,0*
 		Inverted transcription order - change to 1. This will start transcription at the 5' end of the input toehold of a gate. Not a valid input for CGs.
@@ -129,6 +143,25 @@ Function Documentation
 	temp_len: *int*, *optional*, *if NONE,0*
 		Specifying the total length of the DNA template. Typically, this can be used to get a template that is 125 bases or 300 bases for ordering as a gBlock or eBlock, respectively. This input should be used in conjunction with *us* and/or *ds* to specify which upstream and downstream sequences should be used to meet the length requirement. The option 'exc' in *ds* has a long sequence of bases for appending.
 
+	cp: *string*, *optional*, *if NONE,default=''*
+		A spacer sequence between the rbs and start codon on a toehold exchange riboregulator. This domain sequence does not include the start codon. The 'c' clamp domain below is complementary to 'cp' when defined.
+
+	n: *string*, *optional*, *if NONE,default=''*
+		N-terminal linker sequence used to avoid secondary structure across ribosome footprint on a toehold exchange riboregulator. Appended after the 'cp' domain and typically includes the start codon for translation. So 'n' domain will be translated and should be in frame with CDS. 
+ 	
+ 	d: *string*, *optional*, *if NONE,default=''*
+		A distal domain sequence at the 5' end of output domains on inputs, outputs, and gates that influences translation strength of a toehold exchange riboregulator.  'd' must be specified in the output domain of the *name* of the species for this input to be valid, i.e., I{u1d} or  O{5,u1d} or G{u1,v3d}.
+
+	c: *int*, *optional*, *if NONE,0*
+		A clamp domain to bury the rbs of a toehold exchange riboregulator. Specify as the number of bases desired for a clamp. This domain sequence is defined as complementary to 'cp' so it requires a 'cp' domain to be specified. The input length of 'c' cannot exceed the length of the specified 'cp' domain.
+
+	CDS: *string*, *optional*, *if NONE,default=''*
+		A protein coding sequence for a toehold exchange riboregulator. This should include a stop codon. A start codon should be incuded if an 'n' domain is not being used.
+
+	rflap: *string*, *optional*, *if NONE,default=''*
+		A fluorescent RNA aptamer sequence that will be appended directly upstream of the terminator sequence when included.
+
+
 Examples
 --------
 
@@ -141,17 +174,21 @@ First Steps:
 
 
 .. code-block:: python
+	
+	#######################################
+	# EXAMPLES OF SIMPLE ctRSD COMPONENTS
+	#######################################
 
 	# importing simulator
 	import sys
 	sys.path.insert(1,'filepath to simulator location on local computer')
-	import ctRSD_simulator_200 as RSDs # import latest version of the simulator
+	import ctRSD_simulator_210 as RSDs # import latest version of the simulator
 
 
 	# create the model instance
 	model = RSDs.RSD_sim() # default # of domains (5 domains)
 
-	filepath = '//File Path//ctRSD_domains_list.xls'
+	filepath = '//File Path//ctRSD_domains_list_210.xls'
 
 	# use the experimental nomenclature to specify the sequence you want
 	Gate_seq = model.ctRSD_seq_compile('G{u1,w2r}',filepath)
@@ -166,6 +203,34 @@ First Steps:
 
 
 
+.. code-block:: python
+
+	#######################################################
+	# EXAMPLES OF TOEHOLD EXCHANGE RIBOREGULATOR COMPONENTS
+	#######################################################
+
+	# importing simulator
+	import sys
+	sys.path.insert(1,'filepath to simulator location on local computer')
+	import ctRSD_simulator_210 as RSDs # import latest version of the simulator
+
+
+	# create the model instance
+	model = RSDs.RSD_sim() # default # of domains (5 domains)
+
+	filepath = '//File Path//ctRSD_domains_list_210.xls'
+
+	# use the experimental nomenclature to specify the sequence you want
+	THE_ribo_seq = model.ctRSD_seq_compile('G{u1,rbs1-2r}',filepath,Rz='R3',s='s4',cp='c06,n='THE_L',CDS='sfGFP_tta',term='T7t')
+
+	Input_seq = model.ctRSD_seq_compile('I{u1d}',filepath,d='d20',term='Thyb10')
+
+	Gate_seq = model.ctRSD_seq_compile('G{v5,u1d}',filepath,Rz='Rg',d='d20',s='s4',term='Thyb6')
+
+
+`Example Script for sequences in the 2025 paper on toehold exchange riboregulatirs in E coli can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence%20Compiler/THE_Ecoli_seq_compile_examples.py>`_ 
+
+`Example Script for sequences in the 2025 paper on toehold exchange riboregulatirs in cell free expression systems can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence%20Compiler/THE_CFES_seq_compile_examples.py>`_ 
 
 `Example Script for sequences in the 2022 Science Advances paper can be found here <https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence%20Compiler/seq_compile_SA22_examples.py>`_ 
 

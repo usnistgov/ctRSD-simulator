@@ -185,7 +185,8 @@ def rate_eqs(t,y,ktxnO,ktxnG,ktxnTG,ktxnF,ktxnAG,ktxnCG,krz,krsd,krev,krep,krepr
     
     dAGm = (krzA*uAGm - Omrsd @ (krsdA*AGm) - kdsdAG*AGm).flatten()
     
-    dAGOam = (AGmap @ (Om @ (krsdA*AGm)) - Omrsd @ (krsdA*AGOam) + AGObmrsd @ (krev*Om) -kdsdAGOa*AGOam).flatten()
+    dAGOam = (AGmap @ (Omrsd @ (krsdA*AGm)) - Omrsd @ (krsdA*AGOam) + AGObmrsd @ (krev*Om) -kdsdAGOa*AGOam).flatten()
+    #dAGOam = (AGmap @ (Om @ (krsdA*AGm)) - Omrsd @ (krsdA*AGOam) + AGObmrsd @ (krev*Om) -kdsdAGOa*AGOam).flatten()
     
     dAGObm = (Om @ krsdA_AGOamcsd -AGObm@krev_Omcsd \
               -AGObm @ krsdFm + (krevF*Om) @ AGFbm -kdsdAGOb*AGObm).flatten()
@@ -1237,9 +1238,10 @@ class RSD_sim:
         Q = re.compile("q\{\w*\d+\w*\}")
         Qs = Q.fullmatch(name.lower())
         
-        uTh = re.compile("uth\{\w*\d+\w*\}")
+        
+        uTh = re.compile("utg|ut|uth\{\w*\d+\w*\}")
         uThs = uTh.fullmatch(name.lower())
-        thresh = re.compile("th\{\w*\d+\w*\}")
+        thresh = re.compile("(tg|t|th)\{\w*\d+\w*\}")
         threshs = thresh.fullmatch(name.lower())
         
         fuel = re.compile("f\{\w*\d+\w*\}")
@@ -1615,6 +1617,10 @@ class RSD_sim:
         s_d = xlsheet_to_dict(filepath, 's', 1)  # spacer sequences
         us_d = xlsheet_to_dict(filepath, 'US', 1) # sequences upstream of promoter
         ds_d = xlsheet_to_dict(filepath, 'DS', 1) # sequences downstream of terminator
+        
+        # converting into th' as code was originally written to handle that
+        for n in th_d.keys():
+            th_d[n] = [rc_seq(th_d[n][0])[1:-1]]
 
         i_th = ''
         o_th = ''

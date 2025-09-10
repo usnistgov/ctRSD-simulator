@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Troubleshooting &mdash; ctRSD-simulator-2.0 2.0.0 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <title>Troubleshooting &mdash; ctRSD-simulator-2.0 2.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -35,7 +38,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption"><span class="caption-text">General:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">General:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Model-Implementation.html">Model Reactions and Implementation</a></li>
@@ -52,14 +55,15 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">General Examples:</span></p>
+<p class="caption" role="heading"><span class="caption-text">General Examples:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Simple-Examples.html">Simple Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Simulator-Features.html">Advanced Simulator Features</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Examples from Publications:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Examples from Publications:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="SA_Examples.html">2022 Science Advances Paper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ACS_syn_biol_Examples.html">2023 ACS Synthetic Biology Paper</a></li>
 </ul>
 
         </div>
@@ -86,11 +90,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="troubleshooting">
-<span id="id1"></span><h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h1>
+  <section id="troubleshooting">
+<span id="id1"></span><h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this heading"></a></h1>
 <p>This page offers some useful tips to troubleshoot based off some of the problems we encountered when building the simulator.</p>
-<div class="section" id="accessing-variables-in-the-simulator">
-<h2>Accessing Variables in the Simulator<a class="headerlink" href="#accessing-variables-in-the-simulator" title="Permalink to this headline">¶</a></h2>
+<section id="accessing-variables-in-the-simulator">
+<h2>Accessing Variables in the Simulator<a class="headerlink" href="#accessing-variables-in-the-simulator" title="Permalink to this heading"></a></h2>
 <p>In order to troubleshoot a script utilizing the simulator, you may want to access different variables that are found in the simulator, but not locally available in your script. This can help with troubleshooting issues by making sure everything is defined as you think it should be.</p>
 <p><strong>A detailed description of the matrix setup of the model variables can be found at</strong> <a class="reference internal" href="Model-Implementation.html#detailedmodeldescription"><span class="std std-ref">Detailed Model Description</span></a>.</p>
 <div class="admonition-note admonition">
@@ -105,10 +109,12 @@
 <li><p>Assuming the model is downloaded, imported, and instantiated accessing a variable is very similar to calling one of the functions. You simply call the variable name with the name of the class object’s attachment. For example, if you defined the model instantiation as “model”, then the format for accessing a variable would be “model.variable_name”.</p></li>
 </ol>
 </div></blockquote>
-<div class="figure align-center" id="id2">
+<figure class="align-center" id="id2">
 <img alt="_images/Troubleshooting-accessingvariables.png" class="with-border" src="_images/Troubleshooting-accessingvariables.png" />
-<p class="caption"><span class="caption-text"><strong>How to access variables present in simulator</strong></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-text"><strong>How to access variables present in simulator</strong></span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
 <p><strong>Critical values to check for customized simulations include:</strong></p>
 <blockquote>
 <div><dl class="simple">
@@ -120,9 +126,9 @@
 </dd>
 </dl>
 </div></blockquote>
-</div>
-<div class="section" id="not-specifying-enough-domains-in-rsd-sim-initialization">
-<h2>Not specifying enough domains in RSD_sim() initialization<a class="headerlink" href="#not-specifying-enough-domains-in-rsd-sim-initialization" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="not-specifying-enough-domains-in-rsd-sim-initialization">
+<h2>Not specifying enough domains in RSD_sim() initialization<a class="headerlink" href="#not-specifying-enough-domains-in-rsd-sim-initialization" title="Permalink to this heading"></a></h2>
 <p>When initializing the model with <a class="reference internal" href="ImportSim.html#importsim"><span class="std std-ref">RSD_sim()</span></a>, the default number of domains used to initialize the model is 5. If the highest index of any domain of a species you define in <em>molecular_species()</em> is greater than 5 then an “index out of bounds” error will appear. For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># create the model instance</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">RSDs</span><span class="o">.</span><span class="n">RSD_sim</span><span class="p">()</span> <span class="c1"># default # of domains (5 domains)</span>
@@ -149,15 +155,15 @@
 <span class="n">model</span><span class="o">.</span><span class="n">molecular_species</span><span class="p">(</span><span class="s1">&#39;G{7,2}&#39;</span><span class="p">,</span><span class="n">DNA_con</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="simulations-taking-a-long-time">
-<h2>Simulations taking a long time<a class="headerlink" href="#simulations-taking-a-long-time" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="simulations-taking-a-long-time">
+<h2>Simulations taking a long time<a class="headerlink" href="#simulations-taking-a-long-time" title="Permalink to this heading"></a></h2>
 <p>The simulation time increases as the number of domains in the system and the simulated time increases. So to speed up specific simulations you can try to minimize the number of domains necessary to describe the system and specify this minimum number of domains in <em>RSD_sim()</em> during initialization. You can also decrease the total simulated time (t_sim).</p>
 <p>We primarily saw issues with simulations taking a long time to solve for systems with comparator gates (CG) and additional tips for those specific types or simulations are covered below.</p>
 <p>Changing the <em>smethod</em> in <a class="reference internal" href="Functions.html#simulate"><span class="std std-ref">simulate</span></a> can also speed up simulations but numerical instabilities are also possible.</p>
-</div>
-<div class="section" id="speeding-up-comparator-gate-simulations">
-<h2>Speeding Up Comparator Gate Simulations<a class="headerlink" href="#speeding-up-comparator-gate-simulations" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="speeding-up-comparator-gate-simulations">
+<h2>Speeding Up Comparator Gate Simulations<a class="headerlink" href="#speeding-up-comparator-gate-simulations" title="Permalink to this heading"></a></h2>
 <p>Due to comparator gate reactions utilizing very disparate time scales, simulations using comparator gates may have a much slower time efficiency than the other reactions. Below are some different options for reducing the simulation time when using comparator gates.</p>
 <dl class="simple">
 <dt>Troubleshooting options:</dt><dd><ol class="arabic simple">
@@ -166,9 +172,9 @@
 </ol>
 </dd>
 </dl>
-</div>
-<div class="section" id="overriding-rate-constants">
-<h2>Overriding Rate Constants<a class="headerlink" href="#overriding-rate-constants" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="overriding-rate-constants">
+<h2>Overriding Rate Constants<a class="headerlink" href="#overriding-rate-constants" title="Permalink to this heading"></a></h2>
 <p>Since both <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species</span></a> and <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants</span></a> offer the ability to change the rate constants available in the simulator, you may find one function overriding changes you made in the other.</p>
 <dl class="simple">
 <dt>Troubleshooting Tips (Examples Below):</dt><dd><ol class="arabic simple">
@@ -177,16 +183,20 @@
 </ol>
 </dd>
 </dl>
-<div class="figure align-center" id="id3">
+<figure class="align-center" id="id3">
 <img alt="_images/Troubleshooting-overriding1.png" class="with-border" src="_images/Troubleshooting-overriding1.png" />
-<p class="caption"><span class="caption-text"><strong>global_rate_constants before molecular species</strong></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-center" id="id4">
+<figcaption>
+<p><span class="caption-text"><strong>global_rate_constants before molecular species</strong></span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id4">
 <img alt="_images/Troubleshooting-overriding2.png" class="with-border" src="_images/Troubleshooting-overriding2.png" />
-<p class="caption"><span class="caption-text"><strong>molecular_species before global_rate_constants</strong></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-</div>
+<figcaption>
+<p><span class="caption-text"><strong>molecular_species before global_rate_constants</strong></span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
 
 
            </div>

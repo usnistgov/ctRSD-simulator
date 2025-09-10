@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2022 Science Advances Paper &mdash; ctRSD-simulator-2.0 2.0.0 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <title>2022 Science Advances Paper &mdash; ctRSD-simulator-2.0 2.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2023 ACS Synthetic Biology Paper" href="ACS_syn_biol_Examples.html" />
     <link rel="prev" title="Advanced Simulator Features" href="Simulator-Features.html" /> 
 </head>
 
@@ -34,7 +38,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption"><span class="caption-text">General:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">General:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Model-Implementation.html">Model Reactions and Implementation</a></li>
@@ -44,12 +48,12 @@
 <li class="toctree-l1"><a class="reference internal" href="SeqCompiler.html">Sequence Compiler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 </ul>
-<p class="caption"><span class="caption-text">General Examples:</span></p>
+<p class="caption" role="heading"><span class="caption-text">General Examples:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Simple-Examples.html">Simple Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Simulator-Features.html">Advanced Simulator Features</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Examples from Publications:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Examples from Publications:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">2022 Science Advances Paper</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#figure-2d">Figure 2D</a></li>
@@ -71,6 +75,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#si-figure-31b">SI Figure 31B</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="ACS_syn_biol_Examples.html">2023 ACS Synthetic Biology Paper</a></li>
 </ul>
 
         </div>
@@ -97,15 +102,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="science-advances-paper">
-<h1>2022 Science Advances Paper<a class="headerlink" href="#science-advances-paper" title="Permalink to this headline">¶</a></h1>
+  <section id="science-advances-paper">
+<h1>2022 Science Advances Paper<a class="headerlink" href="#science-advances-paper" title="Permalink to this heading"></a></h1>
 <div class="admonition-note admonition">
 <p class="admonition-title">Note:</p>
 <p>The following examples simulate figures from the 2022 Science Advances paper (Schaffter and Strychalski), <a class="reference external" href="https://www.science.org/doi/10.1126/sciadv.abl4354">Cotranscriptionally encoded RNA strand displacement circuits</a>. See the paper for a detailed description of each experiment and/or simulation.</p>
 <p>In that paper a relatively weak output toehold was used with domain 2 for reportering. So in the following scripts, gates with output domain 2 have their reverse strand displacement rate constant decreased compared to the default in <em>molecular_species()</em>.</p>
 </div>
-<div class="section" id="figure-2d">
-<h2>Figure 2D<a class="headerlink" href="#figure-2d" title="Permalink to this headline">¶</a></h2>
+<section id="figure-2d">
+<h2>Figure 2D<a class="headerlink" href="#figure-2d" title="Permalink to this heading"></a></h2>
 <p>Figure 2D simulates a basic, one-layer ctRSD circuit with different input template concentrations.</p>
 <dl class="simple">
 <dt>Useful Features:</dt><dd><ul class="simple">
@@ -114,9 +119,9 @@
 </dd>
 </dl>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022%20Science%20Advances%20Paper/figure2D_simulations_v2.py">Figure 2D Python Script can be found here</a></p>
-</div>
-<div class="section" id="figure-4c">
-<h2>Figure 4C<a class="headerlink" href="#figure-4c" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="figure-4c">
+<h2>Figure 4C<a class="headerlink" href="#figure-4c" title="Permalink to this heading"></a></h2>
 <p>Figure 4C simulates a ctRSD OR element.</p>
 <dl class="simple">
 <dt>Useful Features:</dt><dd><ul class="simple">
@@ -126,9 +131,9 @@
 </dd>
 </dl>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022%20Science%20Advances%20Paper/figure4C_simulations_v2.py">Figure 4C Python Script can be found here</a></p>
-</div>
-<div class="section" id="figure-4f">
-<h2>Figure 4F<a class="headerlink" href="#figure-4f" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="figure-4f">
+<h2>Figure 4F<a class="headerlink" href="#figure-4f" title="Permalink to this heading"></a></h2>
 <p>Figure 4F simulates a ctRSD AND gate.</p>
 <dl class="simple">
 <dt>Useful Features:</dt><dd><ul class="simple">
@@ -139,9 +144,9 @@
 </dd>
 </dl>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022%20Science%20Advances%20Paper/figure4C_simulations_v2.py">Figure 4F Python Script can be found here</a></p>
-</div>
-<div class="section" id="figure-4h">
-<h2>Figure 4H<a class="headerlink" href="#figure-4h" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="figure-4h">
+<h2>Figure 4H<a class="headerlink" href="#figure-4h" title="Permalink to this heading"></a></h2>
 <p>Figure 4H uses fuel reactions to simulate a signal amplification element.</p>
 <dl class="simple">
 <dt>Useful Features:</dt><dd><ul class="simple">
@@ -152,9 +157,9 @@
 </dd>
 </dl>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022%20Science%20Advances%20Paper/figure4H_simulations_v2.py">Figure 4H Python Script can be found here</a></p>
-</div>
-<div class="section" id="figure-5b">
-<h2>Figure 5B<a class="headerlink" href="#figure-5b" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="figure-5b">
+<h2>Figure 5B<a class="headerlink" href="#figure-5b" title="Permalink to this heading"></a></h2>
 <p>Figure 5B simulates a one, two, three, and four layer ctRSD cascades.</p>
 <dl class="simple">
 <dt>Useful Features:</dt><dd><ul class="simple">
@@ -164,9 +169,9 @@
 </dd>
 </dl>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022%20Science%20Advances%20Paper/figure5B_simulations_v2.py">Figure 5B Python Script can be found here</a></p>
-</div>
-<div class="section" id="figure-5c">
-<h2>Figure 5C<a class="headerlink" href="#figure-5c" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="figure-5c">
+<h2>Figure 5C<a class="headerlink" href="#figure-5c" title="Permalink to this heading"></a></h2>
 <p>Figure 5C simulates a 4-input ctRSD OR element.</p>
 <dl class="simple">
 <dt>Useful Features:</dt><dd><ul class="simple">
@@ -176,9 +181,9 @@
 </dd>
 </dl>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022%20Science%20Advances%20Paper/figure5C_simulations_v2.py">Figure 5C Python Script can be found here</a></p>
-</div>
-<div class="section" id="figure-5d">
-<h2>Figure 5D<a class="headerlink" href="#figure-5d" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="figure-5d">
+<h2>Figure 5D<a class="headerlink" href="#figure-5d" title="Permalink to this heading"></a></h2>
 <p>Figure 5D simulates a two layer cascade of ctRSD AND gates.</p>
 <dl class="simple">
 <dt>Useful Features:</dt><dd><ul class="simple">
@@ -189,9 +194,9 @@
 </dd>
 </dl>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022%20Science%20Advances%20Paper/figure5D_simulations_v2.py">Figure 5D Python Script can be found here</a></p>
-</div>
-<div class="section" id="figure-5e">
-<h2>Figure 5E<a class="headerlink" href="#figure-5e" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="figure-5e">
+<h2>Figure 5E<a class="headerlink" href="#figure-5e" title="Permalink to this heading"></a></h2>
 <p>Figure 5E simulates a two layer cascade of a ctRSD OR gate leading to a ctRSD AND gate.</p>
 <dl class="simple">
 <dt>Useful Features:</dt><dd><ul class="simple">
@@ -207,9 +212,9 @@
 <p>More information on the imporved model implementation can be found <a class="reference internal" href="Model-Implementation.html#model-implementation"><span class="std std-ref">here</span></a>.</p>
 </div>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022%20Science%20Advances%20Paper/figure5E_simulations_v2.py">Figure 5E Python Script can be found here</a></p>
-</div>
-<div class="section" id="figure-5f">
-<h2>Figure 5F<a class="headerlink" href="#figure-5f" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="figure-5f">
+<h2>Figure 5F<a class="headerlink" href="#figure-5f" title="Permalink to this heading"></a></h2>
 <p>Figure 5F simulates a two layer cascade of a ctRSD AND gate leading to a ctRSD OR element.</p>
 <dl class="simple">
 <dt>Useful Features:</dt><dd><ul class="simple">
@@ -220,9 +225,9 @@
 </dd>
 </dl>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022%20Science%20Advances%20Paper/figure5F_simulations_v2.py">Figure 5F Python Script can be found here</a></p>
-</div>
-<div class="section" id="si-figure-12">
-<h2>SI Figure 12<a class="headerlink" href="#si-figure-12" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="si-figure-12">
+<h2>SI Figure 12<a class="headerlink" href="#si-figure-12" title="Permalink to this heading"></a></h2>
 <p>SI Figure 12 simulates an experiment conducted to estimate ribozyme cleavage rate. In the experiment, G{1,2} is initially transcribed for 15 min by itself and given different krz values. After 15 min, the G{1,2} template is degraded (concentration set to 0) and the fraction of the cleaved gate as a function of time is observed in the absence of transcription.</p>
 <dl class="simple">
 <dt>Useful Features:</dt><dd><ul class="simple">
@@ -234,9 +239,9 @@
 </dd>
 </dl>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022%20Science%20Advances%20Paper/SA22_SI_figure12_v2.py">SA22_SI_Figure12 Python Script can be found here</a></p>
-</div>
-<div class="section" id="si-figure-16">
-<h2>SI Figure 16<a class="headerlink" href="#si-figure-16" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="si-figure-16">
+<h2>SI Figure 16<a class="headerlink" href="#si-figure-16" title="Permalink to this heading"></a></h2>
 <p>SI Figure 16 simulates mixing fixed concentations of I{1} and G{1,2} with a DNA reporter.</p>
 <dl class="simple">
 <dt>Useful Features:</dt><dd><ul class="simple">
@@ -248,9 +253,9 @@
 </dd>
 </dl>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022%20Science%20Advances%20Paper/SA22_SI_figure16_v2.py">SA22_SI_Figure16 Python Script can be found here</a></p>
-</div>
-<div class="section" id="si-figure-18">
-<h2>SI Figure 18<a class="headerlink" href="#si-figure-18" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="si-figure-18">
+<h2>SI Figure 18<a class="headerlink" href="#si-figure-18" title="Permalink to this heading"></a></h2>
 <p>SI Figure 18 simulates potential mechanims for uncleaved gates reacting slowly with inputs.</p>
 <dl class="simple">
 <dt>Useful Features:</dt><dd><ul class="simple">
@@ -260,9 +265,9 @@
 </dd>
 </dl>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022%20Science%20Advances%20Paper/SA22_SI_figure18_v2.py">SA22_SI_Figure18 Python Script can be found here</a></p>
-</div>
-<div class="section" id="si-figure-19">
-<h2>SI Figure 19<a class="headerlink" href="#si-figure-19" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="si-figure-19">
+<h2>SI Figure 19<a class="headerlink" href="#si-figure-19" title="Permalink to this heading"></a></h2>
 <p>Figure 19 simulates the effect of increase reversing rates on one, two, three, and four layer cascades.</p>
 <dl class="simple">
 <dt>Useful Features:</dt><dd><ul class="simple">
@@ -272,9 +277,9 @@
 </dd>
 </dl>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022%20Science%20Advances%20Paper/SA22_SI_figure19_v2.py">SA22_SI_Figure19 Python Script can be found here</a></p>
-</div>
-<div class="section" id="si-figure-26">
-<h2>SI Figure 26<a class="headerlink" href="#si-figure-26" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="si-figure-26">
+<h2>SI Figure 26<a class="headerlink" href="#si-figure-26" title="Permalink to this heading"></a></h2>
 <p>Figure 26 simulates steric hindrance between the leak products and ctRSD gates could reduce overall leak observed in longer cascades.</p>
 <dl class="simple">
 <dt>Useful Features:</dt><dd><ul class="simple">
@@ -284,9 +289,9 @@
 </dd>
 </dl>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022%20Science%20Advances%20Paper/SA22_SI_figure26_v2.py">SA22_SI_Figure26 Python Script can be found here</a></p>
-</div>
-<div class="section" id="si-figure-27b">
-<h2>SI Figure 27B<a class="headerlink" href="#si-figure-27b" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="si-figure-27b">
+<h2>SI Figure 27B<a class="headerlink" href="#si-figure-27b" title="Permalink to this heading"></a></h2>
 <p>Figure 27B simulates lowering the forward strand displacement rate constant for I{4}.</p>
 <dl class="simple">
 <dt>Useful Features:</dt><dd><ul class="simple">
@@ -296,9 +301,9 @@
 </dd>
 </dl>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022%20Science%20Advances%20Paper/SA22_SI_figure27B_v2.py">SA22_SI_Figure27B Python Script can be found here</a></p>
-</div>
-<div class="section" id="si-figure-30c">
-<h2>SI Figure 30C<a class="headerlink" href="#si-figure-30c" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="si-figure-30c">
+<h2>SI Figure 30C<a class="headerlink" href="#si-figure-30c" title="Permalink to this heading"></a></h2>
 <p>Figure 30C simulates how ctRSD circuit kinetics depend on toehold length and the length of a single-stranded spacer after the self-cleaving ribozyme.</p>
 <dl class="simple">
 <dt>Useful Features:</dt><dd><ul class="simple">
@@ -308,31 +313,32 @@
 </dd>
 </dl>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022%20Science%20Advances%20Paper/SA22_SI_figure30C_v2.py">SA22_SI_Figure30C Python Script can be found here</a></p>
-</div>
-<div class="section" id="si-figure-31b">
-<h2>SI Figure 31B<a class="headerlink" href="#si-figure-31b" title="Permalink to this headline">¶</a></h2>
-<p>Figure 31B in the SI shows the influence of total template concentration and T7 RNAP concentration on transcriptional load. In terms, of the simulator, this example presents the need to be able to test different transcription rates to find the best rate for a set of data. The simulator uses <a class="reference internal" href="Functions.html#transcription-calibration"><span class="std std-ref">transcription_calibration</span></a> for this purpose.</p>
+</section>
+<section id="si-figure-31b">
+<h2>SI Figure 31B<a class="headerlink" href="#si-figure-31b" title="Permalink to this heading"></a></h2>
+<p>Figure 31B in the SI shows the influence of total template concentration and T7 RNAP concentration on transcriptional load. In terms, of the simulator, this example presents the need to be able to test different transcription rates to find the best rate for a set of data. The simulator uses <span class="xref std std-ref">transcription_calibration</span> for this purpose.</p>
 <div class="admonition-note admonition">
 <p class="admonition-title">Note:</p>
-<p>Click <a class="reference internal" href="Simulator-Features.html#calibration-simulation"><span class="std std-ref">here</span></a> for full features of the <em>transcription_calibration()</em> function.</p>
+<p>Click <span class="xref std std-ref">here</span> for full features of the <em>transcription_calibration()</em> function.</p>
 </div>
 <dl class="simple">
 <dt>Useful Features:</dt><dd><ul class="simple">
-<li><p>calibration transcription rates using <a class="reference internal" href="Functions.html#transcription-calibration"><span class="std std-ref">transcription_calibration()</span></a></p></li>
+<li><p>calibration transcription rates using <span class="xref std std-ref">transcription_calibration()</span></p></li>
 <li><p>globally changing rate constants with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants()</span></a></p></li>
 <li><p>changing indiviudal rate constants within <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a></p></li>
 </ul>
 </dd>
 </dl>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Examples/2022%20Science%20Advances%20Paper/SA22_SI_figure31B_v2.py">SA22_SI_Figure31B Python Script can be found here</a></p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="Simulator-Features.html" class="btn btn-neutral float-left" title="Advanced Simulator Features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ACS_syn_biol_Examples.html" class="btn btn-neutral float-right" title="2023 ACS Synthetic Biology Paper" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

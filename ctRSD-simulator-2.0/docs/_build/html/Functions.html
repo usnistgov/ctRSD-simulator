@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Functions &mdash; ctRSD-simulator-2.0 2.0.0 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <title>Functions &mdash; ctRSD-simulator-2.0 2.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -35,7 +38,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption"><span class="caption-text">General:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">General:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Model-Implementation.html">Model Reactions and Implementation</a></li>
@@ -52,12 +55,12 @@
 <li class="toctree-l1"><a class="reference internal" href="SeqCompiler.html">Sequence Compiler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 </ul>
-<p class="caption"><span class="caption-text">General Examples:</span></p>
+<p class="caption" role="heading"><span class="caption-text">General Examples:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Simple-Examples.html">Simple Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Simulator-Features.html">Advanced Simulator Features</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Examples from Publications:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Examples from Publications:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="SA_Examples.html">2022 Science Advances Paper</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ACS_syn_biol_Examples.html">2023 ACS Synthetic Biology Paper</a></li>
@@ -87,16 +90,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="functions">
-<span id="id1"></span><h1>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h1>
+  <section id="functions">
+<span id="id1"></span><h1>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h1>
 <p>This section lists the different functions available within ctRSD-simulator-2.0.</p>
 <div class="admonition-note admonition">
 <p class="admonition-title">Note:</p>
 <p>Before all available functions can be accessed the model must be downloaded, imported, and instantiated!</p>
 <p>More information on these steps can be found <a class="reference internal" href="ImportSim.html#importsim"><span class="std std-ref">here</span></a>.</p>
 </div>
-<div class="section" id="quick-reference">
-<h2>Quick reference<a class="headerlink" href="#quick-reference" title="Permalink to this headline">¶</a></h2>
+<section id="quick-reference">
+<h2>Quick reference<a class="headerlink" href="#quick-reference" title="Permalink to this heading"></a></h2>
 <p><strong>model.global_rate_constants(**kwargs</strong>)**</p>
 <blockquote>
 <div><p>Change specific rate constants for all the species involved in the reaction</p>
@@ -113,9 +116,9 @@
 <blockquote>
 <div><p>Pull out the concentrations of different species as a function of time after a simulation. <em>name</em> follows the same conventions as in <em>molecular_species()</em> and as in the <a class="reference internal" href="Model-Implementation.html#reaction-schematics"><span class="std std-ref">ctRSD Reaction Schematics</span></a></p>
 </div></blockquote>
-</div>
-<div class="section" id="global-rate-constants">
-<span id="id2"></span><h2>global_rate_constants()<a class="headerlink" href="#global-rate-constants" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="global-rate-constants">
+<span id="id2"></span><h2>global_rate_constants()<a class="headerlink" href="#global-rate-constants" title="Permalink to this heading"></a></h2>
 <p><strong>model.global_rate_constants</strong> (<strong>kwargs</strong>)</p>
 <p>with expanded keyword arguments (kwargs):</p>
 <p><strong>model.global_rate_constants</strong> (<em>krz=’False’</em>, <em>krsd=’False’</em>, <em>krev=’False’</em>, <em>krep=’False’</em>, <em>krepr=’False’</em>,
@@ -255,9 +258,9 @@ To change inputs individually change ktxnO in <em>molecular_species()</em> with 
 </dd>
 </dl>
 </div></blockquote>
-</div>
-<div class="section" id="molecular-species">
-<span id="id3"></span><h2>molecular_species()<a class="headerlink" href="#molecular-species" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="molecular-species">
+<span id="id3"></span><h2>molecular_species()<a class="headerlink" href="#molecular-species" title="Permalink to this heading"></a></h2>
 <p><strong>model.molecular_species</strong> (<em>name</em>, <em>DNA_con=0</em>, <em>ic=’False’</em>,**kwargs**)</p>
 <p>with expanded keyword arguments (kwargs):</p>
 <p><strong>model.molecular_species</strong> (<em>name</em>, <em>DNA_con=0</em>, <em>ic=’False’</em>, <em>krz=’False’</em>, <em>krsd=’False’</em>, <em>krev=’False’</em>,
@@ -348,9 +351,9 @@ This changes the entire j-th column of the <em>krevCG</em> matrix.</p>
 </dl>
 </dd>
 </dl>
-</div>
-<div class="section" id="simulate">
-<span id="id4"></span><h2>simulate()<a class="headerlink" href="#simulate" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="simulate">
+<span id="id4"></span><h2>simulate()<a class="headerlink" href="#simulate" title="Permalink to this heading"></a></h2>
 <p><strong>model.simulate</strong> (<em>t_vec</em>, <em>smethod=’False’</em>, <em>iteration=1</em>)</p>
 <p>simulate is used to run a simulation for a provided amount of time using the components previously initialized by molecular_species. simulate also includes the discontinuous feature of the simulator.</p>
 <dl>
@@ -377,9 +380,9 @@ This changes the entire j-th column of the <em>krevCG</em> matrix.</p>
 </dl>
 </dd>
 </dl>
-</div>
-<div class="section" id="output-concentration">
-<span id="id5"></span><h2>output_concentration()<a class="headerlink" href="#output-concentration" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="output-concentration">
+<span id="id5"></span><h2>output_concentration()<a class="headerlink" href="#output-concentration" title="Permalink to this heading"></a></h2>
 <p><strong>model.output_concentration</strong> (<em>name</em>)</p>
 <p>output_concentration is used to pull out desired output concentrations created after running of the simulate function.</p>
 <div class="admonition-note admonition">
@@ -423,8 +426,8 @@ This changes the entire j-th column of the <em>krevCG</em> matrix.</p>
 </dl>
 </dd>
 </dl>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

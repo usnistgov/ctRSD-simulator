@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Model Reactions and Implementation &mdash; ctRSD-simulator-2.0 2.0.0 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <title>Model Reactions and Implementation &mdash; ctRSD-simulator-2.0 2.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -35,7 +38,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption"><span class="caption-text">General:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">General:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Model Reactions and Implementation</a><ul>
@@ -58,12 +61,12 @@
 <li class="toctree-l1"><a class="reference internal" href="SeqCompiler.html">Sequence Compiler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 </ul>
-<p class="caption"><span class="caption-text">General Examples:</span></p>
+<p class="caption" role="heading"><span class="caption-text">General Examples:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Simple-Examples.html">Simple Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Simulator-Features.html">Advanced Simulator Features</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Examples from Publications:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Examples from Publications:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="SA_Examples.html">2022 Science Advances Paper</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ACS_syn_biol_Examples.html">2023 ACS Synthetic Biology Paper</a></li>
@@ -93,10 +96,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="model-reactions-and-implementation">
-<span id="model-implementation"></span><h1>Model Reactions and Implementation<a class="headerlink" href="#model-reactions-and-implementation" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="model-overview">
-<h2>Model overview<a class="headerlink" href="#model-overview" title="Permalink to this headline">¶</a></h2>
+  <section id="model-reactions-and-implementation">
+<span id="model-implementation"></span><h1>Model Reactions and Implementation<a class="headerlink" href="#model-reactions-and-implementation" title="Permalink to this heading"></a></h1>
+<section id="model-overview">
+<h2>Model overview<a class="headerlink" href="#model-overview" title="Permalink to this heading"></a></h2>
 <p>The reactions currently incorporated in the model are shown below. The simulator converts all the reactions below into the appropriate rate equations derived from mass action kinetics. This produces a system of ordinary differential equations that is then numerically integrated with the <em>solve_ivp()</em> function in Python’s SciPy package. Concentrations in the simulator are in <em>nM</em> and time is in <em>seconds</em>. The default values for rate constants can be found <a class="reference internal" href="ClassInitials.html#initials-defaults"><span class="std std-ref">here</span></a></p>
 <p>The curly bracket notation specifies the nomenclature of the species where i,j,k,…etc represent the domain numbers with the first index specifying the input domain and the second index specifying the output domain {input,output}. The names of species and the rate constants in the schematics below match how they are defined as variables in the model. The model is matrixed based so the index in the curly brackets also corresponds to the matrix index where the species concentrations are stored, or where the value of individual rate constants are stored in the rate constant matrices. See <a class="reference internal" href="#detailedmodeldescription"><span class="std std-ref">here</span></a> for more details on matrix definitions.</p>
 <p>The model uses a universal toehold for all strand displacement reactions. So from the model’s perspective all outputs have the same toehold and any output with an output domain index that matches the input domain index of a gate can react with that gate, i.e., O{3,1} will react with G{1,4} and G{1,5}. If it is desired to model a system in which multiple toeholds with different strand displacement rates, the appropriate index of the krsd rate constant matrix can be changed in molecular_species for each gate.</p>
@@ -106,69 +109,83 @@
 <li><p>For RNA strand displacement reactions, unless otherwise stated, the forward rate constants are associated with the gates. This means the rate constant for a forward strand displacement reaction for a specific gate, for example G{1,3}, can be changed and that rate constant will be used with all outputs that react with that gate, i.e., O{4,1} and O{5,1} will both use the forward rate constant associated with G{1,3}. It is not possible to give O{4,1} and O{5,1} unique forward rate constants for a strand displacement reaction with G{1,3} (or any gate with input domain index 1). <strong>Changes to forward RNA strand displacement reactions for individual gates should be done in the</strong> <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a> <strong>function when defining the gates.</strong> Changing the forward RNA strand displacement rate constant is not a valid option for outputs in <em>molecular_species()</em>.</p></li>
 <li><p>The reverse rate constants for RNA strand displacement reactions are associated with the outputs. This means the rate constant for a reverse strand displacement reaction for a specific output, for example O{1,3}, can be changed and that rate constant will be used with all GO{} species that react with the output, i.e., GO{4,1} and GO{5,1} will both use the reverse rate constant associated with O{1,3}. It is not possible to give GO{4,1} and GO{5,1} unique reverse rate constants for a strand displacement reaction with O{1,3} (or any output with input domain index 1). <strong>Changes to reverse RNA strand displacement reactions for individual outputs should be done in the</strong> <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a> <strong>function when defining the outputs, or when defining the gates – the reverse rate that is defined with a gate with correspond to the output of that gate.</strong> NOTE: because inputs are stored on the diagonal of the output matrix the diagonal of the reverse RNA strand displacement rate constant matrix is set to 0. This is because inputs only possess an output domain index and cannot participate in reverse RNA strand displacement reactions</p></li>
 </ol>
-</div>
-<div class="section" id="ctrsd-reaction-schematics">
-<span id="reaction-schematics"></span><h2>ctRSD Reaction Schematics<a class="headerlink" href="#ctrsd-reaction-schematics" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ctrsd-reaction-schematics">
+<span id="reaction-schematics"></span><h2>ctRSD Reaction Schematics<a class="headerlink" href="#ctrsd-reaction-schematics" title="Permalink to this heading"></a></h2>
 <p>Below the subscript “temp” indicates a DNA transcription template that encodes for the RNA species specified in its name.</p>
 <p>We model RNA transcription and degradation using a first order approximation for enzyme kinetics. From this approximation the transcription rate is linearly proportional to the template concentration, <em>e.g.,</em> ktxnO{k,i}*[Otemp{k,i}] where ktxn{k,i} is the apparent first order rate constant for production of RNA from Otemp{k,i}. Likewise, the degradation rates (if included in the model) are linearly proportional to the concentration of RNA, <em>e.g.,</em> kssdO{i,j}*[O{i,j}].</p>
-<div class="section" id="base-ctrsd-reactions">
-<h3>Base ctRSD Reactions<a class="headerlink" href="#base-ctrsd-reactions" title="Permalink to this headline">¶</a></h3>
-<div class="figure align-center" id="id1">
+<section id="base-ctrsd-reactions">
+<h3>Base ctRSD Reactions<a class="headerlink" href="#base-ctrsd-reactions" title="Permalink to this heading"></a></h3>
+<figure class="align-center" id="id1">
 <img alt="_images/base_reactions.png" class="with-border" src="_images/base_reactions.png" />
-<p class="caption"><span class="caption-text"><strong>Base ctRSD Reactions Schematics</strong>
-i,j,k represent input domain and output domain indices within the matrices and vectors that make up the model. They can be any integer value from 1 to N, where N is the total number of domains defined in model initialization. In the model inputs are not a separate species. Instead, inputs are modeled as outputs with the same input and output domain (tracked on the diagonal of the output matrix). For example, I{1} is modeled as O{1,1}. The user can still specify inputs in <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a> and <a class="reference internal" href="Functions.html#output-concentration"><span class="std std-ref">output_concentration()</span></a> and the simulator will convert these inputs to the appropriate output. The reverse strand displacement reaction for reporters is shown in gray because the krepr rate constants are initialized as 0 but they can be changed in <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants()</span></a> or <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a> to simulate reversible reporting reactions. For the leak transcription reaction <em>leak</em> is a percentage (default 0.03). Note the krev rate constant for inputs is 0 as they only have an output domain and cannot reverse a strand displacement reaction. <strong>The production of species S{j} can be compared to experiments with DNA reporters.</strong></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="fuel-reactions">
-<h3>Fuel Reactions<a class="headerlink" href="#fuel-reactions" title="Permalink to this headline">¶</a></h3>
-<div class="figure align-center" id="id2">
+<figcaption>
+<p><span class="caption-text"><strong>Base ctRSD Reactions Schematics</strong>
+i,j,k represent input domain and output domain indices within the matrices and vectors that make up the model. They can be any integer value from 1 to N, where N is the total number of domains defined in model initialization. In the model inputs are not a separate species. Instead, inputs are modeled as outputs with the same input and output domain (tracked on the diagonal of the output matrix). For example, I{1} is modeled as O{1,1}. The user can still specify inputs in <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a> and <a class="reference internal" href="Functions.html#output-concentration"><span class="std std-ref">output_concentration()</span></a> and the simulator will convert these inputs to the appropriate output. The reverse strand displacement reaction for reporters is shown in gray because the krepr rate constants are initialized as 0 but they can be changed in <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants()</span></a> or <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a> to simulate reversible reporting reactions. For the leak transcription reaction <em>leak</em> is a percentage (default 0.03). Note the krev rate constant for inputs is 0 as they only have an output domain and cannot reverse a strand displacement reaction. <strong>The production of species S{j} can be compared to experiments with DNA reporters.</strong></span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="fuel-reactions">
+<h3>Fuel Reactions<a class="headerlink" href="#fuel-reactions" title="Permalink to this heading"></a></h3>
+<figure class="align-center" id="id2">
 <img alt="_images/fuel_reactions.png" class="with-border" src="_images/fuel_reactions.png" />
-<p class="caption"><span class="caption-text"><strong>Fuel Reactions Schematics</strong>
-Note the forward fuel strand displacement rate constant is associate with the fuel strand. Fuel reactions with AGs are shown below and are defined similarly.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="and-gate-reactions">
-<h3>AND Gate Reactions<a class="headerlink" href="#and-gate-reactions" title="Permalink to this headline">¶</a></h3>
-<div class="figure align-center" id="id3">
+<figcaption>
+<p><span class="caption-text"><strong>Fuel Reactions Schematics</strong>
+Note the forward fuel strand displacement rate constant is associate with the fuel strand. Fuel reactions with AGs are shown below and are defined similarly.</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="and-gate-reactions">
+<h3>AND Gate Reactions<a class="headerlink" href="#and-gate-reactions" title="Permalink to this heading"></a></h3>
+<figure class="align-center" id="id3">
 <img alt="_images/and_gate_reactions.png" class="with-border" src="_images/and_gate_reactions.png" />
-<p class="caption"><span class="caption-text"><strong>AND Gate Reactions Schematics</strong>
-To reduce the number of species that needed to be tracked a few simiplications were made: The reaction of AG with the first input is considered irreversible. The final output of AG is defined by the second input domain and the output domain so this output will be lumped with outputs from single input gates that have the same indices <em>i.e.</em>, in the model O{k,j} from AG{i.k,j} is the same as O{k,j} from G{k,j}. Note there is not a unique reverse strand displacement rate constant for outputs from AG. The same matrix used for outputs from a single input gate is used. Fuel reactions with the first input domain of AGs is not considered, but in experiments such a reaction could occur. As with G, the leak transcription reaction <em>leakA</em> is a percentage (default 0.06). Note AGOa is defined by the second input domain and the output domain of AG while AGOb is defined by the indices of the second output bound to the gate.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="degradation-reactions">
-<h3>Degradation Reactions<a class="headerlink" href="#degradation-reactions" title="Permalink to this headline">¶</a></h3>
-<div class="figure align-center" id="id4">
+<figcaption>
+<p><span class="caption-text"><strong>AND Gate Reactions Schematics</strong>
+To reduce the number of species that needed to be tracked a few simiplications were made: The reaction of AG with the first input is considered irreversible. The final output of AG is defined by the second input domain and the output domain so this output will be lumped with outputs from single input gates that have the same indices <em>i.e.</em>, in the model O{k,j} from AG{i.k,j} is the same as O{k,j} from G{k,j}. Note there is not a unique reverse strand displacement rate constant for outputs from AG. The same matrix used for outputs from a single input gate is used. Fuel reactions with the first input domain of AGs is not considered, but in experiments such a reaction could occur. As with G, the leak transcription reaction <em>leakA</em> is a percentage (default 0.06). Note AGOa is defined by the second input domain and the output domain of AG while AGOb is defined by the indices of the second output bound to the gate.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="degradation-reactions">
+<h3>Degradation Reactions<a class="headerlink" href="#degradation-reactions" title="Permalink to this heading"></a></h3>
+<figure class="align-center" id="id4">
 <img alt="_images/degradation_reactions.png" class="with-border" src="_images/degradation_reactions.png" />
-<p class="caption"><span class="caption-text"><strong>Degradation Reactions Schematics</strong>
-Inputs (I) and GI species are shown separately here because they can be specified in <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a> and <a class="reference internal" href="Functions.html#output-concentration"><span class="std std-ref">output_concentration()</span></a> but they are actually modeled as O and GO, respectively, with identical input and output domain indices.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="thresholding-reactions">
-<h3>Thresholding Reactions<a class="headerlink" href="#thresholding-reactions" title="Permalink to this headline">¶</a></h3>
-<div class="figure align-center" id="id5">
+<figcaption>
+<p><span class="caption-text"><strong>Degradation Reactions Schematics</strong>
+Inputs (I) and GI species are shown separately here because they can be specified in <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a> and <a class="reference internal" href="Functions.html#output-concentration"><span class="std std-ref">output_concentration()</span></a> but they are actually modeled as O and GO, respectively, with identical input and output domain indices.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="thresholding-reactions">
+<h3>Thresholding Reactions<a class="headerlink" href="#thresholding-reactions" title="Permalink to this heading"></a></h3>
+<figure class="align-center" id="id5">
 <img alt="_images/thresholding_reactions.png" class="with-border" src="_images/thresholding_reactions.png" />
-<p class="caption"><span class="caption-text"><strong>Thresholding Reactions Schematics</strong>
-These reactions represent irreversible reactions without an output, essentially a sink for specific signals in a circuit. So these gates only have an input index.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="comparator-gate-reactions">
-<h3>Comparator Gate Reactions<a class="headerlink" href="#comparator-gate-reactions" title="Permalink to this headline">¶</a></h3>
-<div class="figure align-center" id="id6">
+<figcaption>
+<p><span class="caption-text"><strong>Thresholding Reactions Schematics</strong>
+These reactions represent irreversible reactions without an output, essentially a sink for specific signals in a circuit. So these gates only have an input index.</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="comparator-gate-reactions">
+<h3>Comparator Gate Reactions<a class="headerlink" href="#comparator-gate-reactions" title="Permalink to this heading"></a></h3>
+<figure class="align-center" id="id6">
 <img alt="_images/comparator_gate_reactions.png" class="with-border" src="_images/comparator_gate_reactions.png" />
-<p class="caption"><span class="caption-text"><strong>Comparator Gate Reactions Schematics</strong>
-There are two forward strand displacement rate constants for each CG, krsdCGa that corresponds to reactions with the i domain and krsdCGb that corresponds to reactions with the j domain. Note the reverse strand displacement rate constants still follow the outputs, <em>e.g.</em>, the rate that O{k,j} dissociates from CG is defined by O{k,j} and not by the j domain of CG. This means outputs with the same output domain but different input domains can have different krevCG values. <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a> has an option to change the reverse reaction rate for all outputs with the same output domains when defining CG (krevCGa and krevCGb). Note CGOa and CGOb complexes are defined by the indices of the outputs bound to the comparator gate. For simulations containing more than one CG, the same input domain cannot be repeated in the same index for two gates. For example, CG{i,j} and CG{k,j} will result in an incorrect result because both gates have domain j in the second index. This should be changed to CG{i,j} and CG{j,k} so that domain k is in a different index for the two gates. See the <a class="reference internal" href="Simulator-Features.html#three-comparator-gate"><span class="std std-ref">Three comparator gate example</span></a>.</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-</div>
-<div class="section" id="detailed-model-description">
-<span id="detailedmodeldescription"></span><h2>Detailed model description<a class="headerlink" href="#detailed-model-description" title="Permalink to this headline">¶</a></h2>
-<div class="figure align-center" id="id7">
+<figcaption>
+<p><span class="caption-text"><strong>Comparator Gate Reactions Schematics</strong>
+There are two forward strand displacement rate constants for each CG, krsdCGa that corresponds to reactions with the i domain and krsdCGb that corresponds to reactions with the j domain. Note the reverse strand displacement rate constants still follow the outputs, <em>e.g.</em>, the rate that O{k,j} dissociates from CG is defined by O{k,j} and not by the j domain of CG. This means outputs with the same output domain but different input domains can have different krevCG values. <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a> has an option to change the reverse reaction rate for all outputs with the same output domains when defining CG (krevCGa and krevCGb). Note CGOa and CGOb complexes are defined by the indices of the outputs bound to the comparator gate. For simulations containing more than one CG, the same input domain cannot be repeated in the same index for two gates. For example, CG{i,j} and CG{k,j} will result in an incorrect result because both gates have domain j in the second index. This should be changed to CG{i,j} and CG{j,k} so that domain k is in a different index for the two gates. See the <a class="reference internal" href="Simulator-Features.html#three-comparator-gate"><span class="std std-ref">Three comparator gate example</span></a>.</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="detailed-model-description">
+<span id="detailedmodeldescription"></span><h2>Detailed model description<a class="headerlink" href="#detailed-model-description" title="Permalink to this heading"></a></h2>
+<figure class="align-center" id="id7">
 <img alt="_images/matrix_description2.png" class="with-border" src="_images/matrix_description2.png" />
-<p class="caption"><span class="caption-text"><strong>Example with selected matrix descriptions</strong>
-(<strong>A</strong>) Schematic of a specific system to simulate, composed of and input, two cascaded gates, and a DNA reporter. Concentrations correspond to the DNA templates and reporter. (<strong>B</strong>) Matrix representation in the model of the defined system. Each column of a matrix corresponds to a specific output domain and each row corresponds to a specific input domain. Left: variables of the defined species with indexes shown. Right: variables with the defined concentrations shown. Otemp_con stores the concentrations of output (and input) DNA templates. Gtemp_con stores the concentrations of gate DNA templates. R_ic stores the initial concentration of DNA reporters. (<strong>C</strong>) Matrix representation of the output matrix (Om) and two rate constant matrices. Note Om stores both the outputs from the two gates in the system as well as the input because inputs are modeled as outputs with the same input and output domain. The krsd and krev matrices hold all the forward and reverse RNA strand displacement rate constants for all possible gates and outputs, respectively. The diagonal of the krev matrix, where the inputs are stored, is set to 0 because inputs cannot reverse RNA strand displacement reactions given that they only have output domains. The values of every entry in these matrices can be changed simultaneously with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants()</span></a> or the values of individual entries can be changed by specifying a new rate constant value for a specific species in <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a>. (<strong>D</strong>) Example code for setting up and simulating the system in panel <strong>A</strong>. (<strong>E</strong>). Commands to access the variables in panels <strong>B</strong> and <strong>C</strong>, see <a class="reference internal" href="troubleshooting.html#troubleshooting"><span class="std std-ref">Troubleshooting</span></a>.</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-</div>
+<figcaption>
+<p><span class="caption-text"><strong>Example with selected matrix descriptions</strong>
+(<strong>A</strong>) Schematic of a specific system to simulate, composed of and input, two cascaded gates, and a DNA reporter. Concentrations correspond to the DNA templates and reporter. (<strong>B</strong>) Matrix representation in the model of the defined system. Each column of a matrix corresponds to a specific output domain and each row corresponds to a specific input domain. Left: variables of the defined species with indexes shown. Right: variables with the defined concentrations shown. Otemp_con stores the concentrations of output (and input) DNA templates. Gtemp_con stores the concentrations of gate DNA templates. R_ic stores the initial concentration of DNA reporters. (<strong>C</strong>) Matrix representation of the output matrix (Om) and two rate constant matrices. Note Om stores both the outputs from the two gates in the system as well as the input because inputs are modeled as outputs with the same input and output domain. The krsd and krev matrices hold all the forward and reverse RNA strand displacement rate constants for all possible gates and outputs, respectively. The diagonal of the krev matrix, where the inputs are stored, is set to 0 because inputs cannot reverse RNA strand displacement reactions given that they only have output domains. The values of every entry in these matrices can be changed simultaneously with <a class="reference internal" href="Functions.html#global-rate-constants"><span class="std std-ref">global_rate_constants()</span></a> or the values of individual entries can be changed by specifying a new rate constant value for a specific species in <a class="reference internal" href="Functions.html#molecular-species"><span class="std std-ref">molecular_species()</span></a>. (<strong>D</strong>) Example code for setting up and simulating the system in panel <strong>A</strong>. (<strong>E</strong>). Commands to access the variables in panels <strong>B</strong> and <strong>C</strong>, see <a class="reference internal" href="troubleshooting.html#troubleshooting"><span class="std std-ref">Troubleshooting</span></a>.</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
 
 
            </div>

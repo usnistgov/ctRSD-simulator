@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sequence Compiler &mdash; ctRSD-simulator-2.0 2.0.0 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <title>Sequence Compiler &mdash; ctRSD-simulator-2.0 2.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -35,7 +38,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption"><span class="caption-text">General:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">General:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Model-Implementation.html">Model Reactions and Implementation</a></li>
@@ -51,12 +54,12 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 </ul>
-<p class="caption"><span class="caption-text">General Examples:</span></p>
+<p class="caption" role="heading"><span class="caption-text">General Examples:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Simple-Examples.html">Simple Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Simulator-Features.html">Advanced Simulator Features</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Examples from Publications:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Examples from Publications:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="SA_Examples.html">2022 Science Advances Paper</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ACS_syn_biol_Examples.html">2023 ACS Synthetic Biology Paper</a></li>
@@ -86,42 +89,55 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="sequence-compiler">
-<span id="seq-compile"></span><h1>Sequence Compiler<a class="headerlink" href="#sequence-compiler" title="Permalink to this headline">¶</a></h1>
+  <section id="sequence-compiler">
+<span id="seq-compile"></span><h1>Sequence Compiler<a class="headerlink" href="#sequence-compiler" title="Permalink to this heading"></a></h1>
 <p>Sequence compiler is a function avaliable in the simulator that takes in a species name as an input (same nomenclature used elsewhere in the simulator), among other function inputs, and outputs the DNA sequence that encodes for the RNA species that meets the input specifications.</p>
 <div class="admonition-note admonition">
 <p class="admonition-title">Note:</p>
 <p>Although it is a function within the simulator, and is accessed in the same way as the other functions, it does not require a system to be simulated to be used. Hence why its documentation is being kept seperate from the other functions. It just requires that the simulator package be imported.</p>
 <p>Sequence compiler was included in the simulator so that users could have all the useful tools in designing ctRSD circuits in one place.</p>
 </div>
-<div class="section" id="download-domains-list">
-<span id="downloaddomainslist"></span><h2>Download Domains List<a class="headerlink" href="#download-domains-list" title="Permalink to this headline">¶</a></h2>
+<section id="download-domains-list">
+<span id="downloaddomainslist"></span><h2>Download Domains List<a class="headerlink" href="#download-domains-list" title="Permalink to this heading"></a></h2>
 <p>Below is a link to download a provided spreadsheet that contains the list of domains for ctRSD reactions used to compile the sequences. The local file path on where this file is stored is an input to the sequence compiler function. Many of the optional inputs to the sequence compiler use the names of sequence domains contained in this Excel workbook - they can be accessed by specifying the name in the first column of the Excel workbook with the appropriate optional parameter. To add custom sequences for a domain, one can add a sequence domain with a unique name to a local copy of the Excel workbook in the correct sheet and then use the name of that sequence domain in the sequence compiler optional inputs.</p>
-<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence%20Compiler/ctRSD_domains_list.xls">ctRSD Domains List Spreadsheet can be found here</a></p>
-</div>
-<div class="section" id="function-overview">
-<h2>Function Overview<a class="headerlink" href="#function-overview" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence%20Compiler/ctRSD_domains_list_210.xls">ctRSD Domains List Spreadsheet for versions 210 and above can be found here</a></p>
+<p>The version below has some names used in the 2022 Science Advances and 2023 ACS Syn Bio papers used in verion 200 of the sequence compiler that have since been updated:
+<a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence%20Compiler/ctRSD_domains_list_200.xls">An older version of the ctRSD Domains List Spreadsheet for version 200</a></p>
+</section>
+<section id="function-overview">
+<h2>Function Overview<a class="headerlink" href="#function-overview" title="Permalink to this heading"></a></h2>
 <p>The figures below illustrate the various options for the sequence compiler. Note, the comparator gates (CG) and thresholding gates (TG) have not been exhaustively tested in experiments and their exact designs might be subject to change in future iterations.</p>
-<div class="figure align-center" id="id1">
-<img alt="_images/seq_compile_F1_2.png" class="with-border" src="_images/seq_compile_F1_2.png" />
-<p class="caption"><span class="caption-text"><strong>Overview of input, gate, and output definitions and options</strong>
-(<strong>A</strong>) RSD domains are domains relevant to RNA strand displacement and are specified in the name variable. i,j,k refer to toehold domains and X and Y refer to branch migration domains which can be 1,2,3,4,5,…etc. If only the name variable is specified, the default transcriptional encoding parameters will be used. The transcriptional encoding parameters refer to domains appended to the RSD domains to facilitate transcription of the ctRSD components. The names of the optional keyword arguments are shown for each component in the second row. The third row shows the schematics if the transcription order is inverted by setting the invert keyword argument to 1. For outputs it is also possible to specify otype=0 to produce an output sequence that does not contain a ribozyme. (<strong>B</strong>) In addition to the options shown in panel A, there are other domains that can be specified. (Left) Reporter domains: domains necessary for irreversible reactions with a fluorescent reporter complex (r). These are specified solely in the name variable. Note there is a unique r domain for each output domain, i.e., an r for domain 1 and an r for domain 2, etc. (Right) Extended domains: domains that extend the branch migration length of components. These can be specified in either the input, output or both domains of a gate. Although not shown, extended domains are also an option for outputs. The existence of an extended domain is specified in the name variable and the identity of the extended domain is specified with the keyword arguments eI and eO. Note that inputs require the eO keyword be used to specify the identity of the output domain.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-center" id="id2">
+<figure class="align-center" id="id3">
+<img alt="_images/seq_compile_F1_3.png" class="with-border" src="_images/seq_compile_F1_3.png" />
+<figcaption>
+<p><span class="caption-text"><strong>Overview of input, gate, and output definitions and options</strong>
+(<strong>A</strong>) RSD domains are domains relevant to RNA strand displacement and are specified in the name variable. i,j,k refer to toehold domains and X and Y refer to branch migration domains which can be 1,2,3,4,5,…etc. If only the name variable is specified, the default transcriptional encoding parameters will be used. The transcriptional encoding parameters refer to domains appended to the RSD domains to facilitate transcription of the ctRSD components. The names of the optional keyword arguments are shown for each component in the second row. The third row shows the schematics if the transcription order is inverted by setting the invert keyword argument to 1. For outputs it is also possible to specify otype=0 to produce an output sequence that does not contain a ribozyme. (<strong>B</strong>) In addition to the options shown in panel A, there are other domains that can be specified. (Left) Reporter domains: domains necessary for irreversible reactions with a fluorescent reporter / molecular beacon complex (r). These are specified solely in the name variable. Note there is a unique r domain for each output domain, i.e., an r for domain 1 and an r for domain 2, etc. (Right) Extended domains: domains that extend the branch migration length of components. These can be specified in either the input, output or both domains of a gate. Although not shown, extended domains are also an option for outputs. The existence of an extended domain is specified in the name variable and the identity of the extended domain is specified with the keyword arguments eI and eO. Note that inputs require the eO keyword be used to specify the identity of the output domain.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id4">
 <img alt="_images/seq_compile_F2.png" class="with-border" src="_images/seq_compile_F2.png" />
-<p class="caption"><span class="caption-text"><strong>Overview of fuel, AND gate, comparator gate, and thresholding gate definitions and options</strong>
-RSD domains are domains relevant to RNA strand displacement and are specified in the name variable. i,j,k refer to toehold domains and X,Y,Z refer to branch migration domains which can be 1,2,3,4,5,…etc. If only the name variable is specified, the default transcriptional encoding parameters will be used. The transcriptional encoding parameters refer to domains appended to the RSD domains to facilitate transcription of the ctRSD components. The names of the optional keyword arguments are shown for each component in the second row. The third row shows the schematics if the transcription order is inverted by setting the invert keyword argument to 1. Reporter domains can also be specified for AND gates e.g., AG{iX.jY,kZr}. Extended domains are options for fuel and AND gate. For fuel components the convention follows that of input components in the figure above. For AND gates if an e domain is specified for either input domain then that domain will be used for both input domains. But eO can be different than eI for AND gates. Extended domains are currently not an option for threshold gates.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="function-documentation">
-<h2>Function Documentation<a class="headerlink" href="#function-documentation" title="Permalink to this headline">¶</a></h2>
+<figcaption>
+<p><span class="caption-text"><strong>Overview of fuel, AND gate, comparator gate, and thresholding gate definitions and options</strong>
+RSD domains are domains relevant to RNA strand displacement and are specified in the name variable. i,j,k refer to toehold domains and X,Y,Z refer to branch migration domains which can be 1,2,3,4,5,…etc. If only the name variable is specified, the default transcriptional encoding parameters will be used. The transcriptional encoding parameters refer to domains appended to the RSD domains to facilitate transcription of the ctRSD components. The names of the optional keyword arguments are shown for each component in the second row. The third row shows the schematics if the transcription order is inverted by setting the invert keyword argument to 1. Reporter domains can also be specified for AND gates e.g., AG{iX.jY,kZr}. Extended domains are options for fuel and AND gate. For fuel components the convention follows that of input components in the figure above. For AND gates if an e domain is specified for either input domain then that domain will be used for both input domains. But eO can be different than eI for AND gates. Extended domains are currently not an option for threshold gates.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id5">
+<img alt="_images/seq_compile_F3.png" class="with-border" src="_images/seq_compile_F3.png" />
+<figcaption>
+<p><span class="caption-text"><strong>Updates to sequence compiler versions ≥ 2.1.0, which includes specifying ctRSD components for use as toehold exchange riboregulators</strong>
+In sequence compiler versions ≥ 2.1.0, toeholds on inputs (and outputs, although not shown) longer than the standard 6 bases are specified as s′ and defined by the keyword option ‘s’ in input / output definitions. ‘e’ sequence domain names also require inclusion of the letter e, in contrast to earlier versions. All other previously defined sequence compiler conventions and names should hold. (<strong>A</strong>) Modification to gate species for use as toehold exchange riboregulators. Toehold exchange riboregulators (left) are defined similarly to ctRSD gates other than how the ‘rbs’ toehold is specified. It requires a ‘-’ before the output branch migration domain. Gates can also include the ‘d’ domain (right) if they are connecting to a toehold exchange riboregulator (see B for how to specify ‘d’ domain identity). Toehold exchange riboregulators, and all gates sequence compiler versions ≥ 2.1.0, include additional keyword options for transcription and translation parameters. ‘cp’ serves as a spacer between the rbs domain and the start codon. ‘n’ is an N-terminal linker domain that links the ribosome binding site to the protein coding sequence. ‘CDS’ is the nucleic acid sequence encoding a protein of interest. ‘rflap’ is a fluorescent RNA aptamer sequence that can be included to measure gate transcription. By default, keyword options ‘cp’, ‘n’, ‘CDS’, and ‘rflap’ are set to ‘none’. The start codon is not an independent parameter. It is typically included in the sequence of  the ‘n’ domain. When using an ‘n’ domain the start codon in the CDS can be mutated or removed. If not using the ‘n’ domain, be sure the chosen CDS includes a start codon. (<strong>B</strong>) Modified input and output domains for use with toehold exchange riboregulators. The primary addition is the ‘d’ domain used to control translation strength. The inclusion of this domain is indicated in the species name and the specific sequence used is defined as a keyword parameter. This can be used in conjunction with extended domains (‘e’). Like gates, inputs and outputs can also include a 3’ fluorescent RNA aptamer with the ‘rflap’ keyword parameter. 5’ fluorescent RNA aptamers, if desired, can be introduced by added ‘rflap’ sequence domains to the 5hp tab of ctRSD_domains_list_210.xls and indicating the desired domain name with the ‘hp5’ keyword.</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="function-documentation">
+<h2>Function Documentation<a class="headerlink" href="#function-documentation" title="Permalink to this heading"></a></h2>
 <div class="admonition-warning admonition">
 <p class="admonition-title">Warning!</p>
 <p>Before all available functions can be accessed the model must be downloaded, imported, and instantiated!</p>
 <p>More information on these steps can be found <a class="reference internal" href="ImportSim.html#importsim"><span class="std std-ref">here</span></a>.</p>
 </div>
 <p><strong>model.ctRSD_seq_compile</strong> (<em>name</em>, <em>filepath</em>, <em>Rz=’Ro’</em>, <em>L=’L’</em>, <em>term=’T7t’</em>, <em>hp5=’5hp’</em>, <em>prom=’T7p’</em>, <em>eI=’’</em>,
-<em>eO=’’</em>, <em>s=’’</em>, <em>invert=0</em>, <em>invL=’A’</em>, <em>agL=’TA’</em>, <em>AGiloop=5</em>, <em>otype=1</em>, <em>rna=0</em>, <em>us=[]</em>, <em>ds=[]</em>, <em>temp_len=0</em>):</p>
+<em>eO=’’</em>, <em>s=’’</em>, <em>invert=0</em>, <em>invL=’A’</em>, <em>agL=’TA’</em>, <em>AGiloop=5</em>, <em>otype=1</em>, <em>rna=0</em>, <em>us=[]</em>, <em>ds=[]</em>, <em>temp_len=0</em>,*cp=’’<em>,*n=’’</em>,*c=0*,*d=’’<em>,*CDS=’’</em>,*rflap=’’<a href="#id1"><span class="problematic" id="id2">*</span></a>):</p>
 <p><em>name</em> inputs that show multiple options function with each of those options. All <em>name</em> inputs are also not case sensitive.</p>
 <dl class="simple">
 <dt><strong>Parameters:</strong></dt><dd><dl class="simple">
@@ -151,12 +167,12 @@ This needs to include the filename of the Excel sheet: /local file path/ctRSD_do
 </dd>
 <dt>prom: <em>string</em>, <em>optional</em>, <em>if NONE,default=’T7p’</em></dt><dd><p>Promoter sequence.</p>
 </dd>
-<dt>eI: <em>string</em>, <em>optional</em>, <em>if NONE,default=’’</em></dt><dd><p>An extended sequence at the 5’ end of output domains on gates, AND gates, outputs, inputs, and fuels. ‘e’ must be specified in the output domain of the <em>name</em> of the species for this input to be valid, i.e., G{u1e,_} or AG{u3e.u1e,_} or O{u5e,_}. eI will be the same for both input domains of an AG.</p>
+<dt>eI: <em>string</em>, <em>optional</em>, <em>if NONE,default=’’</em></dt><dd><p>An extended sequence at the 5’ end of output domains on gates, AND gates, outputs, inputs, and fuels. ‘e’ must be specified in the output domain of the <em>name</em> of the species for this input to be valid, i.e., G{u1e,_} or AG{u3e.u1e,_} or O{5e,_}. eI will be the same for both input domains of an AG.</p>
 </dd>
-<dt>eO: <em>string</em>, <em>optional</em>, <em>if NONE,default=’’</em></dt><dd><p>An extended sequence at the 5’ end of input domains on gates, AND gates, and outputs. ‘e’ must be specified in the input domain of the <em>name</em> of the species for this input to be valid, i.e., G{_,v1e} or AG{_,w2e} or O{_,v3e} or I{u1e} or F{w5e}. Note that eO is used to specify ‘e’ domains on single input</p>
+<dt>eO: <em>string</em>, <em>optional</em>, <em>if NONE,default=’’</em></dt><dd><p>An extended sequence at the 5’ end of input domains on gates, AND gates, and outputs. ‘e’ must be specified in the input domain of the <em>name</em> of the species for this input to be valid, i.e., G{_,v1e} or AG{_,w2e} or O{_,v3e} or I{u1e} or F{w5e}. Note that eO is used to specify ‘e’ domains on inputs.</p>
 </dd>
 <dt>s: <em>string</em>, <em>optional</em>, <em>if NONE,default=’’</em></dt><dd><p>Spacer sequence between the ribozyme and the input toehold of a gate. Cannot be specified for the second input toehold of an AG.
-‘s4’ is the default spacer domain for TG.</p>
+‘s4’ is the default spacer domain for TG. When specified for inputs or outputs the complement of the ‘s’ domain will be appended downstream of the toehold to serve as an extended toehold for hybridization to the ‘s’ domain of a gate.</p>
 </dd>
 <dt>invert: <em>Boolean</em>, <em>optional</em>, <em>if NONE,0</em></dt><dd><p>Inverted transcription order - change to 1. This will start transcription at the 5’ end of the input toehold of a gate. Not a valid input for CGs.</p>
 </dd>
@@ -176,12 +192,24 @@ This needs to include the filename of the Excel sheet: /local file path/ctRSD_do
 </dd>
 <dt>temp_len: <em>int</em>, <em>optional</em>, <em>if NONE,0</em></dt><dd><p>Specifying the total length of the DNA template. Typically, this can be used to get a template that is 125 bases or 300 bases for ordering as a gBlock or eBlock, respectively. This input should be used in conjunction with <em>us</em> and/or <em>ds</em> to specify which upstream and downstream sequences should be used to meet the length requirement. The option ‘exc’ in <em>ds</em> has a long sequence of bases for appending.</p>
 </dd>
+<dt>cp: <em>string</em>, <em>optional</em>, <em>if NONE,default=’’</em></dt><dd><p>A spacer sequence between the rbs and start codon on a toehold exchange riboregulator. This domain sequence does not include the start codon. The ‘c’ clamp domain below is complementary to ‘cp’ when defined.</p>
+</dd>
+<dt>n: <em>string</em>, <em>optional</em>, <em>if NONE,default=’’</em></dt><dd><p>N-terminal linker sequence used to avoid secondary structure across ribosome footprint on a toehold exchange riboregulator. Appended after the ‘cp’ domain and typically includes the start codon for translation. So ‘n’ domain will be translated and should be in frame with CDS.</p>
+</dd>
+<dt>d: <em>string</em>, <em>optional</em>, <em>if NONE,default=’’</em></dt><dd><p>A distal domain sequence at the 5’ end of output domains on inputs, outputs, and gates that influences translation strength of a toehold exchange riboregulator.  ‘d’ must be specified in the output domain of the <em>name</em> of the species for this input to be valid, i.e., I{u1d} or  O{5,u1d} or G{u1,v3d}.</p>
+</dd>
+<dt>c: <em>int</em>, <em>optional</em>, <em>if NONE,0</em></dt><dd><p>A clamp domain to bury the rbs of a toehold exchange riboregulator. Specify as the number of bases desired for a clamp. This domain sequence is defined as complementary to ‘cp’ so it requires a ‘cp’ domain to be specified. The input length of ‘c’ cannot exceed the length of the specified ‘cp’ domain.</p>
+</dd>
+<dt>CDS: <em>string</em>, <em>optional</em>, <em>if NONE,default=’’</em></dt><dd><p>A protein coding sequence for a toehold exchange riboregulator. This should include a stop codon. A start codon should be incuded if an ‘n’ domain is not being used.</p>
+</dd>
+<dt>rflap: <em>string</em>, <em>optional</em>, <em>if NONE,default=’’</em></dt><dd><p>A fluorescent RNA aptamer sequence that will be appended directly upstream of the terminator sequence when included.</p>
+</dd>
 </dl>
 </dd>
 </dl>
-</div>
-<div class="section" id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading"></a></h2>
 <dl class="simple">
 <dt>First Steps:</dt><dd><ol class="arabic simple">
 <li><p><a class="reference internal" href="ImportSim.html#importsim"><span class="std std-ref">Download, Import, and Initialize ctRSD-simulator-2.0</span></a></p></li>
@@ -190,16 +218,20 @@ This needs to include the filename of the Excel sheet: /local file path/ctRSD_do
 </ol>
 </dd>
 </dl>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing simulator</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#######################################</span>
+<span class="c1"># EXAMPLES OF SIMPLE ctRSD COMPONENTS</span>
+<span class="c1">#######################################</span>
+
+<span class="c1"># importing simulator</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;filepath to simulator location on local computer&#39;</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">ctRSD_simulator_200</span> <span class="k">as</span> <span class="nn">RSDs</span> <span class="c1"># import latest version of the simulator</span>
+<span class="kn">import</span> <span class="nn">ctRSD_simulator_210</span> <span class="k">as</span> <span class="nn">RSDs</span> <span class="c1"># import latest version of the simulator</span>
 
 
 <span class="c1"># create the model instance</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">RSDs</span><span class="o">.</span><span class="n">RSD_sim</span><span class="p">()</span> <span class="c1"># default # of domains (5 domains)</span>
 
-<span class="n">filepath</span> <span class="o">=</span> <span class="s1">&#39;//File Path//ctRSD_domains_list.xls&#39;</span>
+<span class="n">filepath</span> <span class="o">=</span> <span class="s1">&#39;//File Path//ctRSD_domains_list_210.xls&#39;</span>
 
 <span class="c1"># use the experimental nomenclature to specify the sequence you want</span>
 <span class="n">Gate_seq</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">ctRSD_seq_compile</span><span class="p">(</span><span class="s1">&#39;G{u1,w2r}&#39;</span><span class="p">,</span><span class="n">filepath</span><span class="p">)</span>
@@ -213,12 +245,37 @@ This needs to include the filename of the Excel sheet: /local file path/ctRSD_do
 <span class="n">AG_seq</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">ctRSD_seq_compile</span><span class="p">(</span><span class="s1">&#39;AG{u3.u1,w2r}&#39;</span><span class="p">,</span><span class="n">filepath</span><span class="p">)</span>
 </pre></div>
 </div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#######################################################</span>
+<span class="c1"># EXAMPLES OF TOEHOLD EXCHANGE RIBOREGULATOR COMPONENTS</span>
+<span class="c1">#######################################################</span>
+
+<span class="c1"># importing simulator</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;filepath to simulator location on local computer&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">ctRSD_simulator_210</span> <span class="k">as</span> <span class="nn">RSDs</span> <span class="c1"># import latest version of the simulator</span>
+
+
+<span class="c1"># create the model instance</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">RSDs</span><span class="o">.</span><span class="n">RSD_sim</span><span class="p">()</span> <span class="c1"># default # of domains (5 domains)</span>
+
+<span class="n">filepath</span> <span class="o">=</span> <span class="s1">&#39;//File Path//ctRSD_domains_list_210.xls&#39;</span>
+
+<span class="c1"># use the experimental nomenclature to specify the sequence you want</span>
+<span class="n">THE_ribo_seq</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">ctRSD_seq_compile</span><span class="p">(</span><span class="s1">&#39;G{u1,rbs1-2r}&#39;</span><span class="p">,</span><span class="n">filepath</span><span class="p">,</span><span class="n">Rz</span><span class="o">=</span><span class="s1">&#39;R3&#39;</span><span class="p">,</span><span class="n">s</span><span class="o">=</span><span class="s1">&#39;s4&#39;</span><span class="p">,</span><span class="n">cp</span><span class="o">=</span><span class="s1">&#39;c06,n=&#39;</span><span class="n">THE_L</span><span class="s1">&#39;,CDS=&#39;</span><span class="n">sfGFP_tta</span><span class="s1">&#39;,term=&#39;</span><span class="n">T7t</span><span class="s1">&#39;)</span>
+
+<span class="n">Input_seq</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">ctRSD_seq_compile</span><span class="p">(</span><span class="s1">&#39;I</span><span class="si">{u1d}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">filepath</span><span class="p">,</span><span class="n">d</span><span class="o">=</span><span class="s1">&#39;d20&#39;</span><span class="p">,</span><span class="n">term</span><span class="o">=</span><span class="s1">&#39;Thyb10&#39;</span><span class="p">)</span>
+
+<span class="n">Gate_seq</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">ctRSD_seq_compile</span><span class="p">(</span><span class="s1">&#39;G{v5,u1d}&#39;</span><span class="p">,</span><span class="n">filepath</span><span class="p">,</span><span class="n">Rz</span><span class="o">=</span><span class="s1">&#39;Rg&#39;</span><span class="p">,</span><span class="n">d</span><span class="o">=</span><span class="s1">&#39;d20&#39;</span><span class="p">,</span><span class="n">s</span><span class="o">=</span><span class="s1">&#39;s4&#39;</span><span class="p">,</span><span class="n">term</span><span class="o">=</span><span class="s1">&#39;Thyb6&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence%20Compiler/THE_Ecoli_seq_compile_examples.py">Example Script for sequences in the 2025 paper on toehold exchange riboregulatirs in E coli can be found here</a></p>
+<p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence%20Compiler/THE_CFES_seq_compile_examples.py">Example Script for sequences in the 2025 paper on toehold exchange riboregulatirs in cell free expression systems can be found here</a></p>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence%20Compiler/seq_compile_SA22_examples.py">Example Script for sequences in the 2022 Science Advances paper can be found here</a></p>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence%20Compiler/seq_compile_gate_characterization_examples.py">Example Script for diverse gate sequences can be found here</a></p>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence%20Compiler/seq_compile_general_examples.py">Example Script for additional component sequences can be found here</a></p>
 <p><a class="reference external" href="https://github.com/usnistgov/ctRSD-simulator/blob/main/ctRSD-simulator-2.0/Sequence%20Compiler/seq_compile_save_to_excel.py">Example script saving sequence to an Excel file can be found here</a></p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

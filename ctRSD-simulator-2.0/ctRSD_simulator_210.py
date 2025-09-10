@@ -185,7 +185,8 @@ def rate_eqs(t,y,ktxnO,ktxnG,ktxnTG,ktxnF,ktxnAG,ktxnCG,krz,krsd,krev,krep,krepr
     
     dAGm = (krzA*uAGm - Omrsd @ (krsdA*AGm) - kdsdAG*AGm).flatten()
     
-    dAGOam = (AGmap @ (Om @ (krsdA*AGm)) - Omrsd @ (krsdA*AGOam) + AGObmrsd @ (krev*Om) -kdsdAGOa*AGOam).flatten()
+    dAGOam = (AGmap @ (Omrsd @ (krsdA*AGm)) - Omrsd @ (krsdA*AGOam) + AGObmrsd @ (krev*Om) -kdsdAGOa*AGOam).flatten()
+    #dAGOam = (AGmap @ (Om @ (krsdA*AGm)) - Omrsd @ (krsdA*AGOam) + AGObmrsd @ (krev*Om) -kdsdAGOa*AGOam).flatten()
     
     dAGObm = (Om @ krsdA_AGOamcsd -AGObm@krev_Omcsd \
               -AGObm @ krsdFm + (krevF*Om) @ AGFbm -kdsdAGOb*AGObm).flatten()
@@ -290,6 +291,149 @@ def create_template(ctRSD_part,prom_S,rna,us_S,ds_S,temp_len):
         template = rc_seq(ctRSD_part, spec_out='s',rna=1)[1:-1]
         
     return template
+
+
+
+def domain_seq_selection(name,inps,outps,fuels,dashcheckInps,dashcheckOuts,EcheckInps,EcheckOuts,dchecks,dashIndf,RcheckOuts,r_k,\
+                         eI,eO,e_d,r_d,d,d_d,s,s_d,cp,cp_d,c,c_d,CDS,cds_d,n,n_d,rflap,rflap_d,us,us_d,ds,ds_d,\
+                         rna,o_bm,O_BM_d,i_bm,I_BM_d,i_th,o_th,th_d,hp5,hp5_d,Rz,Rz_d,term,term_d,prom,prom_d,L,L_d):
+    
+    # Helper function for ctRSD_seq_compile()
+    
+            
+    if EcheckInps and EcheckOuts:
+        ei_S = e_d[eI][0]
+        ei_Sp = rc_seq(e_d[eI][0])[1:-1]
+        eo_S = e_d[eO][0] 
+    
+    elif EcheckInps:
+        ei_S = e_d[eI][0]
+        ei_Sp = rc_seq(e_d[eI][0])[1:-1]
+        eo_S = '' 
+    
+    elif EcheckOuts:
+        ei_S = ''
+        ei_Sp = ''
+        eo_S = e_d[eO][0]
+        
+    else:
+        ei_S = ''
+        ei_Sp = ''
+        eo_S = ''    
+    
+    if RcheckOuts:
+        r_S = r_d[r_k][0]
+    else:
+        r_S = ''
+        
+        
+    if dchecks:
+        d_S = d_d[d][0]
+    else:
+        d_S = ''
+        
+        
+    if len(s) == 0:
+        s_S = ''
+        s_Sp = ''
+    else:
+        s_S = s_d[s][0]
+        s_Sp = rc_seq(s_d[s][0])[1:-1]
+        
+    if len(cp) == 0:
+        cp_S = ''
+    else:
+        cp_S = cp_d[cp][0]
+        
+    if len(n) == 0:
+        n_S = ''
+    else:
+        n_S = n_d[n][0]
+    
+    if c == 0:
+        c_S = ''
+    else:
+        if len(cp) == 0:
+            print('c domain included without complementary cp domain defined')
+            #return('Function terminated. See error.')
+            c_S = 'Error'
+        
+        elif c > len(cp_S):
+            print('Length of specified c domain exceeds length of the defined complementary cp domain')
+            #return('Function terminated. See error.')
+            c_S = 'Error'
+            
+        else:
+            c_S = rc_seq(cp_S[0:c])[1:-1]
+    
+    if len(CDS) == 0:
+        cds_S = ''
+    else:
+        cds_S = cds_d[CDS][0]
+        
+    if len(rflap) == 0:
+        rflap_S = ''
+    else:
+        rflap_S = rflap_d[rflap][0]
+        
+    if len(us) == 0:
+        us_S = ''
+    else:
+        us_S = ''
+        for m in range(len(us)):
+            us_S = us_S + us_d[us[m]][0]
+            
+    if len(ds) == 0:
+        ds_S = ''
+    else:
+        ds_S = ''
+        for m in range(len(ds)):
+            ds_S = ds_S + ds_d[ds[m]][0]
+    
+    #Extracted sequences
+    if o_bm != '':    
+        o_bm_S = O_BM_d[o_bm][0]
+    else:
+        o_bm_S = ''
+    if o_th != '':
+        o_th_Sp = rc_seq(th_d[o_th][0])[1:-1]
+        o_th_S = th_d[o_th][0]
+    else:
+        o_th_Sp = ''
+        o_th_S = ''
+    if i_bm != '':
+        i_bm_S = I_BM_d[i_bm][0]
+        i_bm_Sp = rc_seq(O_BM_d[i_bm][0])[1:-1]
+    else:
+        i_bm_S = ''
+        i_bm_Sp = ''
+    if i_th != '':
+        i_th_S = th_d[i_th][0]
+    else:
+        i_th_S = ''
+    
+    if inps == 1 or outps == 1 or fuels == 1:
+        l_S = ''
+        rz_S = ''
+    else:
+        l_S = L_d[L][0]
+        rz_S = Rz_d[Rz][0]
+        
+    
+    # from optional inputs
+    hp5_S = hp5_d[hp5][0]
+    term_S = term_d[term][0]
+    prom_S = prom_d[prom][0]
+    
+    
+    #Adding an indication of the Rz cleavage site for RNAs
+    if rna == 1 and Rz[0].lower() != 'x':
+        cl = '|'
+    else:
+        cl =''
+
+    
+    return [ei_S,ei_Sp,eo_S,r_S,d_S,s_S,s_Sp,cp_S,n_S,c_S,cds_S,rflap_S,o_bm_S,o_th_Sp,i_bm_S,i_th_S,i_bm_Sp,o_th_S,hp5_S,l_S,rz_S,term_S,prom_S,cl,us_S,ds_S]
 
 '''
 ###############################################################################
@@ -582,65 +726,65 @@ class RSD_sim:
                                kdsdAGOa='False',kdsdAGOb='False',kdsdAGFb='False',kdsdCGOa='False',kdsdCGOb='False',\
                                kdrd='False',khybO='False',khybR='False',leak='False',leakA='False'):
         
-        inp = re.compile("(i|in|inp|input)\{\w*\d+\w*\}")
+        inp = re.compile(r"(i|in|inp|input)\{\w*\d+\w*\}")
         inps = inp.fullmatch(name.lower())
-        rep = re.compile("(r|rep|reporter)\{\w*\d+\w*\}")
+        rep = re.compile(r"(r|rep|reporter)\{\w*\d+\w*\}")
         reps = rep.fullmatch(name.lower())
-        out = re.compile("(o|out|output)\{\w*\d+\w*\,\w*\d+\w*\}")
+        out = re.compile(r"(o|out|output)\{\w*\d+\w*\,\w*\d+\w*\}")
         outs = out.fullmatch(name.lower())
-        gate = re.compile("(g|gate)\{\w*\d+\w*\,\w*\d+\w*\}")
+        gate = re.compile(r"(g|gate)\{\w*\d+\w*\,\w*\d+\w*\}")
         gates = gate.fullmatch(name.lower())
         
-        uG = re.compile("ug\{\w*\d+\w*\,\w*\d+\w*\}")
+        uG = re.compile(r"ug\{\w*\d+\w*\,\w*\d+\w*\}")
         uGs = uG.fullmatch(name.lower())
-        GI = re.compile("gi\{\w*\d+\w*\}")
+        GI = re.compile(r"gi\{\w*\d+\w*\}")
         GIs = GI.fullmatch(name.lower())
-        GO = re.compile("go\{\w*\d+\w*\,\w*\d+\w*\}")
+        GO = re.compile(r"go\{\w*\d+\w*\,\w*\d+\w*\}")
         GOs = GO.fullmatch(name.lower())
-        RO = re.compile("ro\{\w*\d+\w*\,\w*\d+\w*\}")
+        RO = re.compile(r"ro\{\w*\d+\w*\,\w*\d+\w*\}")
         ROs = RO.fullmatch(name.lower())
-        S =  re.compile("s\{\w*\d+\w*\}")
+        S =  re.compile(r"s\{\w*\d+\w*\}")
         Ss = S.fullmatch(name.lower())
-        Q = re.compile("q\{\w*\d+\w*\}")
+        Q = re.compile(r"q\{\w*\d+\w*\}")
         Qs = Q.fullmatch(name.lower())
         
-        uTh = re.compile("utg|ut|uth\{\w*\d+\w*\}")
+        uTh = re.compile(r"utg|ut|uth\{\w*\d+\w*\}")
         uThs = uTh.fullmatch(name.lower())
-        thresh = re.compile("(tg|t|th)\{\w*\d+\w*\}")
+        thresh = re.compile(r"(tg|t|th)\{\w*\d+\w*\}")
         threshs = thresh.fullmatch(name.lower())
         
-        fuel = re.compile("f\{\w*\d+\w*\}")
+        fuel = re.compile(r"f\{\w*\d+\w*\}")
         fuels = fuel.fullmatch(name.lower())
-        GF = re.compile("gf\{\w*\d+\w*\}")
+        GF = re.compile(r"gf\{\w*\d+\w*\}")
         GFs = GF.fullmatch(name.lower())
         
-        #AG = re.compile("ag\{\w*\d+(\.\d+)+\,\w*\d+\w*\}")
-        uAG = re.compile("uag\{\w*\d+\w*(\.|\&)\w*\d+\w*\,\w*\d+\w*\}")
+        #AG = re.compile(r"ag\{\w*\d+(\.\d+)+\,\w*\d+\w*\}")
+        uAG = re.compile(r"uag\{\w*\d+\w*(\.|\&)\w*\d+\w*\,\w*\d+\w*\}")
         uAGs = uAG.fullmatch(name.lower())
-        AG = re.compile("(ag|g|gate)\{\w*\d+\w*(\.|\&)\w*\d+\w*\,\w*\d+\w*\}")
+        AG = re.compile(r"(ag|g|gate)\{\w*\d+\w*(\.|\&)\w*\d+\w*\,\w*\d+\w*\}")
         AGs = AG.fullmatch(name.lower())
-        AGOa = re.compile("agoa\{\w*\d+\w*\,\w*\d+\w*\}")
+        AGOa = re.compile(r"agoa\{\w*\d+\w*\,\w*\d+\w*\}")
         AGOas = AGOa.fullmatch(name.lower())
-        AGOb = re.compile("agob\{\w*\d+\w*\,\w*\d+\w*\}")
+        AGOb = re.compile(r"agob\{\w*\d+\w*\,\w*\d+\w*\}")
         AGObs = AGOb.fullmatch(name.lower())
         
-        #AGFa  = re.compile("agfa\{\w*\d+\w*\,\w*\d+\w*\}")
+        #AGFa  = re.compile(r"agfa\{\w*\d+\w*\,\w*\d+\w*\}")
         #AGFas = AGFa.fullmatch(name.lower())
-        AGFb = re.compile("agfb\{\w*\d+\w*\}")
+        AGFb = re.compile(r"agfb\{\w*\d+\w*\}")
         AGFbs = AGFb.fullmatch(name.lower())
         
-        uCG = re.compile("ucg\{\w*\d+\w*\,\w*\d+\w*\}")
+        uCG = re.compile(r"ucg\{\w*\d+\w*\,\w*\d+\w*\}")
         uCGs = uCG.fullmatch(name.lower())
-        CG = re.compile("cg\{\w*\d+\w*\,\w*\d+\w*\}")
+        CG = re.compile(r"cg\{\w*\d+\w*\,\w*\d+\w*\}")
         CGs = CG.fullmatch(name.lower())
-        CGOa = re.compile("cgoa\{\w*\d+\w*\,\w*\d+\w*\}")
+        CGOa = re.compile(r"cgoa\{\w*\d+\w*\,\w*\d+\w*\}")
         CGOas = CGOa.fullmatch(name.lower())
-        CGOb = re.compile("cgob\{\w*\d+\w*\,\w*\d+\w*\}")
+        CGOb = re.compile(r"cgob\{\w*\d+\w*\,\w*\d+\w*\}")
         CGObs = CGOb.fullmatch(name.lower())
         
         # Inputs
         if inps:
-            inpInd1f = re.compile("\d+")
+            inpInd1f = re.compile(r"\d+")
             inpInd1 = int(inpInd1f.search(name.lower()).group())-1
             
             self.Otemp_con[inpInd1,inpInd1]=DNA_con
@@ -664,7 +808,7 @@ class RSD_sim:
                 
         # Reporters   
         elif reps:
-            repInd1f = re.compile('\d+')
+            repInd1f = re.compile(r"\d+")
             repInd1 = int(repInd1f.search(name.lower()).group())-1
             
             if ic == 'False':
@@ -684,7 +828,7 @@ class RSD_sim:
         
         # Outputs
         elif outs:
-            outIndf = re.findall("\d+",name.lower())
+            outIndf = re.findall(r"\d+",name.lower())
 
             outInd1 = int(outIndf[0])-1
             outInd2 = int(outIndf[1])-1
@@ -714,7 +858,7 @@ class RSD_sim:
             
         # Gates
         elif gates:
-            gateIndf = re.findall("\d+",name.lower())
+            gateIndf = re.findall(r"\d+",name.lower())
             gateInd1 = int(gateIndf[0])-1
             gateInd2 = int(gateIndf[1])-1
             
@@ -743,7 +887,7 @@ class RSD_sim:
     
         # Uncleaved gates
         elif uGs:
-            uGIndf = re.findall("\d+",name.lower())
+            uGIndf = re.findall(r"\d+",name.lower())
             uGInd1 = int(uGIndf[0])-1
             uGInd2 = int(uGIndf[1])-1
             
@@ -762,7 +906,7 @@ class RSD_sim:
             
         # Gate:Input complexes (Diagonal of GO)
         elif GIs:
-            GIInd1f = re.compile("\d+")
+            GIInd1f = re.compile(r"\d+")
             GIInd1 = int(GIInd1f.search(name.lower()).group())-1
             
             if ic != 'False':
@@ -776,7 +920,7 @@ class RSD_sim:
             
         # Gate:Output complexes
         elif GOs:
-            GOIndf = re.findall("\d+",name.lower())
+            GOIndf = re.findall(r"\d+",name.lower())
             GOInd1 = int(GOIndf[0])-1
             GOInd2 = int(GOIndf[1])-1
             
@@ -791,7 +935,7 @@ class RSD_sim:
         
         # Reporter:Output complexes
         elif ROs:
-           ROIndf = re.findall("\d+",name.lower())
+           ROIndf = re.findall(r"\d+",name.lower())
            ROInd1 = int(ROIndf[0])-1
            ROInd2 = int(ROIndf[1])-1
            
@@ -806,7 +950,7 @@ class RSD_sim:
          
         # Reporter Signal
         elif Ss:
-            SInd1f = re.compile("\d+")
+            SInd1f = re.compile(r"\d+")
             SInd1 = int(SInd1f.search(name.lower()).group())-1
             
             if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGb!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
@@ -821,7 +965,7 @@ class RSD_sim:
         
         # Uncleaved threshold gates
         elif uThs:
-            uThInd1f = re.compile("\d+")
+            uThInd1f = re.compile(r"\d+")
             uThInd1 = int(uThInd1f.search(name.lower()).group())-1
             
             if ic != 'False':
@@ -839,7 +983,7 @@ class RSD_sim:
         
         # Threshold gates
         elif threshs:
-            threshInd1f = re.compile("\d+")
+            threshInd1f = re.compile(r"\d+")
             threshInd1 = int(threshInd1f.search(name.lower()).group())-1
             
             self.TGtemp_con[threshInd1] = DNA_con
@@ -860,7 +1004,7 @@ class RSD_sim:
         
         # Fuel strands
         elif fuels:
-            fuelInd1f = re.compile("\d+")
+            fuelInd1f = re.compile(r"\d+")
             self.fuelInd1 = int(fuelInd1f.search(name.lower()).group())-1
             
             self.Ftemp_con[self.fuelInd1] = DNA_con
@@ -881,7 +1025,7 @@ class RSD_sim:
             
         # Gate:Fuel complexes   
         elif GFs:
-            GFInd1f = re.compile("\d+")
+            GFInd1f = re.compile(r"\d+")
             GFInd1 = int(GFInd1f.search(name.lower()).group())-1
             
 
@@ -898,7 +1042,7 @@ class RSD_sim:
           
         # AND Gates
         elif AGs:
-            AGIndf = re.findall("\d+",name.lower())
+            AGIndf = re.findall(r"\d+",name.lower())
             self.AGInd1 = int(AGIndf[0])-1
             AGInd2 = int(AGIndf[-1])-1
             
@@ -933,7 +1077,7 @@ class RSD_sim:
         
         # Uncleaved AND gates
         elif uAGs:
-            uAGIndf = re.findall("\d+",name.lower())
+            uAGIndf = re.findall(r"\d+",name.lower())
             uAGInd1 = int(uAGIndf[0])-1
             uAGInd2 = int(uAGIndf[-1])-1
             
@@ -952,7 +1096,7 @@ class RSD_sim:
         
         # AND gate:Output complex a
         elif AGOas:
-            AGOaIndf = re.findall("\d+",name.lower())
+            AGOaIndf = re.findall(r"\d+",name.lower())
             AGOaInd1 = int(AGOaIndf[0])-1
             AGOaInd2 = int(AGOaIndf[1])-1
             
@@ -969,7 +1113,7 @@ class RSD_sim:
         
         # AND gate:Output complex b
         elif AGObs:
-            AGObIndf = re.findall("\d+",name.lower())
+            AGObIndf = re.findall(r"\d+",name.lower())
             AGObInd1 = int(AGObIndf[0])-1
             AGObInd2 = int(AGObIndf[1])-1
             
@@ -985,7 +1129,7 @@ class RSD_sim:
         
         # AND gate:Fuel complex b
         elif AGFbs:
-            AGFbIndf = re.findall("\d+",name.lower())
+            AGFbIndf = re.findall(r"\d+",name.lower())
             AGFbInd1 = int(AGFbIndf[0])-1
             
             if ic != 'False':
@@ -1001,7 +1145,7 @@ class RSD_sim:
         
         # Comparator Gate
         elif CGs:
-            CGIndf = re.findall("\d+",name.lower())
+            CGIndf = re.findall(r"\d+",name.lower())
             
             CGInd1 = int(CGIndf[0])-1
             CGInd2 = int(CGIndf[1])-1
@@ -1040,7 +1184,7 @@ class RSD_sim:
         
         # uncleaved Comparator Gate
         elif uCGs:
-            uCGIndf = re.findall("\d+",name.lower())
+            uCGIndf = re.findall(r"\d+",name.lower())
             uCGInd1 = int(uCGIndf[0])-1
             uCGInd2 = int(uCGIndf[1])-1
             
@@ -1059,7 +1203,7 @@ class RSD_sim:
         
         # Comparator Gate:Output complex a
         elif CGOas:
-            CGOaIndf = re.findall("\d+",name.lower())
+            CGOaIndf = re.findall(r"\d+",name.lower())
             CGOaInd1 = int(CGOaIndf[0])-1
             CGOaInd2 = int(CGOaIndf[1])-1
             
@@ -1076,7 +1220,7 @@ class RSD_sim:
        
         # Comparator Gate:Output complex b    
         elif CGObs:
-            CGObIndf = re.findall("\d+",name.lower())
+            CGObIndf = re.findall(r"\d+",name.lower())
             CGObInd1 = int(CGObIndf[0])-1
             CGObInd2 = int(CGObIndf[1])-1
             
@@ -1093,7 +1237,7 @@ class RSD_sim:
         
         # Reporter Signal Complement strand
         elif Qs:
-            QInd1f = re.compile("\d+")
+            QInd1f = re.compile(r"\d+")
             QInd1 = int(QInd1f.search(name.lower()).group())-1
             
             if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGb!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
@@ -1215,77 +1359,78 @@ class RSD_sim:
             self.Q_simcon = self.solve.y[7*self.N+13*self.N**2:8*self.N+13*self.N**2]
         
     def output_concentration(self,name):
-        inp = re.compile("(i|in|inp|input)\{\w*\d+\w*\}")
+        inp = re.compile(r"(i|in|inp|input)\{\w*\d+\w*\}")
         inps = inp.fullmatch(name.lower())
-        rep = re.compile("(r|rep|reporter)\{\w*\d+\w*\}")
+        rep = re.compile(r"(r|rep|reporter)\{\w*\d+\w*\}")
         reps = rep.fullmatch(name.lower())
-        out = re.compile("(o|out|output)\{\w*\d+\w*\,\w*\d+\w*\}")
+        out = re.compile(r"(o|out|output)\{\w*\d+\w*\,\w*\d+\w*\}")
         outs = out.fullmatch(name.lower())
-        gate = re.compile("(g|gate)\{\w*\d+\w*\,\w*\d+\w*\}")
+        gate = re.compile(r"(g|gate)\{\w*\d+\w*\,\w*\d+\w*\}")
         gates = gate.fullmatch(name.lower())
         
-        uG = re.compile("ug\{\w*\d+\w*\,\w*\d+\w*\}")
+        uG = re.compile(r"ug\{\w*\d+\w*\,\w*\d+\w*\}")
         uGs = uG.fullmatch(name.lower())
-        GI = re.compile("gi\{\w*\d+\w*\}")
+        GI = re.compile(r"gi\{\w*\d+\w*\}")
         GIs = GI.fullmatch(name.lower())
-        GO = re.compile("go\{\w*\d+\w*\,\w*\d+\w*\}")
+        GO = re.compile(r"go\{\w*\d+\w*\,\w*\d+\w*\}")
         GOs = GO.fullmatch(name.lower())
-        RO = re.compile("ro\{\w*\d+\w*\,\w*\d+\w*\}")
+        RO = re.compile(r"ro\{\w*\d+\w*\,\w*\d+\w*\}")
         ROs = RO.fullmatch(name.lower())
-        S =  re.compile("s\{\w*\d+\w*\}")
+        S =  re.compile(r"s\{\w*\d+\w*\}")
         Ss = S.fullmatch(name.lower())
-        Q = re.compile("q\{\w*\d+\w*\}")
+        Q = re.compile(r"q\{\w*\d+\w*\}")
         Qs = Q.fullmatch(name.lower())
         
-        uTh = re.compile("uth\{\w*\d+\w*\}")
+        
+        uTh = re.compile(r"utg|ut|uth\{\w*\d+\w*\}")
         uThs = uTh.fullmatch(name.lower())
-        thresh = re.compile("th\{\w*\d+\w*\}")
+        thresh = re.compile(r"(tg|t|th)\{\w*\d+\w*\}")
         threshs = thresh.fullmatch(name.lower())
         
-        fuel = re.compile("f\{\w*\d+\w*\}")
+        fuel = re.compile(r"f\{\w*\d+\w*\}")
         fuels = fuel.fullmatch(name.lower())
-        GF = re.compile("f\{\w*\d+\w*\}")
+        GF = re.compile(r"f\{\w*\d+\w*\}")
         GFs = GF.fullmatch(name.lower())
         
-        #AG = re.compile("ag\{\w*\d+(\.\d+)+\,\w*\d+\w*\}")
-        uAG = re.compile("uag\{\w*\d+\w*(\.|\&)\w*\d+\w*\,\w*\d+\w*\}")
+        #AG = re.compile(r"ag\{\w*\d+(\.\d+)+\,\w*\d+\w*\}")
+        uAG = re.compile(r"uag\{\w*\d+\w*(\.|\&)\w*\d+\w*\,\w*\d+\w*\}")
         uAGs = uAG.fullmatch(name.lower())
-        AG = re.compile("(ag|g|gate)\{\w*\d+\w*(\.|\&)\w*\d+\w*\,\w*\d+\w*\}")
+        AG = re.compile(r"(ag|g|gate)\{\w*\d+\w*(\.|\&)\w*\d+\w*\,\w*\d+\w*\}")
         AGs = AG.fullmatch(name.lower())
-        AGOa = re.compile("agoa\{\w*\d+\w*\,\w*\d+\w*\}")
+        AGOa = re.compile(r"agoa\{\w*\d+\w*\,\w*\d+\w*\}")
         AGOas = AGOa.fullmatch(name.lower())
-        AGOb = re.compile("agob\{\w*\d+\w*\,\w*\d+\w*\}")
+        AGOb = re.compile(r"agob\{\w*\d+\w*\,\w*\d+\w*\}")
         AGObs = AGOb.fullmatch(name.lower())
         
-        #AGFa  = re.compile("agfa\{\w*\d+\w*\,\w*\d+\w*\}")
+        #AGFa  = re.compile(r"agfa\{\w*\d+\w*\,\w*\d+\w*\}")
         #AGFas = AGFa.fullmatch(name.lower())
-        AGFb = re.compile("agfb\{\w*\d+\w*\}")
+        AGFb = re.compile(r"agfb\{\w*\d+\w*\}")
         AGFbs = AGFb.fullmatch(name.lower())
         
-        uCG = re.compile("ucg\{\w*\d+\w*\,\w*\d+\w*\}")
+        uCG = re.compile(r"ucg\{\w*\d+\w*\,\w*\d+\w*\}")
         uCGs = uCG.fullmatch(name.lower())
-        CG = re.compile("cg\{\w*\d+\w*\,\w*\d+\w*\}")
+        CG = re.compile(r"cg\{\w*\d+\w*\,\w*\d+\w*\}")
         CGs = CG.fullmatch(name.lower())
-        CGOa = re.compile("cgoa\{\w*\d+\w*\,\w*\d+\w*\}")
+        CGOa = re.compile(r"cgoa\{\w*\d+\w*\,\w*\d+\w*\}")
         CGOas = CGOa.fullmatch(name.lower())
-        CGOb = re.compile("cgob\{\w*\d+\w*\,\w*\d+\w*\}")
+        CGOb = re.compile(r"cgob\{\w*\d+\w*\,\w*\d+\w*\}")
         CGObs = CGOb.fullmatch(name.lower())
         
         
         if inps:
-            inpInd1f = re.compile("\d+")
+            inpInd1f = re.compile(r"\d+")
             inpInd1 = int(inpInd1f.search(name.lower()).group())-1
             
             return(self.O_simcon[self.N*inpInd1 + inpInd1])
                 
             
         elif reps:
-            repInd1f = re.compile('\d+')
+            repInd1f = re.compile(r"\d+")
             repInd1 = int(repInd1f.search(name.lower()).group())-1
             
             return(self.R_simcon[repInd1])
         elif outs:
-            outIndf = re.findall("\d+",name.lower())
+            outIndf = re.findall(r"\d+",name.lower())
 
             outInd1 = int(outIndf[0])-1
             outInd2 = int(outIndf[1])-1
@@ -1294,7 +1439,7 @@ class RSD_sim:
         
             
         elif gates:
-            gateIndf = re.findall("\d+",name.lower())
+            gateIndf = re.findall(r"\d+",name.lower())
 
             gateInd1 = int(gateIndf[0])-1
             gateInd2 = int(gateIndf[1])-1
@@ -1303,69 +1448,69 @@ class RSD_sim:
     
         
         elif uGs:
-            uGIndf = re.findall("\d+",name.lower())
+            uGIndf = re.findall(r"\d+",name.lower())
             uGInd1 = int(uGIndf[0])-1
             uGInd2 = int(uGIndf[1])-1
             
             return(self.uG_simcon[self.N*uGInd1 + uGInd2])        
             
         elif GIs:
-            GIInd1f = re.compile("\d+")
+            GIInd1f = re.compile(r"\d+")
             GIInd1 = int(GIInd1f.search(name.lower()).group())-1
             
             return(self.GO_simcon[self.N*GIInd1 + GIInd1])
         elif GOs:
-            GOIndf = re.findall("\d+",name.lower())
+            GOIndf = re.findall(r"\d+",name.lower())
             GOInd1 = int(GOIndf[0])-1
             GOInd2 = int(GOIndf[1])-1
             
             return(self.GO_simcon[self.N*GOInd1 + GOInd2])
             
         elif ROs:
-            ROIndf = re.findall("\d+",name.lower())
+            ROIndf = re.findall(r"\d+",name.lower())
             ROInd1 = int(ROIndf[0])-1
             ROInd2 = int(ROIndf[1])-1
             
             
             return(self.RO_simcon[self.N*ROInd1 + ROInd2])
         elif Ss:
-            SInd1f = re.compile("\d+")
+            SInd1f = re.compile(r"\d+")
             SInd1 = int(SInd1f.search(name.lower()).group())-1
                 
             return(self.S_simcon[SInd1])
         
         elif Qs:
-            QIndf = re.findall("\d+",name.lower())
+            QIndf = re.findall(r"\d+",name.lower())
             QInd1 = int(QIndf[0])-1
             
             
             return(self.Q_simcon[QInd1])
         
         elif uThs:
-            uThInd1f = re.compile("\d+")
+            uThInd1f = re.compile(r"\d+")
             uThInd1 = int(uThInd1f.search(name.lower()).group())-1
                      
             return(self.uTh_simcon[uThInd1])
         
         elif threshs:
-            threshInd1f = re.compile("\d+")
+            threshInd1f = re.compile(r"\d+")
             threshInd1 = int(threshInd1f.search(name.lower()).group())-1
                
             return(self.Th_simcon[threshInd1])
         
         elif fuels:
-            fuelInd1f = re.compile("\d+")
+            fuelInd1f = re.compile(r"\d+")
             fuelInd1 = int(fuelInd1f.search(name.lower()).group())-1
             
             return(self.F_simcon[fuelInd1])
                 
         elif GFs:
-            GFInd1f = re.compile("\d+")
+            GFInd1f = re.compile(r"\d+")
             GFInd1 = int(GFInd1f.search(name.lower()).group())-1
             
             return(self.GF_simcon[GFInd1]) 
         elif AGs:
-            AGIndf = re.findall("\d+",name.lower())
+            AGIndf = re.findall(r"\d+",name.lower())
             AGInd1 = int(AGIndf[0])-1
             AGInd2 = int(AGIndf[-1])-1
             
@@ -1373,35 +1518,35 @@ class RSD_sim:
             return(self.AG_simcon[self.N*AGInd1 + AGInd2])
         
         elif uAGs:
-            uAGIndf = re.findall("\d+",name.lower())
+            uAGIndf = re.findall(r"\d+",name.lower())
             uAGInd1 = int(uAGIndf[0])-1
             uAGInd2 = int(uAGIndf[-1])-1
             
             return(self.uAG_simcon[self.N*uAGInd1 + uAGInd2])
         
         elif AGOas:
-            AGOaIndf = re.findall("\d+",name.lower())
+            AGOaIndf = re.findall(r"\d+",name.lower())
             AGOaInd1 = int(AGOaIndf[0])-1
             AGOaInd2 = int(AGOaIndf[1])-1
             
             return(self.AGOa_simcon[self.N*AGOaInd1 + AGOaInd2])
         
         elif AGObs:
-            AGObIndf = re.findall("\d+",name.lower())
+            AGObIndf = re.findall(r"\d+",name.lower())
             AGObInd1 = int(AGObIndf[0])-1
             AGObInd2 = int(AGObIndf[1])-1
             
             return(self.AGOb_simcon[self.N*AGObInd1 + AGObInd2])
         
         elif AGFbs:
-            AGFbIndf = re.findall("\d+",name.lower())
+            AGFbIndf = re.findall(r"\d+",name.lower())
             AGFbInd1 = int(AGFbIndf[0])-1
             
             
             return(self.AGFb_simcon[AGFbInd1])
         
         elif CGs:
-            CGIndf = re.findall("\d+",name.lower())
+            CGIndf = re.findall(r"\d+",name.lower())
             
             CGInd1 = int(CGIndf[0])-1
             CGInd2 = int(CGIndf[1])-1
@@ -1411,7 +1556,7 @@ class RSD_sim:
             
                 
         elif uCGs:
-            uCGIndf = re.findall("\d+",name.lower())
+            uCGIndf = re.findall(r"\d+",name.lower())
             uCGInd1 = int(uCGIndf[0])-1
             uCGInd2 = int(uCGIndf[1])-1
             
@@ -1420,7 +1565,7 @@ class RSD_sim:
             
             
         elif CGOas:
-            CGOaIndf = re.findall("\d+",name.lower())
+            CGOaIndf = re.findall(r"\d+",name.lower())
             CGOaInd1 = int(CGOaIndf[0])-1
             CGOaInd2 = int(CGOaIndf[1])-1
             
@@ -1428,7 +1573,7 @@ class RSD_sim:
             
         
         elif CGObs:
-            CGObIndf = re.findall("\d+",name.lower())
+            CGObIndf = re.findall(r"\d+",name.lower())
             CGObInd1 = int(CGObIndf[0])-1
             CGObInd2 = int(CGObIndf[1])-1
             
@@ -1592,7 +1737,7 @@ class RSD_sim:
 
     def ctRSD_seq_compile(self,name,filepath,Rz='Ro',L='L',term='T7t',hp5='5hp',prom='T7p',\
                                              eI='',eO='',s='',invert=0,invL='A',agL='TA',AGiloop=5,otype=1,\
-                                             rna=0,us=[],ds=[],temp_len=0):
+                                             rna=0,us=[],ds=[],temp_len=0,cp='',n='',c=0,d='',CDS='',rflap=''):
         
         '''
         TO ADD:
@@ -1615,48 +1760,100 @@ class RSD_sim:
         s_d = xlsheet_to_dict(filepath, 's', 1)  # spacer sequences
         us_d = xlsheet_to_dict(filepath, 'US', 1) # sequences upstream of promoter
         ds_d = xlsheet_to_dict(filepath, 'DS', 1) # sequences downstream of terminator
+        cds_d = xlsheet_to_dict(filepath, 'CDS', 1) # CDS sequences for protein outputs
+        rflap_d = xlsheet_to_dict(filepath, 'rflap', 1) # fluorescent RNA aptamer sequences
+        cp_d = xlsheet_to_dict(filepath, 'c prime', 1) # c' linker between gate and n
+        n_d = xlsheet_to_dict(filepath, 'n', 1) # N-terminal linker between c' and CDS
+        c_d = xlsheet_to_dict(filepath, 'c', 1) # clamp adjacent to toehold, complementary to cp
+        d_d = xlsheet_to_dict(filepath, 'd', 1) # distal domain for translation
+        
+        # converting into th' as code was originally written to handle that
+        for m in th_d.keys():
+            th_d[m] = [rc_seq(th_d[m][0])[1:-1]]
 
         i_th = ''
         o_th = ''
         i_bm = ''
         o_bm = ''
         
-        #gate = re.compile("(g|gate)\{\w\d+(\-\d+)*e*\,\w\d+(\-\d+)*(r*|e*)\}")
-        gate = re.compile("(g|gate)\{\w+\d+(\-\d+)*e*\,\w+\d+(\-\d+)*(r*|e*)\}")
+        #gate = re.compile(r"(g|gate)\{\w\d+(\-\d+)*e*\,\w\d+(\-\d+)*(r*|e*)\}")
+        gate = re.compile(r"(g|gate)\{\w+\d+(\-\d+)*e*\,\w+\d+(\-\d+)*(r*|e*|d*|ed*)\}")
         gates = gate.fullmatch(name.lower())
         
-        AG = re.compile("(ag|g|gate)\{\w\d+(\-\d+)*(\.|\&)\w\d+(\-\d+)*e*\,\w\d+(\-\d+)*(r*|e*)\}")
+        AG = re.compile(r"(ag|g|gate)\{\w+\d+(\-\d+)*(\.|\&)\w+\d+(\-\d+)*e*\,\w+\d+(\-\d+)*(r*|e*|d*|ed*)\}")
         AGs = AG.fullmatch(name.lower())
         
-        inp = re.compile("(i|in|inp|input)\{\w\d+(\-\d+)*(r*|e*)\}")
+        inp = re.compile(r"(i|in|inp|input)\{\w+\d+(\-\d+)*(r*|e*|d*|ed*)\}")
         inps = inp.fullmatch(name.lower())
         
-        outp = re.compile("(o|out|output)\{\w*\d+(\-\d+)*e*\,\w\d+(\-\d+)*(r*|e*)\}")
+        outp = re.compile(r"(o|out|output)\{\w*\d+(\-\d+)*e*\,\w+\d+(\-\d+)*(r*|e*|d*|ed*)\}")
         outps = outp.fullmatch(name.lower())
         
-        thresh = re.compile("(tg|t|th)\{\w\d+(\-\d+)*(r*|e*)\}")
+        thresh = re.compile(r"(tg|t|th)\{\w+\d+(\-\d+)*(r*|e*|d*|ed*)\}")
         threshs = thresh.fullmatch(name.lower())
         
-        fuel = re.compile("f\{\w\d+(\-\d+)*e*\}")
+        fuel = re.compile(r"f\{\w+\d+(\-\d+)*e*\}")
         fuels = fuel.fullmatch(name.lower())
         
-        CG = re.compile("cg\{\w\d+(\-\d+)*\,\w\d+(\-\d+)*\}")
+        CG = re.compile(r"cg\{\w+\d+(\-\d+)*\,\w+\d+(\-\d+)*\}")
         CGs = CG.fullmatch(name.lower())
         
+        
+        # extension domains on inputs or outputs
         if threshs:
-           EcheckInp = re.compile("e\}")
+           EcheckInp = re.compile(r"e")
            EcheckInps = EcheckInp.search(name.lower())
            EcheckOuts = 0
         else:
-            EcheckInp = re.compile("e\,")
+            EcheckInp = re.compile(r"e\,")
             EcheckInps = EcheckInp.search(name.lower())
+
             
-            EcheckOut = re.compile("e\}")
+            EcheckOut = re.compile(r"e[^,]")
             EcheckOuts = EcheckOut.search(name.lower())
-        
+
+            
         if (eI == '' and EcheckInps) or (eO == '' and EcheckOuts):
-            print('e included in species name, but no domain number was provided in function declaration.')
+            print('e included in species name, but no domain was provided in function declaration.')
             return('Function terminated, see error.')
+        elif (eI != '' and EcheckInps == None) or (eO != '' and EcheckOuts == None):
+            print('e included as input but not in name, the domain will not be in the sequence.')
+            return('Function terminated, see error.')
+        
+        
+        # distal domains
+        dcheck = re.compile(r"d\}")
+        dchecks =dcheck.search(name.lower())   
+
+        
+        if (d == '' and dchecks):
+            print('d included in species name, but no domain number was provided in function declaration.')
+            return('Function terminated, see error.')
+        elif (d != '' and dchecks == None):
+            print('d included as input but not in name, the domain will not be in the sequence.')
+            return('Function terminated, see error.')
+        
+        
+        # checking for dashes for longer named toeholds
+        dashcheckInp = re.compile(r"\-\d+e*\,")
+        dashcheckInps = dashcheckInp.search(name.lower())
+
+        dashcheckOut = re.compile(r"\-\d+(r*|e*|d*)\}")
+        dashcheckOuts = dashcheckOut.search(name.lower())
+
+        dashIndf = re.findall(r"\-\d+",name.lower())
+
+        if gates:
+            Indf = re.findall(r"[a-z]+\d+",name.lower())
+        elif outps:
+            Indf = re.findall(r"[a-z]*\d+",name.lower())
+        elif inps or threshs or fuels or CGs: 
+            Indf = re.findall(r"[a-z]\d+",name.lower())
+            
+        
+        # checking for the r domain (reversible reporter domain, or thresholding domain)
+        RcheckOut = re.compile(r"r\}")
+        RcheckOuts = RcheckOut.search(name.lower())
         
         
         if gates:
@@ -1666,24 +1863,6 @@ class RSD_sim:
             ###################################################################
             '''
             
-            dashcheckInp = re.compile("\-\d+e*\,")
-            dashcheckInps = dashcheckInp.search(name.lower())
-            
-            dashcheckOut = re.compile("\-\d+(r*|e*)\}")
-            dashcheckOuts = dashcheckOut.search(name.lower())
-            
-            EcheckInp = re.compile("e\,")
-            EcheckInps = EcheckInp.search(name.lower())
-            
-            EcheckOut = re.compile("e\}")
-            EcheckOuts = EcheckOut.search(name.lower())
-            
-            Indf = re.findall("[a-z]+\d+",name.lower())
-            dashIndf = re.findall("\-\d+",name.lower())
- 
-            RcheckOut = re.compile("r\}")
-            RcheckOuts = RcheckOut.search(name.lower())
-            
             if dashcheckInps and dashcheckOuts:
                 i_th = Indf[0]
                 o_th = Indf[1]
@@ -1692,6 +1871,8 @@ class RSD_sim:
                 
                 if RcheckOuts:
                     r_k = 'r'+dashIndf[1][1:]
+                else:
+                    r_k = ''
                 
             elif dashcheckInps:
                 i_th = Indf[0]
@@ -1701,6 +1882,8 @@ class RSD_sim:
                 
                 if RcheckOuts:
                     r_k = 'r'+Indf[1][1:]
+                else:
+                    r_k = ''
                 
             elif dashcheckOuts:
                 i_th = Indf[0][0]
@@ -1719,79 +1902,20 @@ class RSD_sim:
                 
                 if RcheckOuts:
                     r_k = 'r'+Indf[1][1:]
+                else:
+                    r_k = ''
                     
-            if EcheckInps and EcheckOuts:
-                eI = 'e'+eI
-                eO = 'e'+eO
-                
-                ei_S = e_d[eI][0]
-                ei_Sp = rc_seq(e_d[eI][0])[1:-1]
-                eo_S = e_d[eO][0] 
-            
-            elif EcheckInps:
-                eI = 'e'+eI
-                
-                ei_S = e_d[eI][0]
-                ei_Sp = rc_seq(e_d[eI][0])[1:-1]
-                eo_S = '' 
-            
-            elif EcheckOuts:
-                eO = 'e'+eO
-                
-                ei_S = ''
-                ei_Sp = ''
-                eo_S = e_d[eO][0]
-                
-            else:
-                ei_S = ''
-                ei_Sp = ''
-                eo_S = ''    
-            
-            if RcheckOuts:
-                r_S = r_d[r_k][0]
-            else:
-                r_S = ''
-                
-            if len(s) == 0:
-                s_S = ''
-            else:
-                s_S = s_d[s][0]
-                
-            if len(us) == 0:
-                us_S = ''
-            else:
-                us_S = ''
-                for n in range(len(us)):
-                    us_S = us_S + us_d[us[n]][0]
-                    
-            if len(ds) == 0:
-                ds_S = ''
-            else:
-                ds_S = ''
-                for n in range(len(ds)):
-                    ds_S = ds_S + ds_d[ds[n]][0]
-            
-            #Extracted sequences    
-            o_bm_S = O_BM_d[o_bm][0]
-            o_th_Sp = rc_seq(th_d[o_th][0])[1:-1]
-            i_bm_S = I_BM_d[i_bm][0]
-            i_th_S = th_d[i_th][0]
-            i_bm_Sp = rc_seq(O_BM_d[i_bm][0])[1:-1]
-            o_th_S = th_d[o_th][0]
-            # from optional inputs
-            hp5_S = hp5_d[hp5][0]
-            l_S = L_d[L][0]
-            rz_S = Rz_d[Rz][0]
-            term_S = term_d[term][0]
-            prom_S = prom_d[prom][0]
-            
-            #Adding an indication of the Rz cleavage site for RNAs
-            if rna == 1 and Rz[0].lower() != 'x':
-                cl = '|'
-            else:
-                cl =''
+            ###################################################################
+            # Selecting the correct seqeuences for each domain
+            ###################################################################
+            [ei_S,ei_Sp,eo_S,r_S,d_S,s_S,s_Sp,cp_S,n_S,c_S,cds_S,rflap_S,o_bm_S,o_th_Sp,i_bm_S,i_th_S,i_bm_Sp,o_th_S,hp5_S,l_S,rz_S,term_S,prom_S,cl,us_S,ds_S] = \
+            domain_seq_selection(name,inps,outps,fuels,dashcheckInps,dashcheckOuts,EcheckInps,EcheckOuts,dchecks,dashIndf,RcheckOuts,r_k,\
+                                     eI,eO,e_d,r_d,d,d_d,s,s_d,cp,cp_d,c,c_d,CDS,cds_d,n,n_d,rflap,rflap_d,us,us_d,ds,ds_d,\
+                                     rna,o_bm,O_BM_d,i_bm,I_BM_d,i_th,o_th,th_d,hp5,hp5_d,Rz,Rz_d,term,term_d,prom,prom_d,L,L_d)
 
-            
+            if c_S == 'Error':
+                return('Function terminated, see error.')
+                
             ###################################################################
             # Stitching gate sequences
             ###################################################################
@@ -1799,9 +1923,10 @@ class RSD_sim:
             if invert == 0:
             
                 ctRSD_part = hp5_S +\
-                             r_S + eo_S + o_bm_S + o_th_Sp + ei_S + i_bm_S +\
+                             d_S + r_S + eo_S + o_bm_S + c_S + o_th_Sp + ei_S + i_bm_S +\
                              l_S + cl + rz_S +\
                              s_S + i_th_S + i_bm_Sp + ei_Sp + o_th_S +\
+                             cp_S + n_S + cds_S + rflap_S +\
                              term_S
                 
                 template = create_template(ctRSD_part,prom_S,rna,us_S,ds_S,temp_len)
@@ -1810,8 +1935,9 @@ class RSD_sim:
                     
                 ctRSD_part = hp5_S +\
                              s_S + i_th_S + i_bm_Sp + ei_Sp + o_th_S +\
+                             cp_S + n_S + cds_S + rflap_S +\
                              l_S + cl + rz_S + invL +\
-                             r_S + eo_S + o_bm_S + o_th_Sp + ei_S + i_bm_S +\
+                             d_S + r_S + eo_S + o_bm_S + c_S + o_th_Sp + ei_S + i_bm_S +\
                              term_S
                 
                 template = create_template(ctRSD_part,prom_S,rna,us_S,ds_S,temp_len)
@@ -1823,24 +1949,6 @@ class RSD_sim:
             ###################################################################
             '''
             
-            dashcheckInp = re.compile("\-\d+e*\,")
-            dashcheckInps = dashcheckInp.search(name.lower())
-            
-            dashcheckOut = re.compile("\-\d+(r*|e*)\}")
-            dashcheckOuts = dashcheckOut.search(name.lower())
-            
-            EcheckInp = re.compile("e\,")
-            EcheckInps = EcheckInp.search(name.lower())
-            
-            EcheckOut = re.compile("e\}")
-            EcheckOuts = EcheckOut.search(name.lower())
-            
-            Indf = re.findall("[a-z]*\d+",name.lower())
-            dashIndf = re.findall("\-\d+",name.lower())
-            
-            RcheckOut = re.compile("r\}")
-            RcheckOuts = RcheckOut.search(name.lower())
-            
             if dashcheckInps and dashcheckOuts:
                 o_th = Indf[2]
                 i_bm = 'D'+dashIndf[0][1:]
@@ -1848,6 +1956,8 @@ class RSD_sim:
                 
                 if RcheckOuts:
                     r_k = 'r'+dashIndf[-1][1:]
+                else:
+                    r_k = ''
                 
             elif dashcheckInps:
                 o_th = Indf[-1][0]
@@ -1856,10 +1966,12 @@ class RSD_sim:
                 
                 if RcheckOuts:
                     r_k = 'r'+Indf[-1][1:]
+                else:
+                    r_k = ''
                 
             elif dashcheckOuts:
                 o_th = Indf[1]
-                if len(re.findall("[a-z]\d+",Indf[0].lower()))==0:
+                if len(re.findall(r"[a-z]\d+",Indf[0].lower()))==0:
                     i_bm = 'D'+Indf[0][:]
                 else:
                     i_bm = 'D'+Indf[0][1:]
@@ -1867,10 +1979,12 @@ class RSD_sim:
                 
                 if RcheckOuts:
                     r_k = 'r'+dashIndf[-1][1:]
+                else:
+                    r_k = ''
                     
             else:
                 o_th = Indf[1][0]
-                if len(re.findall("[a-z]\d+",Indf[0].lower()))==0:
+                if len(re.findall(r"[a-z]\d+",Indf[0].lower()))==0:
                     i_bm = 'D'+Indf[0][:]
                 else:
                     i_bm = 'D'+Indf[0][1:]
@@ -1878,83 +1992,27 @@ class RSD_sim:
                 
                 if RcheckOuts:
                     r_k = 'r'+Indf[-1][1:]
-                    
-            if EcheckInps and EcheckOuts:
-                eI = 'e'+eI
-                eO = 'e'+eO
-                
-                ei_S = e_d[eI][0]
-                ei_Sp = rc_seq(e_d[eI][0])[1:-1]
-                eo_S = e_d[eO][0] 
+                else:
+                    r_k = ''
             
-            elif EcheckInps:
-                eI = 'e'+eI
-                
-                ei_S = e_d[eI][0]
-                ei_Sp = rc_seq(e_d[eI][0])[1:-1]
-                eo_S = '' 
             
-            elif EcheckOuts:
-                eO = 'e'+eO
-                
-                ei_S = ''
-                ei_Sp = ''
-                eo_S = e_d[eO][0]
-                
-            else:
-                ei_S = ''
-                ei_Sp = ''
-                eo_S = ''    
             
-            if RcheckOuts:
-                r_S = r_d[r_k][0]
-            else:
-                r_S = ''
-                
-            if len(s) == 0:
-                s_S = ''
-            else:
-                s_S = s_d[s][0]
-                
-            if len(us) == 0:
-                us_S = ''
-            else:
-                us_S = ''
-                for n in range(len(us)):
-                    us_S = us_S + us_d[us[n]][0]
-                    
-            if len(ds) == 0:
-                ds_S = ''
-            else:
-                ds_S = ''
-                for n in range(len(ds)):
-                    ds_S = ds_S + ds_d[ds[n]][0]
-                    
+
+
+            ###################################################################
+            # Selecting the correct seqeuences for each domain
+            ###################################################################
+            [ei_S,ei_Sp,eo_S,r_S,d_S,s_S,s_Sp,cp_S,n_S,c_S,cds_S,rflap_S,o_bm_S,o_th_Sp,i_bm_S,i_th_S,i_bm_Sp,o_th_S,hp5_S,l_S,rz_S,term_S,prom_S,cl,us_S,ds_S] = \
+            domain_seq_selection(name,inps,outps,fuels,dashcheckInps,dashcheckOuts,EcheckInps,EcheckOuts,dchecks,dashIndf,RcheckOuts,r_k,\
+                                     eI,eO,e_d,r_d,d,d_d,s,s_d,cp,cp_d,c,c_d,CDS,cds_d,n,n_d,rflap,rflap_d,us,us_d,ds,ds_d,\
+                                     rna,o_bm,O_BM_d,i_bm,I_BM_d,i_th,o_th,th_d,hp5,hp5_d,Rz,Rz_d,term,term_d,prom,prom_d,L,L_d)
+            
+            
             if otype == 1:
                 rz_S = Rz_d[Rz][0]
             else:
                 rz_S = ''
-            
-            #Extracted sequences    
-            o_bm_S = O_BM_d[o_bm][0]
-            o_th_Sp = rc_seq(th_d[o_th][0])[1:-1]
-            i_bm_S = I_BM_d[i_bm][0]
-            #i_th_S = th_d[i_th][0]
-            i_bm_Sp = rc_seq(O_BM_d[i_bm][0])[1:-1]
-            o_th_S = th_d[o_th][0]
-            # from optional inputs
-            hp5_S = hp5_d[hp5][0]
-            l_S = L_d[L][0]
-            term_S = term_d[term][0]
-            prom_S = prom_d[prom][0]
-            
-            #Adding an indication of the Rz cleavage site for RNAs
-            if rna == 1  and otype == 1 and Rz[0].lower() != 'x':
-                cl = '|'
-            else:
-                cl =''
-
-            
+                
             ###################################################################
             # Stitching output sequences
             ###################################################################
@@ -1962,9 +2020,9 @@ class RSD_sim:
             if invert == 0:
             
                 ctRSD_part = hp5_S +\
-                             eo_S + r_S + o_bm_S + o_th_Sp + ei_S + i_bm_S +\
+                             d_S + r_S + eo_S + o_bm_S + o_th_Sp + s_Sp + ei_S + i_bm_S +\
                              l_S + cl + rz_S +\
-                             term_S
+                             rflap_S + term_S
                 
                 template = create_template(ctRSD_part,prom_S,rna,us_S,ds_S,temp_len)
                 
@@ -1972,10 +2030,182 @@ class RSD_sim:
                     
                 ctRSD_part = hp5_S +\
                              l_S + cl + rz_S + invL +\
-                             eo_S + r_S + o_bm_S + o_th_Sp + ei_S + i_bm_S +\
+                             d_S + r_S + eo_S + o_bm_S + o_th_Sp + s_Sp + ei_S + i_bm_S +\
+                             rflap_S + term_S
+                
+                template = create_template(ctRSD_part,prom_S,rna,us_S,ds_S,temp_len)
+                
+                
+        elif inps:
+            '''
+            ###################################################################
+            INPUTS
+            ###################################################################
+            '''
+            
+            if dashcheckOuts:
+                o_th = Indf[0]
+                o_bm = 'D'+dashIndf[0][1:]
+                
+                if RcheckOuts:
+                    r_k = 'r'+dashIndf[0][1:]
+                else:
+                    r_k = ''
+            else:
+                o_th = Indf[0][0]
+                o_bm = 'D'+Indf[0][1:]
+                
+                if RcheckOuts:
+                    r_k = 'r'+Indf[0][1:]
+                else:
+                    r_k = ''
+                    
+            
+            ###################################################################
+            # Selecting the correct seqeuences for each domain
+            ###################################################################
+            [ei_S,ei_Sp,eo_S,r_S,d_S,s_S,s_Sp,cp_S,n_S,c_S,cds_S,rflap_S,o_bm_S,o_th_Sp,i_bm_S,i_th_S,i_bm_Sp,o_th_S,hp5_S,l_S,rz_S,term_S,prom_S,cl,us_S,ds_S] = \
+            domain_seq_selection(name,inps,outps,fuels,dashcheckInps,dashcheckOuts,EcheckInps,EcheckOuts,dchecks,dashIndf,RcheckOuts,r_k,\
+                                     eI,eO,e_d,r_d,d,d_d,s,s_d,cp,cp_d,c,c_d,CDS,cds_d,n,n_d,rflap,rflap_d,us,us_d,ds,ds_d,\
+                                     rna,o_bm,O_BM_d,i_bm,I_BM_d,i_th,o_th,th_d,hp5,hp5_d,Rz,Rz_d,term,term_d,prom,prom_d,L,L_d)
+            
+            
+            ###################################################################
+            # Stitching input sequences
+            ###################################################################
+            
+            ctRSD_part = hp5_S + d_S + r_S + eo_S + o_bm_S + o_th_Sp + s_Sp + rflap_S + term_S
+            
+            template = create_template(ctRSD_part,prom_S,rna,us_S,ds_S,temp_len)
+            
+        
+        elif threshs:
+            '''
+            ###################################################################
+            THRESHOLD GATES
+            ###################################################################
+            '''
+            
+            if dashcheckInps:
+                i_th = Indf[0]
+                i_bm = 'D'+dashIndf[0][1:]
+                
+                if RcheckOuts:
+                    r_k = 'r'+dashIndf[0][1:]      
+                
+            else:
+                i_th = Indf[0][0]
+                i_bm = 'D'+Indf[0][1:]
+                
+                if RcheckOuts:
+                    r_k = 'r'+Indf[0][1:]
+                else:
+                    r_k = ''
+                    
+            ###################################################################
+            # Selecting the correct seqeuences for each domain
+            ###################################################################
+            [ei_S,ei_Sp,eo_S,r_S,d_S,s_S,s_Sp,cp_S,n_S,c_S,cds_S,rflap_S,o_bm_S,o_th_Sp,i_bm_S,i_th_S,i_bm_Sp,o_th_S,hp5_S,l_S,rz_S,term_S,prom_S,cl,us_S,ds_S] = \
+            domain_seq_selection(name,inps,outps,fuels,dashcheckInps,dashcheckOuts,EcheckInps,EcheckOuts,dchecks,dashIndf,RcheckOuts,r_k,\
+                                     eI,eO,e_d,r_d,d,d_d,s,s_d,cp,cp_d,c,c_d,CDS,cds_d,n,n_d,rflap,rflap_d,us,us_d,ds,ds_d,\
+                                     rna,o_bm,O_BM_d,i_bm,I_BM_d,i_th,o_th,th_d,hp5,hp5_d,Rz,Rz_d,term,term_d,prom,prom_d,L,L_d)
+            
+            if c_S == 'Error':
+                return('Function terminated, see error.')
+            
+            d_Sp = rc_seq(d_S)[1:-1]
+            
+            ###################################################################
+            # Stitching thresholding gate sequences
+            ###################################################################
+            
+            if invert == 0:
+            
+                ctRSD_part = hp5_S +\
+                             d_S + c_S + r_S + ei_S + i_bm_S +\
+                             l_S + cl + rz_S +\
+                             s_S + i_th_S + i_bm_Sp + ei_Sp + rc_seq(r_S)[1:-1] +\
+                             d_Sp + cp_S + n_S + cds_S + rflap_S +\
                              term_S
                 
                 template = create_template(ctRSD_part,prom_S,rna,us_S,ds_S,temp_len)
+                
+            elif invert == 1:
+                    
+                ctRSD_part = hp5_S +\
+                             s_S + i_th_S + i_bm_Sp + rc_seq(r_S)[1:-1] +\
+                             d_Sp + cp_S + n_S + cds_S + rflap_S +\
+                             l_S + cl + rz_S + invL +\
+                             d_S + c_S + r_S + ei_S + i_bm_S +\
+                             term_S
+                
+                template = create_template(ctRSD_part,prom_S,rna,us_S,ds_S,temp_len)
+                
+                
+        elif fuels:
+            '''
+            ###################################################################
+            FUELS
+            ###################################################################
+            '''
+            
+            dashcheckOut = re.compile(r"\-\d+e*\}")
+            dashcheckOuts = dashcheckOut.search(name.lower())
+            
+            EcheckOut = re.compile(r"e\}")
+            EcheckOuts = EcheckOut.search(name.lower())
+            
+            Indf = re.findall(r"[a-z]\d+",name.lower())
+            dashIndf = re.findall(r"\-\d+",name.lower())
+            
+                
+            if dashcheckOuts:
+                o_th = Indf[0]
+                o_bm = 'D'+dashIndf[0][1:]
+                
+            else:
+                o_th = Indf[0][0]
+                o_bm = 'D'+Indf[0][1:]
+                    
+            if EcheckOuts:
+                eo_S = e_d[eO][0]
+            else: 
+                eo_S = ''
+                
+            if len(us) == 0:
+                us_S = ''
+            else:
+                us_S = ''
+                for n in range(len(us)):
+                    us_S = us_S + us_d[us[m]][0]
+                    
+            if len(ds) == 0:
+                ds_S = ''
+            else:
+                ds_S = ''
+                for n in range(len(ds)):
+                    ds_S = ds_S + ds_d[ds[m]][0]
+                
+            if len(rflap) == 0:
+                rflap_S = ''
+            else:
+                rflap_S = rflap_d[rflap][0]
+                
+            # Extracted sequence domains
+            o_bm_S = O_BM_d[o_bm][0]
+            o_th_Sp = rc_seq(th_d[o_th][0])[1:-1]
+            # from optional inputs
+            hp5_S = hp5_d[hp5][0]
+            term_S = term_d[term][0]
+            prom_S = prom_d[prom][0]
+            
+            ###################################################################
+            # Stitching fuel sequences
+            ###################################################################
+            
+            ctRSD_part = hp5_S + o_th_Sp + eo_S + o_bm_S + rflap_S + term_S
+            
+            template = create_template(ctRSD_part,prom_S,rna,us_S,ds_S,temp_len)
             
         elif AGs:
             '''
@@ -1984,25 +2214,25 @@ class RSD_sim:
             ###################################################################
             '''
             
-            dashcheckInp1 = re.compile("\-\d+(\.|\&)")
+            dashcheckInp1 = re.compile(r"\-\d+(\.|\&)")
             dashcheckInps1 = dashcheckInp1.search(name.lower())
-            dashcheckInp2 = re.compile("\-\d+\,")
+            dashcheckInp2 = re.compile(r"\-\d+\,")
             dashcheckInps2 = dashcheckInp2.search(name.lower())
             
-            dashcheckOut = re.compile("\-\d+r*\}")
+            dashcheckOut = re.compile(r"\-\d+r*\}")
             dashcheckOuts = dashcheckOut.search(name.lower())
             
-            EcheckInp = re.compile("e\,")
+            EcheckInp = re.compile(r"e\,")
             EcheckInps = EcheckInp.search(name.lower())
             
-            EcheckOut = re.compile("e\}")
+            EcheckOut = re.compile(r"e\}")
             EcheckOuts = EcheckOut.search(name.lower())
             
-            RcheckOut = re.compile("r\}")
+            RcheckOut = re.compile(r"r\}")
             RcheckOuts = RcheckOut.search(name.lower())
             
-            Indf = re.findall("[a-z]\d+",name.lower())
-            dashIndf = re.findall("\-\d+",name.lower())
+            Indf = re.findall(r"[a-z]\d+",name.lower())
+            dashIndf = re.findall(r"\-\d+",name.lower())
             
             
             if dashcheckInps1 and dashcheckInps2 and dashcheckOuts:
@@ -2094,22 +2324,18 @@ class RSD_sim:
                     r_k = 'r'+Indf[2][1:]
         
             if EcheckInps and EcheckOuts:
-                eI = 'e'+eI
-                eO = 'e'+eO
                 
                 ei_S = e_d[eI][0]
                 ei_Sp = rc_seq(e_d[eI][0])[1:-1]
                 eo_S = e_d[eO][0] 
             
             elif EcheckInps:
-                eI = 'e'+eI
                 
                 ei_S = e_d[eI][0]
                 ei_Sp = rc_seq(e_d[eI][0])[1:-1]
                 eo_S = '' 
             
             elif EcheckOuts:
-                eO = 'e'+eO
                 
                 ei_S = ''
                 ei_Sp = ''
@@ -2129,20 +2355,56 @@ class RSD_sim:
                 s_S = ''
             else:
                 s_S = s_d[s][0]
+            
+            if len(cp) == 0:
+                cp_S = ''
+            else:
+                cp_S = cp_d[cp][0]
+                
+            if len(n) == 0:
+                n_S = ''
+            else:
+                n_S = n_d[n][0]
+                
+            
+            if c == 0:
+                c_S = ''
+            else:
+                if len(cp) == 0:
+                    print('c domain included without complementary cp domain defined')
+                    return('Function terminated, see error.')
+                
+                elif c > len(cp_S):
+                    print('Length of specified c domain exceeds length of the defined complementary cp domain')
+                    return('Function terminated, see error.')
+                    
+                else:
+                    c_S = rc_seq(cp_S[0:c])[1:-1]
+                    
+            
+            if len(CDS) == 0:
+                cds_S = ''
+            else:
+                cds_S = cds_d[CDS][0]
+                
+            if len(rflap) == 0:
+                rflap_S = ''
+            else:
+                rflap_S = rflap_d[rflap][0]
                 
             if len(us) == 0:
                 us_S = ''
             else:
                 us_S = ''
                 for n in range(len(us)):
-                    us_S = us_S + us_d[us[n]][0]
+                    us_S = us_S + us_d[us[m]][0]
                     
             if len(ds) == 0:
                 ds_S = ''
             else:
                 ds_S = ''
                 for n in range(len(ds)):
-                    ds_S = ds_S + ds_d[ds[n]][0]
+                    ds_S = ds_S + ds_d[ds[m]][0]
                 
             o_bm_S = O_BM_d[o_bm][0]
             o_th_Sp = rc_seq(th_d[o_th][0])[1:-1]
@@ -2178,9 +2440,10 @@ class RSD_sim:
                 if AGiloop == 5: # internal loop size
                     
                     ctRSD_part = hp5_S +\
-                                 eo_S + r_S + o_bm_S + o_th_Sp + ei_S + i_bm_S2 + agl_S + i_th_Sp2[-1] + ei_S + i_bm_S1 +\
+                                 eo_S + r_S + o_bm_S + c_S + o_th_Sp + ei_S + i_bm_S2 + agl_S + i_th_Sp2[-1] + ei_S + i_bm_S1 +\
                                  l_S + cl + rz_S +\
                                  s_S + i_th_S1 + i_bm_Sp1 + ei_Sp + i_th_S2 + i_bm_Sp2 + ei_Sp + o_th_S +\
+                                 cp_S + n_S + cds_S + rflap_S +\
                                  term_S
                     
                     template = create_template(ctRSD_part,prom_S,rna,us_S,ds_S,temp_len)
@@ -2188,9 +2451,10 @@ class RSD_sim:
                 elif AGiloop == 6: # internal loop size
                     
                     ctRSD_part = hp5_S +\
-                                 eo_S + r_S + o_bm_S + o_th_Sp + ei_S + i_bm_S2 + agl_S + ei_S + i_bm_S1 +\
+                                 eo_S + r_S + o_bm_S + c_S + o_th_Sp + ei_S + i_bm_S2 + agl_S + ei_S + i_bm_S1 +\
                                  l_S + cl + rz_S +\
                                  s_S + i_th_S1 + i_bm_Sp1 + ei_Sp + i_th_S2 + i_bm_Sp2 + ei_Sp + o_th_S +\
+                                 cp_S + n_S + cds_S + rflap_S +\
                                  term_S
                     
                     template = create_template(ctRSD_part,prom_S,rna,us_S,ds_S,temp_len)
@@ -2201,8 +2465,9 @@ class RSD_sim:
                     
                     ctRSD_part = hp5_S +\
                                  s_S + i_th_S1 + i_bm_Sp1 + ei_Sp + i_th_S2 + i_bm_Sp2 + ei_Sp + o_th_S +\
+                                 cp_S + n_S + cds_S + rflap_S +\
                                  l_S + cl + rz_S + invL +\
-                                 eo_S + r_S + o_bm_S + o_th_Sp + ei_S + i_bm_S2 + agl_S + i_th_Sp2[-1] + ei_S + i_bm_S1 +\
+                                 eo_S + r_S + o_bm_S + c_S + o_th_Sp + ei_S + i_bm_S2 + agl_S + i_th_Sp2[-1] + ei_S + i_bm_S1 +\
                                  term_S
                     
                     template = create_template(ctRSD_part,prom_S,rna,us_S,ds_S,temp_len)
@@ -2211,257 +2476,13 @@ class RSD_sim:
                     
                     ctRSD_part = hp5_S +\
                                  s_S + i_th_S1 + i_bm_Sp1 + ei_Sp + i_th_S2 + i_bm_Sp2 + ei_Sp + o_th_S +\
+                                 cp_S + n_S + cds_S + rflap_S +\
                                  l_S + cl + rz_S + invL +\
-                                 eo_S + r_S + o_bm_S + o_th_Sp + ei_S + i_bm_S2 + agl_S + ei_S + i_bm_S1 +\
+                                 eo_S + r_S + o_bm_S + c_S + o_th_Sp + ei_S + i_bm_S2 + agl_S + ei_S + i_bm_S1 +\
                                  term_S
                     
                     template = create_template(ctRSD_part,prom_S,rna,us_S,ds_S,temp_len)
                
-                
-        elif inps:
-            '''
-            ###################################################################
-            INPUTS
-            ###################################################################
-            '''
-            
-            dashcheckOut = re.compile("\-\d+(r*|e*)\}")
-            dashcheckOuts = dashcheckOut.search(name.lower())
-            
-            EcheckOut = re.compile("e\}")
-            EcheckOuts = EcheckOut.search(name.lower())
-            
-            Indf = re.findall("[a-z]\d+",name.lower())
-            dashIndf = re.findall("\-\d+",name.lower())
-                        
-            RcheckOut = re.compile("r\}")
-            RcheckOuts = RcheckOut.search(name.lower())
-                
-            if dashcheckOuts:
-                o_th = Indf[0]
-                o_bm = 'D'+dashIndf[0][1:]
-                
-                if RcheckOuts:
-                    r_k = 'r'+dashIndf[0][1:]
-                    
-            else:
-                o_th = Indf[0][0]
-                o_bm = 'D'+Indf[0][1:]
-                
-                if RcheckOuts:
-                    r_k = 'r'+Indf[0][1:]
-                    
-            if EcheckOuts:
-                eO = 'e'+eO
-                eo_S = e_d[eO][0]
-            else:
-                eo_S = ''
-                
-            if len(us) == 0:
-                us_S = ''
-            else:
-                us_S = ''
-                for n in range(len(us)):
-                    us_S = us_S + us_d[us[n]][0]
-                    
-            if len(ds) == 0:
-                ds_S = ''
-            else:
-                ds_S = ''
-                for n in range(len(ds)):
-                    ds_S = ds_S + ds_d[ds[n]][0]
-                    
-            if RcheckOuts:
-                r_S = r_d[r_k][0]
-            else:
-                r_S = ''
-                    
-            o_bm_S = O_BM_d[o_bm][0]
-            o_th_Sp = rc_seq(th_d[o_th][0])[1:-1]
-            
-            hp5_S = hp5_d[hp5][0]
-            term_S = term_d[term][0]
-            prom_S = prom_d[prom][0]
-            
-            ###################################################################
-            # Stitching input sequences
-            ###################################################################
-            
-            ctRSD_part = hp5_S + r_S + eo_S + o_bm_S + o_th_Sp + term_S
-            
-            template = create_template(ctRSD_part,prom_S,rna,us_S,ds_S,temp_len)
-        
-        elif threshs:
-            '''
-            ###################################################################
-            THRESHOLD GATES
-            ###################################################################
-            '''
-            
-            dashcheckInp = re.compile("\-\d+(r*|e*)\}")
-            dashcheckInps = dashcheckInp.search(name.lower())
-            
-            EcheckInp = re.compile("e\}")
-            EcheckInps = EcheckInp.search(name.lower())
-            
-            Indf = re.findall("[a-z]\d+",name.lower())
-            dashIndf = re.findall("\-\d+",name.lower())
-            
-            RcheckOut = re.compile("r\}")
-            RcheckOuts = RcheckOut.search(name.lower())
-            
-            
-            if dashcheckInps:
-                i_th = Indf[0]
-                i_bm = 'D'+dashIndf[0][1:]
-                
-                if RcheckOuts:
-                    r_k = 'r'+dashIndf[0][1:]      
-                
-            else:
-                i_th = Indf[0][0]
-                i_bm = 'D'+Indf[0][1:]
-                
-                if RcheckOuts:
-                    r_k = 'r'+Indf[0][1:]
-                           
-            if EcheckInps:
-                eI = 'e'+eI
-                
-                ei_S = e_d[eI][0]
-                ei_Sp = rc_seq(e_d[eI][0])[1:-1]
-                eo_S = '' 
-            else:
-                ei_S = ''
-                ei_Sp = ''
-                
-            if RcheckOuts:
-                r_S = r_d[r_k][0]
-            else:
-                r_S = ''
-                
-            if len(s) == 0:
-                s = 's4'
-                s_S = s_d[s][0]
-            else:
-                s_S = s_d[s][0]
-            
-            if len(us) == 0:
-                us_S = ''
-            else:
-                us_S = ''
-                for n in range(len(us)):
-                    us_S = us_S + us_d[us[n]][0]
-                    
-            if len(ds) == 0:
-                ds_S = ''
-            else:
-                ds_S = ''
-                for n in range(len(ds)):
-                    ds_S = ds_S + ds_d[ds[n]][0]
-                    
-            #Extracted sequences    
-            i_bm_S = I_BM_d[i_bm][0]
-            i_th_S = th_d[i_th][0]
-            i_bm_Sp = rc_seq(O_BM_d[i_bm][0])[1:-1]
-            # from optional inputs
-            hp5_S = hp5_d[hp5][0]
-            l_S = L_d[L][0]
-            rz_S = Rz_d[Rz][0]
-            term_S = term_d[term][0]
-            prom_S = prom_d[prom][0]
-            
-            #Adding an indication of the Rz cleavage site for RNAs
-            if rna == 1 and Rz[0].lower() != 'x':
-                cl = '|'
-            else:
-                cl =''
-            
-            ###################################################################
-            # Stitching thresholding gate sequences
-            ###################################################################
-            
-            if invert == 0:
-            
-                ctRSD_part = hp5_S +\
-                             r_S + ei_S + i_bm_S +\
-                             l_S + cl + rz_S +\
-                             s_S + i_th_S + i_bm_Sp + ei_Sp + rc_seq(r_S)[1:-1] +\
-                             term_S
-                
-                template = create_template(ctRSD_part,prom_S,rna,us_S,ds_S,temp_len)
-                
-            elif invert == 1:
-                    
-                ctRSD_part = hp5_S +\
-                             s_S + i_th_S + i_bm_Sp + rc_seq(r_S)[1:-1] +\
-                             l_S + cl + rz_S + invL +\
-                             r_S + i_bm_S +\
-                             term_S
-                
-                template = create_template(ctRSD_part,prom_S,rna,us_S,ds_S,temp_len)
-                
-                
-        elif fuels:
-            '''
-            ###################################################################
-            FUELS
-            ###################################################################
-            '''
-            
-            dashcheckOut = re.compile("\-\d+e*\}")
-            dashcheckOuts = dashcheckOut.search(name.lower())
-            
-            EcheckOut = re.compile("e\}")
-            EcheckOuts = EcheckOut.search(name.lower())
-            
-            Indf = re.findall("[a-z]\d+",name.lower())
-            dashIndf = re.findall("\-\d+",name.lower())
-            
-                
-            if dashcheckOuts:
-                o_th = Indf[0]
-                o_bm = 'D'+dashIndf[0][1:]
-                
-            else:
-                o_th = Indf[0][0]
-                o_bm = 'D'+Indf[0][1:]
-                    
-            if EcheckOuts:
-                eO = 'e'+eO
-                eo_S = e_d[eO][0]
-            else: 
-                eo_S = ''
-                
-            if len(us) == 0:
-                us_S = ''
-            else:
-                us_S = ''
-                for n in range(len(us)):
-                    us_S = us_S + us_d[us[n]][0]
-                    
-            if len(ds) == 0:
-                ds_S = ''
-            else:
-                ds_S = ''
-                for n in range(len(ds)):
-                    ds_S = ds_S + ds_d[ds[n]][0]
-                
-            # Extracted sequence domains
-            o_bm_S = O_BM_d[o_bm][0]
-            o_th_Sp = rc_seq(th_d[o_th][0])[1:-1]
-            # from optional inputs
-            hp5_S = hp5_d[hp5][0]
-            term_S = term_d[term][0]
-            prom_S = prom_d[prom][0]
-            
-            ###################################################################
-            # Stitching fuel sequences
-            ###################################################################
-            
-            ctRSD_part = hp5_S + o_th_Sp + eo_S + o_bm_S + term_S
-            
-            template = create_template(ctRSD_part,prom_S,rna,us_S,ds_S,temp_len)
                 
         elif CGs:
             '''
@@ -2470,14 +2491,14 @@ class RSD_sim:
             ###################################################################
             '''
             
-            dashcheckInp = re.compile("\-\d+\,")
+            dashcheckInp = re.compile(r"\-\d+\,")
             dashcheckInps = dashcheckInp.search(name.lower())
             
-            dashcheckOut = re.compile("\-\d+\}")
+            dashcheckOut = re.compile(r"\-\d+\}")
             dashcheckOuts = dashcheckOut.search(name.lower())
             
-            Indf = re.findall("[a-z]\d+",name.lower())
-            dashIndf = re.findall("\-\d+",name.lower())
+            Indf = re.findall(r"[a-z]\d+",name.lower())
+            dashIndf = re.findall(r"\-\d+",name.lower())
             
             if dashcheckInps and dashcheckOuts:
                 i_th = Indf[0]
@@ -2507,20 +2528,56 @@ class RSD_sim:
                 s_S = ''
             else:
                 s_S = s_d[s][0]
+            
+            if len(cp) == 0:
+                cp_S = ''
+            else:
+                cp_S = cp_d[cp][0]
+                
+            if len(n) == 0:
+                n_S = ''
+            else:
+                n_S = n_d[n][0]
+            
+            
+            if c == 0:
+                c_S = ''
+            else:
+                if len(cp) == 0:
+                    print('c domain included without complementary cp domain defined')
+                    return('Function terminated, see error.')
+                
+                elif c > len(cp_S):
+                    print('Length of specified c domain exceeds length of the defined complementary cp domain')
+                    return('Function terminated, see error.')
+                    
+                else:
+                    c_S = rc_seq(cp_S[0:c])[1:-1]
+                    
+            
+            if len(CDS) == 0:
+                cds_S = ''
+            else:
+                cds_S = cds_d[CDS][0]
+                
+            if len(rflap) == 0:
+                rflap_S = ''
+            else:
+                rflap_S = rflap_d[rflap][0]
                 
             if len(us) == 0:
                 us_S = ''
             else:
                 us_S = ''
                 for n in range(len(us)):
-                    us_S = us_S + us_d[us[n]][0]
+                    us_S = us_S + us_d[us[m]][0]
                     
             if len(ds) == 0:
                 ds_S = ''
             else:
                 ds_S = ''
                 for n in range(len(ds)):
-                    ds_S = ds_S + ds_d[ds[n]][0]
+                    ds_S = ds_S + ds_d[ds[m]][0]
                             
             # Extracted sequence domains
             I1_bm_S = O_BM_d[i_bm][0]
@@ -2529,8 +2586,8 @@ class RSD_sim:
             I2_bm_Sp = rc_seq(O_BM_d[o_bm][0])[1:-1]
             i1_th_S = th_d[i_th][0]
             i2_th_S = th_d[o_th][0]
-            c_S = 'CGC'
-            c_Sp = 'GTG'
+            cL_S = 'CGC'
+            cL_Sp = 'GTG'
             # from optional inputs
             hp5_S = hp5_d[hp5][0]
             l_S = L_d[L][0]
@@ -2552,9 +2609,10 @@ class RSD_sim:
             ###################################################################
             
             ctRSD_part = hp5_S + \
-                         s_S + i1_th_S + I1_bm_Sp + c_S + I2_bm_S + \
+                         s_S + i1_th_S + c_S + I1_bm_Sp + cL_S + I2_bm_S + \
                          l_S + cl + rz_S + \
-                         s_S + i2_th_S + I2_bm_Sp + c_Sp + I1_bm_S + \
+                         s_S + i2_th_S + I2_bm_Sp + cL_Sp + I1_bm_S + \
+                         cp_S + n_S + cds_S + rflap_S +\
                          term_S
             
             template = create_template(ctRSD_part,prom_S,rna,us_S,ds_S,temp_len)

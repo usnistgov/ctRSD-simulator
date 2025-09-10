@@ -185,7 +185,8 @@ def rate_eqs(t,y,ktxnO,ktxnG,ktxnTG,ktxnF,ktxnAG,ktxnCG,krz,krsd,krev,krep,krepr
     
     dAGm = (krzA*uAGm - Omrsd @ (krsdA*AGm) - kdsdAG*AGm).flatten()
     
-    dAGOam = (AGmap @ (Om @ (krsdA*AGm)) - Omrsd @ (krsdA*AGOam) + AGObmrsd @ (krev*Om) -kdsdAGOa*AGOam).flatten()
+    dAGOam = (AGmap @ (Omrsd @ (krsdA*AGm)) - Omrsd @ (krsdA*AGOam) + AGObmrsd @ (krev*Om) -kdsdAGOa*AGOam).flatten()
+    #dAGOam = (AGmap @ (Om @ (krsdA*AGm)) - Omrsd @ (krsdA*AGOam) + AGObmrsd @ (krev*Om) -kdsdAGOa*AGOam).flatten()
     
     dAGObm = (Om @ krsdA_AGOamcsd -AGObm@krev_Omcsd \
               -AGObm @ krsdFm + (krevF*Om) @ AGFbm -kdsdAGOb*AGObm).flatten()
@@ -582,65 +583,65 @@ class RSD_sim:
                                kdsdAGOa='False',kdsdAGOb='False',kdsdAGFb='False',kdsdCGOa='False',kdsdCGOb='False',\
                                kdrd='False',khybO='False',khybR='False',leak='False',leakA='False'):
         
-        inp = re.compile("(i|in|inp|input)\{\w*\d+\w*\}")
+        inp = re.compile(r"(i|in|inp|input)\{\w*\d+\w*\}")
         inps = inp.fullmatch(name.lower())
-        rep = re.compile("(r|rep|reporter)\{\w*\d+\w*\}")
+        rep = re.compile(r"(r|rep|reporter)\{\w*\d+\w*\}")
         reps = rep.fullmatch(name.lower())
-        out = re.compile("(o|out|output)\{\w*\d+\w*\,\w*\d+\w*\}")
+        out = re.compile(r"(o|out|output)\{\w*\d+\w*\,\w*\d+\w*\}")
         outs = out.fullmatch(name.lower())
-        gate = re.compile("(g|gate)\{\w*\d+\w*\,\w*\d+\w*\}")
+        gate = re.compile(r"(g|gate)\{\w*\d+\w*\,\w*\d+\w*\}")
         gates = gate.fullmatch(name.lower())
         
-        uG = re.compile("ug\{\w*\d+\w*\,\w*\d+\w*\}")
+        uG = re.compile(r"ug\{\w*\d+\w*\,\w*\d+\w*\}")
         uGs = uG.fullmatch(name.lower())
-        GI = re.compile("gi\{\w*\d+\w*\}")
+        GI = re.compile(r"gi\{\w*\d+\w*\}")
         GIs = GI.fullmatch(name.lower())
-        GO = re.compile("go\{\w*\d+\w*\,\w*\d+\w*\}")
+        GO = re.compile(r"go\{\w*\d+\w*\,\w*\d+\w*\}")
         GOs = GO.fullmatch(name.lower())
-        RO = re.compile("ro\{\w*\d+\w*\,\w*\d+\w*\}")
+        RO = re.compile(r"ro\{\w*\d+\w*\,\w*\d+\w*\}")
         ROs = RO.fullmatch(name.lower())
-        S =  re.compile("s\{\w*\d+\w*\}")
+        S =  re.compile(r"s\{\w*\d+\w*\}")
         Ss = S.fullmatch(name.lower())
-        Q = re.compile("q\{\w*\d+\w*\}")
+        Q = re.compile(r"q\{\w*\d+\w*\}")
         Qs = Q.fullmatch(name.lower())
         
-        uTh = re.compile("utg|ut|uth\{\w*\d+\w*\}")
+        uTh = re.compile(r"utg|ut|uth\{\w*\d+\w*\}")
         uThs = uTh.fullmatch(name.lower())
-        thresh = re.compile("(tg|t|th)\{\w*\d+\w*\}")
+        thresh = re.compile(r"(tg|t|th)\{\w*\d+\w*\}")
         threshs = thresh.fullmatch(name.lower())
         
-        fuel = re.compile("f\{\w*\d+\w*\}")
+        fuel = re.compile(r"f\{\w*\d+\w*\}")
         fuels = fuel.fullmatch(name.lower())
-        GF = re.compile("gf\{\w*\d+\w*\}")
+        GF = re.compile(r"gf\{\w*\d+\w*\}")
         GFs = GF.fullmatch(name.lower())
         
-        #AG = re.compile("ag\{\w*\d+(\.\d+)+\,\w*\d+\w*\}")
-        uAG = re.compile("uag\{\w*\d+\w*(\.|\&)\w*\d+\w*\,\w*\d+\w*\}")
+        #AG = re.compile(r"ag\{\w*\d+(\.\d+)+\,\w*\d+\w*\}")
+        uAG = re.compile(r"uag\{\w*\d+\w*(\.|\&)\w*\d+\w*\,\w*\d+\w*\}")
         uAGs = uAG.fullmatch(name.lower())
-        AG = re.compile("(ag|g|gate)\{\w*\d+\w*(\.|\&)\w*\d+\w*\,\w*\d+\w*\}")
+        AG = re.compile(r"(ag|g|gate)\{\w*\d+\w*(\.|\&)\w*\d+\w*\,\w*\d+\w*\}")
         AGs = AG.fullmatch(name.lower())
-        AGOa = re.compile("agoa\{\w*\d+\w*\,\w*\d+\w*\}")
+        AGOa = re.compile(r"agoa\{\w*\d+\w*\,\w*\d+\w*\}")
         AGOas = AGOa.fullmatch(name.lower())
-        AGOb = re.compile("agob\{\w*\d+\w*\,\w*\d+\w*\}")
+        AGOb = re.compile(r"agob\{\w*\d+\w*\,\w*\d+\w*\}")
         AGObs = AGOb.fullmatch(name.lower())
         
-        #AGFa  = re.compile("agfa\{\w*\d+\w*\,\w*\d+\w*\}")
+        #AGFa  = re.compile(r"agfa\{\w*\d+\w*\,\w*\d+\w*\}")
         #AGFas = AGFa.fullmatch(name.lower())
-        AGFb = re.compile("agfb\{\w*\d+\w*\}")
+        AGFb = re.compile(r"agfb\{\w*\d+\w*\}")
         AGFbs = AGFb.fullmatch(name.lower())
         
-        uCG = re.compile("ucg\{\w*\d+\w*\,\w*\d+\w*\}")
+        uCG = re.compile(r"ucg\{\w*\d+\w*\,\w*\d+\w*\}")
         uCGs = uCG.fullmatch(name.lower())
-        CG = re.compile("cg\{\w*\d+\w*\,\w*\d+\w*\}")
+        CG = re.compile(r"cg\{\w*\d+\w*\,\w*\d+\w*\}")
         CGs = CG.fullmatch(name.lower())
-        CGOa = re.compile("cgoa\{\w*\d+\w*\,\w*\d+\w*\}")
+        CGOa = re.compile(r"cgoa\{\w*\d+\w*\,\w*\d+\w*\}")
         CGOas = CGOa.fullmatch(name.lower())
-        CGOb = re.compile("cgob\{\w*\d+\w*\,\w*\d+\w*\}")
+        CGOb = re.compile(r"cgob\{\w*\d+\w*\,\w*\d+\w*\}")
         CGObs = CGOb.fullmatch(name.lower())
         
         # Inputs
         if inps:
-            inpInd1f = re.compile("\d+")
+            inpInd1f = re.compile(r"\d+")
             inpInd1 = int(inpInd1f.search(name.lower()).group())-1
             
             self.Otemp_con[inpInd1,inpInd1]=DNA_con
@@ -664,7 +665,7 @@ class RSD_sim:
                 
         # Reporters   
         elif reps:
-            repInd1f = re.compile('\d+')
+            repInd1f = re.compile(r"\d+")
             repInd1 = int(repInd1f.search(name.lower()).group())-1
             
             if ic == 'False':
@@ -684,7 +685,7 @@ class RSD_sim:
         
         # Outputs
         elif outs:
-            outIndf = re.findall("\d+",name.lower())
+            outIndf = re.findall(r"\d+",name.lower())
 
             outInd1 = int(outIndf[0])-1
             outInd2 = int(outIndf[1])-1
@@ -714,7 +715,7 @@ class RSD_sim:
             
         # Gates
         elif gates:
-            gateIndf = re.findall("\d+",name.lower())
+            gateIndf = re.findall(r"\d+",name.lower())
             gateInd1 = int(gateIndf[0])-1
             gateInd2 = int(gateIndf[1])-1
             
@@ -743,7 +744,7 @@ class RSD_sim:
     
         # Uncleaved gates
         elif uGs:
-            uGIndf = re.findall("\d+",name.lower())
+            uGIndf = re.findall(r"\d+",name.lower())
             uGInd1 = int(uGIndf[0])-1
             uGInd2 = int(uGIndf[1])-1
             
@@ -762,7 +763,7 @@ class RSD_sim:
             
         # Gate:Input complexes (Diagonal of GO)
         elif GIs:
-            GIInd1f = re.compile("\d+")
+            GIInd1f = re.compile(r"\d+")
             GIInd1 = int(GIInd1f.search(name.lower()).group())-1
             
             if ic != 'False':
@@ -776,7 +777,7 @@ class RSD_sim:
             
         # Gate:Output complexes
         elif GOs:
-            GOIndf = re.findall("\d+",name.lower())
+            GOIndf = re.findall(r"\d+",name.lower())
             GOInd1 = int(GOIndf[0])-1
             GOInd2 = int(GOIndf[1])-1
             
@@ -791,7 +792,7 @@ class RSD_sim:
         
         # Reporter:Output complexes
         elif ROs:
-           ROIndf = re.findall("\d+",name.lower())
+           ROIndf = re.findall(r"\d+",name.lower())
            ROInd1 = int(ROIndf[0])-1
            ROInd2 = int(ROIndf[1])-1
            
@@ -806,7 +807,7 @@ class RSD_sim:
          
         # Reporter Signal
         elif Ss:
-            SInd1f = re.compile("\d+")
+            SInd1f = re.compile(r"\d+")
             SInd1 = int(SInd1f.search(name.lower()).group())-1
             
             if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGb!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
@@ -821,7 +822,7 @@ class RSD_sim:
         
         # Uncleaved threshold gates
         elif uThs:
-            uThInd1f = re.compile("\d+")
+            uThInd1f = re.compile(r"\d+")
             uThInd1 = int(uThInd1f.search(name.lower()).group())-1
             
             if ic != 'False':
@@ -839,7 +840,7 @@ class RSD_sim:
         
         # Threshold gates
         elif threshs:
-            threshInd1f = re.compile("\d+")
+            threshInd1f = re.compile(r"\d+")
             threshInd1 = int(threshInd1f.search(name.lower()).group())-1
             
             self.TGtemp_con[threshInd1] = DNA_con
@@ -860,7 +861,7 @@ class RSD_sim:
         
         # Fuel strands
         elif fuels:
-            fuelInd1f = re.compile("\d+")
+            fuelInd1f = re.compile(r"\d+")
             self.fuelInd1 = int(fuelInd1f.search(name.lower()).group())-1
             
             self.Ftemp_con[self.fuelInd1] = DNA_con
@@ -881,7 +882,7 @@ class RSD_sim:
             
         # Gate:Fuel complexes   
         elif GFs:
-            GFInd1f = re.compile("\d+")
+            GFInd1f = re.compile(r"\d+")
             GFInd1 = int(GFInd1f.search(name.lower()).group())-1
             
 
@@ -898,7 +899,7 @@ class RSD_sim:
           
         # AND Gates
         elif AGs:
-            AGIndf = re.findall("\d+",name.lower())
+            AGIndf = re.findall(r"\d+",name.lower())
             self.AGInd1 = int(AGIndf[0])-1
             AGInd2 = int(AGIndf[-1])-1
             
@@ -933,7 +934,7 @@ class RSD_sim:
         
         # Uncleaved AND gates
         elif uAGs:
-            uAGIndf = re.findall("\d+",name.lower())
+            uAGIndf = re.findall(r"\d+",name.lower())
             uAGInd1 = int(uAGIndf[0])-1
             uAGInd2 = int(uAGIndf[-1])-1
             
@@ -952,7 +953,7 @@ class RSD_sim:
         
         # AND gate:Output complex a
         elif AGOas:
-            AGOaIndf = re.findall("\d+",name.lower())
+            AGOaIndf = re.findall(r"\d+",name.lower())
             AGOaInd1 = int(AGOaIndf[0])-1
             AGOaInd2 = int(AGOaIndf[1])-1
             
@@ -969,7 +970,7 @@ class RSD_sim:
         
         # AND gate:Output complex b
         elif AGObs:
-            AGObIndf = re.findall("\d+",name.lower())
+            AGObIndf = re.findall(r"\d+",name.lower())
             AGObInd1 = int(AGObIndf[0])-1
             AGObInd2 = int(AGObIndf[1])-1
             
@@ -985,7 +986,7 @@ class RSD_sim:
         
         # AND gate:Fuel complex b
         elif AGFbs:
-            AGFbIndf = re.findall("\d+",name.lower())
+            AGFbIndf = re.findall(r"\d+",name.lower())
             AGFbInd1 = int(AGFbIndf[0])-1
             
             if ic != 'False':
@@ -1001,7 +1002,7 @@ class RSD_sim:
         
         # Comparator Gate
         elif CGs:
-            CGIndf = re.findall("\d+",name.lower())
+            CGIndf = re.findall(r"\d+",name.lower())
             
             CGInd1 = int(CGIndf[0])-1
             CGInd2 = int(CGIndf[1])-1
@@ -1040,7 +1041,7 @@ class RSD_sim:
         
         # uncleaved Comparator Gate
         elif uCGs:
-            uCGIndf = re.findall("\d+",name.lower())
+            uCGIndf = re.findall(r"\d+",name.lower())
             uCGInd1 = int(uCGIndf[0])-1
             uCGInd2 = int(uCGIndf[1])-1
             
@@ -1059,7 +1060,7 @@ class RSD_sim:
         
         # Comparator Gate:Output complex a
         elif CGOas:
-            CGOaIndf = re.findall("\d+",name.lower())
+            CGOaIndf = re.findall(r"\d+",name.lower())
             CGOaInd1 = int(CGOaIndf[0])-1
             CGOaInd2 = int(CGOaIndf[1])-1
             
@@ -1076,7 +1077,7 @@ class RSD_sim:
        
         # Comparator Gate:Output complex b    
         elif CGObs:
-            CGObIndf = re.findall("\d+",name.lower())
+            CGObIndf = re.findall(r"\d+",name.lower())
             CGObInd1 = int(CGObIndf[0])-1
             CGObInd2 = int(CGObIndf[1])-1
             
@@ -1093,7 +1094,7 @@ class RSD_sim:
         
         # Reporter Signal Complement strand
         elif Qs:
-            QInd1f = re.compile("\d+")
+            QInd1f = re.compile(r"\d+")
             QInd1 = int(QInd1f.search(name.lower()).group())-1
             
             if leak != 'False' or leakA != 'False' or krz != 'False' or krsd != 'False' or krev != 'False' or krep != 'False' or krepr != 'False' or kth != 'False' or krzTG != 'False' or krsdF != 'False' or krevF != 'False' or krsdA != 'False' or krzA != 'False' or krevCG != 'False' or krevCGa!= 'False' or krevCGb!= 'False' or krsdCG != 'False' or krsdCGa != 'False' or krsdCGb != 'False' or krzCG != 'False' or ktxnO != 'False' or ktxnG != 'False' or ktxnTG != 'False' or ktxnF != 'False' or ktxnAG != 'False' or ktxnCG != 'False' or kssdO != 'False' or kssdF != 'False' or kdsduG != "False" or kdsdG != 'False' or kdsdGO != 'False' or kdsduAG != 'False' or kdsdAG != 'False' or kdsduCG != 'False' or kdsdCG != 'False' or kdrd != 'False' or khybO != 'False' or khybR != 'False' or kdsduTG != 'False' or kdsdTG != 'False' or kdsdGF != 'False' or kdsdAGOa != 'False' or kdsdAGOb != 'False' or kdsdAGFb != 'False' or kdsdCGOa != 'False' or kdsdCGOb != 'False':
@@ -1215,77 +1216,78 @@ class RSD_sim:
             self.Q_simcon = self.solve.y[7*self.N+13*self.N**2:8*self.N+13*self.N**2]
         
     def output_concentration(self,name):
-        inp = re.compile("(i|in|inp|input)\{\w*\d+\w*\}")
+        inp = re.compile(r"(i|in|inp|input)\{\w*\d+\w*\}")
         inps = inp.fullmatch(name.lower())
-        rep = re.compile("(r|rep|reporter)\{\w*\d+\w*\}")
+        rep = re.compile(r"(r|rep|reporter)\{\w*\d+\w*\}")
         reps = rep.fullmatch(name.lower())
-        out = re.compile("(o|out|output)\{\w*\d+\w*\,\w*\d+\w*\}")
+        out = re.compile(r"(o|out|output)\{\w*\d+\w*\,\w*\d+\w*\}")
         outs = out.fullmatch(name.lower())
-        gate = re.compile("(g|gate)\{\w*\d+\w*\,\w*\d+\w*\}")
+        gate = re.compile(r"(g|gate)\{\w*\d+\w*\,\w*\d+\w*\}")
         gates = gate.fullmatch(name.lower())
         
-        uG = re.compile("ug\{\w*\d+\w*\,\w*\d+\w*\}")
+        uG = re.compile(r"ug\{\w*\d+\w*\,\w*\d+\w*\}")
         uGs = uG.fullmatch(name.lower())
-        GI = re.compile("gi\{\w*\d+\w*\}")
+        GI = re.compile(r"gi\{\w*\d+\w*\}")
         GIs = GI.fullmatch(name.lower())
-        GO = re.compile("go\{\w*\d+\w*\,\w*\d+\w*\}")
+        GO = re.compile(r"go\{\w*\d+\w*\,\w*\d+\w*\}")
         GOs = GO.fullmatch(name.lower())
-        RO = re.compile("ro\{\w*\d+\w*\,\w*\d+\w*\}")
+        RO = re.compile(r"ro\{\w*\d+\w*\,\w*\d+\w*\}")
         ROs = RO.fullmatch(name.lower())
-        S =  re.compile("s\{\w*\d+\w*\}")
+        S =  re.compile(r"s\{\w*\d+\w*\}")
         Ss = S.fullmatch(name.lower())
-        Q = re.compile("q\{\w*\d+\w*\}")
+        Q = re.compile(r"q\{\w*\d+\w*\}")
         Qs = Q.fullmatch(name.lower())
         
-        uTh = re.compile("uth\{\w*\d+\w*\}")
+        
+        uTh = re.compile(r"utg|ut|uth\{\w*\d+\w*\}")
         uThs = uTh.fullmatch(name.lower())
-        thresh = re.compile("th\{\w*\d+\w*\}")
+        thresh = re.compile(r"(tg|t|th)\{\w*\d+\w*\}")
         threshs = thresh.fullmatch(name.lower())
         
-        fuel = re.compile("f\{\w*\d+\w*\}")
+        fuel = re.compile(r"f\{\w*\d+\w*\}")
         fuels = fuel.fullmatch(name.lower())
-        GF = re.compile("f\{\w*\d+\w*\}")
+        GF = re.compile(r"f\{\w*\d+\w*\}")
         GFs = GF.fullmatch(name.lower())
         
-        #AG = re.compile("ag\{\w*\d+(\.\d+)+\,\w*\d+\w*\}")
-        uAG = re.compile("uag\{\w*\d+\w*(\.|\&)\w*\d+\w*\,\w*\d+\w*\}")
+        #AG = re.compile(r"ag\{\w*\d+(\.\d+)+\,\w*\d+\w*\}")
+        uAG = re.compile(r"uag\{\w*\d+\w*(\.|\&)\w*\d+\w*\,\w*\d+\w*\}")
         uAGs = uAG.fullmatch(name.lower())
-        AG = re.compile("(ag|g|gate)\{\w*\d+\w*(\.|\&)\w*\d+\w*\,\w*\d+\w*\}")
+        AG = re.compile(r"(ag|g|gate)\{\w*\d+\w*(\.|\&)\w*\d+\w*\,\w*\d+\w*\}")
         AGs = AG.fullmatch(name.lower())
-        AGOa = re.compile("agoa\{\w*\d+\w*\,\w*\d+\w*\}")
+        AGOa = re.compile(r"agoa\{\w*\d+\w*\,\w*\d+\w*\}")
         AGOas = AGOa.fullmatch(name.lower())
-        AGOb = re.compile("agob\{\w*\d+\w*\,\w*\d+\w*\}")
+        AGOb = re.compile(r"agob\{\w*\d+\w*\,\w*\d+\w*\}")
         AGObs = AGOb.fullmatch(name.lower())
         
-        #AGFa  = re.compile("agfa\{\w*\d+\w*\,\w*\d+\w*\}")
+        #AGFa  = re.compile(r"agfa\{\w*\d+\w*\,\w*\d+\w*\}")
         #AGFas = AGFa.fullmatch(name.lower())
-        AGFb = re.compile("agfb\{\w*\d+\w*\}")
+        AGFb = re.compile(r"agfb\{\w*\d+\w*\}")
         AGFbs = AGFb.fullmatch(name.lower())
         
-        uCG = re.compile("ucg\{\w*\d+\w*\,\w*\d+\w*\}")
+        uCG = re.compile(r"ucg\{\w*\d+\w*\,\w*\d+\w*\}")
         uCGs = uCG.fullmatch(name.lower())
-        CG = re.compile("cg\{\w*\d+\w*\,\w*\d+\w*\}")
+        CG = re.compile(r"cg\{\w*\d+\w*\,\w*\d+\w*\}")
         CGs = CG.fullmatch(name.lower())
-        CGOa = re.compile("cgoa\{\w*\d+\w*\,\w*\d+\w*\}")
+        CGOa = re.compile(r"cgoa\{\w*\d+\w*\,\w*\d+\w*\}")
         CGOas = CGOa.fullmatch(name.lower())
-        CGOb = re.compile("cgob\{\w*\d+\w*\,\w*\d+\w*\}")
+        CGOb = re.compile(r"cgob\{\w*\d+\w*\,\w*\d+\w*\}")
         CGObs = CGOb.fullmatch(name.lower())
         
         
         if inps:
-            inpInd1f = re.compile("\d+")
+            inpInd1f = re.compile(r"\d+")
             inpInd1 = int(inpInd1f.search(name.lower()).group())-1
             
             return(self.O_simcon[self.N*inpInd1 + inpInd1])
                 
             
         elif reps:
-            repInd1f = re.compile('\d+')
+            repInd1f = re.compile(r"\d+")
             repInd1 = int(repInd1f.search(name.lower()).group())-1
             
             return(self.R_simcon[repInd1])
         elif outs:
-            outIndf = re.findall("\d+",name.lower())
+            outIndf = re.findall(r"\d+",name.lower())
 
             outInd1 = int(outIndf[0])-1
             outInd2 = int(outIndf[1])-1
@@ -1294,7 +1296,7 @@ class RSD_sim:
         
             
         elif gates:
-            gateIndf = re.findall("\d+",name.lower())
+            gateIndf = re.findall(r"\d+",name.lower())
 
             gateInd1 = int(gateIndf[0])-1
             gateInd2 = int(gateIndf[1])-1
@@ -1303,69 +1305,69 @@ class RSD_sim:
     
         
         elif uGs:
-            uGIndf = re.findall("\d+",name.lower())
+            uGIndf = re.findall(r"\d+",name.lower())
             uGInd1 = int(uGIndf[0])-1
             uGInd2 = int(uGIndf[1])-1
             
             return(self.uG_simcon[self.N*uGInd1 + uGInd2])        
             
         elif GIs:
-            GIInd1f = re.compile("\d+")
+            GIInd1f = re.compile(r"\d+")
             GIInd1 = int(GIInd1f.search(name.lower()).group())-1
             
             return(self.GO_simcon[self.N*GIInd1 + GIInd1])
         elif GOs:
-            GOIndf = re.findall("\d+",name.lower())
+            GOIndf = re.findall(r"\d+",name.lower())
             GOInd1 = int(GOIndf[0])-1
             GOInd2 = int(GOIndf[1])-1
             
             return(self.GO_simcon[self.N*GOInd1 + GOInd2])
             
         elif ROs:
-            ROIndf = re.findall("\d+",name.lower())
+            ROIndf = re.findall(r"\d+",name.lower())
             ROInd1 = int(ROIndf[0])-1
             ROInd2 = int(ROIndf[1])-1
             
             
             return(self.RO_simcon[self.N*ROInd1 + ROInd2])
         elif Ss:
-            SInd1f = re.compile("\d+")
+            SInd1f = re.compile(r"\d+")
             SInd1 = int(SInd1f.search(name.lower()).group())-1
                 
             return(self.S_simcon[SInd1])
         
         elif Qs:
-            QIndf = re.findall("\d+",name.lower())
+            QIndf = re.findall(r"\d+",name.lower())
             QInd1 = int(QIndf[0])-1
             
             
             return(self.Q_simcon[QInd1])
         
         elif uThs:
-            uThInd1f = re.compile("\d+")
+            uThInd1f = re.compile(r"\d+")
             uThInd1 = int(uThInd1f.search(name.lower()).group())-1
                      
             return(self.uTh_simcon[uThInd1])
         
         elif threshs:
-            threshInd1f = re.compile("\d+")
+            threshInd1f = re.compile(r"\d+")
             threshInd1 = int(threshInd1f.search(name.lower()).group())-1
                
             return(self.Th_simcon[threshInd1])
         
         elif fuels:
-            fuelInd1f = re.compile("\d+")
+            fuelInd1f = re.compile(r"\d+")
             fuelInd1 = int(fuelInd1f.search(name.lower()).group())-1
             
             return(self.F_simcon[fuelInd1])
                 
         elif GFs:
-            GFInd1f = re.compile("\d+")
+            GFInd1f = re.compile(r"\d+")
             GFInd1 = int(GFInd1f.search(name.lower()).group())-1
             
             return(self.GF_simcon[GFInd1]) 
         elif AGs:
-            AGIndf = re.findall("\d+",name.lower())
+            AGIndf = re.findall(r"\d+",name.lower())
             AGInd1 = int(AGIndf[0])-1
             AGInd2 = int(AGIndf[-1])-1
             
@@ -1373,35 +1375,35 @@ class RSD_sim:
             return(self.AG_simcon[self.N*AGInd1 + AGInd2])
         
         elif uAGs:
-            uAGIndf = re.findall("\d+",name.lower())
+            uAGIndf = re.findall(r"\d+",name.lower())
             uAGInd1 = int(uAGIndf[0])-1
             uAGInd2 = int(uAGIndf[-1])-1
             
             return(self.uAG_simcon[self.N*uAGInd1 + uAGInd2])
         
         elif AGOas:
-            AGOaIndf = re.findall("\d+",name.lower())
+            AGOaIndf = re.findall(r"\d+",name.lower())
             AGOaInd1 = int(AGOaIndf[0])-1
             AGOaInd2 = int(AGOaIndf[1])-1
             
             return(self.AGOa_simcon[self.N*AGOaInd1 + AGOaInd2])
         
         elif AGObs:
-            AGObIndf = re.findall("\d+",name.lower())
+            AGObIndf = re.findall(r"\d+",name.lower())
             AGObInd1 = int(AGObIndf[0])-1
             AGObInd2 = int(AGObIndf[1])-1
             
             return(self.AGOb_simcon[self.N*AGObInd1 + AGObInd2])
         
         elif AGFbs:
-            AGFbIndf = re.findall("\d+",name.lower())
+            AGFbIndf = re.findall(r"\d+",name.lower())
             AGFbInd1 = int(AGFbIndf[0])-1
             
             
             return(self.AGFb_simcon[AGFbInd1])
         
         elif CGs:
-            CGIndf = re.findall("\d+",name.lower())
+            CGIndf = re.findall(r"\d+",name.lower())
             
             CGInd1 = int(CGIndf[0])-1
             CGInd2 = int(CGIndf[1])-1
@@ -1411,7 +1413,7 @@ class RSD_sim:
             
                 
         elif uCGs:
-            uCGIndf = re.findall("\d+",name.lower())
+            uCGIndf = re.findall(r"\d+",name.lower())
             uCGInd1 = int(uCGIndf[0])-1
             uCGInd2 = int(uCGIndf[1])-1
             
@@ -1420,7 +1422,7 @@ class RSD_sim:
             
             
         elif CGOas:
-            CGOaIndf = re.findall("\d+",name.lower())
+            CGOaIndf = re.findall(r"\d+",name.lower())
             CGOaInd1 = int(CGOaIndf[0])-1
             CGOaInd2 = int(CGOaIndf[1])-1
             
@@ -1428,7 +1430,7 @@ class RSD_sim:
             
         
         elif CGObs:
-            CGObIndf = re.findall("\d+",name.lower())
+            CGObIndf = re.findall(r"\d+",name.lower())
             CGObInd1 = int(CGObIndf[0])-1
             CGObInd2 = int(CGObIndf[1])-1
             
@@ -1615,43 +1617,47 @@ class RSD_sim:
         s_d = xlsheet_to_dict(filepath, 's', 1)  # spacer sequences
         us_d = xlsheet_to_dict(filepath, 'US', 1) # sequences upstream of promoter
         ds_d = xlsheet_to_dict(filepath, 'DS', 1) # sequences downstream of terminator
+        
+        # converting into th' as code was originally written to handle that
+        for n in th_d.keys():
+            th_d[n] = [rc_seq(th_d[n][0])[1:-1]]
 
         i_th = ''
         o_th = ''
         i_bm = ''
         o_bm = ''
         
-        #gate = re.compile("(g|gate)\{\w\d+(\-\d+)*e*\,\w\d+(\-\d+)*(r*|e*)\}")
-        gate = re.compile("(g|gate)\{\w+\d+(\-\d+)*e*\,\w+\d+(\-\d+)*(r*|e*)\}")
+        #gate = re.compile(r"(g|gate)\{\w\d+(\-\d+)*e*\,\w\d+(\-\d+)*(r*|e*)\}")
+        gate = re.compile(r"(g|gate)\{\w+\d+(\-\d+)*e*\,\w+\d+(\-\d+)*(r*|e*)\}")
         gates = gate.fullmatch(name.lower())
         
-        AG = re.compile("(ag|g|gate)\{\w\d+(\-\d+)*(\.|\&)\w\d+(\-\d+)*e*\,\w\d+(\-\d+)*(r*|e*)\}")
+        AG = re.compile(r"(ag|g|gate)\{\w\d+(\-\d+)*(\.|\&)\w\d+(\-\d+)*e*\,\w\d+(\-\d+)*(r*|e*)\}")
         AGs = AG.fullmatch(name.lower())
         
-        inp = re.compile("(i|in|inp|input)\{\w\d+(\-\d+)*(r*|e*)\}")
+        inp = re.compile(r"(i|in|inp|input)\{\w\d+(\-\d+)*(r*|e*)\}")
         inps = inp.fullmatch(name.lower())
         
-        outp = re.compile("(o|out|output)\{\w*\d+(\-\d+)*e*\,\w\d+(\-\d+)*(r*|e*)\}")
+        outp = re.compile(r"(o|out|output)\{\w*\d+(\-\d+)*e*\,\w\d+(\-\d+)*(r*|e*)\}")
         outps = outp.fullmatch(name.lower())
         
-        thresh = re.compile("(tg|t|th)\{\w\d+(\-\d+)*(r*|e*)\}")
+        thresh = re.compile(r"(tg|t|th)\{\w\d+(\-\d+)*(r*|e*)\}")
         threshs = thresh.fullmatch(name.lower())
         
-        fuel = re.compile("f\{\w\d+(\-\d+)*e*\}")
+        fuel = re.compile(r"f\{\w\d+(\-\d+)*e*\}")
         fuels = fuel.fullmatch(name.lower())
         
-        CG = re.compile("cg\{\w\d+(\-\d+)*\,\w\d+(\-\d+)*\}")
+        CG = re.compile(r"cg\{\w\d+(\-\d+)*\,\w\d+(\-\d+)*\}")
         CGs = CG.fullmatch(name.lower())
         
         if threshs:
-           EcheckInp = re.compile("e\}")
+           EcheckInp = re.compile(r"e\}")
            EcheckInps = EcheckInp.search(name.lower())
            EcheckOuts = 0
         else:
-            EcheckInp = re.compile("e\,")
+            EcheckInp = re.compile(r"e\,")
             EcheckInps = EcheckInp.search(name.lower())
             
-            EcheckOut = re.compile("e\}")
+            EcheckOut = re.compile(r"e\}")
             EcheckOuts = EcheckOut.search(name.lower())
         
         if (eI == '' and EcheckInps) or (eO == '' and EcheckOuts):
@@ -1666,22 +1672,22 @@ class RSD_sim:
             ###################################################################
             '''
             
-            dashcheckInp = re.compile("\-\d+e*\,")
+            dashcheckInp = re.compile(r"\-\d+e*\,")
             dashcheckInps = dashcheckInp.search(name.lower())
             
-            dashcheckOut = re.compile("\-\d+(r*|e*)\}")
+            dashcheckOut = re.compile(r"\-\d+(r*|e*)\}")
             dashcheckOuts = dashcheckOut.search(name.lower())
             
-            EcheckInp = re.compile("e\,")
+            EcheckInp = re.compile(r"e\,")
             EcheckInps = EcheckInp.search(name.lower())
             
-            EcheckOut = re.compile("e\}")
+            EcheckOut = re.compile(r"e\}")
             EcheckOuts = EcheckOut.search(name.lower())
             
-            Indf = re.findall("[a-z]+\d+",name.lower())
-            dashIndf = re.findall("\-\d+",name.lower())
+            Indf = re.findall(r"[a-z]+\d+",name.lower())
+            dashIndf = re.findall(r"\-\d+",name.lower())
  
-            RcheckOut = re.compile("r\}")
+            RcheckOut = re.compile(r"r\}")
             RcheckOuts = RcheckOut.search(name.lower())
             
             if dashcheckInps and dashcheckOuts:
@@ -1823,22 +1829,22 @@ class RSD_sim:
             ###################################################################
             '''
             
-            dashcheckInp = re.compile("\-\d+e*\,")
+            dashcheckInp = re.compile(r"\-\d+e*\,")
             dashcheckInps = dashcheckInp.search(name.lower())
             
-            dashcheckOut = re.compile("\-\d+(r*|e*)\}")
+            dashcheckOut = re.compile(r"\-\d+(r*|e*)\}")
             dashcheckOuts = dashcheckOut.search(name.lower())
             
-            EcheckInp = re.compile("e\,")
+            EcheckInp = re.compile(r"e\,")
             EcheckInps = EcheckInp.search(name.lower())
             
-            EcheckOut = re.compile("e\}")
+            EcheckOut = re.compile(r"e\}")
             EcheckOuts = EcheckOut.search(name.lower())
             
-            Indf = re.findall("[a-z]*\d+",name.lower())
-            dashIndf = re.findall("\-\d+",name.lower())
+            Indf = re.findall(r"[a-z]*\d+",name.lower())
+            dashIndf = re.findall(r"\-\d+",name.lower())
             
-            RcheckOut = re.compile("r\}")
+            RcheckOut = re.compile(r"r\}")
             RcheckOuts = RcheckOut.search(name.lower())
             
             if dashcheckInps and dashcheckOuts:
@@ -1859,7 +1865,7 @@ class RSD_sim:
                 
             elif dashcheckOuts:
                 o_th = Indf[1]
-                if len(re.findall("[a-z]\d+",Indf[0].lower()))==0:
+                if len(re.findall(r"[a-z]\d+",Indf[0].lower()))==0:
                     i_bm = 'D'+Indf[0][:]
                 else:
                     i_bm = 'D'+Indf[0][1:]
@@ -1870,7 +1876,7 @@ class RSD_sim:
                     
             else:
                 o_th = Indf[1][0]
-                if len(re.findall("[a-z]\d+",Indf[0].lower()))==0:
+                if len(re.findall(r"[a-z]\d+",Indf[0].lower()))==0:
                     i_bm = 'D'+Indf[0][:]
                 else:
                     i_bm = 'D'+Indf[0][1:]
@@ -1913,8 +1919,10 @@ class RSD_sim:
                 
             if len(s) == 0:
                 s_S = ''
+                s_Sp = ''
             else:
                 s_S = s_d[s][0]
+                s_Sp = rc_seq(s_d[s][0])[1:-1]
                 
             if len(us) == 0:
                 us_S = ''
@@ -1962,7 +1970,7 @@ class RSD_sim:
             if invert == 0:
             
                 ctRSD_part = hp5_S +\
-                             eo_S + r_S + o_bm_S + o_th_Sp + ei_S + i_bm_S +\
+                             eo_S + r_S + o_bm_S + o_th_Sp + s_Sp + ei_S + i_bm_S +\
                              l_S + cl + rz_S +\
                              term_S
                 
@@ -1972,7 +1980,7 @@ class RSD_sim:
                     
                 ctRSD_part = hp5_S +\
                              l_S + cl + rz_S + invL +\
-                             eo_S + r_S + o_bm_S + o_th_Sp + ei_S + i_bm_S +\
+                             eo_S + r_S + o_bm_S + o_th_Sp + s_Sp + ei_S + i_bm_S +\
                              term_S
                 
                 template = create_template(ctRSD_part,prom_S,rna,us_S,ds_S,temp_len)
@@ -1984,25 +1992,25 @@ class RSD_sim:
             ###################################################################
             '''
             
-            dashcheckInp1 = re.compile("\-\d+(\.|\&)")
+            dashcheckInp1 = re.compile(r"\-\d+(\.|\&)")
             dashcheckInps1 = dashcheckInp1.search(name.lower())
-            dashcheckInp2 = re.compile("\-\d+\,")
+            dashcheckInp2 = re.compile(r"\-\d+\,")
             dashcheckInps2 = dashcheckInp2.search(name.lower())
             
-            dashcheckOut = re.compile("\-\d+r*\}")
+            dashcheckOut = re.compile(r"\-\d+r*\}")
             dashcheckOuts = dashcheckOut.search(name.lower())
             
-            EcheckInp = re.compile("e\,")
+            EcheckInp = re.compile(r"e\,")
             EcheckInps = EcheckInp.search(name.lower())
             
-            EcheckOut = re.compile("e\}")
+            EcheckOut = re.compile(r"e\}")
             EcheckOuts = EcheckOut.search(name.lower())
             
-            RcheckOut = re.compile("r\}")
+            RcheckOut = re.compile(r"r\}")
             RcheckOuts = RcheckOut.search(name.lower())
             
-            Indf = re.findall("[a-z]\d+",name.lower())
-            dashIndf = re.findall("\-\d+",name.lower())
+            Indf = re.findall(r"[a-z]\d+",name.lower())
+            dashIndf = re.findall(r"\-\d+",name.lower())
             
             
             if dashcheckInps1 and dashcheckInps2 and dashcheckOuts:
@@ -2225,16 +2233,16 @@ class RSD_sim:
             ###################################################################
             '''
             
-            dashcheckOut = re.compile("\-\d+(r*|e*)\}")
+            dashcheckOut = re.compile(r"\-\d+(r*|e*)\}")
             dashcheckOuts = dashcheckOut.search(name.lower())
             
-            EcheckOut = re.compile("e\}")
+            EcheckOut = re.compile(r"e\}")
             EcheckOuts = EcheckOut.search(name.lower())
             
-            Indf = re.findall("[a-z]\d+",name.lower())
-            dashIndf = re.findall("\-\d+",name.lower())
+            Indf = re.findall(r"[a-z]\d+",name.lower())
+            dashIndf = re.findall(r"\-\d+",name.lower())
                         
-            RcheckOut = re.compile("r\}")
+            RcheckOut = re.compile(r"r\}")
             RcheckOuts = RcheckOut.search(name.lower())
                 
             if dashcheckOuts:
@@ -2256,6 +2264,13 @@ class RSD_sim:
                 eo_S = e_d[eO][0]
             else:
                 eo_S = ''
+            
+            if len(s) == 0:
+                s_S = ''
+                s_Sp = ''
+            else:
+                s_S = s_d[s][0]
+                s_Sp = rc_seq(s_d[s][0])[1:-1]
                 
             if len(us) == 0:
                 us_S = ''
@@ -2287,7 +2302,7 @@ class RSD_sim:
             # Stitching input sequences
             ###################################################################
             
-            ctRSD_part = hp5_S + r_S + eo_S + o_bm_S + o_th_Sp + term_S
+            ctRSD_part = hp5_S + r_S + eo_S + o_bm_S + o_th_Sp + s_Sp + term_S
             
             template = create_template(ctRSD_part,prom_S,rna,us_S,ds_S,temp_len)
         
@@ -2298,16 +2313,16 @@ class RSD_sim:
             ###################################################################
             '''
             
-            dashcheckInp = re.compile("\-\d+(r*|e*)\}")
+            dashcheckInp = re.compile(r"\-\d+(r*|e*)\}")
             dashcheckInps = dashcheckInp.search(name.lower())
             
-            EcheckInp = re.compile("e\}")
+            EcheckInp = re.compile(r"e\}")
             EcheckInps = EcheckInp.search(name.lower())
             
-            Indf = re.findall("[a-z]\d+",name.lower())
-            dashIndf = re.findall("\-\d+",name.lower())
+            Indf = re.findall(r"[a-z]\d+",name.lower())
+            dashIndf = re.findall(r"\-\d+",name.lower())
             
-            RcheckOut = re.compile("r\}")
+            RcheckOut = re.compile(r"r\}")
             RcheckOuts = RcheckOut.search(name.lower())
             
             
@@ -2409,14 +2424,14 @@ class RSD_sim:
             ###################################################################
             '''
             
-            dashcheckOut = re.compile("\-\d+e*\}")
+            dashcheckOut = re.compile(r"\-\d+e*\}")
             dashcheckOuts = dashcheckOut.search(name.lower())
             
-            EcheckOut = re.compile("e\}")
+            EcheckOut = re.compile(r"e\}")
             EcheckOuts = EcheckOut.search(name.lower())
             
-            Indf = re.findall("[a-z]\d+",name.lower())
-            dashIndf = re.findall("\-\d+",name.lower())
+            Indf = re.findall(r"[a-z]\d+",name.lower())
+            dashIndf = re.findall(r"\-\d+",name.lower())
             
                 
             if dashcheckOuts:
@@ -2470,14 +2485,14 @@ class RSD_sim:
             ###################################################################
             '''
             
-            dashcheckInp = re.compile("\-\d+\,")
+            dashcheckInp = re.compile(r"\-\d+\,")
             dashcheckInps = dashcheckInp.search(name.lower())
             
-            dashcheckOut = re.compile("\-\d+\}")
+            dashcheckOut = re.compile(r"\-\d+\}")
             dashcheckOuts = dashcheckOut.search(name.lower())
             
-            Indf = re.findall("[a-z]\d+",name.lower())
-            dashIndf = re.findall("\-\d+",name.lower())
+            Indf = re.findall(r"[a-z]\d+",name.lower())
+            dashIndf = re.findall(r"\-\d+",name.lower())
             
             if dashcheckInps and dashcheckOuts:
                 i_th = Indf[0]

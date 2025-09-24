@@ -2176,14 +2176,14 @@ class RSD_sim:
                 us_S = ''
             else:
                 us_S = ''
-                for n in range(len(us)):
+                for m in range(len(us)):
                     us_S = us_S + us_d[us[m]][0]
                     
             if len(ds) == 0:
                 ds_S = ''
             else:
                 ds_S = ''
-                for n in range(len(ds)):
+                for m in range(len(ds)):
                     ds_S = ds_S + ds_d[ds[m]][0]
                 
             if len(rflap) == 0:

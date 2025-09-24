@@ -4,13 +4,13 @@
 Sequence Compiler
 =================
 
-Sequence compiler is a function avaliable in the simulator that takes in a species name as an input (same nomenclature used elsewhere in the simulator), among other function inputs, and outputs the DNA sequence that encodes for the RNA species that meets the input specifications.
+Sequence compiler is a function avaliable in the simulator that takes in a species name as an input (same nomenclature used elsewhere in the simulator), among other function inputs, and outputs the DNA sequence that encodes for the RNA species that meets the input specifications. Although it is a function within the simulator, and is accessed in the same way as the other functions, it does not require a system to be simulated to be used. Hence why its documentation is being kept seperate from the other functions. It just requires that the simulator package be imported. Sequence compiler was included in the simulator so that users could have all the useful tools in designing ctRSD circuits in one place.
 
 .. admonition:: Note:
 
-	Although it is a function within the simulator, and is accessed in the same way as the other functions, it does not require a system to be simulated to be used. Hence why its documentation is being kept seperate from the other functions. It just requires that the simulator package be imported.
+	A Google CoLab for running the sequence compiler is available: 
 
-	Sequence compiler was included in the simulator so that users could have all the useful tools in designing ctRSD circuits in one place.
+	`Link to CoLab <https://colab.research.google.com/drive/1Bd-ZugIWnc7PMiFkpaia_UnWA24KF3Mv?usp=sharing>`_ 
 
 
 .. _DownloadDomainsList:

@@ -14,6 +14,7 @@ model = RSDs.RSD_sim() # define the model instance
 # file path for ctRSD Domains List
 filepath = 'C:\\Users\\sws5\\OneDrive - National Institute of Standards and Technology (NIST)\\ctRSD simulator and documentation\\ctRSD-simulator\\ctRSD-simulator-2.0\\Sequence Compiler\\ctRSD_domains_list_210.xls'
 
+
 # %%
 '''
 ###############################################################################

@@ -1779,6 +1779,7 @@ class RSD_sim:
         #gate = re.compile(r"(g|gate)\{\w\d+(\-\d+)*e*\,\w\d+(\-\d+)*(r*|e*)\}")
         gate = re.compile(r"(g|gate)\{\w+\d+(\-\d+)*e*\,\w+\d+(\-\d+)*(r*|e*|d*|ed*)\}")
         gates = gate.fullmatch(name.lower())
+        #print(gates)        
         
         AG = re.compile(r"(ag|g|gate)\{\w+\d+(\-\d+)*(\.|\&)\w+\d+(\-\d+)*e*\,\w+\d+(\-\d+)*(r*|e*|d*|ed*)\}")
         AGs = AG.fullmatch(name.lower())
@@ -1855,7 +1856,6 @@ class RSD_sim:
         RcheckOut = re.compile(r"r\}")
         RcheckOuts = RcheckOut.search(name.lower())
         
-        
         if gates:
             '''
             ###################################################################
@@ -1893,6 +1893,8 @@ class RSD_sim:
                 
                 if RcheckOuts:
                     r_k = 'r'+dashIndf[0][1:]
+                else:
+                    r_k = ''
                     
             else:
                 i_th = Indf[0][0]
@@ -2091,7 +2093,9 @@ class RSD_sim:
                 i_bm = 'D'+dashIndf[0][1:]
                 
                 if RcheckOuts:
-                    r_k = 'r'+dashIndf[0][1:]      
+                    r_k = 'r'+dashIndf[0][1:]
+                else:
+                    r_k = ''
                 
             else:
                 i_th = Indf[0][0]
